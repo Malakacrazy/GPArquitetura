@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Project } from '../types/project';
 import { motion } from 'framer-motion';
 import { urlFor } from '../sanity/client';

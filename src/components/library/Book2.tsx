@@ -1,4 +1,4 @@
-import { BookDetail } from './BookDetail';
+import { BookDetail } from '../BookDetail';
 import { books } from '../config/assets';
 
 export function Book2() {

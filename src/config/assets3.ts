@@ -53,34 +53,6 @@ export const images = {
   decorations: {
     threadLine: `${ASSET_BASE}/images/decoration.svg`,
   },
-
-  // Featured works portfolio
-  works: [
-    {
-      id: 1,
-      title: 'Solstice Point Villa',
-      location: 'Malibu, California',
-      image: `${ASSET_BASE}/images/works/villa.webp`,
-    },
-    {
-      id: 2,
-      title: 'Ecohaus Residence',
-      location: 'Portland, Oregon',
-      image: `${ASSET_BASE}/images/works/ecohaus.webp`,
-    },
-    {
-      id: 3,
-      title: 'House On Rocky Island',
-      location: 'Seattle, Washington',
-      image: `${ASSET_BASE}/images/works/rocky-island.webp`,
-    },
-    {
-      id: 4,
-      title: 'Luxury Estate',
-      location: 'Beverly Hills, California',
-      image: `${ASSET_BASE}/images/works/luxury-estate.webp`,
-    },
-  ],
 } as const;
 
 // =============================================================================

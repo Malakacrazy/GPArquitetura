@@ -1,4 +1,4 @@
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Project } from '../types/project';
 import { useState } from 'react';
 import { motion } from 'framer-motion';

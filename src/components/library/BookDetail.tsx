@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Reveal } from './shared/Reveal';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { Reveal } from '../shared/Reveal';
 import { icons } from '../config/assets';
 
 interface Book {

@@ -1,9 +1,9 @@
-import { Book1 } from './Book1';
-import { Book2 } from './Book2';
-import { Book3 } from './Book3';
-import { Book4 } from './Book4';
-import { Book5 } from './Book5';
-import { Book6 } from './Book6';
+import { Book1 } from '../Book1';
+import { Book2 } from '../Book2';
+import { Book3 } from '../Book3';
+import { Book4 } from '../Book4';
+import { Book5 } from '../Book5';
+import { Book6 } from '../Book6';
 
 export function BookShowcase() {
   return (

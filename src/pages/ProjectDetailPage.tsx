@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
-import { Hero } from './components/project/Hero';
-import { Navigation } from "./components/shared/Navigation";
-import { Footer } from "./components/shared/Footer";
-import { ProjectSidebar } from "./components/project/ProjectSidebar";
-import { ProjectMainBody } from "./components/project/ProjectMainBody";
-import { OtherProjects } from "./components/project/OtherProjects";
-import { useProject } from "./hooks/useProjects";
+import { Hero } from '../components/project/Hero';
+import { Navigation } from "../components/shared/Navigation";
+import { Footer } from "../components/shared/Footer";
+import { ProjectSidebar } from "../components/project/ProjectSidebar";
+import { ProjectMainBody } from "../components/project/ProjectMainBody";
+import { OtherProjects } from "../components/project/OtherProjects";
+import { useProject } from "../hooks/useProjects";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 
-const App = () => {
+const ProjectDetailPage = () => {
   const { slug } = useParams();
   const { project, loading, error } = useProject(slug || '');
 
@@ -77,4 +77,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ProjectDetailPage;

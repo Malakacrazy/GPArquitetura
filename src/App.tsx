@@ -16,26 +16,28 @@ import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
   return (
-    <SpeedInsights />
-    <Analytics />
-    <BrowserRouter>
-      <Routes>
-        {/* Main Pages */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/about/library" element={<LibraryPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
-        <Route path="/3d-visualization" element={<Portfolio3DPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        
-        {/* Legal Pages */}
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/tos" element={<TermsOfServicePage />} />
-        
-        {/* 404 Catch All */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <SpeedInsights />
+      <Analytics />
+      <BrowserRouter>
+        <Routes>
+          {/* Main Pages */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about/library" element={<LibraryPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
+          <Route path="/3d-visualization" element={<Portfolio3DPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          
+          {/* Legal Pages */}
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/tos" element={<TermsOfServicePage />} />
+          
+          {/* 404 Catch All */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import { Reveal } from './shared/Reveal';
+import { Reveal } from '../shared/Reveal';
 
 export const ContactFooter = () => {
   return (

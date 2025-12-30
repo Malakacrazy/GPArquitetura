@@ -1,7 +1,7 @@
 import { AccordionItem } from './AccordionItem';
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Reveal } from './Reveal';
+import { Reveal } from './shared/Reveal';
 import { images as assetImages } from '../config/assets';
 
 export function WhatWeDo() {

@@ -1,11 +1,11 @@
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { AboutUs } from './components/AboutUs';
-import { OurTeam } from './components/OurTeam';
-import { OurExpertise } from './components/OurExpertise';
-import { Library } from './components/Library';
+import { Navigation } from './components/shared/Navigation';
+import { Hero } from './components/about/Hero';
+import { AboutUs } from './components/about/AboutUs';
+import { OurTeam } from './components/about/OurTeam';
+import { OurExpertise } from './components/about/OurExpertise';
+import { Bookshelf } from './components/about/Bookshelf';
 import { WorkWithUs } from './components/WorkWithUs';
-import { Footer } from './components/Footer';
+import { Footer } from './components/shared/Footer';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -19,7 +19,7 @@ export default function App() {
       <AboutUs />
       <OurTeam />
       <OurExpertise />
-      <Library />
+      <Bookshelf />
       <WorkWithUs />
       <Footer />
     </div>

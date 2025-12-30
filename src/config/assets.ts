@@ -97,19 +97,18 @@ export const videos = {
 } as const;
 
 // =============================================================================
-// ICONS (External CDN - Flaticon)
-// These can remain external or be downloaded to /public/icons/
+// ICONS
 // =============================================================================
 
 export const icons = {
-  menu: 'https://cdn-icons-png.flaticon.com/512/13726/13726126.png',
-  arrow: 'https://cdn-icons-png.flaticon.com/512/9219/9219998.png',
-  whatsapp: 'https://cdn-icons-png.flaticon.com/512/3741/3741717.png',
-  email: 'https://cdn-icons-png.flaticon.com/512/3894/3894024.png',
-  location: 'https://cdn-icons-png.flaticon.com/512/3894/3894030.png',
-  instagram: 'https://cdn-icons-png.flaticon.com/512/3741/3741664.png',
-  linkedin: 'https://cdn-icons-png.flaticon.com/512/3741/3741677.png',
-  pinterest: 'https://cdn-icons-png.flaticon.com/512/3741/3741684.png',
+  menu: `${ASSET_BASE}/icons/menu.png`,
+  arrow: `${ASSET_BASE}/icons/arrow.png`,
+  whatsapp: `${ASSET_BASE}/icons/whatsapp.png`,
+  email: `${ASSET_BASE}/icons/email.png`,
+  location: `${ASSET_BASE}/icons/location.png`,
+  instagram: `${ASSET_BASE}/icons/instagram.png`,
+  linkedin: `${ASSET_BASE}/icons/linkedin.png`,
+  pinterest: `${ASSET_BASE}/icons/pinterest.png`,
 } as const;
 
 // =============================================================================

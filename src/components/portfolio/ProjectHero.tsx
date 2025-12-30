@@ -1,4 +1,4 @@
-import { Reveal } from './Reveal';
+import { Reveal } from './shared/Reveal';
 import { urlFor } from '../sanity/client';
 
 interface ProjectHeroProps {

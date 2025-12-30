@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Slider from "react-slick";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Reveal } from "./Reveal";
+import { Reveal } from "./shared/Reveal";
 import { useFeaturedProjects } from "../hooks/useProjects";
 import { urlFor } from "../sanity/client";
 

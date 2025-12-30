@@ -1,4 +1,4 @@
-import { Reveal } from './Reveal';
+import { Reveal } from './shared/Reveal';
 import { urlFor } from '../sanity/client';
 
 interface ProjectHeroProps {
@@ -6,7 +6,7 @@ interface ProjectHeroProps {
   heroImage?: any;
 }
 
-export function ProjectHero({ title, heroImage }: ProjectHeroProps) {
+export function Hero({ title, heroImage }: ProjectHeroProps) {
   const getBackgroundUrl = () => {
     if (!heroImage) return '';
     if (typeof heroImage === 'string') return heroImage;

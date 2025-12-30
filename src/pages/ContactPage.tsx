@@ -1,7 +1,7 @@
 import React from 'react';
-import { Navigation } from "./components/Navigation";
-import { ContactText } from "./components/ContactText";
-import { ContactFooter } from "./components/ContactFooter";
+import { Navigation } from "./components/shared/Navigation";
+import { ContactText } from "./components/contact/ContactText";
+import { ContactFooter } from "./components/contact/ContactFooter";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 

@@ -1,4 +1,4 @@
-import { Reveal } from './Reveal';
+import { Reveal } from './shared/Reveal';
 import { images } from '../config/assets';
 
 export function Hero() {

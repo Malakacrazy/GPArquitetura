@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { WhatWeDo } from './components/WhatWeDo';
-import { ProjectsSection } from './components/ProjectsSection';
-import { ProcessSection } from './components/ProcessSection';
-import { FeaturedWorks } from './components/FeaturedWorks';
-import { Footer } from './components/Footer';
-import { Loader } from './components/Loader';
+import { Navigation } from './components/shared/Navigation';
+import { Hero } from './components/home/Hero';
+import { WhatWeDo } from './components/home/WhatWeDo';
+import { ProjectsSection } from './components/home/ProjectsSection';
+import { ProcessSection } from './components/home/ProcessSection';
+import { FeaturedWorks } from './components/home/FeaturedWorks';
+import { Footer } from './components/shared/Footer';
+import { Loader } from './components/shared/Loader';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 

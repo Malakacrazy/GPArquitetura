@@ -1,5 +1,5 @@
-import { Navigation } from "./components/Navigation";
-import { ToS } from "./components/ToS";
+import { Navigation } from "./components/shared/Navigation";
+import { ToS } from "./components/legal/ToS";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 

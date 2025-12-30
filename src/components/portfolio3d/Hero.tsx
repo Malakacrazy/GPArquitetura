@@ -1,4 +1,4 @@
-import { Reveal } from './Reveal';
+import { Reveal } from './shared/Reveal';
 import { useEffect, useRef } from 'react';
 import { images, videos } from '../config/assets';
 

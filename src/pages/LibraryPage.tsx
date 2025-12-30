@@ -1,8 +1,8 @@
-import { Navigation } from './components/Navigation';
-import { Title } from './components/Title';
-import { BookShowcase } from './components/BookShowcase';
-import { Footer } from './components/Footer';
-import { BackToTop } from "./components/BackToTop";
+import { Navigation } from './components/shared/Navigation';
+import { Title } from './components/library/Title';
+import { BookShowcase } from './components/library/BookShowcase';
+import { Footer } from './components/shared/Footer';
+import { BackToTop } from "./components/library/BackToTop";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 

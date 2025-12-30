@@ -1,5 +1,5 @@
-import { Navigation } from "./components/Navigation";
-import { PrivacyPolicy } from "./components/PrivacyPolicy";
+import { Navigation } from "./components/shared/Navigation";
+import { PrivacyPolicy } from "./components/legal/PrivacyPolicy";
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 

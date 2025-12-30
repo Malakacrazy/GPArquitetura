@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { images } from '../config/assets';
 
-export function NotFoundPage() {
+export function NotFoundContent() {
   return (
     <main className="min-h-screen w-full">
       <section className="min-h-screen w-full flex flex-col lg:flex-row lg:h-screen lg:overflow-hidden">

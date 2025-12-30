@@ -6,7 +6,7 @@ import { images, videos } from '../config/assets';
 // Books data is now imported from centralized asset config
 const books = images.books;
 
-export function Library() {
+export function Bookshelf() {
   const booksRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 

@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { ProjectHero } from './components/ProjectHero';
-import { Navigation } from "./components/Navigation";
-import { Footer } from "./components/Footer";
-import { ProjectSidebar } from "./components/ProjectSidebar";
-import { ProjectMainBody } from "./components/ProjectMainBody";
-import { OtherProjects } from "./components/OtherProjects";
+import { Hero } from './components/project/Hero';
+import { Navigation } from "./components/shared/Navigation";
+import { Footer } from "./components/shared/Footer";
+import { ProjectSidebar } from "./components/project/ProjectSidebar";
+import { ProjectMainBody } from "./components/project/ProjectMainBody";
+import { OtherProjects } from "./components/project/OtherProjects";
 import { useProject } from "./hooks/useProjects";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
@@ -45,7 +45,7 @@ const App = () => {
       <SpeedInsights />
       <Analytics />
       <Navigation />
-      <ProjectHero 
+      <Hero 
         title={project.title}
         architect={project.architect}
         heroImage={project.heroImage}

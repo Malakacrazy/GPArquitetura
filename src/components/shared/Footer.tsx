@@ -72,7 +72,7 @@ export function Footer() {
 
               {/* Right Column */}
               <div className="flex flex-col space-y-1.5 md:items-end">
-                Site by <a href="https://mount-scrub-76614919.figma.site" className="underline decoration-1 underline-offset-4 hover:text-white transition-colors">XX</a>
+                Site by <a href="*" className="underline decoration-1 underline-offset-4 hover:text-white transition-colors">XX</a>
               </div>
             </div>
           </Reveal>

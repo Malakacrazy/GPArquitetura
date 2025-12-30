@@ -50,8 +50,8 @@ export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <Link 
-            to="/" 
+          <Link
+            to="/portfolio"
             className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-[var(--color-text-dark)] no-underline text-center"
           >
             <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>

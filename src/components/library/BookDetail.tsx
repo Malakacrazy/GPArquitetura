@@ -54,7 +54,7 @@ export function BookDetail({ book, index }: BookDetailProps) {
 
   return (
     <Reveal variant="fadeUp" duration={0.8}>
-      <section className="flex flex-col gap-6 md:gap-8 lg:gap-12">
+      <section id={`book-${book.id}`} className="flex flex-col gap-6 md:gap-8 lg:gap-12">
         {/* Image Carousel */}
         <div className="w-full overflow-hidden h-[300px] md:h-[350px] lg:h-[400px]">
           <div

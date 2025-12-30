@@ -118,8 +118,8 @@ export function FeaturedWorks() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <a 
-                  href="https://portfoliopage-jet.vercel.app" 
+                <a
+                  href="/portfolio"
                   className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-white no-underline"
                   onMouseEnter={() => setIsButtonHovered(true)}
                   onMouseLeave={() => setIsButtonHovered(false)}

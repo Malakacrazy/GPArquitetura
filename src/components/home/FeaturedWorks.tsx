@@ -23,7 +23,7 @@ export function FeaturedWorks() {
     id: project._id,
     title: project.title,
     image: project.heroImage || project.thumbnailImage,
-    link: `/project/${project.slug?.current}`
+    link: `/portfolio/${project.slug?.current}`
   }));
 
   const settings = {

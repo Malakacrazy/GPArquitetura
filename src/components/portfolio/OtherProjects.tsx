@@ -71,7 +71,7 @@ export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
         {projects.map((project, index) => (
           <Link 
             key={project._id}
-            to={`/project/${project.slug.current}`}
+            to={`/portfolio/${project.slug.current}`}
             className="block no-underline"
           >
             <motion.div

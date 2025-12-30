@@ -41,7 +41,7 @@ export function adaptSanityProjects(sanityProjects: any[]): Project[] {
       location: project.location || '',
       year: project.completionYear?.toString() || project.startYear?.toString() || '',
       image: project.thumbnailImage || project.heroImage || '',
-      link: `/project/${project.slug?.current}`,
+      link: `/portfolio/${project.slug?.current}`,
       slug: project.slug,
       
       // Grid layout

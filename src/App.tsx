@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -19,25 +19,23 @@ export default function App() {
     <>
       <SpeedInsights />
       <Analytics />
-      <BrowserRouter>
-        <Routes>
-          {/* Main Pages */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/library" element={<LibraryPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
-          <Route path="/3d-visualization" element={<Portfolio3DPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          
-          {/* Legal Pages */}
-          <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/tos" element={<TermsOfServicePage />} />
-          
-          {/* 404 Catch All */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        {/* Main Pages */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about/library" element={<LibraryPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
+        <Route path="/3d-visualization" element={<Portfolio3DPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+
+        {/* Legal Pages */}
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/tos" element={<TermsOfServicePage />} />
+
+        {/* 404 Catch All */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 }

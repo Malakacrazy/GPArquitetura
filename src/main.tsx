@@ -8,7 +8,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/project/:slug" element={<App />} />
         <Route path="/" element={<App />} />
       </Routes>
     </BrowserRouter>

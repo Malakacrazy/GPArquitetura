@@ -1,8 +1,5 @@
 @custom-variant dark (&:is(.dark *));
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Megrim&family=El+Messiri:wght@400;500;600;700&family=Italiana&display=swap');
-
 :root {
   --font-size: 16px;
   

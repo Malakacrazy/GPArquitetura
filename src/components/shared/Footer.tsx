@@ -66,8 +66,8 @@ export function Footer() {
 
               {/* Center Column */}
               <div className="flex flex-col space-y-1.5 md:items-center">
-                <a href="https://exact-black-41882768.figma.site" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="https://gift-world-53852851.figma.site" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/tos" className="hover:text-white transition-colors">Terms of Service</a>
               </div>
 
               {/* Right Column */}

@@ -158,14 +158,14 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
 
         {/* Text next to circle */}
         <div className="mb-4 block">
-          <div className="text-[12px] md:text-xs tracking-widest leading-relaxed max-w-[200px] text-neutral-600 flex flex-col items-start">
+          <div className="text-xs md:text-xs tracking-widest leading-relaxed max-w-[200px] text-neutral-600 flex flex-col items-start">
             <div className="relative z-50">
               <motion.h1
                 layout
                 className={`inline-block origin-left whitespace-nowrap text-inherit font-inherit ${
                    animationStage !== 'loading' 
                    ? 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl md:text-6xl z-[60]' 
-                   : ''
+                   : 'text-base md:text-lg'
                 }`}
                 animate={animationStage === 'fading' ? { opacity: 0, scale: 1.1 } : { opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}

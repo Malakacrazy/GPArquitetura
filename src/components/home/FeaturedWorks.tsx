@@ -107,7 +107,7 @@ export function FeaturedWorks() {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Header Overlay */}
-      <div className="absolute top-0 left-0 right-0 z-30 px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 md:py-10 lg:py-12 pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 z-30 px-6 md:px-12 lg:px-16 xl:px-20 py-8 md:py-10 lg:py-12 pointer-events-none">
         <div className="pointer-events-auto w-full">
           <Reveal>
             <div className="flex justify-between items-center w-full">
@@ -167,7 +167,7 @@ export function FeaturedWorks() {
             
             {/* Content Overlay */}
             <div
-              className="absolute bottom-0 left-0 w-full h-full px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 md:pt-10 lg:pt-12 pb-8 md:pb-10 lg:pb-12 flex flex-col justify-end cursor-none"
+              className="absolute bottom-0 left-0 w-full h-full px-6 md:px-12 lg:px-16 xl:px-20 pt-8 md:pt-10 lg:pt-12 pb-8 md:pb-10 lg:pb-12 flex flex-col justify-end cursor-none"
               onMouseDown={(e) => {
                 dragStart.current = { x: e.clientX, y: e.clientY };
               }}
@@ -181,7 +181,7 @@ export function FeaturedWorks() {
             >
                <div className="flex flex-col md:flex-row justify-between items-end w-full gap-6 md:gap-8">
                  <div>
-                     <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white mb-4 md:mb-6 leading-[1.1] whitespace-pre-line">
+                     <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 md:mb-6 leading-[1.1] whitespace-pre-line">
                        {project.title}
                      </h2>
                  </div>

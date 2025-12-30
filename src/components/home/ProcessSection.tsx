@@ -2,13 +2,13 @@ import { Reveal } from '../shared/Reveal';
 
 export function ProcessSection() {
   return (
-    <section className="bg-[var(--color-primary)] text-white px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 md:py-8 lg:py-12 xl:py-16 2xl:py-20 overflow-hidden">
+    <section className="bg-[var(--color-primary)] text-white px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 overflow-hidden">
       <div className="mx-auto relative w-full">
           {/* Header */}
           <div className="mb-8 md:mb-12 lg:mb-16 max-w-4xl">
             <Reveal>
               <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Process of Work</span>
-              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light leading-[1.1]">
+              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1]">
                 We provide brilliant ideas and architectural designs for your project.
               </h6>
             </Reveal>

@@ -69,7 +69,7 @@ export function HowItWorks() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-normal uppercase tracking-wide text-[var(--color-text-dark)] flex flex-row items-baseline gap-2 md:gap-4">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-normal uppercase tracking-wide text-[var(--color-text-dark)] flex flex-row items-baseline gap-2 md:gap-4">
                   <span className="text-[var(--color-primary)] font-medium text-lg md:text-2xl">
                     0{index + 1}
                   </span>

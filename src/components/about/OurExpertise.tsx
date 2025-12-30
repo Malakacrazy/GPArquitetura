@@ -42,7 +42,7 @@ export function OurExpertise() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Our Expertise</span>
-            <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light leading-[1.1] w-full text-white">
+            <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-white">
               Delivering excellence through measurable results
             </h6>
           </motion.div>

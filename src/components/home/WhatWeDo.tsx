@@ -25,7 +25,7 @@ export function WhatWeDo() {
 
   return (
     <section id="about" className="relative py-6 md:py-8 lg:py-12 xl:py-16 bg-[var(--color-background)] overflow-hidden">
-      <div className="w-full px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="w-full px-6 md:px-12 lg:px-16 xl:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left side: Stacked Cards */}
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
@@ -86,7 +86,7 @@ export function WhatWeDo() {
           <Reveal className="flex flex-col gap-8 md:gap-12 lg:gap-16">
             <div className="space-y-6 md:space-y-8 lg:space-y-12">
               <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 font-bold uppercase">What we do</span>
-              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
                 We offer architectural design and planning services for both residential and commercial projects.
               </h6>
             </div>

@@ -64,7 +64,7 @@ export function Bookshelf() {
   return (
     <section style={{ backgroundColor: 'var(--color-background)' }}>
       {/* Header with margins */}
-      <div className="px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-8 md:pt-12 lg:pt-16">
+      <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-8 md:pt-12 lg:pt-16">
         <div className="relative w-full mx-auto">
           <motion.div 
             className="flex justify-between items-center mb-8 md:mb-12"

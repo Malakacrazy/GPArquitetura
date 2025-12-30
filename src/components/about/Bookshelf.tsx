@@ -74,8 +74,8 @@ export function Bookshelf() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] font-bold uppercase">Library</span>
-            <a 
-              href="https://empty-shaky-74405936.figma.site"
+            <a
+              href="/about/library"
               className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-[var(--color-text-dark)] no-underline"
             >
               <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>

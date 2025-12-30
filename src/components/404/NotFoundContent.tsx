@@ -20,8 +20,8 @@ export function NotFoundContent() {
               The page you&apos;re looking does not exist or has been removed. Let&apos;s take you back in the right direction.
             </p>
 
-            <a 
-              href="https://tall-wheat-94156112.figma.site" 
+            <a
+              href="/"
               className="relative inline-block group mb-10 lg:mb-0"
             >
               {/* Background on hover */}

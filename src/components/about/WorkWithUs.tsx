@@ -112,7 +112,7 @@ export function WorkWithUs() {
                 </AnimatePresence>
               </div>
               <div className="text-xs text-white/70">
-                By signing up, you consent to receive marketing emails from <h1 className="inline text-xs">Giulia Parente</h1> and agree to our <a href="https://exact-black-41882768.figma.site" className="underline hover:text-white transition-colors">Privacy Policy</a>.
+                By signing up, you consent to receive marketing emails from <h1 className="inline text-xs">Giulia Parente</h1> and agree to our <a href="/privacy" className="underline hover:text-white transition-colors">Privacy Policy</a>.
               </div>
             </motion.div>
           </div>

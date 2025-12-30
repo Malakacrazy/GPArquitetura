@@ -202,11 +202,11 @@ export function Navigation() {
                   {/* Navigation Links */}
                   <div className="flex flex-col h-full border-r-0 lg:border-r border-[var(--color-text-dark)]/10 pr-0 lg:pr-12 xl:pr-16">
                     {[
-                      { name: 'Home', href: '#home' },
-                      { name: 'About Us', href: '#about' },
-                      { name: 'Portfolio', href: '#works' },
-                      { name: 'Portfolio 3D', href: '#works3d' },
-                      { name: 'Contact', href: '#contact' }
+                      { name: 'Home', href: '/' },
+                      { name: 'About Us', href: '/about' },
+                      { name: 'Portfolio', href: '/portfolio' },
+                      { name: 'Portfolio 3D', href: '/3d-visualization' },
+                      { name: 'Contact', href: '/contact' }
                     ].map((item, index) => (
                       <motion.div 
                         key={index} 
@@ -215,7 +215,7 @@ export function Navigation() {
                         variants={itemVariants}
                       >
                         <a
-                          href={item.name === 'Home' ? 'https://tall-wheat-94156112.figma.site' : item.name === 'About Us' ? 'https://east-steel-86104326.figma.site' : item.name === 'Portfolio' ? 'https://eye-review-83933074.figma.site' : item.name === 'Portfolio 3D' ? 'https://hot-ochre-11259604.figma.site' : item.name === 'Contact' ? 'https://long-report-95901134.figma.site' : item.href}
+                          href={item.href}
                           className="text-[var(--color-text-dark)] hover:text-[var(--color-accent)] transition group flex items-center justify-between py-4 md:py-5 w-full"
                           onClick={() => setIsOpen(false)}
                         >

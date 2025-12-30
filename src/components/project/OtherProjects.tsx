@@ -73,6 +73,7 @@ export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
             key={project._id}
             to={`/portfolio/${project.slug.current}`}
             className="block no-underline"
+            onClick={() => window.scrollTo(0, 0)}
           >
             <motion.div
               initial={{ opacity: 0, y: 40 }}

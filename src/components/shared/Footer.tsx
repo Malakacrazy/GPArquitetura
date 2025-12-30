@@ -1,5 +1,5 @@
 import { Reveal } from '../shared/Reveal';
-import { videos } from '../config/assets';
+import { videos } from '../../config/assets';
 
 export function Footer() {
   return (

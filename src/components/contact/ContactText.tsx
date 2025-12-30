@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "motion/react";
-import { images } from '../config/assets';
+import { images } from '../../config/assets';
 
 export const ContactText = ({ children }: { children?: React.ReactNode }) => {
   const containerVariants = {
@@ -32,7 +32,7 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
         className="fixed inset-0 -z-10"
       >
         <img 
-          src={images.hero.contact.background}
+          src={images.contact.hero.background}
           alt="Modern architecture background" 
           className="w-full h-full object-cover"
         />

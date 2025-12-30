@@ -1,18 +1,18 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
-import { images } from "../config/assets";
+import { images } from "../../config/assets";
 
 const galleryImages = {
   row1: [
     {
-      src: images.caseStudies.row1.aerialCampus,
+      src: images.portfolio3d.caseStudies.row1.aerialCampus,
       alt: "Aerial view of a modern campus at sunset, showcasing green spaces and innovative architecture.",
       width: "flex-[1.78]", // ~832px
       hoverHeight: "591.36px",
     },
     {
-      src: images.caseStudies.row1.coupleBalcony,
+      src: images.portfolio3d.caseStudies.row1.coupleBalcony,
       alt: "Couple enjoying ocean view from a luxury balcony with modern architecture at sunset. Home.",
       width: "flex-[1]", // ~468px
       hoverHeight: "594px",
@@ -20,19 +20,19 @@ const galleryImages = {
   ],
   row2: [
     {
-      src: images.caseStudies.row2.bedroomPatio,
+      src: images.portfolio3d.caseStudies.row2.bedroomPatio,
       alt: "Modern bedroom with sliding glass doors opening to a private patio and plunge pool.",
       width: "flex-[0.68]", // ~357px
       hoverHeight: "703.56px",
     },
     {
-      src: images.caseStudies.row2.modernKitchen,
+      src: images.portfolio3d.caseStudies.row2.modernKitchen,
       alt: "Modern kitchen island with four woven chairs, wood cabinets, and marble countertops.",
       width: "flex-[1]", // ~526px
       hoverHeight: "703.56px",
     },
     {
-      src: images.caseStudies.row2.bedroomCity,
+      src: images.portfolio3d.caseStudies.row2.bedroomCity,
       alt: "Modern bedroom with city view, featuring a plush bed and comfortable seating.",
       width: "flex-[0.75]", // ~397px
       hoverHeight: "704px",
@@ -40,13 +40,13 @@ const galleryImages = {
   ],
   row3: [
     {
-      src: images.caseStudies.row3.skyscraper,
+      src: images.portfolio3d.caseStudies.row3.skyscraper,
       alt: "Modern skyscraper and historic building on a city street at sunrise.",
       width: "flex-[1]", // ~468px
       hoverHeight: "620.4px",
     },
     {
-      src: images.caseStudies.row3.forestHouse,
+      src: images.portfolio3d.caseStudies.row3.forestHouse,
       alt: "Modern house in a forest with sunlight filtering through the trees.",
       width: "flex-[1.78]", // ~832px
       hoverHeight: "594px",
@@ -54,19 +54,19 @@ const galleryImages = {
   ],
   row4: [
     {
-      src: images.caseStudies.row4.apartmentEntrance,
+      src: images.portfolio3d.caseStudies.row4.apartmentEntrance,
       alt: "Carlisle Bay Apartments entrance; couple arriving by car.",
       width: "flex-[1.76]", // ~600px
       hoverHeight: "594px",
     },
     {
-      src: images.caseStudies.row4.apartmentBuilding,
+      src: images.portfolio3d.caseStudies.row4.apartmentBuilding,
       alt: "Modern apartment building with landscaped grounds and a couple strolling.",
       width: "flex-[1]", // ~340px
       hoverHeight: "594px",
     },
     {
-      src: images.caseStudies.row4.luxuryInterior,
+      src: images.portfolio3d.caseStudies.row4.luxuryInterior,
       alt: "Luxury home interior design with ocean view, featuring a modern bar and seating area.",
       width: "flex-[1]", // ~340px
       hoverHeight: "704px",

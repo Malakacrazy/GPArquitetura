@@ -1,10 +1,10 @@
 import { ArrowRight,} from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { images, videos } from '../config/assets';
+import { images, videos } from '../../config/assets';
 
 // Books data is now imported from centralized asset config
-const books = images.books;
+const books = images.about.bookThumbnails;
 
 export function Bookshelf() {
   const booksRef = useRef<HTMLDivElement>(null);
@@ -105,8 +105,8 @@ export function Bookshelf() {
             opacity: 0.75
           }}
         >
-          <source src={videos.library.mp4} type="video/mp4" />
-          <source src={videos.library.webm} type="video/webm" />
+          <source src={videos.about.library.mp4} type="video/mp4" />
+          <source src={videos.about.library.webm} type="video/webm" />
         </video>
         
         {/* Book Cards with left margin only */}

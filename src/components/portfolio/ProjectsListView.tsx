@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { Project } from '../types/project';
+import { Project } from '../../types/project';
 import { motion } from 'framer-motion';
-import { urlFor } from '../sanity/client';
+import { urlFor } from '../../sanity/client';
 
 const getImageUrl = (image: any) => {
   if (typeof image === 'string') return image;

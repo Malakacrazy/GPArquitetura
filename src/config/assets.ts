@@ -344,6 +344,13 @@ export const images = {
 } as const;
 
 // =============================================================================
+// CONVENIENCE EXPORTS (for backward compatibility)
+// =============================================================================
+
+// Export books array directly for library components
+export const books = images.library.books;
+
+// =============================================================================
 // PRELOAD LISTS (for Loader component)
 // Organized by page for selective preloading
 // =============================================================================
@@ -449,3 +456,31 @@ export const preloadAssets = {
     videos: [] as string[],
   },
 } as const;
+
+// =============================================================================
+// COMBINED PRELOAD LISTS (for preloadMedia.ts)
+// =============================================================================
+
+// All images to preload
+export const preloadImages: string[] = [
+  ...preloadAssets.shared.images,
+  ...preloadAssets.home.images,
+  ...preloadAssets.about.images,
+  ...preloadAssets.library.images,
+  ...preloadAssets.portfolio.images,
+  ...preloadAssets.portfolio3d.images,
+  ...preloadAssets.contact.images,
+  ...preloadAssets.notFound.images,
+];
+
+// All videos to preload
+export const preloadVideos: string[] = [
+  ...preloadAssets.shared.videos,
+  ...preloadAssets.home.videos,
+  ...preloadAssets.about.videos,
+  ...preloadAssets.library.videos,
+  ...preloadAssets.portfolio.videos,
+  ...preloadAssets.portfolio3d.videos,
+  ...preloadAssets.contact.videos,
+  ...preloadAssets.notFound.videos,
+];

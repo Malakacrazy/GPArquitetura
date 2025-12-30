@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { images } from '../config/assets';
+import { images } from '../../config/assets';
 
 export function ToS() {
   return (
@@ -115,9 +115,9 @@ export function ToS() {
         {/* Right Image */}
         <div className="relative w-full h-[50vh] md:h-[45vh] lg:w-1/2 lg:h-full overflow-hidden flex items-center justify-center bg-[var(--color-background)] p-4 lg:p-8 xl:p-12 2xl:p-16">
           <motion.img
-            src={images.hero.notFound.src}
+            src={images.notFound.hero.src}
             loading="eager"
-            alt={images.hero.notFound.alt}
+            alt={images.notFound.hero.alt}
             className="w-full h-full object-cover"
             initial={{ scale: 1.1, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}

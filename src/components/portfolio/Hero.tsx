@@ -1,5 +1,5 @@
 import { Reveal } from '../shared/Reveal';
-import { images } from '../config/assets';
+import { images } from '../../config/assets';
 
 export function Hero() {
   return (
@@ -7,7 +7,7 @@ export function Hero() {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('${images.hero.portfolio.background}')`
+          backgroundImage: `url('${images.portfolio.hero.background}')`
         }}
       >
         {/* Dark Overlay */}

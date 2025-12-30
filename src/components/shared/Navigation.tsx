@@ -1,7 +1,7 @@
 import { Button } from '../ui/button';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { videos, icons } from '../config/assets';
+import { videos, icons } from '../../config/assets';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

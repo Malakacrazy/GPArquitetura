@@ -1,8 +1,8 @@
-import { AccordionItem } from '../AccordionItem';
+import { AccordionItem } from './AccordionItem';
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Reveal } from '../shared/Reveal';
-import { images as assetImages } from '../config/assets';
+import { images as assetImages } from '../../config/assets';
 
 export function WhatWeDo() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +14,7 @@ export function WhatWeDo() {
     return () => clearInterval(interval);
   }, []);
 
-  const images = assetImages.carousel;
+  const images = assetImages.home.carousel;
 
   const getCardStyle = (index: number) => {
     const position = (index - activeIndex + 3) % 3;
@@ -75,7 +75,7 @@ export function WhatWeDo() {
 
             {/* Decorative Thread Line (Flipped) */}
             <img
-              src={assetImages.decorations.threadLine}
+              src={assetImages.home.decorations.threadLine}
               alt=""
               className="absolute top-1/2 left-1/2 w-[120%] max-w-none z-40 pointer-events-none"
               style={{ transform: 'translate(-50%, -50%) rotate(15deg) scale(1.1)' }}

@@ -1,6 +1,6 @@
 import { Building2, Award, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { icons } from '../config/assets';
+import { icons } from '../../config/assets';
 
 interface Statistic {
   number: string;

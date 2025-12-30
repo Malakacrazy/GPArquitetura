@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Reveal } from '../shared/Reveal';
-import { icons } from '../config/assets';
+import { icons } from '../../config/assets';
 
 interface Book {
   id: string;

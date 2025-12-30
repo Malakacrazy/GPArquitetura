@@ -1,5 +1,5 @@
 import { Reveal } from '../shared/Reveal';
-import { urlFor } from '../sanity/client';
+import { urlFor } from '../../sanity/client';
 
 interface ProjectHeroProps {
   title: string;

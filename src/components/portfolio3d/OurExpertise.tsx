@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, useScroll } from 'motion/react';
 import { useState, useRef, useEffect } from 'react';
-import { images, videos } from '../config/assets';
+import { images, videos } from '../../config/assets';
 
 const lightTheme = {
   background: '#E0D2B6',
@@ -45,36 +45,36 @@ export function OurExpertise() {
       id: 'A',
       title: 'Interior Rendering',
       desc: 'Complete creation of an interior that reflects your worldview. If you are an architect or real estate manager, you can make details to view the room for sale and meet prospective clients by showing them every element of the decor in impressive photorealism.',
-      src: images.ourExpertise.interiorRendering,
+      src: images.portfolio3d.ourExpertise.interiorRendering,
       type: 'image'
     },
     {
       id: 'B',
       title: 'Exterior Rendering',
       desc: 'Previewing the exterior with the help of 3D visualization is extremely important because it can help identify deficiencies before construction begins. If there are certain nuances, they are much easier to detect and eliminate at the stage of creating a picture. All of the attention is focused on the details.',
-      src: images.ourExpertise.exteriorRendering,
+      src: images.portfolio3d.ourExpertise.exteriorRendering,
       type: 'image'
     },
     {
       id: 'C',
       title: 'Architectural Animation',
       desc: 'Due to architectural services you can present to customers a building that is still under renovation or construction. In this way, you will be able to look into the future, created based on your ideas!',
-      src: videos.expertiseAnimation.mp4,
-      webm: videos.expertiseAnimation.webm,
+      src: videos.portfolio3d.expertiseAnimation.mp4,
+      webm: videos.portfolio3d.expertiseAnimation.webm,
       type: 'video'
     },
     {
       id: 'D',
       title: 'Virtual Tour',
       desc: 'Deliver the ultimate off-plan sales and marketing experience, allowing unbuilt environments to be explored and appreciated in real-time. Engage clients by interactively exploring the full scope of a space — changing levels, materials, day/night lighting in a live environment.',
-      src: images.ourExpertise.virtualTour,
+      src: images.portfolio3d.ourExpertise.virtualTour,
       type: 'image'
     },
     {
       id: 'E',
       title: 'Product & Brand',
       desc: 'Expert in high-end, photo-realistic visualization that brings products and spaces to life. Guided by artistic vision and technical precision, we craft imagery that captures the essence of every subject - helping brands communicate identity, emotion, and design through striking, cinematic visuals',
-      src: images.ourExpertise.productBrand,
+      src: images.portfolio3d.ourExpertise.productBrand,
       type: 'image'
     }
   ];

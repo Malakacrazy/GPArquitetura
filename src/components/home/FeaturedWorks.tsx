@@ -4,8 +4,8 @@ import Slider from "react-slick";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { Reveal } from "../shared/Reveal";
-import { useFeaturedProjects } from "../hooks/useProjects";
-import { urlFor } from "../sanity/client";
+import { useFeaturedProjects } from "../../hooks/useProjects";
+import { urlFor } from "../../sanity/client";
 
 export function FeaturedWorks() {
   const [currentSlide, setCurrentSlide] = useState(0);

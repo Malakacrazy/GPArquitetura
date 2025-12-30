@@ -1,6 +1,6 @@
 import { Reveal } from '../shared/Reveal';
 import { useEffect, useRef } from 'react';
-import { images, videos } from '../config/assets';
+import { images, videos } from '../../config/assets';
 
 function VideoBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -29,8 +29,8 @@ function VideoBackground() {
           console.error('Video failed to load:', e);
         }}
       >
-        <source src={videos.heroRenderingBackground.mp4} type="video/mp4" />
-        <source src={videos.heroRenderingBackground.webm} type="video/webm" />
+        <source src={videos.portfolio3d.heroBackground.mp4} type="video/mp4" />
+        <source src={videos.portfolio3d.heroBackground.webm} type="video/webm" />
       </video>
     </div>
   );
@@ -43,7 +43,7 @@ export function Hero() {
       <div className="absolute inset-0 w-full h-full">
          {/* Fallback Image (Lowest Layer) */}
          <img
-            src={images.hero.rendering.background}
+            src={images.portfolio3d.hero.background}
             alt="Hero Background"
             className="absolute inset-0 w-full h-full object-cover z-0"
          />

@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { urlFor } from "../sanity/client";
-import { useRelatedProjects } from "../hooks/useProjects";
+import { urlFor } from "../../sanity/client";
+import { useRelatedProjects } from "../../hooks/useProjects";
 
 interface OtherProjectsProps {
   currentProjectSlug: string;

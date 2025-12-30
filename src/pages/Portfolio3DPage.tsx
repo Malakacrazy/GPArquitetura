@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { Navigation } from '../components/shared/Navigation';
-import { Hero } from './components/portfolio3d/Hero';
+import { Hero } from '../components/portfolio3d/Hero';
 import { OurExpertise } from '../components/portfolio3d/OurExpertise';
 import { OurVision } from '../components/portfolio3d/OurVision';
 import { CaseStudies } from '../components/portfolio3d/CaseStudies';

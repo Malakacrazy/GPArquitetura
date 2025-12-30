@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Checkbox } from "../ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { useState } from "react";
-import { images } from "../config/assets";
+import { images } from "../../config/assets";
 
 export function HowItWorks() {
   const [projectType, setProjectType] = useState("Residential");
@@ -36,27 +36,27 @@ export function HowItWorks() {
             {
               title: "Technical Specification",
               description: "The client contacts us and messages across design specifications for architectural visualizations, as well as all the necessary files associated with this project.",
-              image: images.howItWorks.technicalSpec
+              image: images.portfolio3d.howItWorks.technicalSpec
             },
             {
               title: "Start of Work Process",
               description: "We create a working chat with a project manager, 3d artists (the number depends on the complexity of the project). We examine the terms of reference and together with the client determine the deadline for exterior renders.",
-              image: images.howItWorks.workProcess
+              image: images.portfolio3d.howItWorks.workProcess
             },
             {
               title: "Preview No. 1",
               description: "We show the client the first draft in low quality to confirm the correctness of the model (structure, geometry, etc.). If necessary, we receive comments and edits from the client.",
-              image: images.howItWorks.preview1
+              image: images.portfolio3d.howItWorks.preview1
             },
             {
               title: "Preview No. 2",
               description: "The second draft is shown after applying the edits. At this time the image is in a higher quality so that the client can appreciate all the ins and outs of the image (light, color, textures, etc.) We get the final edits, if any.",
-              image: images.howItWorks.preview2
+              image: images.portfolio3d.howItWorks.preview2
             },
             {
               title: "Sending Final Renders",
               description: "We create architectural visualization in high quality and transfer it to the customer, having previously applied all comments and edits, if they were after the second draft showing.",
-              image: images.howItWorks.finalRenders
+              image: images.portfolio3d.howItWorks.finalRenders
             }
           ].map((step, index) => (
             <div key={index} className={`flex flex-col lg:flex-row gap-12 lg:gap-16 items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
-import { images, videos, icons } from '../config/assets';
+import { images, videos, icons } from '../../config/assets';
 
 interface TeamMember {
   name: string;
@@ -56,7 +56,7 @@ export function OurTeam() {
             <motion.div
               className="aspect-[3/4] overflow-hidden relative group cursor-pointer order-2 md:order-none"
               style={{
-                backgroundImage: `url(${images.team.giuliaparente.photo})`,
+                backgroundImage: `url(${images.about.team.giuliaparente.photo})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
@@ -74,11 +74,11 @@ export function OurTeam() {
                 loop
                 muted
                 preload="auto"
-                poster={images.team.giuliaparente.poster}
+                poster={images.about.team.giuliaparente.poster}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isVideoPlaying ? 'opacity-100' : 'opacity-0'}`}
               >
-                <source src={videos.team.giuliaparente.mp4} type="video/mp4" />
-                <source src={videos.team.giuliaparente.webm} type="video/webm" />
+                <source src={videos.about.team.giuliaparente.mp4} type="video/mp4" />
+                <source src={videos.about.team.giuliaparente.webm} type="video/webm" />
               </video>
               {/* Hover Overlay */}
               <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
@@ -199,7 +199,7 @@ export function OurTeam() {
               {/* Left: Image */}
               <div className="relative h-full min-h-[400px] md:min-h-0" style={{ backgroundColor: 'var(--color-accent)' }}>
                 <img
-                  src={images.team.giuliaparente.photo}
+                  src={images.about.team.giuliaparente.photo}
                   alt="Giulia"
                   loading="lazy"
                   decoding="async"

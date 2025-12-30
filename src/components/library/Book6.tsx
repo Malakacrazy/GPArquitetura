@@ -1,5 +1,5 @@
-import { BookDetail } from '../BookDetail';
-import { books } from '../config/assets';
+import { BookDetail } from './BookDetail';
+import { books } from '../../config/assets';
 
 export function Book6() {
   const book = books[5];

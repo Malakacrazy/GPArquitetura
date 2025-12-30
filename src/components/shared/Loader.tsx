@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { preloadMediaWithTimeout } from '../utils/preloadMedia';
+import { preloadMediaWithTimeout } from '../../utils/preloadMedia';
 
 interface LoaderProps {
   onLoadingComplete?: () => void;

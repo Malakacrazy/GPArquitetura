@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { images, videos } from '../config/assets';
+import { images, videos } from '../../config/assets';
 
 export function ProjectsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,8 +38,8 @@ export function ProjectsSection() {
             playsInline
             className="w-full h-full object-cover"
           >
-             <source src={videos.projectsBackground.mp4} type="video/mp4" />
-             <source src={videos.projectsBackground.webm} type="video/webm" />
+             <source src={videos.home.projectsBackground.mp4} type="video/mp4" />
+             <source src={videos.home.projectsBackground.webm} type="video/webm" />
           </video>
           <div className="absolute inset-0 bg-black/15" />
         </div>
@@ -64,7 +64,7 @@ export function ProjectsSection() {
             onMouseLeave={() => setHoveredSide(null)}
           >
             <ImageWithFallback
-              src={images.projects.interior}
+              src={images.home.projects.interior}
               alt="Interior"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -107,7 +107,7 @@ export function ProjectsSection() {
             onMouseLeave={() => setHoveredSide(null)}
           >
              <ImageWithFallback
-              src={images.projects.architecture}
+              src={images.home.projects.architecture}
               alt="Architecture"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

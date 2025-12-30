@@ -2,12 +2,6 @@ import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { images, videos, icons } from '../../config/assets';
 
-interface TeamMember {
-  name: string;
-  role: string;
-  image: string;
-}
-
 export function OurTeam() {
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);

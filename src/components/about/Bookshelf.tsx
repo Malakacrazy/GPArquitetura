@@ -47,20 +47,6 @@ export function Bookshelf() {
     };
   }, [isPaused]);
 
-  const handlePrev = () => {
-    const scrollContainer = booksRef.current;
-    if (scrollContainer) {
-      scrollContainer.scrollLeft -= 312; // One book width
-    }
-  };
-
-  const handleNext = () => {
-    const scrollContainer = booksRef.current;
-    if (scrollContainer) {
-      scrollContainer.scrollLeft += 312; // One book width
-    }
-  };
-
   return (
     <section style={{ backgroundColor: 'var(--color-background)' }}>
       {/* Header with margins */}

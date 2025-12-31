@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![GP Arquitetura](public/favicon.svg)
+![GP Arquitetura](public/favicon.ico)
 
 **Portfolio website for GP Arquitetura - Architecture and Interior Design Studio based in São Paulo, Brazil**
 
@@ -97,7 +97,7 @@ GPArquitetura/
 │   ├── icons/             # UI icons
 │   ├── images/            # Static images
 │   ├── videos/            # Video assets
-│   ├── favicon.svg        # Site favicon
+│   ├── favicon.ico        # Site favicon
 │   ├── robots.txt         # Search engine rules
 │   ├── sitemap.xml        # XML sitemap
 │   └── site.webmanifest   # PWA manifest
@@ -238,8 +238,6 @@ Comprehensive SEO implementation including:
 - ✅ Canonical URLs
 - ✅ Google Analytics (G-0R14TNRKBH)
 - ✅ Hotjar/Contentsquare tracking
-
-See [SEO Documentation](docs/SEO_IMPLEMENTATION.md) for details.
 
 ---
 

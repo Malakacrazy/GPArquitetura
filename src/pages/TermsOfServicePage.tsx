@@ -1,13 +1,13 @@
 import { Navigation } from "../components/shared/Navigation";
 import { ToS } from "../components/legal/ToS";
-import { SpeedInsights } from "@vercel/speed-insights/react"
-import { Analytics } from "@vercel/analytics/react"
+import { useSEO, SEO_CONFIG } from '../hooks/useSEO';
 
 export default function TermsOfServicePage() {
+  // Apply SEO settings for Terms of Service page
+  useSEO(SEO_CONFIG.tos);
+
   return (
     <div className="page_wrap bg-[var(--color-background)] min-h-screen w-full font-sans selection:bg-[var(--color-primary)] selection:text-white">
-      <SpeedInsights />
-      <Analytics />
       <Navigation />
       <ToS />
     </div>

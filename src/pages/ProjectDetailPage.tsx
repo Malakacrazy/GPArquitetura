@@ -6,12 +6,41 @@ import { ProjectSidebar } from "../components/project/ProjectSidebar";
 import { ProjectMainBody } from "../components/project/ProjectMainBody";
 import { OtherProjects } from "../components/project/OtherProjects";
 import { useProject } from "../hooks/useProjects";
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react";
+import { useSEO, createProjectJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';
 
 const ProjectDetailPage = () => {
   const { slug } = useParams();
   const { project, loading, error } = useProject(slug || '');
+
+  // Apply dynamic SEO for project detail page
+  useSEO({
+    title: project ? `${project.title} - Projeto` : 'Projeto',
+    description: project?.description1 
+      ? (project.description1.length > 160 
+          ? project.description1.substring(0, 157) + '...' 
+          : project.description1)
+      : 'Explore este projeto arquitetônico desenvolvido pela GP Arquitetura.',
+    keywords: `${project?.title || 'projeto'}, arquitetura, GP Arquitetura, ${project?.location || 'São Paulo'}`,
+    canonical: `/portfolio/${slug}`,
+    ogType: 'article',
+    ogImage: project?.heroImage || 'https://gparquitetura.vercel.app/images/hero-portfolio-bg.webp',
+    ogImageAlt: project?.title || 'Projeto GP Arquitetura',
+    jsonLd: project ? {
+      ...createProjectJsonLd({
+        name: project.title,
+        description: project.description1 || '',
+        image: project.heroImage || '',
+        slug: project.slug?.current || slug || '',
+        category: 'Arquitetura',
+        datePublished: project.completionYear ? `${project.completionYear}-01-01` : undefined,
+      }),
+      ...createBreadcrumbJsonLd([
+        { name: 'Home', url: '/' },
+        { name: 'Portfólio', url: '/portfolio' },
+        { name: project.title, url: `/portfolio/${slug}` },
+      ]),
+    } : undefined,
+  });
 
   // Loading state
   if (loading) {
@@ -42,8 +71,6 @@ const ProjectDetailPage = () => {
 
   return (
     <div className="page_wrap bg-[var(--color-background)] min-h-screen w-full font-sans selection:bg-[var(--color-primary)] selection:text-white">
-      <SpeedInsights />
-      <Analytics />
       <Navigation />
       <Hero 
         title={project.title}

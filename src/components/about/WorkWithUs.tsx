@@ -47,9 +47,9 @@ export function WorkWithUs() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] font-bold uppercase">Careers</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] font-bold uppercase">Trabalhe Conosco</span>
               <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[var(--color-text-dark)] font-light leading-[1.1]">
-                We're always looking for talented individuals who are passionate about architecture and design.
+                Estamos sempre em busca de profissionais talentosos e apaixonados por arquitetura e design.
               </h6>
             </motion.div>
             
@@ -63,7 +63,7 @@ export function WorkWithUs() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
               <h6 className="mb-4 md:mb-6 text-white text-base md:text-lg">
-                Get notified when a new <span className="underline">job gets posted</span>
+                Seja notificado quando uma nova <span className="underline">vaga for publicada</span>
               </h6>
               <div className="mb-3 md:mb-4">
                 <div className="flex gap-2 md:gap-3">
@@ -80,12 +80,12 @@ export function WorkWithUs() {
                     className="px-4 py-2 md:px-6 md:py-3 bg-white/80 hover:bg-[var(--color-accent)] text-[var(--color-text-dark)] hover:text-white transition-colors duration-300 rounded uppercase tracking-wider text-sm md:text-lg whitespace-nowrap"
                     onClick={handleSignUp}
                   >
-                    Sign Up
+                    Inscreva-se
                   </button>
                 </div>
                 {isInvalid && (
                   <p className="text-xs text-red-500 mt-1">
-                    Please enter a valid email address
+                    Por favor, insira um endereço de e-mail válido
                   </p>
                 )}
                 <AnimatePresence>
@@ -105,14 +105,14 @@ export function WorkWithUs() {
                         <CheckCircle2 className="w-4 h-4 text-green-400" />
                       </motion.div>
                       <p className="text-xs text-green-400">
-                        Successfully signed up! We'll notify you when the time comes.
+                        Inscrição bem-sucedida. Entraremos em contato quando chegar a sua hora.
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
               <div className="text-xs text-white/70">
-                By signing up, you consent to receive marketing emails from <h1 className="inline text-xs">Giulia Parente</h1> and agree to our <a href="/privacy" className="underline hover:text-white transition-colors">Privacy Policy</a>.
+                Ao se inscrever, você concorda em receber e-mails de marketing da <h1 className="inline text-xs">Giulia Parente Arquitetura</h1> e concorda com nossa <a href="/privacy" className="underline hover:text-white transition-colors">Política de Privacidade</a>.
               </div>
             </motion.div>
           </div>
@@ -126,7 +126,7 @@ export function WorkWithUs() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                At our studio, we foster a collaborative environment where ideas flourish and every team member has the opportunity to make a meaningful impact. We believe in investing in our people through continuous learning, mentorship, and career development.
+                Em nosso estúdio, promovemos um ambiente colaborativo onde as ideias florescem e cada membro da equipe tem a oportunidade de causar um impacto significativo. Acreditamos no investimento em nosso pessoal por meio de aprendizado contínuo, orientação e desenvolvimento de carreira.
               </motion.p>
               <motion.p 
                 className="text-xl md:text-2xl" 
@@ -136,7 +136,7 @@ export function WorkWithUs() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
               >
-                There are no roles open at this time.
+                Não há vagas disponíveis no momento.
               </motion.p> 
               <motion.p 
                 className="text-base md:text-lg"
@@ -145,7 +145,7 @@ export function WorkWithUs() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
               >
-                We're always interested in meeting talented professionals. Send us your portfolio and resume, and we'll keep you in mind for future opportunities.
+                Estamos sempre interessados em conhecer profissionais talentosos. Envie-nos seu portfólio e currículo, e o manteremos em consideração para oportunidades futuras.
               </motion.p>
             </div>
           </div>

@@ -12,7 +12,7 @@ export function AboutUs() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Our architecture firm is dedicated to creating innovative and sustainable spaces that enhance the way people live, work, and interact. With over a decade of experience, we've established ourselves as leaders in contemporary design, blending functionality with aesthetic excellence.
+            Com a mudança no sistema imobiliário brasileiro dos últimos anos, existe uma grande oferta de apartamentos compactos que necessitam de inteligência projetual, funcionalidade e sensibilidade emocional. O Studio Giulia Parente surgiu da necessidade de resolver as dores dos espaços contemporâneos, como a sensação de que “minha casa não me acolhe”. Esse incômodo é resultado de anos de desconforto silencioso, rotinas frustrantes e sensação de que algo está errado, sem saber o que é. Nosso objetivo é transformar a relação das pessoas com o espaço, se utilizando dos princípios da estética emocional brasileira (incorporação da nossa luz tropical, nossa cultura de acolhimento e nossa maneira única de habitar espaços).
           </motion.p>
           <motion.p 
             className=""
@@ -21,7 +21,7 @@ export function AboutUs() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            We believe that great architecture goes beyond just buildings—it's about creating experiences and environments that inspire. Our approach combines cutting-edge design techniques with timeless principles, ensuring that every project we undertake is both beautiful and practical.
+            O foco do Studio Giulia Parente é a neuroarquitetura e a experiência emocional profunda. Nosso processo prioriza sensações, bem-estar e a maneira como as pessoas vivem em seus espaços. Criamos espaços que abraçam e confortam, que reduzem a ansiedade, estimulando a reconexão com os ciclos naturais e se utilizando de funcionalidades que facilitam o dia a dia, promovemos a saúde mental integrada ao espaço, explorando a sensação de “este lugar é meu”.
           </motion.p>
           <motion.p 
             className=""
@@ -30,7 +30,7 @@ export function AboutUs() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
           >
-            From residential homes to commercial complexes, our portfolio showcases a diverse range of projects that reflect our commitment to quality, innovation, and client satisfaction. We work closely with our clients to understand their vision and bring it to life through thoughtful, creative design solutions.
+            Buscamos entender como as pessoas escolhem os espaços, como se sentem em cada ambiente e como se relacionam com ele. A essência do Studio Giulia Parente reside na sua capacidade de ir além do design, tocando as emoções e a vida de quem habita os espaços que projetamos. Com isso,  transformamos espaços em santuários de emoções, onde cada detalhe é uma homenagem ao seu bem-estar, família e sua história. Sentir a diferença é viver onde você se sente em casa.
           </motion.p>
         </div>
       </div>

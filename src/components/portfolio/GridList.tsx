@@ -18,7 +18,7 @@ export function GridList({ isGridView, setIsGridView }: GridListProps) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="flex items-center gap-2 ml-auto">
-        <h6 className="text-sm" style={{ color: 'var(--color-primary)' }}>View:</h6>
+        <h6 className="text-sm" style={{ color: 'var(--color-primary)' }}>Modo:</h6>
         <Button
           variant={isGridView ? 'default' : 'ghost'}
           size="sm"
@@ -26,7 +26,7 @@ export function GridList({ isGridView, setIsGridView }: GridListProps) {
           className={!isGridView ? '' : ''}
           style={isGridView ? { backgroundColor: 'var(--color-primary)', color: 'white' } : { color: 'var(--color-text-muted)' }}
         >
-          <h6>Grid</h6>
+          <h6>Galeria</h6>
           <Grid className="size-4 ml-2" />
         </Button>
         <Button
@@ -36,7 +36,7 @@ export function GridList({ isGridView, setIsGridView }: GridListProps) {
           className={isGridView ? '' : ''}
           style={!isGridView ? { backgroundColor: 'var(--color-primary)', color: 'white' } : { color: 'var(--color-text-muted)' }}
         >
-          <h6>List</h6>
+          <h6>Lista</h6>
           <List className="size-4 ml-2" />
         </Button>
       </div>

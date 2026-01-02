@@ -19,214 +19,211 @@ export function PrivacyPolicy() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
               <p className="text-base md:text-lg">
-                This privacy policy has been compiled to better serve those who are concerned with how their &apos;Personally identifiable information&apos; (PII) is being used online. PII, as used in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context.
+                Esta política de privacidade foi elaborada para melhor atender aqueles que estão preocupados com a forma como suas “informações de identificação pessoal” (PII) são utilizadas online. PII, conforme utilizado na legislação de privacidade e segurança da informação dos EUA, refere-se a informações que podem ser utilizadas isoladamente ou em conjunto com outras informações para identificar, contatar ou localizar uma única pessoa, ou para identificar um indivíduo em um determinado contexto.
               </p>
               <p className="text-base md:text-lg">
-                Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
-              </p>
-
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                What personal information do we collect from the people that visit our website?
-              </h6>
-              <p className="text-base md:text-lg">
-                When using our site, as appropriate, you may be asked to enter your name, email address, or other information or other details to help you with your experience.
+                Leia nossa política de privacidade com atenção para entender claramente como coletamos, usamos, protegemos ou tratamos suas informações de identificação pessoal de acordo com nosso site.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                How do we use your information?
+                Que informações pessoais coletamos das pessoas que visitam nosso site?
               </h6>
               <p className="text-base md:text-lg">
-                We may use the information we collect from you when you respond to a form or use certain other site features in the following ways:
+                Ao utilizar nosso site, conforme apropriado, você pode ser solicitado a inserir seu nome, endereço de e-mail ou outras informações ou detalhes para auxiliar na sua experiência.
+              </p>
+
+              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
+                Como utilizamos suas informações?
+              </h6>
+              <p className="text-base md:text-lg">
+                Podemos utilizar as informações que coletamos de você quando você responde a um formulário ou utiliza determinados outros recursos do site das seguintes maneiras:
               </p>
               <ol className="list-decimal pl-6 space-y-2">
-                <li className="text-base md:text-lg">To personalise user&apos;s experience and to allow us to deliver the type of content and product offerings in which you are most interested.</li>
-                <li className="text-base md:text-lg">To improve our website in order to better serve you.</li>
+                <li className="text-base md:text-lg">Para personalizar a experiência do usuário e nos permitir fornecer o tipo de conteúdo e ofertas de produtos nos quais você está mais interessado.</li>
+                <li className="text-base md:text-lg">Para melhorar nosso site a fim de melhor atendê-lo.</li>
               </ol>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                How do we protect visitor information?
+                Como protegemos as informações dos visitantes?
               </h6>
               <p className="text-base md:text-lg">
-                Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. We implement a variety of security measures when a user enters their information to maintain the safety of your personal information. We do not use Malware Scanning.
+                Suas informações pessoais estão contidas em redes seguras e só podem ser acessadas por um número limitado de pessoas que têm direitos especiais de acesso a esses sistemas e são obrigadas a manter a confidencialidade das informações. Implementamos uma variedade de medidas de segurança quando um usuário insere suas informações para manter a segurança de suas informações pessoais. Não utilizamos varredura de malware.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Do we use &apos;cookies&apos;?
+                Utilizamos “cookies”?
               </h6>
               <p className="text-base md:text-lg">
-                Yes. Cookies are small files that a site or its service provider transfers to your computer&apos;s hard drive through your Web browser (if you allow) that enables the site&apos;s or service provider&apos;s systems to recognize your browser and capture and remember certain information.
+                Sim. Cookies são pequenos arquivos que um site ou seu provedor de serviços transfere para o disco rígido do seu computador através do seu navegador da Web (se você permitir), permitindo que os sistemas do site ou do provedor de serviços reconheçam seu navegador e capturem e lembrem determinadas informações.
               </p>
               <p className="text-base md:text-lg">
-                They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.
+                Eles também são utilizados para nos ajudar a entender suas preferências com base na atividade anterior ou atual do site, o que nos permite fornecer serviços aprimorados. Também utilizamos cookies para nos ajudar a compilar dados agregados sobre o tráfego e a interação do site, para que possamos oferecer melhores experiências e ferramentas no futuro.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                We use cookies to:
+                Utilizamos cookies para:
               </h6>
               <p className="text-base md:text-lg">
-                Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf.
+                Compilar dados agregados sobre o tráfego e as interações do site, a fim de oferecer melhores experiências e ferramentas no futuro. Também podemos utilizar serviços de terceiros confiáveis que rastreiam essas informações em nosso nome.
               </p>
               <p className="text-base md:text-lg">
-                You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser (like Internet Explorer) settings. Each browser is a little different, so look at your browser&apos;s Help menu to learn the correct way to modify your cookies
+                Você pode optar por receber um aviso do seu computador sempre que um cookie for enviado ou pode optar por desativar todos os cookies. Você pode fazer isso nas configurações do seu navegador (como o Internet Explorer). Cada navegador é um pouco diferente, portanto, consulte o menu Ajuda do seu navegador para saber a maneira correta de modificar seus cookies.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                If users disable cookies in their browser:
+                Se os usuários desativarem os cookies em seus navegadores:
               </h6>
               <p className="text-base md:text-lg">
-                If you disable cookies, some features will be disabled. It will turn off some of the features that make your site experience more efficient and some of our services will not function properly.
+                Se você desativar os cookies, alguns recursos serão desativados. Isso desativará alguns dos recursos que tornam sua experiência no site mais eficiente e alguns de nossos serviços não funcionarão corretamente.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Third-party disclosure
+                Divulgação a terceiros
               </h6>
               <p className="text-base md:text-lg">
-                We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it&apos;s release is appropriate to comply with the law, enforce our site policies, or protect ours or others&apos; rights, property, or safety.
+                Não vendemos, comercializamos ou transferimos de outra forma a terceiros suas informações pessoais identificáveis, a menos que forneçamos aos usuários um aviso prévio. Isso não inclui parceiros de hospedagem de sites e outras partes que nos auxiliam na operação do nosso site, na condução dos nossos negócios ou no atendimento aos nossos usuários, desde que essas partes concordem em manter essas informações confidenciais. Também podemos divulgar informações quando tal for apropriado para cumprir a lei, aplicar as políticas do nosso site ou proteger os nossos direitos, propriedade ou segurança ou os de terceiros.
               </p>
               <p className="text-base md:text-lg">
-                However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.
+                No entanto, informações não pessoais identificáveis dos visitantes podem ser fornecidas a terceiros para fins de marketing, publicidade ou outros usos.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Third-party links
+                Links de terceiros
               </h6>
               <p className="text-base md:text-lg">
-                Occasionally, at our discretion, we may include or offer third-party products or services on our website. These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.
+                Ocasionalmente, a nosso critério, podemos incluir ou oferecer produtos ou serviços de terceiros em nosso site. Esses sites de terceiros têm políticas de privacidade separadas e independentes. Portanto, não nos responsabilizamos pelo conteúdo e pelas atividades desses sites vinculados. No entanto, buscamos proteger a integridade do nosso site e agradecemos qualquer feedback sobre esses sites.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
                 Google
               </h6>
               <p className="text-base md:text-lg">
-                Google&apos;s advertising requirements can be summed up by Google&apos;s Advertising Principles. They are put in place to provide a positive experience for users. https://support.google.com/adwordspolicy/answer/1316548?hl=en
+                Os requisitos de publicidade do Google podem ser resumidos pelos Princípios de Publicidade do Google. Eles foram criados para proporcionar uma experiência positiva aos usuários. <a href="https://support.google.com/adwordspolicy/answer/1316548?hl=en" className="text-[var(--color-primary)] underline">https://support.google.com/adwordspolicy/answer/1316548?hl=en</a>
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                We have implemented the following:
+                Implementamos o seguinte:
               </h6>
               <ul className="list-disc pl-6 space-y-2">
-                <li className="text-base md:text-lg">Google Analytics (GA4 – to track impressions and demographics)</li>
-                <li className="text-base md:text-lg">Google Search Console (To track site visits, site ranking &amp; demographics)</li>
+                <li className="text-base md:text-lg">Google Analytics (GA4 – para rastrear impressões e dados demográficos)</li>
+                <li className="text-base md:text-lg">Google Search Console (para rastrear visitas ao site, classificação do site e dados demográficos)</li>
               </ul>
               <p className="text-base md:text-lg">
-                We along with third-party vendors, such as Google use first-party cookies (such as the Google Analytics cookies) to compile data regarding user interactions with ad impressions and other ad service functions as they relate to our website.
+                Juntamente com fornecedores terceirizados, como o Google, utilizamos cookies primários (como os cookies do Google Analytics) para compilar dados sobre as interações dos usuários com impressões de anúncios e outras funções de serviços de publicidade relacionadas ao nosso site.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Opting out:
+                Desativação:
               </h6>
               <p className="text-base md:text-lg">
-                Users can set preferences for how Google advertises to you using the Google Ad Settings page. Alternatively, you can opt out by visiting the Network Advertising initiative opt out page or permanently using the Google Analytics Opt Out Browser add on.
+                Os usuários podem definir preferências sobre como o Google exibe anúncios para você na página Configurações de anúncios do Google. Alternativamente, você pode desativar essa opção visitando a página de desativação da Network Advertising Initiative ou utilizando permanentemente o complemento do navegador para desativação do Google Analytics.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                California Online Privacy Protection Act
+                Lei de Proteção à Privacidade Online da Califórnia (CalOPPA)
               </h6>
               <p className="text-base md:text-lg">
-                CalOPPA is the first state law in the United States to require commercial websites and online services to post a privacy policy.
+                A CalOPPA é a primeira lei estadual dos Estados Unidos a exigir que sites comerciais e serviços online publiquem uma política de privacidade.
               </p>
               <p className="text-base md:text-lg">
-                The law&apos;s reach stretches well beyond California to require a person or company in the United States (and conceivably the world) that operates websites collecting personally identifiable information from Californian consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy.
+                O alcance da lei se estende muito além da Califórnia, exigindo que qualquer pessoa ou empresa nos Estados Unidos (e, possivelmente, no mundo) que opere sites que coletem informações de identificação pessoal de consumidores californianos publique uma política de privacidade bem visível em seu site, informando exatamente quais informações estão sendo coletadas e com quem elas estão sendo compartilhadas, e que cumpra essa política.
               </p>
               <p className="text-base md:text-lg">
-                See more at: <a href="http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf" className="text-[var(--color-primary)] underline">http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf</a>
+                Veja mais em: <a href="http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf" className="text-[var(--color-primary)] underline">http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf</a>
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                According to CalOPPA we agree to the following:
+                De acordo com a CalOPPA, concordamos com o seguinte:
               </h6>
               <ul className="list-disc pl-6 space-y-2 text-base md:text-lg">
-                <li>Users can visit our site anonymously.</li>
-                <li>Once this privacy policy is created, we will add a link to it on our home page or as a minimum on the first significant page after entering our website.</li>
-                <li>Our Privacy Policy link includes the word &apos;Privacy&apos; and can be easily be found on the page specified above.</li>
-                <li>Users will be notified of any privacy policy changes on our Privacy Policy Page</li>
-                <li>Users are able to change their personal information by emailing us or by logging in to their account</li>
+                <li>Os usuários podem visitar nosso site anonimamente.</li>
+                <li>Assim que esta política de privacidade for criada, adicionaremos um link para ela em nossa página inicial ou, no mínimo, na primeira página significativa após entrar em nosso site.</li>
+                <li>Nosso link de Política de Privacidade inclui a palavra “Privacidade” e pode ser facilmente encontrado na página especificada acima.</li>
+                <li>Os usuários serão notificados sobre quaisquer alterações na política de privacidade em nossa página de Política de Privacidade.</li>
+                <li>Os usuários podem alterar suas informações pessoais enviando-nos um e-mail ou fazendo login em sua conta.</li>
               </ul>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                How does our site handle do not track signals and behavioural tracking?
+                Como nosso site lida com sinais de não rastreamento e rastreamento comportamental?
               </h6>
               <p className="text-base md:text-lg">
-                We don&apos;t honor do not track signals, behavioural tracking and do not track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place. We don&apos;t honor them because at the time of writing we have not implemented this functionality.
+                Não honramos sinais de não rastreamento, rastreamento comportamental e não rastreamos, plantamos cookies ou usamos publicidade quando um mecanismo de navegador Do Not Track (DNT) está em vigor. Não os honramos porque, no momento da redação, não implementamos essa funcionalidade.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Children
+                Crianças
               </h6>
               <p className="text-base md:text-lg">
-                We do not knowingly collect Personal Information from children under the age of 18 through the Websites. If you are under 18, please do not give us any Personal Information.
+                Não coletamos intencionalmente Informações Pessoais de crianças menores de 18 anos através dos sites. Se você tem menos de 18 anos, não nos forneça nenhuma Informação Pessoal.
               </p>
               <p className="text-base md:text-lg">
-                We encourage parents and legal guardians to monitor their children&apos;s Internet usage and to help enforce our Privacy Policy by instructing their children to never provide Personal Information through the Websites without their permission.
+                Incentivamos os pais e responsáveis legais a monitorar o uso da Internet por seus filhos e a ajudar a aplicar nossa Política de Privacidade, instruindo seus filhos a nunca fornecerem Informações Pessoais através dos sites sem sua permissão.
               </p>
               <p className="text-base md:text-lg">
-                If you have reason to believe that a child under the age of 18 has provided Personal Information to us, please contact us, and we will endeavour to delete that information from our databases.
+                Se você tiver motivos para acreditar que uma criança menor de 18 anos nos forneceu Informações Pessoais, entre em contato conosco e faremos o possível para excluir essas informações de nossos bancos de dados.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Fair Information Practices
+                Práticas justas de informação
               </h6>
               <p className="text-base md:text-lg">
-                The Fair Information Practices Principles form the backbone of privacy law in the United States and the concepts they include have played a significant role in the development of data protection laws around the globe. Understanding the Fair Information Practice Principles and how they should be implemented is critical to comply with the various privacy laws that protect personal information.
+                Os Princípios de Práticas Justas de Informação constituem a espinha dorsal da lei de privacidade nos Estados Unidos e os conceitos que incluem têm desempenhado um papel significativo no desenvolvimento de leis de proteção de dados em todo o mundo. Compreender os Princípios de Práticas Justas de Informação e como devem ser implementados é fundamental para cumprir as várias leis de privacidade que protegem as informações pessoais.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                In order to be in line with Fair Information Practices we will take the following responsive action, should a data breach occur:
+                Para estar em conformidade com as Práticas Justas de Informação, tomaremos as seguintes medidas responsivas, caso ocorra uma violação de dados:
               </h6>
               <ul className="list-disc pl-6 space-y-2 text-base md:text-lg">
-                <li>We will notify the users via email within 1 business day</li>
-                <li>We will notify the users via in-site notification within 1 business day</li>
+                <li>Notificaremos os usuários por e-mail dentro de um dia útil</li>
+                <li>Notificaremos os usuários por meio de uma notificação no site dentro de um dia útil</li>
               </ul>
               <p className="text-base md:text-lg">
-                We also agree to the Individual Redress Principle, which requires that individuals have a right to pursue legally enforceable rights against data collectors and processors who fail to adhere to the law. This principle requires not only that individuals have enforceable rights against data users, but also that individuals have recourse to courts or government agencies to investigate and/or prosecute non-compliance by data processors.
+                Também concordamos com o Princípio de Reparação Individual, que exige que os indivíduos tenham o direito de exercer direitos legalmente exigíveis contra coletores e processadores de dados que não cumpram a lei. Este princípio exige não só que os indivíduos tenham direitos aplicáveis contra os usuários de dados, mas também que os indivíduos tenham recurso a tribunais ou agências governamentais para investigar e/ou processar o não cumprimento por parte dos processadores de dados.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                CAN SPAM Act
+                Lei CAN SPAM
               </h6>
               <p className="text-base md:text-lg">
-                The CAN-SPAM Act is a law that sets the rules for commercial email, establishes requirements for commercial messages, gives recipients the right to have emails stopped from being sent to them, and spells out tough penalties for violations.
+                A Lei CAN-SPAM é uma lei que define as regras para e-mails comerciais, estabelece requisitos para mensagens comerciais, dá aos destinatários o direito de impedir o envio de e-mails e estabelece penalidades severas para violações.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                We collect your email address in order to:
+                Coletamos seu endereço de e-mail para:
               </h6>
               <ul className="list-disc pl-6 space-y-2">
-                <li className="text-base md:text-lg">Send information, respond to inquiries, and/or other requests or questions.</li>
-                <li className="text-base md:text-lg">Process orders and to send information and updates pertaining to orders.</li>
-                <li className="text-base md:text-lg">We may also send you additional information related to your product and/or service.</li>
-                <li className="text-base md:text-lg">Market to our mailing list or continue to send emails to our clients after the original transaction has occurred.</li>
+                <li className="text-base md:text-lg">Enviar informações, responder a perguntas e/ou outras solicitações ou dúvidas.</li>
+                <li className="text-base md:text-lg">Processar pedidos e enviar informações e atualizações relacionadas aos pedidos.</li>
+                <li className="text-base md:text-lg">Também podemos enviar informações adicionais relacionadas ao seu produto e/ou serviço.</li>
+                <li className="text-base md:text-lg">Divulgar nossa lista de e-mails ou continuar a enviar e-mails aos nossos clientes após a transação original ter ocorrido.</li>
               </ul>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                To be in accordance with CANSPAM we agree to the following:
+                Para estar em conformidade com a CANSPAM, concordamos com o seguinte:
               </h6>
               <ul className="list-disc pl-6 space-y-2 text-base md:text-lg">
-                <li>NOT use false or misleading subjects or email addresses.</li>
-                <li>Identify the message as an advertisement in some reasonable way.</li>
-                <li>Include the physical address of our business or site headquarters.</li>
-                <li>Monitor third-party email marketing services for compliance, if one is used.</li>
-                <li>Honor opt-out/unsubscribe requests quickly.</li>
-                <li>Allow users to unsubscribe by using the link at the bottom of each email.</li>
+                <li>NÃO usar assuntos ou endereços de e-mail falsos ou enganosos.</li>
+                <li>Identificar a mensagem como um anúncio de forma razoável.</li>
+                <li>Incluir o endereço físico da nossa empresa ou sede do site.</li>
+                <li>Monitorar a conformidade de serviços de marketing por e-mail de terceiros, se forem utilizados.</li>
+                <li>Atender rapidamente às solicitações de cancelamento/exclusão.</li>
+                <li>Permitir que os usuários cancelem a inscrição usando o link na parte inferior de cada e-mail.</li>
               </ul>
               <p className="text-base md:text-lg">
-                If at any time you would like to unsubscribe from receiving future emails, you can email us or follow the instructions at the bottom of each email and we will promptly remove you from ALL correspondence.
+                Se, a qualquer momento, você desejar cancelar a inscrição para não receber mais e-mails, envie-nos um e-mail ou siga as instruções na parte inferior de cada e-mail e nós o removeremos imediatamente de TODAS as correspondências.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Contacting Us
+                Contato
               </h6>
               <p className="text-base md:text-lg">
-                If there are any questions regarding this privacy policy you may contact us using the information below.
+                Se houver alguma dúvida sobre esta política de privacidade, entre em contato conosco usando as informações abaixo.
               </p>
               <p className="text-base md:text-lg">
-                <a href="http://www.oharchitecture.com.au" className="text-[var(--color-primary)] underline">www.oharchitecture.com.au</a>
+                <a href="http://www.gparquitetura.vercel.app" className="text-[var(--color-primary)] underline">www.gparquitetura.vercel.app</a>
               </p>
               <p className="text-base md:text-lg">
-                101 Days Road, Grange QLD 4051 Australia
-              </p>
-              <p className="text-base md:text-lg">
-                <a href="mailto:info@oharchitecture.com.au" className="text-[var(--color-primary)] underline">info@oharchitecture.com.au</a>
+                <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-primary)] underline">giuliap.arquitetura@gmail.com</a>
               </p>
             </motion.div>
           </div>
@@ -239,9 +236,9 @@ export function PrivacyPolicy() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           >
-            Privacy
+            Política de
             <br />
-            Policy
+            Privacidade
           </motion.h1>
         </div>
 

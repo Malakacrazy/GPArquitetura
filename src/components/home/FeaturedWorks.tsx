@@ -111,7 +111,7 @@ export function FeaturedWorks() {
         <div className="pointer-events-auto w-full">
           <Reveal>
             <div className="flex justify-between items-center w-full">
-              <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">Featured Works</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">Projetos em Destaque</span>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -125,7 +125,7 @@ export function FeaturedWorks() {
                   onMouseLeave={() => setIsButtonHovered(false)}
                 >
                   <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                  <h6 className="relative z-10 block px-6 py-3 transition-colors duration-300 text-white group-hover:text-[var(--color-background)] uppercase text-[12px]">See All Projects</h6>
+                  <h6 className="relative z-10 block px-6 py-3 transition-colors duration-300 text-white group-hover:text-[var(--color-background)] uppercase text-[12px]">Todos os Projetos</h6>
                   <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-white transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
                   <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-white transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
                   <span className="absolute bottom-[-8px] top-[-8px] left-0 w-[1px] bg-white transition-all duration-300 group-hover:bottom-0 group-hover:top-0 group-hover:bg-[var(--color-primary)]"></span>
@@ -147,7 +147,7 @@ export function FeaturedWorks() {
             opacity: isHovered ? 1 : 0
           }}
         >
-          <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">VIEW</span>
+          <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">ABRIR</span>
         </div>
       )}
 

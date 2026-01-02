@@ -55,7 +55,8 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
       
       <motion.div variants={itemVariants} className="contact-two-hero-paragraph max-w-xl mx-auto mb-8">
         <p className="text-center text-[var(--color-white)]/60 text-base md:text-lg leading-relaxed font-light">
-          Lorem ipsum dolor sit amet consectetur. Est cras viverra pharetra tellus pulvinar amet aliquam. Vestibulum hac tincidunt.
+          Seu espaço pode refletir quem você é e como você se sente. <br />
+          Vamos conversar e transformar essa intenção em arquitetura.
         </p>
       </motion.div>
       

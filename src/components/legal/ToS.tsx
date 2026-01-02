@@ -19,81 +19,78 @@ export function ToS() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
               <p className="text-base md:text-lg">
-                Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the https://oharchitecture.com.au/ website (the "Service") operated by OH Architecture ("us", "we", or "our").
+                Leia atentamente estes Termos de Serviço (“Termos”, “Termos de Serviço”) antes de utilizar o site https://www.gparquitetura.vercel.app (o “Serviço”) operado pela Giulia Parente Arquitetura (“nós”, “nos” ou “nosso”).
               </p>
               <p className="text-base md:text-lg">
-                Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+                O seu acesso e utilização do Serviço estão condicionados à sua aceitação e conformidade com estes Termos. Estes Termos se aplicam a todos os visitantes, usuários e outras pessoas que acessam ou utilizam o Serviço.
               </p>
               <p className="text-base md:text-lg">
-                By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
-              </p>
-
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Links To Other Web Sites
-              </h6>
-              <p className="text-base md:text-lg">
-                Our Service may contain links to third-party web sites or services that are not owned or controlled by OH Architecture.
-              </p>
-              <p className="text-base md:text-lg">
-                OH Architecture has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that OH Architecture shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.
-              </p>
-              <p className="text-base md:text-lg">
-                We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
+                Ao acessar ou utilizar o Serviço, você concorda em se comprometer com estes Termos. Caso discorde de qualquer parte dos termos, você não poderá acessar o Serviço.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Governing Law
+                Links para outros sites
               </h6>
               <p className="text-base md:text-lg">
-                These Terms shall be governed and construed in accordance with the laws of Queensland, Australia, without regard to its conflict of law provisions.
+                Nosso Serviço pode conter links para sites ou serviços de terceiros que não são de propriedade ou controlados pela Giuia Parente Arquitetura.
               </p>
               <p className="text-base md:text-lg">
-                Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
+                A Giuia Parente Arquitetura não tem controle e não assume responsabilidade pelo conteúdo, políticas de privacidade ou práticas de quaisquer sites ou serviços de terceiros. Você também reconhece e concorda que a Giuia Parente Arquitetura não será responsável, direta ou indiretamente, por qualquer dano ou perda causada ou alegadamente causada por ou em conexão com o uso ou confiança em qualquer conteúdo, bens ou serviços disponíveis em ou através de tais sites ou serviços.
+              </p>
+              <p className="text-base md:text-lg">
+                Recomendamos enfaticamente que você leia os termos e condições e as políticas de privacidade de quaisquer sites ou serviços de terceiros que visitar.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Changes
+                Lei aplicável
               </h6>
               <p className="text-base md:text-lg">
-                We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+                Estes Termos serão regidos e interpretados de acordo com as leis de São Paulo, Brasil, sem levar em consideração suas disposições sobre conflitos de leis.
               </p>
               <p className="text-base md:text-lg">
-                By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.
+                Nossa falha em fazer valer qualquer direito ou disposição destes Termos não será considerada uma renúncia a esses direitos. Se qualquer disposição destes Termos for considerada inválida ou inexequível por um tribunal, as demais disposições destes Termos permanecerão em vigor. Estes Termos constituem o acordo completo entre nós em relação ao nosso Serviço e substituem e revogam quaisquer acordos anteriores que possamos ter entre nós em relação ao Serviço.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Intellectual Property
+                Alterações
               </h6>
               <p className="text-base md:text-lg">
-                The Websites contain material, such as videos, photographs, text, graphics, images and other material provided by or on behalf of OH Architecture Pty. Ltd. (collectively referred to as the "Content"). The Content may be owned by us or third parties. The Content is protected under both Australian and foreign laws. Unauthorized use of the Content may violate copyright, trademark, and other laws.
+                Reservamo-nos o direito, a nosso exclusivo critério, de modificar ou substituir estes Termos a qualquer momento. Se uma revisão for significativa, tentaremos fornecer um aviso prévio de pelo menos 30 dias antes de quaisquer novos termos entrarem em vigor. O que constitui uma alteração significativa será determinado a nosso exclusivo critério.
               </p>
               <p className="text-base md:text-lg">
-                Visitors may view all publicly available Content for their own personal, non-commercial use. Visitors have no other rights in or to the Content and you will not use the Content except as permitted under this Agreement. No other use is permitted without the prior written consent of OH Architecture Pty. Ltd. OH Architecture Pty. Ltd. retains all right, title, and interest, including all intellectual property rights, in and to the Content. You must retain all copyright and other proprietary notices contained in the original Content. You may not sell, transfer, assign, license, sublicense, or modify the Content or reproduce, display, publicly perform, make a derivative version of, distribute, or otherwise use the Content in any way for any public or commercial purpose. The use or posting of the Content on any other website, social media page, or in a networked computer environment for any purpose is expressly prohibited.
-              </p>
-              <p className="text-base md:text-lg">
-                If you violate any part of this Agreement, your permission to access and/or use the Content and the Websites automatically terminates and you must immediately destroy any copies you have made of the Content.
-              </p>
-              <p className="text-base md:text-lg">
-                The trademarks, service marks, and logos of OH Architecture Pty. Ltd. used and displayed on the Websites are registered and unregistered trademarks or service marks of OH Architecture Pty. Ltd. Other company, product, and service names located on the Websites may be trademarks or service marks owned by others (the "Third-Party Trademarks", and, collectively with OH Architecture Pty. Ltd. Trademarks, the "Trademarks"). Nothing on the Websites should be construed as granting, by implication, estoppel, or otherwise, any license or right to use the Trademarks, without our prior written permission specific for each such use. Use of the Trademarks as part of a link to or from any site is prohibited unless establishment of such a link is approved in advance by us in writing. All goodwill generated from the use of OH Architecture Pty. Ltd. Trademarks inures to our benefit.
-              </p>
-              <p className="text-base md:text-lg">
-                Elements of the Websites are protected by trade dress, trademark, unfair competition, and other state and federal laws and may not be copied or imitated in whole or in part, by any means, including, but not limited to, the use of framing or mirrors. None of the Content may be retransmitted without our express, written consent for each and every instance.
+                Ao continuar a acessar ou usar nosso Serviço após essas revisões entrarem em vigor, você concorda em se comprometer com os termos revisados. Se você não concordar com os novos termos, interrompa o uso do Serviço.
               </p>
 
               <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Contacting Us
+                Propriedade intelectual
               </h6>
               <p className="text-base md:text-lg">
-                If there are any questions regarding this privacy policy you may contact us using the information below.
+                Os sites contêm materiais, como vídeos, fotografias, textos, gráficos, imagens e outros materiais fornecidos pela 53.554.180 Giuia Pessanha Parente ou em seu nome (coletivamente referidos como o “Conteúdo”). O Conteúdo pode ser de nossa propriedade ou de terceiros. O Conteúdo é protegido pelas leis australianas e estrangeiras. O uso não autorizado do Conteúdo pode violar leis de direitos autorais, marcas registradas e outras leis.
               </p>
               <p className="text-base md:text-lg">
-                <a href="http://www.oharchitecture.com.au" className="text-[var(--color-primary)] underline">www.oharchitecture.com.au</a>
+                Os visitantes podem visualizar todo o Conteúdo disponível publicamente para seu uso pessoal e não comercial. Os visitantes não têm outros direitos sobre o Conteúdo e você não utilizará o Conteúdo, exceto conforme permitido por este Contrato. Nenhum outro uso é permitido sem o consentimento prévio por escrito da 53.554.180 Giuia Pessanha Parente. A 53.554.180 Giuia Pessanha Parente detém todos os direitos, títulos e interesses, incluindo todos os direitos de propriedade intelectual, sobre o Conteúdo. Você deve manter todos os avisos de direitos autorais e outros avisos de propriedade contidos no Conteúdo original. Você não pode vender, transferir, ceder, licenciar, sublicenciar ou modificar o Conteúdo, nem reproduzir, exibir, executar publicamente, criar uma versão derivada, distribuir ou usar o Conteúdo de qualquer outra forma para qualquer finalidade pública ou comercial. O uso ou a publicação do Conteúdo em qualquer outro site, página de mídia social ou em um ambiente de computador em rede para qualquer finalidade é expressamente proibido.
               </p>
               <p className="text-base md:text-lg">
-                101 Days Road, Grange QLD 4051 Australia
+                Se você violar qualquer parte deste Contrato, sua permissão para acessar e/ou utilizar o Conteúdo e os Sites será automaticamente rescindida e você deverá destruir imediatamente todas as cópias que tiver feito do Conteúdo.
               </p>
               <p className="text-base md:text-lg">
-                <a href="mailto:info@oharchitecture.com.au" className="text-[var(--color-primary)] underline">info@oharchitecture.com.au</a>
+                As marcas registradas, marcas de serviço e logotipos da 53.554.180 Giuia Pessanha Parente usados e exibidos nos sites são marcas registradas e não registradas ou marcas de serviço da 53.554.180 Giuia Pessanha Parente Outros nomes de empresas, produtos e serviços localizados nos sites podem ser marcas registradas ou marcas de serviço de propriedade de terceiros (as “Marcas Registradas de Terceiros” e, coletivamente com as Marcas Registradas da 53.554.180 Giuia Pessanha Parente, as “Marcas Registradas”). Nada nos sites deve ser interpretado como concessão, por implicação, preclusão ou de outra forma, de qualquer licença ou direito de uso das Marcas Registradas, sem nossa permissão prévia por escrito específica para cada uso. O uso das Marcas Registradas como parte de um link para ou de qualquer site é proibido, a menos que o estabelecimento de tal link seja aprovado previamente por nós por escrito. Toda a boa vontade gerada pelo uso das Marcas Registradas da 53.554.180 Giuia Pessanha Parente reverte em nosso benefício.
+              </p>
+              <p className="text-base md:text-lg">
+                Os elementos dos sites são protegidos por leis de imagem comercial, marcas registradas, concorrência desleal e outras leis estaduais e federais e não podem ser copiados ou imitados, no todo ou em parte, por qualquer meio, incluindo, mas não se limitando ao uso de framing ou mirrors. Nenhum conteúdo pode ser retransmitido sem o nosso consentimento expresso por escrito para cada caso específico.
+              </p>
+
+              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
+                Contato
+              </h6>
+              <p className="text-base md:text-lg">
+                Se houver alguma dúvida sobre esta política de privacidade, entre em contato conosco usando as informações abaixo.
+              </p>
+              <p className="text-base md:text-lg">
+                <a href="http://www.gparquitetura.vercel.app" className="text-[var(--color-primary)] underline">www.gparquitetura.vercel.app</a>
+              </p>
+              <p className="text-base md:text-lg">
+                <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-primary)] underline">giuliap.arquitetura@gmail.com</a>
               </p>
             </motion.div>
           </div>
@@ -106,9 +103,9 @@ export function ToS() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           >
-            Terms of
+            Termos
             <br />
-            Service
+            de Uso
           </motion.h1>
         </div>
 

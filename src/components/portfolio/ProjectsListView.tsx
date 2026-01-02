@@ -39,9 +39,9 @@ export function ProjectsListView({ projects }: ProjectsListViewProps) {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="grid grid-cols-12 gap-x-6">
-          <p className="col-span-8">Project</p>
-          <p className="col-span-2">Year</p>
-          <p className="col-span-2">Location</p>
+          <p className="col-span-8">Projeto</p>
+          <p className="col-span-2">Ano</p>
+          <p className="col-span-2">Local</p>
         </div>
       </motion.div>
 

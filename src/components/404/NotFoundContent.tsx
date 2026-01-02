@@ -17,7 +17,7 @@ export function NotFoundContent() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
             <p className="max-w-md lg:max-w-lg xl:max-w-xl text-2xl leading-relaxed text-[var(--color-text-muted)]">
-              The page you&apos;re looking does not exist or has been removed. Let&apos;s take you back in the right direction.
+              A página que você está procurando não existe ou foi removida. Vamos levá-lo de volta na direção certa.
             </p>
 
             <a
@@ -29,7 +29,7 @@ export function NotFoundContent() {
               
               {/* Button text */}
               <span className="relative z-10 block px-5 py-3 md:px-6 md:py-3.5 lg:px-7 lg:py-4 xl:px-8 xl:py-4 text-xs uppercase tracking-wider text-[var(--color-text-dark)] group-hover:text-[var(--color-background)] transition-colors duration-300 font-medium">
-                GO BACK TO HOME
+                VOLTAR PARA HOME
               </span>
               
               {/* Borders with crop mark effect */}

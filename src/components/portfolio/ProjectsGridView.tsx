@@ -154,7 +154,7 @@ export function ProjectsGridView({ projects }: ProjectsGridViewProps) {
             opacity: isHovered ? 1 : 0
           }}
         >
-          <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">VIEW</span>
+          <span className="text-xs font-bold tracking-[0.2em] text-white uppercase">ABRIR</span>
         </div>
       )}
     </div>

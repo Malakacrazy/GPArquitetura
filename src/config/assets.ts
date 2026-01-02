@@ -154,42 +154,42 @@ export const images = {
       {
         id: 1,
         title: 'Emotional Design: Why We Love (or Hate) Everyday Things',
-        description: 'A philosophical exploration of how architecture influences our well-being and emotions, examining the deep connection between built environments and human psychology.',
+        description: 'Don Norman mostra que não nos conectamos com objetos só pela função, mas pelas emoções que eles despertam — e é isso que define se amamos ou odiamos o design do dia a dia.',
         image: `${ASSET_BASE}/images/books/emotional-design.webp`,
         link: '/about/library#book-1',
       },
       {
         id: 2,
-        title: 'Joyful: The Surprising Power of Ordinary Things to Create Extraordinary Happiness',
-        description: "Peter Zumthor's reflections on the sensory and emotional power of architecture, emphasizing materiality, atmosphere, and the poetics of space.",
+        title: 'As Formas da Alegria: O Surpreendente Poder dos Objetos',
+        description: "Revela como objetos, cores e formas aparentemente simples têm o poder de gerar felicidade, bem-estar e conexão emocional no nosso cotidiano.",
         image: `${ASSET_BASE}/images/books/joyful.webp`,
         link: '/about/library#book-2',
       },
       {
         id: 3,
         title: 'Neuroarquitetura: Projetando ambientes para os desafios contemporâneos',
-        description: 'An innovative look at modern architectural theory, challenging conventional design wisdom and exploring the psychological underpinnings of spatial design.',
+        description: 'Mostra como ambientes bem projetados influenciam o cérebro, o comportamento e as emoções, ajudando a responder aos desafios humanos e sociais do mundo contemporâneo.',
         image: `${ASSET_BASE}/images/books/neuroarquitetura.webp`,
         link: '/about/library#book-4',
       },
       {
         id: 4,
         title: 'Neuroarquitetura: a neurociência no ambiente construído',
-        description: "Jane Jacobs' groundbreaking work on urban planning, advocating for vibrant, diverse neighborhoods and critiquing modernist urban renewal.",
+        description: "Explica como princípios da neurociência aplicados ao espaço físico impactam emoções, cognição e bem-estar, tornando a arquitetura uma ferramenta ativa de qualidade de vida.",
         image: `${ASSET_BASE}/images/books/neuroarquitetura-neurociencia.webp`,
         link: '/about/library#book-3',
       },
       {
         id: 5,
         title: 'Manual do Arquiteto Descalço',
-        description: "Jun'ichirō Tanizaki's meditation on Japanese aesthetics, exploring the beauty of darkness, subtlety, and restraint in architecture and design.",
+        description: "Defende uma arquitetura essencial e sensível, que nasce da observação do lugar, do corpo e da experiência humana antes da forma ou da tecnologia.",
         image: `${ASSET_BASE}/images/books/descalco.webp`,
         link: '/about/library#book-6',
       },
       {
         id: 6,
-        title: 'The Eyes of the Skin: Architecture and the Senses',
-        description: 'Exploring minimalist principles in architecture, this book demonstrates how simplicity and restraint create powerful, timeless spaces.',
+        title: 'Os Olhos da Pele: A Arquitetura e os Sentidos',
+        description: 'Revela que a arquitetura é vivida com todo o corpo — e que espaços memoráveis são aqueles que despertam os sentidos, não apenas a visão.',
         image: `${ASSET_BASE}/images/books/eyes-of-the-skin.webp`,
         link: '/about/library#book-5',
       },
@@ -215,7 +215,7 @@ export const images = {
       },
       {
         id: '2',
-        title: 'Joyful: The Surprising Power of Ordinary Things to Create Extraordinary Happiness',
+        title: 'As Formas da Alegria: O Surpreendente Poder dos Objetos',
         description: 'Ingrid Fetell Lee mostra como pequenos elementos cotidianos podem gerar felicidade. Como diz a sinopse, o livro explora formas pelas quais nosso entorno – objetos comuns, cores, formas e até lugares banais – tem o poder de despertar alegria. Lee defende que incluir intencionalmente cores vivas, luz natural e texturas lúdicas em um ambiente pode elevar o humor das pessoas. Essa ideia impacta meu trabalho porque reforça que a arquitetura deve incorporar elementos surpresa e prazer nos espaços diários. Projetar para a alegria significa criar ambientes que iluminam o dia a dia das pessoas, aproximando as metas de neuroarquitetura (ambientes saudáveis) com resultados emocionais positivos na vida cotidiana.',
         images: [
           `${ASSET_BASE}/images/books/joyful/slide1.webp`,
@@ -248,7 +248,7 @@ export const images = {
       },
       {
         id: '5',
-        title: 'The Eyes of the Skin: Architecture and the Senses',
+        title: 'Os Olhos da Pele: A Arquitetura e os Sentidos',
         description: 'Juhani Pallasmaa defende que devemos projetar arquitetura para todo o corpo, não apenas para os olhos. Ele explica que todos os sentidos, incluindo a visão, são extensões do tato – o nosso corpo é a interface essencial com o espaço. Pallasmaa resume bem: "Eu me experimento na cidade; a cidade existe por meio de minha experiência corporal. A cidade e meu corpo se complementam e se definem. Eu moro na cidade, e a cidade mora em mim". Para mim, este livro reforça que cada material, luz e textura em um edifício toca emoções e memória: um espaço acolhedor envolve nossa pele, ouvidos e olfato tanto quanto nossos olhos. Isso alinha-se diretamente à minha visão em neuroarquitetura, pois mostra que ambientes multisensoriais criam experiências mais ricas e impactantes para as pessoas.',
         images: [
           `${ASSET_BASE}/images/books/eyes-of-the-skin/slide1.webp`,

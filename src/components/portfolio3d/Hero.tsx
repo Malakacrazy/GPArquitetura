@@ -78,7 +78,7 @@ export function Hero() {
                      The Giulia Parente style is defined by strong, solid forms with subtle elegance, natural balance and enduring appeal
                   </h6>
                   <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
-                     (Scroll Down)
+                     (Rolar para Baixo)
                   </h6>
                </div>
             </Reveal>

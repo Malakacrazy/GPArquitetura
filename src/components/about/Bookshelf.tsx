@@ -59,14 +59,14 @@ export function Bookshelf() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] font-bold uppercase">Library</span>
+            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] font-bold uppercase">Inspirações</span>
             <a
               href="/about/library"
               className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-[var(--color-text-dark)] no-underline"
             >
               <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
               <span className="relative z-10 block px-6 py-3 transition-colors duration-300 text-[var(--color-text-dark)] group-hover:text-[var(--color-background)] uppercase text-xs flex items-center gap-2">
-                <h6 >SEE ALL BOOKS</h6>
+                <h6 >TODOS OS LIVROS</h6>
               </span>
               <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
               <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
@@ -161,7 +161,7 @@ export function Bookshelf() {
                         className="mt-4 flex items-center gap-2 transition-all duration-300 group/btn"
                         style={{ color: 'white' }}
                       >
-                        <span className="text-sm uppercase font-bold underline">READ MORE</span>
+                        <span className="text-sm uppercase font-bold underline">VEJA MAIS</span>
                         <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                       </button>
                     </div>

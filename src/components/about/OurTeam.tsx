@@ -43,7 +43,7 @@ export function OurTeam() {
           <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Our Team Label - Shows first on mobile */}
             <div className="block md:hidden order-1 text-xs tracking-[0.3em]" style={{ color: 'var(--color-primary)' }}>
-              OUR TEAM
+              NOSSO TIME
             </div>
 
             {/* Portrait Image */}
@@ -79,10 +79,10 @@ export function OurTeam() {
                 <div className="p-4 md:p-6 lg:p-8 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-base md:text-lg" style={{ backgroundColor: 'var(--color-primary)', opacity: 0.95 }}>
                   <div className="transform opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     <p className="mb-4" style={{ color: 'white' }}>
-                      I took the &apos;choose your own adventure path&apos; at Arup, as I started out as a facade engineer, and then became a resilience leader.
+                      A inquietação diante da falta de pessoalidade nos projetos e da repetição de elementos na arquitetura brasileira despertou em mim o desejo de aprofundar meus estudos e resgatar a criatividade como ferramenta de escuta, colocando o cliente — sua história, emoções e vivências — no centro de todo o processo criativo.
                     </p>
                     <div className="flex items-center gap-0.5" style={{ color: 'white' }}>
-                      <span className="underline">View more</span>
+                      <span className="underline">Saiba mais</span>
                       <img
                         src={icons.arrow}
                         alt="arrow"
@@ -107,7 +107,7 @@ export function OurTeam() {
             >
               {/* Our Team - Top Right on desktop only */}
               <div className="hidden md:block absolute top-0 right-0 text-xs tracking-[0.3em]" style={{ color: 'var(--color-primary)' }}>
-                OUR TEAM
+                NOSSO TIME
               </div>
               
               {/* Decorative Line */}
@@ -116,13 +116,13 @@ export function OurTeam() {
               {/* Quote */}
               <blockquote className="mb-8 md:mb-12 lg:mb-16" style={{ color: 'var(--color-text-dark)' }}>
                 <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-relaxed">
-                  "Mentoring women at SOM has been a personal highlight. We have a major responsibility as architects, engineers, and designers to build a more equitable industry."
+                  "Quando o ambiente faz você se sentir estável, equilibrado e seguro, é mais provável que se sinta confiante para assumir riscos conscientes e explorar novas possibilidades."
                 </p>
               </blockquote>
               
               {/* Name and Title */}
               <div>
-                <div className="text-base md:text-lg lg:text-xl" style={{ color: 'var(--color-text-dark)' }}>Giulia Parente, <h6 className="inline" style={{ color: 'var(--color-primary)' }}>Associate Principal</h6></div>
+                <div className="text-base md:text-lg lg:text-xl" style={{ color: 'var(--color-text-dark)' }}>Giulia Parente, <h6 className="inline" style={{ color: 'var(--color-primary)' }}>Founder</h6></div>
               </div>
             </motion.div>
           </div>
@@ -207,21 +207,18 @@ export function OurTeam() {
                   Giulia Parente
                 </h2>
                 <h6 className="mb-4 text-lg md:text-xl" style={{ color: 'var(--color-primary)' }}>
-                  Associate Principal
+                  Founder
                 </h6>
 
                 <div className="space-y-4 md:space-y-6 text-justify text-base md:text-lg" style={{ color: 'var(--color-text-muted)' }}>
                   <p>
-                    Giulia is an Associate Principal at our firm, where she leads complex architectural projects with a focus on sustainable design and urban development. With over 15 years of experience, she has become a recognized leader in mentoring the next generation of architects.
+                    Arquiteta e urbanista formada pela Universidade Paulista (UNIP) e pós-graduada em Design Emocional pelo Centro Universitário Belas Artes, Giulia Parente está à frente do Studio Giulia Parente desde 2022, com atuação na Região Metropolitana de São Paulo.
                   </p>
                   <p>
-                    She studied architecture at the Politecnico di Milano and later obtained her Master&apos;s Degree in Urban Design from Columbia University in New York. Her multicultural background and international experience have shaped her unique approach to architectural design.
+                    Com foco em arquitetura de interiores residencial e comercial, seu trabalho é pautado pelos princípios da neuroarquitetura e da psicoarquitetura, explorando a relação entre espaço, emoções e bem-estar. Cada projeto é desenvolvido de forma sensível e personalizada, considerando não apenas a estética, mas principalmente a saúde emocional do cliente e a maneira como ele vivencia os ambientes.
                   </p>
                   <p>
-                    Throughout her career, Giulia has championed initiatives to increase diversity and equity in the architecture profession. She believes that creating inclusive environments in the workplace leads to better design outcomes and more innovative solutions for communities.
-                  </p>
-                  <p>
-                    Throughout her career, Giulia has championed initiatives to increase diversity and equity in the architecture profession. She believes that creating inclusive environments in the workplace leads to better design outcomes and more innovative solutions for communities.
+                    Acreditando que os espaços influenciam diretamente o comportamento, as sensações e a qualidade de vida, Giulia busca criar interiores que acolhem, conectam e traduzem a essência de quem os habita, unindo funcionalidade, identidade e significado.
                   </p>
                 </div>
               </div>

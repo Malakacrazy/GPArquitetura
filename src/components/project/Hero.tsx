@@ -43,7 +43,7 @@ export function Hero({ title, heroImage }: ProjectHeroProps) {
                   {title}
                 </h2>
                 <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
-                  (Scroll Down)
+                  (Rolar para Baixo)
                 </h6>
               </div>
             </Reveal>

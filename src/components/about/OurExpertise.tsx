@@ -11,21 +11,21 @@ interface Statistic {
 
 const statistics: Statistic[] = [
   {
-    number: "150+",
-    label: "Projects Completed",
-    description: "Successfully delivered residential, commercial, and public spaces",
+    number: "130+",
+    label: "Projetos Concluídos",
+    description: "Entrega bem-sucedida de espaços residenciais, comerciais e públicos",
     icon: Building2
   },
   {
-    number: "25+",
-    label: "Awards Won",
-    description: "Recognition for design excellence and sustainability",
+    number: "2+",
+    label: "Participações em Competições",
+    description: "Reconhecimento pela excelência em design e sustentabilidade",
     icon: Award
   },
   {
     number: "98%",
-    label: "Client Satisfaction",
-    description: "Consistently exceeding expectations and building lasting relationships",
+    label: "Satisfação dos Clientes",
+    description: "Consistentemente Superando expectativas e construindo relacionamentos duradouros",
     icon: Star
   }
 ];
@@ -41,9 +41,9 @@ export function OurExpertise() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Our Expertise</span>
+            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Nossas Conquistas</span>
             <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-white">
-              Delivering excellence through measurable results
+              Criamos ambientes que não apenas funcionam, mas que fazem sentido para quem vive neles
             </h6>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
@@ -88,7 +88,7 @@ export function OurExpertise() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           >
             <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[var(--color-accent)]" style={{ lineHeight: '1.2' }}>
-              124,673,491 m² of urban projects
+              7,910 m² projetados com foco em bem-estar e funcionalidade
             </div>
           </motion.div>
       </div>

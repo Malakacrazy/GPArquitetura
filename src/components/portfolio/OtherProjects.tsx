@@ -42,7 +42,7 @@ export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
           transition={{ duration: 0.6 }}
           className="text-xs text-[var(--color-primary)] font-medium tracking-[0.2em] uppercase"
         >
-          Other Projects
+          Outros Projetos
         </motion.span>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -56,7 +56,7 @@ export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
           >
             <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
             <h6 className="relative z-10 block px-6 py-3 transition-colors duration-300 group-hover:text-[var(--color-background)] uppercase text-xs">
-              See All Projects
+              Todos os Projetos
             </h6>
             <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
             <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>

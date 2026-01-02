@@ -49,7 +49,7 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
       >
       <motion.div variants={itemVariants} className="contact-two-hero-heading mb-2">
         <h1 className="text-[15vw] md:text-[18vw] lg:text-[20vw] leading-none font-normal tracking-wide text-[var(--color-accent)]">
-          CONTACT
+          CONTATO
         </h1>
       </motion.div>
       

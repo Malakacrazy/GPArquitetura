@@ -7,9 +7,9 @@ export function ProcessSection() {
           {/* Header */}
           <div className="mb-8 md:mb-12 lg:mb-16 max-w-4xl">
             <Reveal>
-              <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Process of Work</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Processos</span>
               <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1]">
-                We provide brilliant ideas and architectural designs for your project.
+                Entregamos projetos arquitetônicos emocionais e criativos para o seu projeto.
               </h6>
             </Reveal>
           </div>
@@ -22,9 +22,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(01)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Sketch Design</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Briefing Emocional</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  We kick off with a site visit and creative consultation to define your vision, style, and functional needs. We'll also uncover new opportunities and potential limitations. Based on this, we craft a series of hand-drawn design sketches to provide an initial visual concept that reflects your brief. Through collaboration and refinement, we shape the concept to align with your goals, timeline, and budget.
+                  Primeiro contato com o cliente. Através da escuta profunda coletamos o máximo de informações para entender as dores, os desejos e a personalidade. Com isso, conseguimos mapear sua rotina, suas necessidades emocionais e seu estilo de vida.
                 </p>
               </div>
             </Reveal>
@@ -35,9 +35,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(02)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Design Development</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Levantamento <span className= "italic">in loco</span></span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Here we take the initial sketches and fill in all the glorious details, including building material selections, inside-to-outside interfaces, floor plans, layouts, indicative joinery design and spatial flow. Our team will craft detailed digital 2D drawings and a 3D model that bring the look, feel and layout of your home to life.
+                  Visita ao imóvel que receberá a transformação, levantando seus potenciais e pontos de atenção. Com o levantamento conseguimos compreender visualmente o que o espaço pode receber e como se adequará as necessidades levantadas durante o Briefing.
                 </p>
               </div>
             </Reveal>
@@ -48,9 +48,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(03)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Development Application</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Estudo Preliminar</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Not all projects will require a development application with Council. If yours does, we will coordinate the entire process, including sourcing input from Town Planners, gathering documentation and information from consultants, preparing and submitting the application, and managing information requests and follow-ups with Council.
+                  Nesta etapa damos início ao processo criativo do projeto, focando no visual e os serviços que deverão ser realizados. Aqui escolhemos os tipos de materiais, layout e iluminação básica.
                 </p>
               </div>
             </Reveal>
@@ -61,9 +61,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(04)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Interior Design</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Anteprojeto</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Here we craft an interior design concept that creates flow, contrast and balance with the architectural design and overall vision of your home. Our interior design team will develop a 3D model of your home and include all the details from joinery, cabinetry and storage to hard finishes, fixtures and fittings.
+                  Seguimos para a etapa mais técnica onde focamos na especificação de materiais, detalhamento de ambientes e escopo de projeto.
                 </p>
               </div>
             </Reveal>
@@ -74,9 +74,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(05)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Building approval plans + documentation</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Pré-executivo</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  All architectural projects require Building Approval from a private certifier before construction can begin. Our team will advise, guide, coordinate and manage all your building approval plans and applications, including coordinating consultants, creating documentation packages, managing information requests and following up on the progress of requisite approvals.
+                  Últimas revisões do projeto, onde todos os materiais estão especificados e separados em um lista detalhada de acabamentos, móveis soltos, marcenaria, equipamentos e marmoraria.
                 </p>
               </div>
             </Reveal>
@@ -87,9 +87,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(06)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Construction plans + documentation</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Executivo & Obras</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  With all the design details finalised and building approvals squared away, we turn our attention to creating construction plans, drawings and documents that will guide your builders and tradespeople in bringing the intended designs to life. We'll collaborate and coordinate with the entire team to ensure every element is fully resolved and communicated in detail.
+                  Versão final do projeto contemplando todos os desenhos técnicos, imagens, vistas detalhadas para que os profissionais contratados para os serviços possam seguir durante a obra.
                 </p>
               </div>
             </Reveal>

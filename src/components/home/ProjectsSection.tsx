@@ -82,7 +82,7 @@ export function ProjectsSection() {
                   WebkitTextStroke: hoveredSide === 'right' ? '1px white' : '0px',
                 }}
               >
-                Interior
+                Interiores
               </h6>
             </motion.div>
 
@@ -93,7 +93,7 @@ export function ProjectsSection() {
             >
               <div className="border-t border-white/30 pt-6 md:pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <p className="text-white/90 text-base md:text-lg lg:text-xl max-w-md font-light leading-relaxed">
-                  Transform your vision into reality with our innovative designs, creating modern spaces that blend functionality, aesthetics, and sustainability.
+                  Espaços que convidam ao relaxamento, à segurança e à plenitude, como um abraço aconchegante.
                 </p>
               </div>
             </motion.div>
@@ -125,7 +125,7 @@ export function ProjectsSection() {
                   WebkitTextStroke: hoveredSide === 'left' ? '1px white' : '0px',
                 }}
               >
-                Architecture
+                Arquitetura
               </h6>
             </motion.div>
 
@@ -136,7 +136,7 @@ export function ProjectsSection() {
             >
               <div className="border-t border-white/30 pt-6 md:pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <p className="text-white/90 text-base md:text-lg lg:text-xl max-w-md font-light leading-relaxed text-right ml-auto">
-                  Transform your vision into reality with our innovative designs, creating modern spaces that blend functionality, aesthetics, and sustainability.
+                  Projetos que transcendem a estética, focando na conexão emocional e na experiência tátil.
                 </p>
               </div>
             </motion.div>

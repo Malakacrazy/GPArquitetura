@@ -9,7 +9,7 @@ export const ContactFooter = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-8 gap-x-4">
               {/* Left Column */}
               <div className="flex flex-col space-y-1.5">
-                <div>© 2025 Copyright Giulia Parente</div>
+                <div>© 2025 Copyright Giulia Parente Arquitetura</div>
                 <div>
                   {(() => {
                      const date = new Date();
@@ -21,20 +21,20 @@ export const ContactFooter = () => {
                      // Open Mon-Fri (not Sat/Sun), 9am-6pm
                      const isWorkday = day !== 'Sat' && day !== 'Sun';
                      const isOpen = isWorkday && spHour >= 9 && spHour < 18;
-                     return `${timeStr} São Paulo, We are ${isOpen ? 'Open' : 'Closed'}`;
+                     return `${timeStr} São Paulo, Nós estamos ${isOpen ? 'Abertos' : 'Fechados'}`;
                   })()}
                 </div>
               </div>
 
               {/* Center Column */}
               <div className="flex flex-col space-y-1.5 md:items-center">
-                <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="/tos" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy" className="hover:text-white transition-colors">Política de Privacidade</a>
+                <a href="/tos" className="hover:text-white transition-colors">Termos de Uso</a>
               </div>
 
               {/* Right Column */}
               <div className="flex flex-col space-y-1.5 md:items-end">
-                Site by <a href="https://mount-scrub-76614919.figma.site" className="underline decoration-1 underline-offset-4 hover:text-[var(--color-white)] transition-colors">XX</a>
+                Site by <a href="https://github.com/Malakacrazy" className="underline decoration-1 underline-offset-4 hover:text-[var(--color-white)] transition-colors">Malakacrazy</a>
               </div>
             </div>
           </Reveal>

@@ -22,7 +22,7 @@ export function Footer() {
           {/* Header Section */}
           <div className="flex justify-between items-start">
             <Reveal>
-              <span className="text-xs font-medium tracking-[0.2em] text-white mb-4 md:mb-6 uppercase">Contact Us</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-white mb-4 md:mb-6 uppercase">Entre em Contato</span>
             </Reveal>
           </div>
 
@@ -30,7 +30,7 @@ export function Footer() {
           <Reveal delay={0.2} className="flex flex-col justify-end flex-1 space-y-6 md:space-y-8 mt-12 md:mt-16 lg:mt-20 pb-8 md:pb-12">
             {/* Phone Number & Email */}
             <div className="text-white/90 text-base md:text-lg font-light space-y-1">
-              <a href="mailto:hello@archinstudio.co" className="block hover:underline">hello@archinstudio.co</a>
+              <a href="mailto:giuliap.arquitetura@gmail.com" className="block hover:underline">giuliap.arquitetura@gmail.com</a>
               <a href="https://api.whatsapp.com/send?phone=5511947739339" target="_blank" className="block hover:underline">(11) 94773-9339</a>
             </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-8 gap-x-4">
               {/* Left Column */}
               <div className="flex flex-col space-y-1.5">
-                <div>© 2025 Copyright Giulia Parente</div>
+                <div>© 2025 Copyright Giulia Parente Arquitetura</div>
                 <div>
                   {(() => {
                      const date = new Date();
@@ -59,20 +59,20 @@ export function Footer() {
                      // Open Mon-Fri (not Sat/Sun), 9am-6pm
                      const isWorkday = day !== 'Sat' && day !== 'Sun';
                      const isOpen = isWorkday && spHour >= 9 && spHour < 18;
-                     return `${timeStr} São Paulo, We are ${isOpen ? 'Open' : 'Closed'}`;
+                     return `${timeStr} São Paulo, Nós estamos ${isOpen ? 'Abertos' : 'Fechados'}`;
                   })()}
                 </div>
               </div>
 
               {/* Center Column */}
               <div className="flex flex-col space-y-1.5 md:items-center">
-                <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="/tos" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy" className="hover:text-white transition-colors">Política de Privacidade</a>
+                <a href="/tos" className="hover:text-white transition-colors">Termos de Uso</a>
               </div>
 
               {/* Right Column */}
               <div className="flex flex-col space-y-1.5 md:items-end">
-                Site by <a href="*" className="underline decoration-1 underline-offset-4 hover:text-white transition-colors">XX</a>
+                Site by <a href="https://github.com/Malakacrazy" className="underline decoration-1 underline-offset-4 hover:text-white transition-colors">Malakacrazy</a>
               </div>
             </div>
           </Reveal>

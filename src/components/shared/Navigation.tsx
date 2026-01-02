@@ -203,10 +203,10 @@ export function Navigation() {
                   <div className="flex flex-col h-full border-r-0 lg:border-r border-[var(--color-text-dark)]/10 pr-0 lg:pr-12 xl:pr-16">
                     {[
                       { name: 'Home', href: '/' },
-                      { name: 'About Us', href: '/about' },
-                      { name: 'Portfolio', href: '/portfolio' },
-                      { name: 'Portfolio 3D', href: '/3d-visualization' },
-                      { name: 'Contact', href: '/contact' }
+                      { name: 'Sobre Nós', href: '/about' },
+                      { name: 'Portfólio', href: '/portfolio' },
+                      { name: 'Visualização Arquitetônica', href: '/3d-visualization' },
+                      { name: 'Contato', href: '/contact' }
                     ].map((item, index) => (
                       <motion.div 
                         key={index} 
@@ -253,7 +253,7 @@ export function Navigation() {
                         variants={itemVariants}
                       >
                         <h3 className="text-[var(--color-text-dark)] mb-6 md:mb-8 flex items-center gap-2 text-xl md:text-2xl font-light">
-                          Get In Touch
+                          Entre em Contato
                           <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 20 20" fill="none">
                             <path d="M5 15L15 5M15 5H5M15 5V15" stroke="currentColor" strokeWidth="1.5"/>
                           </svg>
@@ -262,22 +262,22 @@ export function Navigation() {
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src="https://cdn-icons-png.flaticon.com/512/3741/3741717.png" alt="WhatsApp" className="h-6 w-6 md:h-8 md:w-8 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
-                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Call us</h6>
-                              <a href="tel:88812345678" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">(888) 1234-5678</a>
+                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">WhatsApp</h6>
+                              <a href="https://api.whatsapp.com/send?phone=5511947739339" target="_blank" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">(11) 94773-9339</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src="https://cdn-icons-png.flaticon.com/512/3894/3894024.png" alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
-                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email us</h6>
+                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</h6>
                               <a href="mailto:info@example.com" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">info@example.com</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src="https://cdn-icons-png.flaticon.com/512/3894/3894030.png" alt="MapPin" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
-                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Find</h6>
-                              <p className="text-[var(--color-text-dark)] text-base md:text-lg">410 Sandtown, California<br />94001, USA</p>
+                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Local</h6>
+                              <p className="text-[var(--color-text-dark)] text-base md:text-lg">São Paulo, São Paulo<br />Brasil</p>
                             </div>
                           </div>
                         </div>
@@ -289,13 +289,13 @@ export function Navigation() {
                         variants={itemVariants}
                       >
                         <h3 className="text-[var(--color-text-dark)] mb-6 md:mb-8 flex items-center gap-2 text-xl md:text-2xl font-light">
-                          Social Links
+                          Redes Sociais
                           <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 20 20" fill="none">
                             <path d="M5 15L15 5M15 5H5M15 5V15" stroke="currentColor" strokeWidth="1.5"/>
                           </svg>
                         </h3>
                         <div className="space-y-3 md:space-y-4 text-[var(--color-text-dark)]">
-                          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                          <a href="https://www.instagram.com/giuliaparente_parquitetura" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
@@ -311,7 +311,7 @@ export function Navigation() {
                             />
                             <span className="text-base md:text-lg font-light">Instagram</span>
                           </a>
-                          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                          <a href="https://www.linkedin.com/in/giulia-parente" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
@@ -327,7 +327,7 @@ export function Navigation() {
                             />
                             <span className="text-base md:text-lg font-light">LinkedIn</span>
                           </a>
-                          <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                          <a href="https://www.pinterest.com/giuliaparentearq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                              <div
                                className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                                style={{

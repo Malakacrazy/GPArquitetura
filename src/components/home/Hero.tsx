@@ -28,10 +28,10 @@ export function Hero() {
                {/* Description and Scroll */}
                <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:gap-8 lg:gap-12">
                   <h6 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug max-w-5xl tracking-tight">
-                     The Giulia Parente style is defined by strong, solid forms with subtle elegance, natural balance and enduring appeal
+                     O estilo do Studio Giulia Parente é caracterizado pelo minimalismo quente e acolhedor e uma estética autêntica e emocional
                   </h6>
                   <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
-                     (Scroll Down)
+                     (Rolar para Baixo)
                   </h6>
                </div>
             </Reveal>

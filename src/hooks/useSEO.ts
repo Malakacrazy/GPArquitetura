@@ -140,7 +140,7 @@ export const SEO_CONFIG = {
     canonical: '/portfolio',
   },
   portfolio3d: {
-    title: 'Visualização 3D',
+    title: 'Visualização Arquitetônica',
     description: 'Serviços de renderização e visualização 3D para projetos arquitetônicos. Transforme suas ideias em imagens realistas antes da construção.',
     keywords: 'renderização 3D, visualização arquitetônica, render arquitetura, imagens 3D, tour virtual',
     canonical: '/3d-visualization',

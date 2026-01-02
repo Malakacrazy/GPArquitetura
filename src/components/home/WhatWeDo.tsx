@@ -85,25 +85,25 @@ export function WhatWeDo() {
           {/* Text Content */}
           <Reveal className="flex flex-col gap-8 md:gap-12 lg:gap-16">
             <div className="space-y-6 md:space-y-8 lg:space-y-12">
-              <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 font-bold uppercase">What we do</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 font-bold uppercase">O que fazemos</span>
               <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
-                We offer architectural design and planning services for both residential and commercial projects.
+                Oferecemos projetos sensíveis e acessíveis, entendendo o seu espaço como uma extensão emocional do usuário.
               </h6>
             </div>
             
             <div className="space-y-4">
               <AccordionItem 
-                title="Building the future cities"
-                content="Tincidunt malesuada tempor quis vitae dignissim arcu. Sed aenean hendrerit at quisque dolor eequs in pellentesque."
+                title="Arquitetura Emocional e Neuroarquitetura"
+                content="Ambientes que reduzem a ansiedade e promovem serenidade, refletindo identidade e contando histórias pessoais."
                 defaultOpen={true}
               />
               <AccordionItem 
-                title="Unique and influential design"
-                content="Creating distinctive architectural solutions that leave lasting impressions and define spaces with character and purpose."
+                title="Funcionalidade"
+                content="Espaços que facilitam e suavizam os rituais diários e sistemas inteligentes que simplificam o dia a dia."
               />
               <AccordionItem 
-                title="Interior and exterior design"
-                content="Comprehensive design services that harmonize indoor and outdoor spaces for a cohesive architectural vision."
+                title="Conforto Ambiental"
+                content="Materiais que conectam com a natureza e trazem conforto tátil junto a iluminação que respeita ritmos biológicos e cria atmosferas."
               />
             </div>
           </Reveal>

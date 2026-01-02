@@ -87,23 +87,23 @@ export function WhatWeDo() {
             <div className="space-y-6 md:space-y-8 lg:space-y-12">
               <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 font-bold uppercase">O que fazemos</span>
               <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
-                Oferecemos projetos sensíveis e acessíveis, entendendo o seu espaço como uma extensão emocional do usuário.
+                Oferecemos projetos sensíveis e acessíveis, entendendo o seu espaço como uma extensão emocional do usuário
               </h6>
             </div>
             
             <div className="space-y-4">
               <AccordionItem 
                 title="Arquitetura Emocional e Neuroarquitetura"
-                content="Ambientes que reduzem a ansiedade e promovem serenidade, refletindo identidade e contando histórias pessoais."
+                content="Ambientes que reduzem a ansiedade e promovem serenidade, refletindo identidade e contando histórias pessoais"
                 defaultOpen={true}
               />
               <AccordionItem 
                 title="Funcionalidade"
-                content="Espaços que facilitam e suavizam os rituais diários e sistemas inteligentes que simplificam o dia a dia."
+                content="Espaços que facilitam e suavizam os rituais diários e sistemas inteligentes que simplificam o dia a dia"
               />
               <AccordionItem 
                 title="Conforto Ambiental"
-                content="Materiais que conectam com a natureza e trazem conforto tátil junto a iluminação que respeita ritmos biológicos e cria atmosferas."
+                content="Materiais que conectam com a natureza e trazem conforto tátil junto a iluminação que respeita ritmos biológicos e cria atmosferas"
               />
             </div>
           </Reveal>

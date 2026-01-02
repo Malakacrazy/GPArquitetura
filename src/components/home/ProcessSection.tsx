@@ -9,7 +9,7 @@ export function ProcessSection() {
             <Reveal>
               <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Processos</span>
               <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1]">
-                Entregamos projetos arquitetônicos emocionais e criativos para o seu projeto.
+                Entregamos projetos arquitetônicos emocionais e criativos para o seu projeto
               </h6>
             </Reveal>
           </div>

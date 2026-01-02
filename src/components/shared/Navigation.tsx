@@ -270,7 +270,7 @@ export function Navigation() {
                             <img src="https://cdn-icons-png.flaticon.com/512/3894/3894024.png" alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</h6>
-                              <a href="mailto:info@example.com" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">info@example.com</a>
+                              <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">giuliap.arquitetura@gmail.com</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">

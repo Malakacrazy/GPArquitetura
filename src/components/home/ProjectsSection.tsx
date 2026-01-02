@@ -93,7 +93,7 @@ export function ProjectsSection() {
             >
               <div className="border-t border-white/30 pt-6 md:pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <p className="text-white/90 text-base md:text-lg lg:text-xl max-w-md font-light leading-relaxed">
-                  Espaços que convidam ao relaxamento, à segurança e à plenitude, como um abraço aconchegante.
+                  Espaços que convidam ao relaxamento, à segurança e à plenitude, como um abraço aconchegante
                 </p>
               </div>
             </motion.div>
@@ -136,7 +136,7 @@ export function ProjectsSection() {
             >
               <div className="border-t border-white/30 pt-6 md:pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <p className="text-white/90 text-base md:text-lg lg:text-xl max-w-md font-light leading-relaxed text-right ml-auto">
-                  Projetos que transcendem a estética, focando na conexão emocional e na experiência tátil.
+                  Projetos que transcendem a estética, focando na conexão emocional e na experiência tátil
                 </p>
               </div>
             </motion.div>

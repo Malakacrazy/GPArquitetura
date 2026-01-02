@@ -188,8 +188,8 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
               exit={{ x: -20, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              Architecture &<br />
-              Design Studio
+              Studio de Design<br />
+              & Arquitetura
             </motion.div>
             )}
             </AnimatePresence>

@@ -98,7 +98,7 @@ export function Navigation() {
         <div className="relative w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
           {/* Dots Image - Default State (only visible when closed and not hovered) */}
           <motion.img
-            src="https://cdn-icons-png.flaticon.com/512/13726/13726126.png"
+            src={icons.menu}
             alt="menu"
             className={`absolute w-6 h-6 md:w-8 md:h-8 transition-all duration-300 ${
               isOpen || isDarkSection ? 'brightness-0' : 'brightness-0 invert'
@@ -223,17 +223,17 @@ export function Navigation() {
                           <div className="relative w-8 h-8 overflow-hidden">
                             {/* First Arrow - slides out on hover */}
                             <div className="absolute inset-0 transition-transform duration-500 group-hover:translate-x-8 flex items-center justify-center">
-                              <img 
-                                src="https://cdn-icons-png.flaticon.com/512/9219/9219998.png" 
-                                alt="arrow" 
+                              <img
+                                src={icons.arrow}
+                                alt="arrow"
                                 className="w-12 h-10 opacity-40 group-hover:opacity-100 transition-opacity duration-300 -rotate-90"
                               />
                             </div>
                             {/* Second Arrow - slides in from left on hover */}
                             <div className="absolute inset-0 -translate-x-8 transition-transform duration-500 group-hover:translate-x-0 flex items-center justify-center">
-                              <img 
-                                src="https://cdn-icons-png.flaticon.com/512/9219/9219998.png" 
-                                alt="arrow" 
+                              <img
+                                src={icons.arrow}
+                                alt="arrow"
                                 className="w-12 h-10 opacity-100 -rotate-90"
                               />
                             </div>
@@ -260,21 +260,21 @@ export function Navigation() {
                         </h3>
                         <div className="space-y-4 md:space-y-6 text-[var(--color-text-muted)]">
                           <div className="flex items-start gap-3 md:gap-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3741/3741717.png" alt="WhatsApp" className="h-6 w-6 md:h-8 md:w-8 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
+                            <img src={icons.whatsapp} alt="WhatsApp" className="h-6 w-6 md:h-8 md:w-8 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">WhatsApp</h6>
                               <a href="https://api.whatsapp.com/send?phone=5511947739339" target="_blank" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">(11) 94773-9339</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3894/3894024.png" alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
+                            <img src={icons.email} alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</h6>
                               <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">giuliap.arquitetura@gmail.com</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3894/3894030.png" alt="MapPin" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
+                            <img src={icons.location} alt="MapPin" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Local</h6>
                               <p className="text-[var(--color-text-dark)] text-base md:text-lg">São Paulo, São Paulo<br />Brasil</p>
@@ -299,11 +299,11 @@ export function Navigation() {
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
-                                maskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741664.png')",
+                                maskImage: `url('${icons.instagram}')`,
                                 maskSize: 'contain',
                                 maskRepeat: 'no-repeat',
                                 maskPosition: 'center',
-                                WebkitMaskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741664.png')",
+                                WebkitMaskImage: `url('${icons.instagram}')`,
                                 WebkitMaskSize: 'contain',
                                 WebkitMaskRepeat: 'no-repeat',
                                 WebkitMaskPosition: 'center'
@@ -315,11 +315,11 @@ export function Navigation() {
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
-                                maskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741677.png')",
+                                maskImage: `url('${icons.linkedin}')`,
                                 maskSize: 'contain',
                                 maskRepeat: 'no-repeat',
                                 maskPosition: 'center',
-                                WebkitMaskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741677.png')",
+                                WebkitMaskImage: `url('${icons.linkedin}')`,
                                 WebkitMaskSize: 'contain',
                                 WebkitMaskRepeat: 'no-repeat',
                                 WebkitMaskPosition: 'center'
@@ -328,19 +328,19 @@ export function Navigation() {
                             <span className="text-base md:text-lg font-light">LinkedIn</span>
                           </a>
                           <a href="https://www.pinterest.com/giuliaparentearq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
-                             <div
-                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
-                               style={{
-                                 maskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741684.png')",
-                                 maskSize: 'contain',
-                                 maskRepeat: 'no-repeat',
-                                 maskPosition: 'center',
-                                 WebkitMaskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741684.png')",
-                                 WebkitMaskSize: 'contain',
-                                 WebkitMaskRepeat: 'no-repeat',
-                                 WebkitMaskPosition: 'center'
-                               }}
-                             />
+                            <div
+                              className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
+                              style={{
+                                maskImage: `url('${icons.pinterest}')`,
+                                maskSize: 'contain',
+                                maskRepeat: 'no-repeat',
+                                maskPosition: 'center',
+                                WebkitMaskImage: `url('${icons.pinterest}')`,
+                                WebkitMaskSize: 'contain',
+                                WebkitMaskRepeat: 'no-repeat',
+                                WebkitMaskPosition: 'center'
+                              }}
+                            />
                             <span className="text-base md:text-lg font-light">Pinterest</span>
                           </a>
                         </div>

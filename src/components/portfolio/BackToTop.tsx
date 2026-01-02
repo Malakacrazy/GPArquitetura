@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { icons } from '../../config/assets';
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,8 +56,8 @@ export function BackToTop() {
           className="fixed bottom-4 md:bottom-6 lg:bottom-8 right-4 md:right-6 lg:right-8 z-40 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 bg-[var(--color-primary)] text-[var(--color-background)]"
           aria-label="Back to top"
         >
-          <ImageWithFallback 
-            src="https://cdn-icons-png.flaticon.com/512/9219/9219998.png"
+          <ImageWithFallback
+            src={icons.arrow}
             alt="Back to top"
             className="w-6 h-6 md:w-7 md:h-7 rotate-180 brightness-0 invert"
           />

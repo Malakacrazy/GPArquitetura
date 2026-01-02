@@ -29,33 +29,33 @@ export function HowItWorks() {
   return (
     <section className="bg-[var(--color-background)] text-[var(--color-text-dark)] px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 overflow-hidden">
       <div className="mx-auto relative w-full">
-        <span className="block text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 uppercase">How It Works</span>
+        <span className="block text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 uppercase">Como Funciona</span>
 
         <div className="flex flex-col gap-12 md:gap-20">
           {[
             {
-              title: "Technical Specification",
-              description: "The client contacts us and messages across design specifications for architectural visualizations, as well as all the necessary files associated with this project.",
+              title: "Levantamento de Dados Técnicos",
+              description: "O processo tem início com o envio, por parte do cliente, de todo o material técnico necessário para a construção da modelagem 3D — como plantas, cortes, fachadas e lista de especificações. Realizamos a leitura criteriosa desses documentos para garantir que todas as informações estejam completas e alinhadas antes do início da produção.",
               image: images.portfolio3d.howItWorks.technicalSpec
             },
             {
-              title: "Start of Work Process",
-              description: "We create a working chat with a project manager, 3d artists (the number depends on the complexity of the project). We examine the terms of reference and together with the client determine the deadline for exterior renders.",
+              title: "Modelagem 3D",
+              description: "Após o entendimento aprofundado do projeto, iniciamos a criação da volumetria em 3D. Nesta etapa, alinhamos prazos e apresentamos o modelo para revisão, assegurando que o volume esteja aprovado antes de avançarmos para a produção das imagens, animações ou experiências imersivas.",
               image: images.portfolio3d.howItWorks.workProcess
             },
             {
-              title: "Preview No. 1",
-              description: "We show the client the first draft in low quality to confirm the correctness of the model (structure, geometry, etc.). If necessary, we receive comments and edits from the client.",
+              title: "Primeira Versão",
+              description: "Com a volumetria validada, seguimos para a composição das cenas e da iluminação inicial, definindo enquadramentos e atmosferas que darão forma ao produto final.",
               image: images.portfolio3d.howItWorks.preview1
             },
             {
-              title: "Preview No. 2",
-              description: "The second draft is shown after applying the edits. At this time the image is in a higher quality so that the client can appreciate all the ins and outs of the image (light, color, textures, etc.) We get the final edits, if any.",
+              title: "Segunda Versão",
+              description: "A partir da aprovação da etapa anterior, desenvolvemos uma nova prévia com maior nível de detalhamento, incorporando ajustes de iluminação, texturas, mobiliário, elementos decorativos e, quando aplicável, o cenário externo.",
               image: images.portfolio3d.howItWorks.preview2
             },
             {
-              title: "Sending Final Renders",
-              description: "We create architectural visualization in high quality and transfer it to the customer, having previously applied all comments and edits, if they were after the second draft showing.",
+              title: "Versão Final",
+              description: "Após a implementação dos comentários e ajustes solicitados pelo cliente, apresentamos a versão final do projeto, com os arquivos renderizados e preparados para entrega, prontos para uso em apresentações ou materiais de comunicação.",
               image: images.portfolio3d.howItWorks.finalRenders
             }
           ].map((step, index) => (
@@ -112,7 +112,8 @@ export function HowItWorks() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-lg md:text-xl lg:text-2xl font-light text-[var(--color-text-dark)] leading-relaxed">
-              How to get started with architectural rendering for your project? Easy - contact us right now, describe what visualization services you need and our team will spring into action as soon as possible.
+              Vamos dar forma à sua ideia? <br />
+              Faça um orçamento prévio e entre em contato, responderemos assim que possível!
             </p>
             <Dialog>
               <DialogTrigger asChild>
@@ -121,7 +122,7 @@ export function HowItWorks() {
                 >
                   <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                   <span className="relative z-10 block px-6 py-3 transition-colors duration-300 text-[var(--color-text-dark)] group-hover:text-[var(--color-background)] uppercase text-xs flex items-center gap-2">
-                    <h6>GET A QUOTE</h6>
+                    <h6>SIMULAR ORÇAMENTO</h6>
                   </span>
                   <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
                   <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "motion/react";
-import { images } from '../../config/assets';
+import { images, icons } from '../../config/assets';
 
 export const ContactText = ({ children }: { children?: React.ReactNode }) => {
   const containerVariants = {
@@ -83,18 +83,18 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
           className="contact-two-hero-phone inline-block group transition-colors duration-300"
         >
           <h3 className="flex items-center justify-center gap-3 md:gap-5 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-white)] tracking-wide group-hover:text-[var(--color-accent)] transition-colors duration-300">
-            <div 
-              className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-white group-hover:bg-[var(--color-accent)] transition-colors duration-300" 
-              style={{ 
-                maskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741717.png')", 
-                maskSize: "contain", 
-                maskRepeat: "no-repeat", 
+            <div
+              className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-white group-hover:bg-[var(--color-accent)] transition-colors duration-300"
+              style={{
+                maskImage: `url('${icons.whatsapp}')`,
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
                 maskPosition: "center",
-                WebkitMaskImage: "url('https://cdn-icons-png.flaticon.com/512/3741/3741717.png')", 
-                WebkitMaskSize: "contain", 
-                WebkitMaskRepeat: "no-repeat", 
+                WebkitMaskImage: `url('${icons.whatsapp}')`,
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
                 WebkitMaskPosition: "center"
-              }} 
+              }}
             />
             (11) 94773-9339
           </h3>

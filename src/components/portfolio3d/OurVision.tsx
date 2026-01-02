@@ -12,9 +12,9 @@ export function OurVision() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Our Vision</span>
+            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Visão</span>
             <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-white">
-              We admire a future where businesses connect with customers in immersive, interactive virtual showrooms—experiences that go beyond reality and redefine engagement. This is the new frontier of digital transformation, and we’re building it today.
+              A visualização arquitetônica, para nós, vai além da representação estética. É uma ferramenta de narrativa, capaz de traduzir conceitos, sensações e intenções do projeto antes mesmo de ele se tornar físico. Por meio de imagens cuidadosamente construídas, buscamos despertar emoções, facilitar a compreensão dos espaços e criar uma conexão genuína entre o cliente e o ambiente que está por vir.
             </h6>
           </motion.div>
       </div>

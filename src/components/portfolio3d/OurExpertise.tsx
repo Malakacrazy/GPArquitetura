@@ -43,37 +43,37 @@ export function OurExpertise() {
   const items = [
     {
       id: 'A',
-      title: 'Interior Rendering',
-      desc: 'Complete creation of an interior that reflects your worldview. If you are an architect or real estate manager, you can make details to view the room for sale and meet prospective clients by showing them every element of the decor in impressive photorealism.',
+      title: 'Imagens de Interiores',
+      desc: 'Compreenda o projeto em profundidade por meio de imagens que evidenciam o layout interno, explorando texturas, mobiliário, decoração e iluminação. Uma forma precisa e sensorial de antecipar a atmosfera dos ambientes.',
       src: images.portfolio3d.ourExpertise.interiorRendering,
       type: 'image'
     },
     {
       id: 'B',
-      title: 'Exterior Rendering',
-      desc: 'Previewing the exterior with the help of 3D visualization is extremely important because it can help identify deficiencies before construction begins. If there are certain nuances, they are much easier to detect and eliminate at the stage of creating a picture. All of the attention is focused on the details.',
+      title: 'Imagens Externas',
+      desc: 'Visualize a fachada e a volumetria da edificação, permitindo análises durante o processo criativo ou a produção de imagens estratégicas para materiais de marketing e apresentação.',
       src: images.portfolio3d.ourExpertise.exteriorRendering,
       type: 'image'
     },
     {
       id: 'C',
-      title: 'Architectural Animation',
-      desc: 'Due to architectural services you can present to customers a building that is still under renovation or construction. In this way, you will be able to look into the future, created based on your ideas!',
+      title: 'Animações',
+      desc: 'Apresente o projeto de maneira dinâmica e envolvente por meio de animações conceituais que conduzem o observador pelos espaços, destacando ideias, fluxos e sensações que imagens estáticas não conseguem transmitir.',
       src: videos.portfolio3d.expertiseAnimation.mp4,
       webm: videos.portfolio3d.expertiseAnimation.webm,
       type: 'video'
     },
     {
       id: 'D',
-      title: 'Virtual Tour',
-      desc: 'Deliver the ultimate off-plan sales and marketing experience, allowing unbuilt environments to be explored and appreciated in real-time. Engage clients by interactively exploring the full scope of a space — changing levels, materials, day/night lighting in a live environment.',
+      title: 'Tour Virtual',
+      desc: 'Criamos experiências imersivas a partir de imagens estáticas conectadas, possibilitando um tour completo pelo projeto. Ideal tanto para o cliente final quanto para ações de marketing, com compatibilidade para óculos de realidade virtual.',
       src: images.portfolio3d.ourExpertise.virtualTour,
       type: 'image'
     },
     {
       id: 'E',
-      title: 'Product & Brand',
-      desc: 'Expert in high-end, photo-realistic visualization that brings products and spaces to life. Guided by artistic vision and technical precision, we craft imagery that captures the essence of every subject - helping brands communicate identity, emotion, and design through striking, cinematic visuals',
+      title: 'Produtos',
+      desc: 'Desenvolvemos imagens de ambientação para móveis e marcas, valorizando formas, materiais e proporções. Um recurso visual que traduz a essência de cada produto e fortalece a comunicação da marca.',
       src: images.portfolio3d.ourExpertise.productBrand,
       type: 'image'
     }
@@ -144,7 +144,7 @@ export function OurExpertise() {
             className="text-xs font-medium tracking-[0.2em] mb-6 md:mb-0 uppercase"
             animate={{ color: currentTheme.primary }}
             transition={{ duration: 0.5 }}
-          >Our Expertise</motion.span>
+          >Expertise</motion.span>
 
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-start flex-1 min-h-0">
 

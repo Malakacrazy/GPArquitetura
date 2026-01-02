@@ -163,9 +163,9 @@ export function CaseStudies() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 uppercase">Case Studies</span>
+            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 uppercase">Trabalhos Recentes</span>
             <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-[var(--color-text-dark)] mb-4 md:mb-6">
-              We visualize architecture with intention
+              Enxergamos a arquitetura com intenção, emoção e significado
             </h6>
           </motion.div>
 

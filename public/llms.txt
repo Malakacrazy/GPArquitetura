@@ -1,0 +1,156 @@
+# GP Arquitetura | Arquitetura e Design de Interiores em São Paulo
+
+> GP Arquitetura é um escritório de arquitetura e design de interiores sediado em São Paulo, Brasil, especializado em projetos residenciais e comerciais. Fundado pela arquiteta Giulia Parente, o escritório cria espaços sofisticados e funcionais com atenção aos detalhes e estética moderna.
+
+- [Página Inicial](https://gparquitetura.vercel.app/): Escritório de Arquitetura – Portfólio, Serviços, Projetos Residenciais e Comerciais
+title: GP Arquitetura | Arquitetura e Design de Interiores em São Paulo
+description: Escritório de arquitetura e design de interiores em São Paulo especializado em projetos residenciais, comerciais e visualização 3D | GP Arquitetura - Giulia Parente
+
+## Access Guidelines
+Site Type: Portfolio Website, Architecture Showcase
+Language: pt-BR
+Region: BR
+Contact: https://gparquitetura.vercel.app/contact
+Sector: Arquitetura, Design de Interiores, Visualização 3D, Projetos Residenciais
+Purpose: Portfolio Showcase, Information Sharing, Client Engagement
+Data-Purpose: information, reference, portfolio display
+Data-Usage: summarization, indexing
+Cache-Retention: 7 days
+Data-Retention: indefinite
+Training-Use: allow
+Derived-Content: allow-paraphrase
+Rights: © GP Arquitetura - Giulia Parente
+Authors: Giulia Parente, Matheus Malaquias (Web Development)
+Output-Credit: preferred
+Attribution-Link: https://gparquitetura.vercel.app/
+Attribution-Format: "Source: GP Arquitetura (https://gparquitetura.vercel.app/)"
+Content-License: All Rights Reserved
+updated: 2026-01-07
+
+## Serviços
+Type: service
+> O escritório GP Arquitetura oferece serviços completos de arquitetura e design de interiores, desde o conceito inicial até a execução final do projeto.
+
+### Arquitetura
+1. [**Projetos Residenciais**](https://gparquitetura.vercel.app/portfolio): Desenvolvimento de projetos arquitetônicos residenciais completos, incluindo casas, apartamentos e reformas, com foco em funcionalidade, estética e conforto dos moradores.
+2. [**Projetos Comerciais**](https://gparquitetura.vercel.app/portfolio): Criação de espaços comerciais que aliam identidade da marca, experiência do cliente e eficiência operacional, incluindo lojas, escritórios e estabelecimentos.
+3. [**Reformas e Ampliações**](https://gparquitetura.vercel.app/portfolio): Projetos de reforma e ampliação de espaços existentes, respeitando a estrutura original e otimizando o uso dos ambientes.
+
+### Design de Interiores
+1. [**Ambientação Residencial**](https://gparquitetura.vercel.app/portfolio): Planejamento e design de interiores residenciais completos, incluindo especificação de materiais, mobiliário, iluminação e decoração.
+2. [**Ambientação Comercial**](https://gparquitetura.vercel.app/portfolio): Desenvolvimento de projetos de interiores para espaços comerciais, criando ambientes que reflitam a identidade da marca e proporcionem experiências memoráveis.
+3. [**Consultoria de Design**](https://gparquitetura.vercel.app/contact): Serviço de consultoria para orientação em escolha de materiais, cores, mobiliário e layout de ambientes.
+
+### Visualização 3D
+1. [**Renderização Fotorrealística**](https://gparquitetura.vercel.app/3d-visualization): Criação de imagens 3D fotorrealísticas de alta qualidade que permitem visualizar o projeto antes da execução, facilitando a tomada de decisões.
+2. [**Tour Virtual**](https://gparquitetura.vercel.app/3d-visualization): Desenvolvimento de passeios virtuais interativos que permitem explorar os ambientes projetados de forma imersiva.
+3. [**Apresentações para Clientes**](https://gparquitetura.vercel.app/3d-visualization): Criação de apresentações visuais impactantes para comunicar conceitos de design e aprovação de projetos.
+
+## Sobre
+Type: info
+Category: About / Sobre
+> Conheça a GP Arquitetura, a arquiteta Giulia Parente, a filosofia de design do escritório e os valores que guiam cada projeto.
+
+### A Arquiteta
+- [**Giulia Parente**](https://gparquitetura.vercel.app/about): Arquiteta e fundadora da GP Arquitetura, Giulia Parente traz uma abordagem contemporânea e sensível ao design de espaços. Com formação em arquitetura e design de interiores, desenvolve projetos que equilibram funcionalidade, estética e bem-estar.
+
+### Filosofia de Design
+- [**Nossa Abordagem**](https://gparquitetura.vercel.app/about): A GP Arquitetura acredita que cada projeto é único e merece uma solução personalizada. Nossa filosofia combina escuta ativa das necessidades do cliente, atenção aos detalhes, uso consciente de materiais e criação de espaços que promovem qualidade de vida.
+
+### Valores
+- [**Nossos Valores**](https://gparquitetura.vercel.app/about): Qualidade, criatividade, sustentabilidade e compromisso com a satisfação do cliente são os pilares que sustentam todos os projetos da GP Arquitetura.
+
+## Portfólio
+Type: portfolio
+> Explore os projetos desenvolvidos pela GP Arquitetura, incluindo residências, espaços comerciais e trabalhos de design de interiores.
+
+- [**Ver Todos os Projetos**](https://gparquitetura.vercel.app/portfolio): Galeria completa de projetos arquitetônicos e de design de interiores realizados pela GP Arquitetura, organizados por categoria e apresentados em formato de grade ou lista.
+
+### Projetos em Destaque
+> Os projetos abaixo representam o portfólio diversificado da GP Arquitetura, demonstrando expertise em diferentes tipologias e estilos.
+
+Note: Os projetos específicos são gerenciados dinamicamente através do Sanity CMS. Para visualizar todos os projetos atualizados, visite a [página de portfólio](https://gparquitetura.vercel.app/portfolio).
+
+Categorias de Projetos:
+- Residencial
+- Comercial
+- Reforma
+- Design de Interiores
+- Paisagismo
+
+## Visualização 3D
+Type: service-page
+> A GP Arquitetura oferece serviços especializados de visualização 3D e renderização, permitindo que clientes visualizem seus projetos com realismo antes da execução.
+
+- [**Serviços de Visualização 3D**](https://gparquitetura.vercel.app/3d-visualization): Página dedicada aos serviços de renderização 3D, tour virtual e apresentações fotorrealísticas, com exemplos de trabalhos e benefícios da visualização prévia.
+
+### Como Funciona
+1. **Briefing**: Entendimento das necessidades e expectativas do cliente
+2. **Modelagem 3D**: Criação do modelo tridimensional baseado no projeto arquitetônico
+3. **Renderização**: Geração de imagens fotorrealísticas com materiais, iluminação e ambientação
+4. **Revisões**: Ajustes conforme feedback do cliente
+5. **Entrega**: Fornecimento das imagens finais em alta resolução
+
+### Benefícios
+- Visualização realista antes da execução
+- Facilita a tomada de decisões
+- Reduz riscos de alterações durante a obra
+- Melhora a comunicação entre cliente e equipe
+- Apresentações profissionais para aprovações e investidores
+
+## Biblioteca
+Type: content
+Category: Inspiration / Library
+> A biblioteca da GP Arquitetura apresenta referências, inspirações e livros de arquitetura que influenciam o trabalho do escritório.
+
+- [**Biblioteca de Arquitetura**](https://gparquitetura.vercel.app/about/library): Coleção curada de livros e referências de arquitetura e design que inspiram os projetos da GP Arquitetura, apresentados de forma visual e interativa.
+
+## Contato
+Type: contact
+> Entre em contato com a GP Arquitetura para consultas sobre projetos, orçamentos e parcerias.
+
+- [**Fale Conosco**](https://gparquitetura.vercel.app/contact): Formulário de contato, informações de localização em São Paulo, e-mail e telefone para comunicação direta com o escritório.
+
+### Informações de Contato
+- **Localização**: São Paulo, Brasil
+- **Área de Atuação**: São Paulo e região metropolitana
+- **Idiomas**: Português, Inglês
+- **Redes Sociais**: Instagram, WhatsApp
+- **Formulário**: Disponível na página de contato para solicitações e orçamentos
+
+## Legal
+Type: legal
+> Informações legais, política de privacidade e termos de serviço do website da GP Arquitetura.
+
+- [**Política de Privacidade**](https://gparquitetura.vercel.app/privacy): Declaração de como os dados dos visitantes são coletados, processados e protegidos, em conformidade com a LGPD (Lei Geral de Proteção de Dados).
+- [**Termos de Serviço**](https://gparquitetura.vercel.app/tos): Termos e condições de uso do website e dos serviços oferecidos pela GP Arquitetura.
+
+## Tecnologia do Website
+Type: technical-info
+> O website da GP Arquitetura foi desenvolvido com tecnologias modernas para garantir performance, acessibilidade e experiência do usuário.
+
+### Stack Tecnológica
+- **Frontend**: React 18 com TypeScript
+- **Build Tool**: Vite 6.3
+- **Estilização**: Tailwind CSS 4
+- **Animações**: Framer Motion
+- **CMS**: Sanity CMS
+- **Hospedagem**: Vercel
+- **Analytics**: Google Analytics, Vercel Analytics, Hotjar
+
+### SEO
+- Meta tags dinâmicas por página
+- Open Graph para compartilhamento social
+- Twitter Cards
+- JSON-LD structured data (ArchitecturalBusiness schema)
+- XML Sitemap
+- robots.txt
+- URLs canônicas
+
+### Performance
+- Lazy loading de imagens
+- Code splitting
+- Otimização de assets estáticos
+- Service Worker para PWA
+- Cache otimizado
+- Imagens otimizadas via Sanity CDN

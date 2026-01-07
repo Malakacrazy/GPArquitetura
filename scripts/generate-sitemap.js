@@ -4,7 +4,7 @@ import { resolve } from 'path';
 
 // Initialize Sanity client
 const client = createClient({
-  projectId: process.env.VITE_SANITY_PROJECT_ID || 'your-project-id',
+  projectId: process.env.VITE_SANITY_PROJECT_ID || 'dffchnvy',
   dataset: process.env.VITE_SANITY_DATASET || 'production',
   apiVersion: process.env.VITE_SANITY_API_VERSION || '2024-01-01',
   useCdn: false,
@@ -100,5 +100,6 @@ async function generateSitemap() {
     process.exit(1);
   }
 }
+
 
 generateSitemap();

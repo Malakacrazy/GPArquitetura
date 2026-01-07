@@ -64,6 +64,9 @@
       },
       "scripts": {
             "dev": "vite",
-            "build": "vite build"
-      }
+            "build": "vite build",
+            "generate-sitemap": "node scripts/generate-sitemap.js",
+            "prebuild": "npm run generate-sitemap"
+      },
+      "type": "module"
 }

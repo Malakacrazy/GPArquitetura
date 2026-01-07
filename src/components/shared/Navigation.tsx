@@ -1,7 +1,29 @@
+/**
+ * Navigation Component
+ *
+ * Full-screen navigation overlay with animated menu toggle, contact information,
+ * and social links. Features scroll-aware styling that adapts to dark/light sections.
+ *
+ * @module components/shared/Navigation
+ * @since 1.0.0
+ *
+ * Features:
+ * - Animated hamburger → X toggle button
+ * - Full-screen menu with video background
+ * - Scroll-aware color adaptation for dark/light sections
+ * - Contact information and social media links
+ * - Responsive design with mobile-first approach
+ *
+ * @example
+ * ```tsx
+ * <Navigation />
+ * ```
+ */
 import { Button } from '../ui/button';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { videos, icons } from '../../config/assets';
+import { contact, socialLinks } from '../../config/contact';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -263,14 +285,14 @@ export function Navigation() {
                             <img src={icons.whatsapp} alt="WhatsApp" className="h-6 w-6 md:h-8 md:w-8 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">WhatsApp</h6>
-                              <a href="https://api.whatsapp.com/send?phone=5511947739339" target="_blank" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">(11) 94773-9339</a>
+                              <a href={contact.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">{contact.whatsapp.display}</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src={icons.email} alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</h6>
-                              <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">giuliap.arquitetura@gmail.com</a>
+                              <a href={contact.email.url} className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">{contact.email.address}</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
@@ -295,7 +317,7 @@ export function Navigation() {
                           </svg>
                         </h3>
                         <div className="space-y-3 md:space-y-4 text-[var(--color-text-dark)]">
-                          <a href="https://www.instagram.com/giuliaparente_parquitetura" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                          <a href={socialLinks.instagram.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
@@ -311,7 +333,7 @@ export function Navigation() {
                             />
                             <span className="text-base md:text-lg font-light">Instagram</span>
                           </a>
-                          <a href="https://www.linkedin.com/in/giulia-parente" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                          <a href={socialLinks.linkedin.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
@@ -327,7 +349,7 @@ export function Navigation() {
                             />
                             <span className="text-base md:text-lg font-light">LinkedIn</span>
                           </a>
-                          <a href="https://www.pinterest.com/giuliaparentearq" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                          <a href={socialLinks.pinterest.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                             <div
                               className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{

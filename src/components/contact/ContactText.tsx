@@ -1,6 +1,32 @@
+/**
+ * ContactText Component
+ *
+ * Hero section for the Contact page featuring animated text elements,
+ * email link, and WhatsApp contact button with a full-screen background image.
+ *
+ * @module components/contact/ContactText
+ * @since 1.0.0
+ *
+ * Features:
+ * - Full-screen hero image background with overlay
+ * - Staggered animation for text elements
+ * - Large typography for email and phone contact
+ * - WhatsApp integration with animated icon
+ * - Responsive design for all screen sizes
+ *
+ * @param children - Optional child elements to render below the main content
+ *
+ * @example
+ * ```tsx
+ * <ContactText>
+ *   <ContactFooter />
+ * </ContactText>
+ * ```
+ */
 import React from 'react';
 import { motion } from "motion/react";
 import { images, icons } from '../../config/assets';
+import { contact } from '../../config/contact';
 
 export const ContactText = ({ children }: { children?: React.ReactNode }) => {
   const containerVariants = {
@@ -64,11 +90,11 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
         <motion.a
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
-          href="mailto:giulia.parente@gparquitetura.com"
+          href={contact.email.url}
           className="contact-two-hero-link inline-block transition-colors duration-300 hover:text-[var(--color-accent)]"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-white)] tracking-wide transition-colors duration-300 hover:text-[var(--color-accent)] break-all">
-            giulia.parente@gparquitetura.com
+            {contact.email.address}
           </h2>
         </motion.a>
         
@@ -77,7 +103,7 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
         <motion.a
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
-          href="https://api.whatsapp.com/send?phone=5511947739339"
+          href={contact.whatsapp.url}
           target="_blank"
           rel="noopener noreferrer"
           className="contact-two-hero-phone inline-block group transition-colors duration-300"
@@ -96,7 +122,7 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
                 WebkitMaskPosition: "center"
               }}
             />
-            (11) 94773-9339
+            {contact.whatsapp.display}
           </h3>
         </motion.a>
       </div>

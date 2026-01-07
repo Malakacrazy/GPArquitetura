@@ -1,6 +1,33 @@
+/**
+ * PrivacyPolicy Component
+ *
+ * Displays the complete privacy policy for GP Arquitetura in a split-screen layout.
+ * Covers data collection, cookies, third-party services, and user rights.
+ *
+ * @module components/legal/PrivacyPolicy
+ * @since 1.0.0
+ *
+ * Legal Compliance:
+ * - CalOPPA (California Online Privacy Protection Act)
+ * - CAN-SPAM Act
+ * - LGPD (Lei Geral de Proteção de Dados - Brazil)
+ * - Fair Information Practices
+ *
+ * Features:
+ * - Scrollable text content with styled scrollbar
+ * - Split-screen layout (text + image)
+ * - Responsive design for all screen sizes
+ * - Animated content reveal
+ *
+ * @example
+ * ```tsx
+ * <PrivacyPolicy />
+ * ```
+ */
 import React from 'react';
 import { motion } from 'motion/react';
 import { images } from '../../config/assets';
+import { contact } from '../../config/contact';
 
 export function PrivacyPolicy() {
   return (
@@ -223,7 +250,7 @@ export function PrivacyPolicy() {
                 <a href="http://www.gparquitetura.vercel.app" className="text-[var(--color-primary)] underline">www.gparquitetura.vercel.app</a>
               </p>
               <p className="text-base md:text-lg">
-                <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-primary)] underline">giuliap.arquitetura@gmail.com</a>
+                <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a>
               </p>
             </motion.div>
           </div>

@@ -1,7 +1,7 @@
 // Service Worker for GP Arquitetura
 // Provides offline capability and asset caching with security hardening
 
-const CACHE_VERSION = 'v1.0.3';
+const CACHE_VERSION = 'v1.0.4';
 const CACHE_NAME = `gp-arquitetura-${CACHE_VERSION}`;
 const METADATA_CACHE = `${CACHE_NAME}-metadata`;
 

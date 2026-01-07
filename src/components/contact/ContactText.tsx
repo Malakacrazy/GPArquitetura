@@ -64,7 +64,7 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
         <motion.a
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
-          href="mailto:info@example.com"
+          href="mailto:giulia.parente@gparquitetura.com"
           className="contact-two-hero-link inline-block transition-colors duration-300 hover:text-[var(--color-accent)]"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-white)] tracking-wide transition-colors duration-300 hover:text-[var(--color-accent)] break-all">

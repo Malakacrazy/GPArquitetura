@@ -1,7 +1,7 @@
 // Service Worker for GP Arquitetura
 // Provides offline capability and asset caching with security hardening
 
-const CACHE_VERSION = 'v1.0.2';
+const CACHE_VERSION = 'v1.0.3';
 const CACHE_NAME = `gp-arquitetura-${CACHE_VERSION}`;
 const METADATA_CACHE = `${CACHE_NAME}-metadata`;
 
@@ -220,6 +220,12 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - handle requests with appropriate strategy
 self.addEventListener('fetch', (event) => {
+  // Skip service worker for Range requests (video seeking/streaming)
+  // Cache API doesn't support 206 Partial Content responses
+  if (event.request.headers.has('Range')) {
+    return;
+  }
+
   const strategy = getCachingStrategy(event.request);
 
   if (strategy === CACHE_STRATEGIES.NETWORK_ONLY) {
@@ -268,7 +274,8 @@ async function cacheFirst(request) {
     const networkResponse = await fetch(request);
 
     // Cache successful GET responses only (Cache API doesn't support POST, PUT, etc.)
-    if (networkResponse.ok && request.method === 'GET') {
+    // Also skip 206 Partial Content responses (video Range requests)
+    if (networkResponse.ok && request.method === 'GET' && networkResponse.status !== 206) {
       // Security: Validate response before caching
       if (isResponseSafeToCache(networkResponse)) {
         const cache = await caches.open(CACHE_NAME);
@@ -313,7 +320,8 @@ async function networkFirst(request) {
     const networkResponse = await fetch(request);
 
     // Cache successful GET responses only (Cache API doesn't support POST, PUT, etc.)
-    if (networkResponse.ok && request.method === 'GET') {
+    // Also skip 206 Partial Content responses (video Range requests)
+    if (networkResponse.ok && request.method === 'GET' && networkResponse.status !== 206) {
       // Security: Validate response before caching
       if (isResponseSafeToCache(networkResponse)) {
         const cache = await caches.open(CACHE_NAME);

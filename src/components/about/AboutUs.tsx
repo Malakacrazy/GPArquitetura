@@ -1,5 +1,34 @@
+/**
+ * AboutUs Component
+ *
+ * Three-paragraph narrative section explaining the studio's origin,
+ * philosophy, and approach to emotional architecture design.
+ *
+ * @module components/about/AboutUs
+ * @since 1.0.0
+ *
+ * Content Structure:
+ * 1. Origin story - addressing modern compact apartment challenges
+ * 2. Focus - neuroarchitecture and emotional experience
+ * 3. Essence - transforming spaces into emotional sanctuaries
+ *
+ * Animation:
+ * - Each paragraph fades in and slides up on scroll
+ * - Staggered delays (0, 0.2s, 0.4s)
+ * - Triggers when 100px before viewport
+ *
+ * @example
+ * ```tsx
+ * <AboutUs />
+ * ```
+ */
 import { motion } from 'framer-motion';
 
+/**
+ * Renders the About Us narrative section
+ *
+ * @returns About us content JSX element
+ */
 export function AboutUs() {
   return (
     <section className="bg-[var(--color-background)] text-[var(--color-text-muted)] px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-0 md:pt-8 lg:pt-12 xl:pt-16 pb-0 md:-mb-6">

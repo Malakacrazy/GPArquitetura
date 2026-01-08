@@ -1,7 +1,44 @@
+/**
+ * WorkWithUs Component
+ *
+ * Careers section with job notification signup form and studio culture
+ * description. Allows visitors to subscribe for job opening notifications.
+ *
+ * @module components/about/WorkWithUs
+ * @since 1.0.0
+ *
+ * Features:
+ * - Email subscription form with validation
+ * - Real-time email validation feedback
+ * - Success message with animated checkmark
+ * - Privacy policy link and consent text
+ * - Responsive two-column layout
+ *
+ * Form States:
+ * - Empty: No validation messages
+ * - Invalid: Red ring and error message
+ * - Success: Green checkmark with confirmation
+ * - Auto-clear success after 3 seconds
+ *
+ * Animation:
+ * - Form slides in from right
+ * - Text content slides in from left
+ * - Success message animates in/out
+ *
+ * @example
+ * ```tsx
+ * <WorkWithUs />
+ * ```
+ */
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
+/**
+ * Renders the careers/work with us section
+ *
+ * @returns Work with us section JSX element
+ */
 export function WorkWithUs() {
   const [email, setEmail] = useState('');
   const [showError, setShowError] = useState(false);

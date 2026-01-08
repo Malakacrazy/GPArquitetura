@@ -1,3 +1,39 @@
+/**
+ * FAQ Component (Portfolio 3D)
+ *
+ * Comprehensive FAQ section with category filtering. Covers all aspects
+ * of 3D visualization services including pricing, turnaround, and process.
+ *
+ * @module components/portfolio3d/FAQ
+ * @since 1.0.0
+ *
+ * Categories:
+ * - Common Questions (general inquiries)
+ * - Interior/Exterior Rendering
+ * - Architecture Animation
+ * - Virtual Tour
+ * - Product & Brand Visualization
+ *
+ * Layout:
+ * - 2-column grid: Categories | Accordion
+ * - Category buttons with active state styling
+ * - Collapsible accordion items
+ *
+ * Animation:
+ * - Category slide-in from left
+ * - FAQ items staggered entrance (0.08s delay)
+ * - Smooth category switching with AnimatePresence
+ *
+ * Styling:
+ * - Rounded category buttons with hover states
+ * - Blurred backdrop on accordion items
+ * - Responsive grid (stacked on mobile)
+ *
+ * @example
+ * ```tsx
+ * <FAQ />
+ * ```
+ */
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import {
@@ -7,6 +43,7 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 
+/** FAQ categories for filtering */
 const categories = [
   "COMMON QUESTIONS",
   "INTERIOR/EXTERIOR RENDERING",

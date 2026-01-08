@@ -1,13 +1,58 @@
+/**
+ * OtherProjects Component
+ *
+ * Related projects section displayed at the bottom of project detail pages.
+ * Shows up to 3 other projects from the portfolio, excluding the current one.
+ *
+ * @module components/project/OtherProjects
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Header with "Outros Projetos" label and "Todos os Projetos" link
+ * - 3-column responsive grid (1 col mobile, 2 col tablet, 3 col desktop)
+ * - Project cards with hover effects
+ *
+ * Data Fetching:
+ * - Uses useRelatedProjects hook for Sanity data
+ * - Excludes current project by slug
+ * - Shows loading state while fetching
+ * - Hides section if no related projects
+ *
+ * Card Features:
+ * - Square thumbnail image with zoom hover
+ * - Project title and short description
+ * - Background color change on hover (primary)
+ * - Text color inversion on hover
+ *
+ * Navigation:
+ * - Clicking card navigates to project detail
+ * - Scrolls to top on navigation
+ * - Animated button to full portfolio
+ *
+ * @example
+ * ```tsx
+ * <OtherProjects currentProjectSlug="casa-moderna" />
+ * ```
+ */
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { urlFor } from "../../sanity/client";
 import { useRelatedProjects } from "../../hooks/useProjects";
 
+/**
+ * Props for the OtherProjects component
+ */
 interface OtherProjectsProps {
   currentProjectSlug: string;
 }
 
+/**
+ * Renders the related projects section
+ *
+ * @param props - Component props
+ * @returns Related projects section JSX element, or null if no projects
+ */
 export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
   const { projects, loading, error } = useRelatedProjects(currentProjectSlug, 3);
 

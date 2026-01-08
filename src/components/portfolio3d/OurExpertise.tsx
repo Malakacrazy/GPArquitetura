@@ -1,7 +1,40 @@
+/**
+ * OurExpertise Component (Portfolio 3D)
+ *
+ * Scroll-driven showcase of 3D visualization service categories.
+ * Features stacked card animations with theme transitions.
+ *
+ * @module components/portfolio3d/OurExpertise
+ * @since 1.0.0
+ *
+ * Services Displayed:
+ * - Interior Renderings (Imagens de Interiores)
+ * - Exterior Renderings (Imagens Externas)
+ * - Animations (Animações)
+ * - Virtual Tours (Tour Virtual)
+ * - Product Visualization (Produtos)
+ *
+ * Animation System:
+ * - Scroll-driven on desktop (300vh sticky container)
+ * - Swipe/drag on mobile for card navigation
+ * - Card stack effect with scale and y-offset
+ * - Theme transition (light/dark) based on active card
+ *
+ * Layout:
+ * - 3-column grid: Titles | Image Stack | Descriptions
+ * - Responsive with mobile-first swipe navigation
+ * - AnimatePresence for smooth text transitions
+ *
+ * @example
+ * ```tsx
+ * <OurExpertise />
+ * ```
+ */
 import { motion, AnimatePresence, useScroll } from 'motion/react';
 import { useState, useRef, useEffect } from 'react';
 import { images, videos } from '../../config/assets';
 
+/** Light theme colors for cards 0, 1, 4 */
 const lightTheme = {
   background: '#E0D2B6',
   primary: '#BB7154',
@@ -9,6 +42,7 @@ const lightTheme = {
   muted: '#8B7355'
 };
 
+/** Dark theme colors for cards 2, 3 (animations, virtual tour) */
 const darkTheme = {
   background: '#BB7154',
   primary: '#E0D2B6',
@@ -16,6 +50,11 @@ const darkTheme = {
   muted: 'rgba(255, 255, 255, 0.7)'
 };
 
+/**
+ * Renders the expertise showcase with scroll-driven animations
+ *
+ * @returns Expertise section JSX element
+ */
 export function OurExpertise() {
   const containerRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);

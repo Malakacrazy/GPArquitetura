@@ -1,3 +1,30 @@
+/**
+ * BookShowcase Component
+ *
+ * Container component that displays all curated architecture books.
+ * Handles hash navigation for direct book linking.
+ *
+ * @module components/library/BookShowcase
+ * @since 1.0.0
+ *
+ * Books Displayed:
+ * - 6 architecture reference books
+ * - Each rendered via BookDetail component
+ * - Vertical stacking with gap
+ *
+ * Hash Navigation:
+ * - Supports #book-{id} navigation
+ * - Smooth scrolls to target book
+ * - 100ms delay for DOM rendering
+ *
+ * @example
+ * ```tsx
+ * <BookShowcase />
+ *
+ * // Direct link to book:
+ * /about/library#book-1
+ * ```
+ */
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Book1 } from './Book1';
@@ -7,6 +34,11 @@ import { Book4 } from './Book4';
 import { Book5 } from './Book5';
 import { Book6 } from './Book6';
 
+/**
+ * Renders the complete book showcase with hash navigation support
+ *
+ * @returns Book showcase container JSX element
+ */
 export function BookShowcase() {
   const location = useLocation();
 

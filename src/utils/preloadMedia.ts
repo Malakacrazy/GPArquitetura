@@ -1,26 +1,70 @@
 /**
- * Media preloading utility for the Architecture website
- * Preloads all images and videos during the loader phase
+ * Media Preloading Utility Module
  *
- * Uses centralized asset configuration from src/config/assets.ts
+ * Handles preloading of images and videos during the initial page load.
+ * Works with the Loader component to show loading progress and ensure
+ * smooth playback once the page is revealed.
+ *
+ * @module utils/preloadMedia
+ * @since 1.0.0
+ *
+ * Strategy:
+ * - Preloads all critical images and videos in parallel
+ * - Tracks progress for loading indicator
+ * - Gracefully handles failures (logs warning, continues)
+ * - Supports timeout fallback to prevent infinite loading
+ *
+ * Asset Source:
+ * - Uses preloadImages/preloadVideos arrays from config/assets.ts
+ * - Configured per-page to only load necessary assets
+ *
+ * @example
+ * ```typescript
+ * import { preloadMediaWithTimeout } from '../utils/preloadMedia';
+ *
+ * // In Loader component
+ * preloadMediaWithTimeout(10000, (progress) => {
+ *   setLoadingPercent(progress.percentage);
+ * });
+ * ```
  */
-
 import { preloadImages, preloadVideos } from '../config/assets';
 
-// Re-export for backward compatibility
+/**
+ * Array of image URLs to preload
+ * @deprecated Use preloadImages from config/assets.ts directly
+ */
 export const IMAGE_URLS = preloadImages;
+
+/**
+ * Array of video URLs to preload
+ * @deprecated Use preloadVideos from config/assets.ts directly
+ */
 export const VIDEO_URLS = preloadVideos;
 
+/**
+ * Progress tracking object for preload operations
+ */
 export interface PreloadProgress {
+  /** Number of assets loaded so far */
   loaded: number;
+  /** Total number of assets to load */
   total: number;
+  /** Percentage complete (0-100) */
   percentage: number;
 }
 
+/**
+ * Callback function type for progress updates
+ */
 export type PreloadProgressCallback = (progress: PreloadProgress) => void;
 
 /**
- * Preload a single image
+ * Preloads a single image by creating an Image element
+ *
+ * @param url - Image URL to preload
+ * @returns Promise that resolves when image loads (or fails gracefully)
+ * @private
  */
 const preloadImage = (url: string): Promise<void> => {
   return new Promise((resolve, reject) => {

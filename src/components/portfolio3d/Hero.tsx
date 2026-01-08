@@ -1,7 +1,42 @@
+/**
+ * Portfolio 3D Hero Component
+ *
+ * Full-screen hero section for the 3D visualization services page.
+ * Features a video background with fallback image and animated content.
+ *
+ * @module components/portfolio3d/Hero
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Full viewport height
+ * - Video background with image fallback
+ * - Header with service label and studio name
+ * - Bottom tagline with scroll indicator
+ *
+ * Video Handling:
+ * - Autoplay with 1s delay to ensure smooth load
+ * - Muted, looped, playsInline for best UX
+ * - MP4 and WebM sources for browser compatibility
+ * - Static image fallback underneath
+ *
+ * Animations:
+ * - Reveal component for staggered text entrance
+ * - Content layered above video with z-index
+ *
+ * @example
+ * ```tsx
+ * <Hero />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { useEffect, useRef } from 'react';
 import { images, videos } from '../../config/assets';
 
+/**
+ * Video background subcomponent with autoplay handling
+ *
+ * @returns Video element with multiple sources
+ */
 function VideoBackground() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -36,6 +71,11 @@ function VideoBackground() {
   );
 }
 
+/**
+ * Renders the 3D portfolio hero section with video background
+ *
+ * @returns Hero section JSX element
+ */
 export function Hero() {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-stone-900">

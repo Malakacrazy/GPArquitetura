@@ -1,5 +1,45 @@
+/**
+ * ContactFooter Component
+ *
+ * Footer section for the contact page displaying copyright, business hours,
+ * legal links, and site credits.
+ *
+ * @module components/contact/ContactFooter
+ * @since 1.0.0
+ *
+ * Layout:
+ * - 3-column grid on desktop
+ * - Stacked on mobile
+ * - Border-top separator
+ *
+ * Content:
+ * - Copyright notice (2025)
+ * - Real-time São Paulo business hours
+ * - Open/Closed status indicator
+ * - Privacy Policy and Terms links
+ * - Site credits
+ *
+ * Business Hours Logic:
+ * - Mon-Fri: 9am-6pm (São Paulo timezone)
+ * - Auto-calculates open/closed status
+ *
+ * Animation:
+ * - Reveal with 0.4s delay
+ *
+ * @example
+ * ```tsx
+ * <ContactText>
+ *   <ContactFooter />
+ * </ContactText>
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 
+/**
+ * Renders the contact page footer with business info
+ *
+ * @returns Footer JSX element
+ */
 export const ContactFooter = () => {
   return (
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-16 xl:px-20 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20">

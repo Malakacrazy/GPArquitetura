@@ -1,12 +1,54 @@
+/**
+ * AccordionItem Component (Portfolio 3D)
+ *
+ * Custom accordion component for expandable content sections.
+ * Used primarily in the FAQ and process explanation sections.
+ *
+ * @module components/portfolio3d/AccordionItem
+ * @since 1.0.0
+ *
+ * Features:
+ * - Toggle open/close on click
+ * - Animated chevron rotation
+ * - Smooth height transition (max-height based)
+ * - Touch event handling for mobile
+ *
+ * Styling:
+ * - Primary color border bottom
+ * - Uppercase title with hover color change
+ * - Muted text for content
+ *
+ * Animation:
+ * - 300ms height and opacity transition
+ * - Chevron 180° rotation when open
+ *
+ * @example
+ * ```tsx
+ * <AccordionItem
+ *   title="What is 3D rendering?"
+ *   content="3D rendering is the process of..."
+ *   defaultOpen={false}
+ * />
+ * ```
+ */
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
+/**
+ * Props for the AccordionItem component
+ */
 interface AccordionItemProps {
   title: string;
   content: string;
   defaultOpen?: boolean;
 }
 
+/**
+ * Renders an expandable accordion item
+ *
+ * @param props - Component props
+ * @returns Accordion item JSX element
+ */
 export function AccordionItem({ title, content, defaultOpen = false }: AccordionItemProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 

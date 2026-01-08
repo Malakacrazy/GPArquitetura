@@ -1,6 +1,32 @@
+/**
+ * Hero Component (About Page)
+ *
+ * Full-screen hero section for the About page with background image,
+ * section label, brand name, and inspirational tagline.
+ *
+ * @module components/about/Hero
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Full viewport height (100vh)
+ * - Background image with 40% dark overlay
+ * - "Sobre Nós" label top-left
+ * - "Giulia Parente" brand top-right
+ * - Tagline and scroll indicator at bottom
+ *
+ * @example
+ * ```tsx
+ * <Hero />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { images } from '../../config/assets';
 
+/**
+ * Renders the About page hero section
+ *
+ * @returns Hero section JSX element
+ */
 export function Hero() {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center">

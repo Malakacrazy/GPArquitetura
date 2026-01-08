@@ -1,7 +1,42 @@
+/**
+ * OurTeam Component
+ *
+ * Team showcase section featuring the founder with an interactive
+ * portrait that plays video on hover and opens a detailed bio panel.
+ *
+ * @module components/about/OurTeam
+ * @since 1.0.0
+ *
+ * Interactions:
+ * - Portrait hover: Triggers video playback, shows hover overlay
+ * - Portrait click: Opens full bio panel from left
+ * - Bio panel: Scrollable content with photo and detailed biography
+ *
+ * Layout:
+ * - Two-column grid: Portrait | Quote and Info
+ * - Mobile: Stacked layout with label first
+ * - Desktop: Side-by-side with "NOSSO TIME" label
+ *
+ * Features:
+ * - Video plays on hover with graceful error handling
+ * - Animated overlay reveals on portrait hover
+ * - Slide-out bio panel with custom scrollbar
+ * - Animated close button with X icon
+ *
+ * @example
+ * ```tsx
+ * <OurTeam />
+ * ```
+ */
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { images, videos, icons } from '../../config/assets';
 
+/**
+ * Renders the team showcase section with interactive portrait
+ *
+ * @returns Team section JSX element
+ */
 export function OurTeam() {
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);

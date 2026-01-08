@@ -1,3 +1,39 @@
+/**
+ * HowItWorks Component (Portfolio 3D)
+ *
+ * Process explanation section showing the 5-step 3D visualization workflow.
+ * Includes a quote request modal dialog with form fields.
+ *
+ * @module components/portfolio3d/HowItWorks
+ * @since 1.0.0
+ *
+ * Process Steps:
+ * 1. Levantamento de Dados Técnicos (Technical Data Collection)
+ * 2. Modelagem 3D (3D Modeling)
+ * 3. Primeira Versão (First Draft)
+ * 4. Segunda Versão (Second Draft)
+ * 5. Versão Final (Final Version)
+ *
+ * Layout:
+ * - Alternating image/text layout (zigzag)
+ * - Step numbers in primary color
+ * - 21:9 aspect ratio images
+ *
+ * Quote Dialog:
+ * - Project type selection (Residential/Commercial)
+ * - Render type checkboxes
+ * - File upload area
+ * - Contact form fields
+ *
+ * Animation:
+ * - Slide in from left/right based on index
+ * - Image scale on viewport entry
+ *
+ * @example
+ * ```tsx
+ * <HowItWorks />
+ * ```
+ */
 import { motion } from "motion/react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "../ui/dialog";
 import { Button } from "../ui/button";
@@ -10,6 +46,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { useState } from "react";
 import { images } from "../../config/assets";
 
+/**
+ * Renders the process explanation and quote request section
+ *
+ * @returns How it works section JSX element
+ */
 export function HowItWorks() {
   const [projectType, setProjectType] = useState("Residential");
 

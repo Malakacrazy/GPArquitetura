@@ -1,5 +1,27 @@
+/**
+ * Footer Component
+ *
+ * Site-wide footer with video background, contact information, business hours,
+ * and legal links. Displays real-time open/closed status based on São Paulo timezone.
+ *
+ * @module components/shared/Footer
+ * @since 1.0.0
+ *
+ * Features:
+ * - Video background with responsive sizing
+ * - Contact email and WhatsApp links
+ * - Real-time business hours status (Open/Closed)
+ * - Legal page links (Privacy Policy, Terms of Service)
+ * - Responsive grid layout
+ *
+ * @example
+ * ```tsx
+ * <Footer />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { videos } from '../../config/assets';
+import { contact, company, getBusinessStatus } from '../../config/contact';
 
 export function Footer() {
   return (
@@ -30,8 +52,8 @@ export function Footer() {
           <Reveal delay={0.2} className="flex flex-col justify-end flex-1 space-y-6 md:space-y-8 mt-12 md:mt-16 lg:mt-20 pb-8 md:pb-12">
             {/* Phone Number & Email */}
             <div className="text-white/90 text-base md:text-lg font-light space-y-1">
-              <a href="mailto:giuliap.arquitetura@gmail.com" className="block hover:underline">giuliap.arquitetura@gmail.com</a>
-              <a href="https://api.whatsapp.com/send?phone=5511947739339" target="_blank" className="block hover:underline">(11) 94773-9339</a>
+              <a href={contact.email.url} className="block hover:underline">{contact.email.address}</a>
+              <a href={contact.whatsapp.url} target="_blank" rel="noopener noreferrer" className="block hover:underline">{contact.whatsapp.display}</a>
             </div>
 
             {/* CTA */}
@@ -47,19 +69,11 @@ export function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-8 gap-x-4">
               {/* Left Column */}
               <div className="flex flex-col space-y-1.5">
-                <div>© 2025 Copyright Giulia Parente Arquitetura</div>
+                <div>© {company.copyrightYear} Copyright {company.legalName}</div>
                 <div>
                   {(() => {
-                     const date = new Date();
-                     const formatter = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', hour: 'numeric', minute: 'numeric', hour12: true, weekday: 'short' });
-                     const parts = formatter.formatToParts(date);
-                     const timeStr = parts.filter(p => p.type !== 'weekday' && p.type !== 'literal' || p.value === ':' || p.value === ' ').map(p => p.value).join('').trim();
-                     const spHour = parseInt(new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', hour: 'numeric', hour12: false }).format(date));
-                     const day = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', weekday: 'short' }).format(date);
-                     // Open Mon-Fri (not Sat/Sun), 9am-6pm
-                     const isWorkday = day !== 'Sat' && day !== 'Sun';
-                     const isOpen = isWorkday && spHour >= 9 && spHour < 18;
-                     return `${timeStr} São Paulo, Nós estamos ${isOpen ? 'Abertos' : 'Fechados'}`;
+                    const { isOpen, timeString } = getBusinessStatus();
+                    return `${timeString}, Nós estamos ${isOpen ? 'Abertos' : 'Fechados'}`;
                   })()}
                 </div>
               </div>

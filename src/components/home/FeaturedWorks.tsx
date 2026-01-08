@@ -1,3 +1,36 @@
+/**
+ * FeaturedWorks Component
+ *
+ * Full-screen featured projects carousel with custom cursor interaction.
+ * Fetches featured projects from Sanity CMS and displays them in an
+ * auto-playing slider with navigation controls.
+ *
+ * @module components/home/FeaturedWorks
+ * @since 1.0.0
+ *
+ * Data Source:
+ * - Uses useFeaturedProjects() hook to fetch from Sanity
+ * - Only shows projects where featured === true
+ *
+ * Features:
+ * - Full-screen image backgrounds with gradient overlays
+ * - Custom cursor that shows "ABRIR" (Open) on hover
+ * - Click-to-navigate to project detail page
+ * - Auto-play with 5 second intervals
+ * - Manual navigation with prev/next buttons
+ * - Slide counter showing current/total
+ * - Loading and error states handled
+ *
+ * Interactions:
+ * - Click anywhere on slide to navigate to project
+ * - Drag detection to prevent accidental navigation
+ * - Hidden cursor replaced with custom "ABRIR" button
+ *
+ * @example
+ * ```tsx
+ * <FeaturedWorks />
+ * ```
+ */
 import React, { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Slider from "react-slick";
@@ -7,6 +40,11 @@ import { Reveal } from "../shared/Reveal";
 import { useFeaturedProjects } from "../../hooks/useProjects";
 import { urlFor } from "../../sanity/client";
 
+/**
+ * Renders the featured projects carousel section
+ *
+ * @returns Featured works carousel JSX element
+ */
 export function FeaturedWorks() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

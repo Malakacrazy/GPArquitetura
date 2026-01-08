@@ -1,11 +1,46 @@
+/**
+ * Bookshelf Component
+ *
+ * Auto-scrolling carousel showcasing architectural reference books.
+ * Links to the full library page with detailed book information.
+ *
+ * @module components/about/Bookshelf
+ * @since 1.0.0
+ *
+ * Features:
+ * - Infinite horizontal scroll (continuous animation)
+ * - Pauses on hover for better UX
+ * - Video background with multiply blend mode
+ * - Book cards with hover effects
+ * - Link to full library page
+ *
+ * Animation:
+ * - Continuous scroll at 1px per frame
+ * - Seamless loop (resets when passing first set)
+ * - Hover scales book cover 105%
+ *
+ * Data Source:
+ * - Book thumbnails from config/assets.ts
+ * - Images triplicated for seamless infinite scroll
+ *
+ * @example
+ * ```tsx
+ * <Bookshelf />
+ * ```
+ */
 import { ArrowRight,} from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { images, videos } from '../../config/assets';
 
-// Books data is now imported from centralized asset config
+/** Book thumbnails from centralized config */
 const books = images.about.bookThumbnails;
 
+/**
+ * Renders the auto-scrolling book carousel section
+ *
+ * @returns Bookshelf section JSX element
+ */
 export function Bookshelf() {
   const booksRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);

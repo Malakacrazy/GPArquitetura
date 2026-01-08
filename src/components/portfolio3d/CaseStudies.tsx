@@ -1,8 +1,43 @@
+/**
+ * CaseStudies Component (Portfolio 3D)
+ *
+ * Gallery showcase of 3D rendering work samples. Features a dynamic
+ * masonry-style grid with hover effects and responsive row heights.
+ *
+ * @module components/portfolio3d/CaseStudies
+ * @since 1.0.0
+ *
+ * Gallery Structure:
+ * - 4 rows of images with varying aspect ratios
+ * - Flex-based layout with proportional widths
+ * - Dynamic height changes on hover
+ *
+ * Image Categories:
+ * - Aerial/campus views
+ * - Interior residential
+ * - Exterior architecture
+ * - Commercial/luxury
+ *
+ * Interactions:
+ * - Hover expands image (flex-[3])
+ * - Row height adjusts to hovered image
+ * - Smooth 800ms transitions
+ *
+ * Animation:
+ * - Staggered fade-up entrance (0.05s delay per item)
+ * - Scale effect on hover
+ *
+ * @example
+ * ```tsx
+ * <CaseStudies />
+ * ```
+ */
 import { motion } from "motion/react";
 import { useState } from "react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { images } from "../../config/assets";
 
+/** Gallery images organized by rows with flex proportions and hover heights */
 const galleryImages = {
   row1: [
     {
@@ -99,6 +134,12 @@ const imageVariant = {
   },
 };
 
+/**
+ * Individual row component for gallery display
+ *
+ * @param props - Row images array and row index
+ * @returns Gallery row JSX element
+ */
 function ProjectRow({ rowImages, rowIndex }: { rowImages: any[]; rowIndex: number }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 

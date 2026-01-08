@@ -1,9 +1,44 @@
+/**
+ * WhatWeDo Component
+ *
+ * Services overview section featuring an animated card stack carousel
+ * and expandable accordion items describing the studio's design philosophy.
+ *
+ * @module components/home/WhatWeDo
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Two-column grid (image stack | text content)
+ * - Animated stacked cards that auto-rotate every 3 seconds
+ * - Decorative thread line overlay
+ * - Three accordion items for service categories
+ *
+ * Animation:
+ * - Cards stack with rotation and scale transformations
+ * - Auto-cycling every 3 seconds
+ * - Smooth transitions between card positions
+ *
+ * Services Highlighted:
+ * - Arquitetura Emocional e Neuroarquitetura
+ * - Funcionalidade
+ * - Conforto Ambiental
+ *
+ * @example
+ * ```tsx
+ * <WhatWeDo />
+ * ```
+ */
 import { AccordionItem } from './AccordionItem';
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Reveal } from '../shared/Reveal';
 import { images as assetImages } from '../../config/assets';
 
+/**
+ * Renders the "What We Do" services section with animated card carousel
+ *
+ * @returns Services section JSX element
+ */
 export function WhatWeDo() {
   const [activeIndex, setActiveIndex] = useState(0);
 

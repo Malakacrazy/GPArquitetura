@@ -1,8 +1,54 @@
+/**
+ * BookDetail Component
+ *
+ * Detailed book display with image carousel and navigation.
+ * Renders a single book's images and description with scroll controls.
+ *
+ * @module components/library/BookDetail
+ * @since 1.0.0
+ *
+ * Carousel Features:
+ * - Horizontal scrolling image gallery
+ * - Previous/Next button navigation
+ * - Smooth scroll animation
+ * - Responsive image sizing (85vw mobile, 600px desktop)
+ *
+ * Layout:
+ * - Image carousel at top
+ * - Title and description below
+ * - Navigation arrows aligned right
+ *
+ * Animation:
+ * - Reveal fade-up entrance
+ * - Image hover scale (1.05x)
+ * - Staggered reveal for text content
+ *
+ * Navigation:
+ * - Disabled state for first/last slide
+ * - Smooth scroll to slide position
+ * - Gap-aware scroll calculation
+ *
+ * @example
+ * ```tsx
+ * <BookDetail
+ *   book={{
+ *     id: "1",
+ *     title: "Architecture Book",
+ *     description: "A comprehensive guide...",
+ *     images: ["/img1.jpg", "/img2.jpg"]
+ *   }}
+ *   index={0}
+ * />
+ * ```
+ */
 import { useState, useRef } from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Reveal } from '../shared/Reveal';
 import { icons } from '../../config/assets';
 
+/**
+ * Book data structure
+ */
 interface Book {
   id: string;
   title: string;
@@ -10,11 +56,20 @@ interface Book {
   images: readonly string[];
 }
 
+/**
+ * Props for the BookDetail component
+ */
 interface BookDetailProps {
   book: Book;
   index: number;
 }
 
+/**
+ * Renders a detailed book view with image carousel
+ *
+ * @param props - Component props
+ * @returns Book detail section JSX element
+ */
 export function BookDetail({ book, index }: BookDetailProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);

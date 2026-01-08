@@ -1,5 +1,41 @@
+/**
+ * ProcessSection Component
+ *
+ * Six-step process overview explaining the studio's architectural workflow.
+ * Features numbered cards with hover animations on a warm primary background.
+ *
+ * @module components/home/ProcessSection
+ * @since 1.0.0
+ *
+ * Process Steps:
+ * 1. Briefing Emocional - Initial client consultation
+ * 2. Levantamento in loco - On-site property assessment
+ * 3. Estudo Preliminar - Preliminary design study
+ * 4. Anteprojeto - Technical specifications
+ * 5. Pré-executivo - Final review and material lists
+ * 6. Executivo & Obras - Construction documents
+ *
+ * Animation:
+ * - Staggered reveal animations (0.1s delay per card)
+ * - Hover effects: border highlight, number lift, text color change
+ *
+ * Layout:
+ * - 3-column grid on large screens
+ * - 2-column on medium
+ * - Single column on mobile
+ *
+ * @example
+ * ```tsx
+ * <ProcessSection />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 
+/**
+ * Renders the six-step design process section
+ *
+ * @returns Process section JSX element
+ */
 export function ProcessSection() {
   return (
     <section className="bg-[var(--color-primary)] text-white px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 overflow-hidden">

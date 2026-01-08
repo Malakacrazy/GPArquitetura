@@ -1,6 +1,34 @@
+/**
+ * ToS (Terms of Service) Component
+ *
+ * Displays the complete terms of service for GP Arquitetura in a split-screen layout.
+ * Covers usage rights, intellectual property, and legal disclaimers.
+ *
+ * @module components/legal/ToS
+ * @since 1.0.0
+ *
+ * Legal Coverage:
+ * - Service usage terms and conditions
+ * - Third-party links disclaimer
+ * - Intellectual property rights
+ * - Governing law (São Paulo, Brazil)
+ * - Terms modification policy
+ *
+ * Features:
+ * - Scrollable text content with styled scrollbar
+ * - Split-screen layout (text + image)
+ * - Responsive design for all screen sizes
+ * - Animated content reveal
+ *
+ * @example
+ * ```tsx
+ * <ToS />
+ * ```
+ */
 import React from 'react';
 import { motion } from 'motion/react';
 import { images } from '../../config/assets';
+import { contact } from '../../config/contact';
 
 export function ToS() {
   return (
@@ -90,7 +118,7 @@ export function ToS() {
                 <a href="http://www.gparquitetura.vercel.app" className="text-[var(--color-primary)] underline">www.gparquitetura.vercel.app</a>
               </p>
               <p className="text-base md:text-lg">
-                <a href="mailto:giuliap.arquitetura@gmail.com" className="text-[var(--color-primary)] underline">giuliap.arquitetura@gmail.com</a>
+                <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a>
               </p>
             </motion.div>
           </div>

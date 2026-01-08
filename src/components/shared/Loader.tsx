@@ -1,8 +1,40 @@
+/**
+ * Loader Component
+ *
+ * Full-screen loading overlay with animated sunflower progress indicator.
+ * Preloads media assets and displays loading progress before revealing content.
+ *
+ * @module components/shared/Loader
+ * @since 1.0.0
+ *
+ * Animation Stages:
+ * 1. 'loading' - Shows sunflower with progress circle and percentage
+ * 2. 'centering' - Moves brand name to center of screen
+ * 3. 'fading' - Curtain slides up to reveal page content
+ *
+ * Features:
+ * - Animated sunflower petals with spring animation
+ * - Circular progress indicator showing asset loading progress
+ * - Brand name with gradient fill effect during loading
+ * - Smooth curtain reveal transition
+ * - Prevents scrolling during load
+ *
+ * @example
+ * ```tsx
+ * <AnimatePresence>
+ *   {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />}
+ * </AnimatePresence>
+ * ```
+ */
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { preloadMediaWithTimeout } from '../../utils/preloadMedia';
 
+/**
+ * Props for the Loader component
+ */
 interface LoaderProps {
+  /** Callback fired when loading completes and exit animation finishes */
   onLoadingComplete?: () => void;
 }
 

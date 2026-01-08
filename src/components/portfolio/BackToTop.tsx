@@ -1,8 +1,46 @@
+/**
+ * BackToTop Component (Portfolio)
+ *
+ * Floating button that appears after scrolling past the GridList section.
+ * Scrolls back to the GridList (view selector) when clicked.
+ *
+ * @module components/portfolio/BackToTop
+ * @since 1.0.0
+ *
+ * Visibility Logic:
+ * - Hidden initially
+ * - Appears when GridList section scrolls off screen
+ * - Detects GridList by looking for "View:" text
+ *
+ * Animation:
+ * - Scale and fade entrance/exit
+ * - 300ms easeOut transition
+ * - Hover scale effect (1.1x)
+ *
+ * Behavior:
+ * - Scrolls to GridList section (not page top)
+ * - Smooth scroll behavior
+ *
+ * Positioning:
+ * - Fixed bottom-right corner
+ * - Responsive sizing (40-48px)
+ * - High z-index (40) for overlay
+ *
+ * @example
+ * ```tsx
+ * <BackToTop />
+ * ```
+ */
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { icons } from '../../config/assets';
 
+/**
+ * Renders a floating back-to-top button for the portfolio page
+ *
+ * @returns Back to top button JSX element
+ */
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const gridListRef = useRef<HTMLElement | null>(null);

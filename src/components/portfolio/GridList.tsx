@@ -1,12 +1,47 @@
+/**
+ * GridList Component
+ *
+ * View toggle controls for switching between grid and list display modes
+ * on the Portfolio page. Provides visual feedback for current selection.
+ *
+ * @module components/portfolio/GridList
+ * @since 1.0.0
+ *
+ * View Modes:
+ * - Galeria (Grid): Masonry-style card layout
+ * - Lista (List): Horizontal card list
+ *
+ * Styling:
+ * - Active button: Primary background color
+ * - Inactive button: Ghost variant with muted text
+ * - Icons: 4x4 size with left margin
+ *
+ * @example
+ * ```tsx
+ * const [isGridView, setIsGridView] = useState(true);
+ * <GridList isGridView={isGridView} setIsGridView={setIsGridView} />
+ * ```
+ */
 import { Grid, List } from 'lucide-react';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';
 
+/**
+ * Props for the GridList component
+ */
 interface GridListProps {
+  /** Current view mode (true = grid, false = list) */
   isGridView: boolean;
+  /** Callback to change view mode */
   setIsGridView: (isGrid: boolean) => void;
 }
 
+/**
+ * Renders the view mode toggle buttons
+ *
+ * @param props - Component props
+ * @returns Toggle button group JSX element
+ */
 export function GridList({ isGridView, setIsGridView }: GridListProps) {
   return (
     <motion.section 

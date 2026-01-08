@@ -1,11 +1,54 @@
+/**
+ * Project Hero Component
+ *
+ * Full-screen hero section for individual project pages. Displays project
+ * title with a background image and scroll indicator.
+ *
+ * @module components/project/Hero
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Full viewport height
+ * - Background image with dark overlay (40% opacity)
+ * - Studio name top-right
+ * - Project title bottom-left (large typography)
+ * - Scroll indicator bottom-right
+ *
+ * Image Handling:
+ * - Supports both string URLs and Sanity image references
+ * - Falls back to accent color if no image provided
+ * - 1920px width for optimal quality
+ *
+ * Typography:
+ * - Title: 6rem-10rem responsive uppercase text
+ * - Mix-blend-difference for contrast
+ * - Portuguese scroll indicator ("Rolar para Baixo")
+ *
+ * @example
+ * ```tsx
+ * <Hero
+ *   title="Casa Moderna"
+ *   heroImage={project.heroImage}
+ * />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { urlFor } from '../../sanity/client';
 
+/**
+ * Props for the Project Hero component
+ */
 interface ProjectHeroProps {
   title: string;
   heroImage?: any;
 }
 
+/**
+ * Renders the project hero section with title and background image
+ *
+ * @param props - Component props
+ * @returns Hero section JSX element
+ */
 export function Hero({ title, heroImage }: ProjectHeroProps) {
   const getBackgroundUrl = () => {
     if (!heroImage) return '';

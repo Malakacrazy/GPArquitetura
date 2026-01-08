@@ -1,3 +1,37 @@
+/**
+ * Portfolio3DPage
+ *
+ * 3D visualization and rendering services page. Showcases the studio's
+ * capabilities in architectural visualization with case studies,
+ * process explanation, and FAQ section.
+ *
+ * @module pages/Portfolio3DPage
+ * @since 1.0.0
+ * @route /3d-visualization
+ *
+ * Page Sections:
+ * 1. Loader - Animated loading screen
+ * 2. Hero - Full-screen video/image introduction
+ * 3. OurExpertise - Service categories and capabilities
+ * 4. OurVision - Design philosophy for 3D work
+ * 5. CaseStudies - Portfolio of 3D rendering projects
+ * 6. HowItWorks - Step-by-step process explanation
+ * 7. FAQ - Frequently asked questions accordion
+ *
+ * Loading Behavior:
+ * - Shows loader during asset preload
+ * - Navigation appears after loading
+ *
+ * SEO:
+ * - Custom OG image for 3D visualization
+ * - Two-level breadcrumb (Home > Visualização 3D)
+ *
+ * @example
+ * ```tsx
+ * // Route definition in App.tsx
+ * <Route path="/3d-visualization" element={<Portfolio3DPage />} />
+ * ```
+ */
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { Navigation } from '../components/shared/Navigation';
@@ -11,6 +45,11 @@ import { Footer } from '../components/shared/Footer';
 import { Loader } from '../components/shared/Loader';
 import { useSEO, SEO_CONFIG, createBreadcrumbJsonLd } from '../hooks/useSEO';
 
+/**
+ * Renders the 3D visualization services page
+ *
+ * @returns 3D portfolio page JSX element
+ */
 export default function Portfolio3DPage() {
   const [isLoading, setIsLoading] = useState(true);
   

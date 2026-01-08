@@ -1,7 +1,40 @@
+/**
+ * OurExpertise Component
+ *
+ * Statistics showcase section highlighting the studio's achievements
+ * with animated number counters and descriptive icons.
+ *
+ * @module components/about/OurExpertise
+ * @since 1.0.0
+ *
+ * Statistics Displayed:
+ * - 130+ Projects Completed
+ * - 2+ Competition Participations
+ * - 98% Client Satisfaction
+ *
+ * Layout:
+ * - 3-column grid on desktop
+ * - 2-column on tablet
+ * - Single column on mobile
+ * - Large area indicator at bottom (7,910 m²)
+ *
+ * Animation:
+ * - Header fades in on scroll
+ * - Statistics cards have staggered delays (0, 0.15s, 0.3s)
+ * - Bottom indicator animates with 0.3s delay
+ *
+ * @example
+ * ```tsx
+ * <OurExpertise />
+ * ```
+ */
 import { Building2, Award, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { icons } from '../../config/assets';
 
+/**
+ * Statistics item configuration
+ */
 interface Statistic {
   number: string;
   label: string;

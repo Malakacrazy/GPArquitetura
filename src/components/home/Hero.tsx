@@ -1,6 +1,36 @@
+/**
+ * Hero Component (Home Page)
+ *
+ * Full-screen hero section with background image, brand name, and tagline.
+ * First visual element visitors see when landing on the homepage.
+ *
+ * @module components/home/Hero
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Full viewport height (100vh)
+ * - Background image with subtle dark overlay
+ * - Brand name positioned top-right
+ * - Tagline and scroll indicator at bottom
+ *
+ * Features:
+ * - Scroll-triggered reveal animations
+ * - Responsive typography scaling
+ * - Warm, minimalist aesthetic
+ *
+ * @example
+ * ```tsx
+ * <Hero />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { images } from '../../config/assets';
 
+/**
+ * Renders the homepage hero section with full-screen background
+ *
+ * @returns Hero section JSX element
+ */
 export function Hero() {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center">

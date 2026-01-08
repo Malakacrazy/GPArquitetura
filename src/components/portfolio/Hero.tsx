@@ -1,6 +1,32 @@
+/**
+ * Hero Component (Portfolio Page)
+ *
+ * Full-screen hero section for the Portfolio page with background image,
+ * section label, brand name, and descriptive tagline.
+ *
+ * @module components/portfolio/Hero
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Full viewport height (100vh)
+ * - Background image with 40% dark overlay
+ * - "Nossos Projetos" label top-left
+ * - "Giulia Parente" brand top-right
+ * - Tagline and scroll indicator at bottom
+ *
+ * @example
+ * ```tsx
+ * <Hero />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { images } from '../../config/assets';
 
+/**
+ * Renders the Portfolio page hero section
+ *
+ * @returns Hero section JSX element
+ */
 export function Hero() {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center">

@@ -1,19 +1,68 @@
+/**
+ * ProjectsGridView Component
+ *
+ * Masonry-style grid display for portfolio projects. Features a hero
+ * project at full width followed by a 3-column asymmetric grid.
+ *
+ * @module components/portfolio/ProjectsGridView
+ * @since 1.0.0
+ *
+ * Layout:
+ * - First project: Full-width hero card
+ * - Remaining: 3-column absolute-positioned grid
+ * - Variable heights per project (from sanityAdapter)
+ * - 12px gaps between cards
+ *
+ * Features:
+ * - Custom cursor showing "ABRIR" on hover
+ * - Image zoom effect on hover (1.015x scale)
+ * - Overlay with title and location
+ * - Staggered entrance animations
+ * - Sanity image URL generation
+ *
+ * Interactions:
+ * - Click navigates to project detail page
+ * - Hover shows custom cursor and info overlay
+ * - Smooth clip-path animations
+ *
+ * @example
+ * ```tsx
+ * const projects = adaptSanityProjects(sanityProjects);
+ * <ProjectsGridView projects={projects} />
+ * ```
+ */
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Project } from '../../types/project';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { urlFor } from '../../sanity/client';
 
+/**
+ * Converts Sanity image reference or string to URL
+ *
+ * @param image - Image source (string URL or Sanity image object)
+ * @returns Image URL string
+ */
 const getImageUrl = (image: any) => {
   if (typeof image === 'string') return image;
   if (image?._type === 'image') return urlFor(image).width(1200).url();
   return image;
 };
 
+/**
+ * Props for the ProjectsGridView component
+ */
 interface ProjectsGridViewProps {
+  /** Array of projects with grid positioning data */
   projects: Project[];
 }
 
+/**
+ * Renders the masonry grid view of portfolio projects
+ *
+ * @param props - Component props
+ * @returns Grid view JSX element
+ */
 export function ProjectsGridView({ projects }: ProjectsGridViewProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

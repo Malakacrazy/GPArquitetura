@@ -1,8 +1,38 @@
+/**
+ * ProjectsSection Component
+ *
+ * Scroll-driven parallax section with curtain reveal effect.
+ * Two panels (Interior/Architecture) slide apart to reveal a background video.
+ *
+ * @module components/home/ProjectsSection
+ * @since 1.0.0
+ *
+ * Scroll Animation (225vh height):
+ * - 0-10%: Static view of both panels
+ * - 10-70%: Curtain opens (left panel slides left, right slides right)
+ * - 35%: Text on panels fades out
+ * - 60-80%: Lower content fades in over revealed video
+ *
+ * Interactive Features:
+ * - Hover effects on each panel (zoom, overlay, description reveal)
+ * - Text stroke effect when hovering opposite panel
+ * - Sticky positioning for scroll-driven animation
+ *
+ * @example
+ * ```tsx
+ * <ProjectsSection />
+ * ```
+ */
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { images, videos } from '../../config/assets';
 
+/**
+ * Renders the scroll-driven curtain reveal projects section
+ *
+ * @returns Parallax projects section JSX element
+ */
 export function ProjectsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredSide, setHoveredSide] = useState<'left' | 'right' | null>(null);

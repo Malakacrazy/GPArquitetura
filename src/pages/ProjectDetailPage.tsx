@@ -1,3 +1,46 @@
+/**
+ * ProjectDetailPage
+ *
+ * Individual project detail page displaying full project information,
+ * image galleries, and related projects. Dynamically fetches project
+ * data based on URL slug parameter.
+ *
+ * @module pages/ProjectDetailPage
+ * @since 1.0.0
+ * @route /portfolio/:slug
+ *
+ * URL Parameters:
+ * - slug: Project URL slug (e.g., "casa-alphaville")
+ *
+ * Page Layout:
+ * - Hero section with project title and main image
+ * - Two-column layout: Sidebar (metadata) + Main body (galleries/text)
+ * - Related projects carousel at bottom
+ *
+ * Data Source:
+ * - useProject(slug) fetches single project from Sanity
+ * - useRelatedProjects() fetches random related projects
+ *
+ * SEO:
+ * - Dynamic title and description from project data
+ * - Project-specific JSON-LD structured data
+ * - Three-level breadcrumb (Home > Portfólio > Project Name)
+ * - Dynamic OG image from project hero image
+ *
+ * States:
+ * - Loading: Animated pulse indicator
+ * - Error: Error message with retry prompt
+ * - Not Found: Project not found message
+ *
+ * @example
+ * ```tsx
+ * // Route definition in App.tsx
+ * <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
+ *
+ * // Navigation to project
+ * <Link to="/portfolio/casa-alphaville">View Project</Link>
+ * ```
+ */
 import { useParams } from "react-router-dom";
 import { Hero } from '../components/project/Hero';
 import { Navigation } from "../components/shared/Navigation";
@@ -8,6 +51,11 @@ import { OtherProjects } from "../components/project/OtherProjects";
 import { useProject } from "../hooks/useProjects";
 import { useSEO, createProjectJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';
 
+/**
+ * Renders the project detail page with full project information
+ *
+ * @returns Project detail page JSX element
+ */
 const ProjectDetailPage = () => {
   const { slug } = useParams();
   const { project, loading, error } = useProject(slug || '');

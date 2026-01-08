@@ -1,3 +1,38 @@
+/**
+ * HomePage
+ *
+ * Main landing page for GP Arquitetura. Features a full loading
+ * experience with animated sunflower loader, followed by multiple
+ * sections showcasing the studio's work and philosophy.
+ *
+ * @module pages/HomePage
+ * @since 1.0.0
+ * @route /
+ *
+ * Page Sections:
+ * 1. Loader - Animated sunflower progress indicator
+ * 2. Hero - Full-screen introduction with background image
+ * 3. WhatWeDo - Services with animated card carousel
+ * 4. ProjectsSection - Scroll-driven curtain reveal
+ * 5. ProcessSection - Six-step workflow explanation
+ * 6. FeaturedWorks - Featured projects carousel
+ * 7. Footer - Contact information and links
+ *
+ * Loading Behavior:
+ * - Loader shows during initial asset preload
+ * - Navigation appears after loading completes
+ * - All sections render immediately (hidden behind loader)
+ *
+ * SEO:
+ * - Uses SEO_CONFIG.home for meta tags
+ * - Primary landing page with highest priority
+ *
+ * @example
+ * ```tsx
+ * // Route definition in App.tsx
+ * <Route path="/" element={<HomePage />} />
+ * ```
+ */
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { Navigation } from '../components/shared/Navigation';
@@ -10,6 +45,11 @@ import { Footer } from '../components/shared/Footer';
 import { Loader } from '../components/shared/Loader';
 import { useSEO, SEO_CONFIG } from '../hooks/useSEO';
 
+/**
+ * Renders the main homepage with loader and all sections
+ *
+ * @returns Homepage JSX element
+ */
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
 

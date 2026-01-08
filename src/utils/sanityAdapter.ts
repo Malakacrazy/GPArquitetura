@@ -1,6 +1,45 @@
+/**
+ * Sanity Data Adapter Module
+ *
+ * Transforms Sanity CMS project data into the format required by
+ * the portfolio grid components. Handles grid positioning, height
+ * calculations, and data normalization.
+ *
+ * @module utils/sanityAdapter
+ * @since 1.0.0
+ *
+ * Grid Layout System:
+ * - 3-column masonry grid
+ * - First project is "hero" item (full width, 500px height)
+ * - Subsequent projects follow alternating height pattern
+ * - Row heights defined in rowHeights configuration
+ *
+ * @example
+ * ```typescript
+ * import { adaptSanityProjects } from '../utils/sanityAdapter';
+ *
+ * const { projects } = useProjects();
+ * const gridProjects = adaptSanityProjects(projects);
+ * ```
+ */
 import { Project } from '../types/project';
 
-// Convert Sanity projects to your grid format
+/**
+ * Transforms Sanity CMS projects into grid-compatible format
+ *
+ * Takes raw project data from Sanity and adds grid positioning
+ * properties (column, height, translateY) for masonry layout.
+ *
+ * @param sanityProjects - Array of raw project objects from Sanity
+ * @returns Array of Project objects with grid positioning data
+ *
+ * @example
+ * ```typescript
+ * const gridProjects = adaptSanityProjects(sanityProjects);
+ * // First project: { isHero: true, height: 500, ... }
+ * // Others: { column: 0|1|2, height: 230-518, translateY: number, ... }
+ * ```
+ */
 export function adaptSanityProjects(sanityProjects: any[]): Project[] {
   if (!sanityProjects || sanityProjects.length === 0) return [];
 

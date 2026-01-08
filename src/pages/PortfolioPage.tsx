@@ -1,3 +1,37 @@
+/**
+ * PortfolioPage
+ *
+ * Main portfolio listing page displaying all architectural projects.
+ * Supports both grid and list view modes with data fetched from Sanity CMS.
+ *
+ * @module pages/PortfolioPage
+ * @since 1.0.0
+ * @route /portfolio
+ *
+ * Features:
+ * - Grid/List view toggle
+ * - Projects fetched from Sanity CMS via useProjects hook
+ * - Masonry grid layout in grid view
+ * - Horizontal cards in list view
+ * - Loading and error states
+ * - Back to top button
+ *
+ * Data Flow:
+ * 1. useProjects() fetches from Sanity
+ * 2. adaptSanityProjects() transforms data for grid component
+ * 3. ProjectsGridView or ProjectsListView renders based on toggle
+ *
+ * SEO:
+ * - Dynamic meta tags via useSEO hook
+ * - Breadcrumb structured data (Home > Portfólio)
+ * - Custom OG image
+ *
+ * @example
+ * ```tsx
+ * // Route definition in App.tsx
+ * <Route path="/portfolio" element={<PortfolioPage />} />
+ * ```
+ */
 import { useState } from 'react';
 import { Hero } from '../components/portfolio/Hero';
 import { Navigation } from '../components/shared/Navigation';
@@ -10,6 +44,11 @@ import { useProjects } from '../hooks/useProjects';
 import { adaptSanityProjects } from '../utils/sanityAdapter';
 import { useSEO, SEO_CONFIG, createBreadcrumbJsonLd } from '../hooks/useSEO';
 
+/**
+ * Renders the Portfolio listing page with grid/list toggle
+ *
+ * @returns Portfolio page JSX element
+ */
 export default function PortfolioPage() {
   const [isGridView, setIsGridView] = useState(true);
   const { projects: sanityProjects, loading, error } = useProjects();

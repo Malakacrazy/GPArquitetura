@@ -1,3 +1,20 @@
+
+/**
+ * Project Domain Model
+ *
+ * This interface defines the **canonical shape** of a Project
+ * as used throughout the application.
+ *
+ * It intentionally merges:
+ * - UI concerns (grid layout, hero behavior)
+ * - CMS concerns (Sanity fields)
+ * - Routing concerns (slug, link)
+ *
+ * This avoids excessive mapping layers between CMS → UI → Router.
+ *
+ * @module domain/project
+ * @since 1.0.0
+ */
 export interface Project {
   // Existing fields
   id: number;

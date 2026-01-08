@@ -1,8 +1,46 @@
+/**
+ * BackToTop Component (Library)
+ *
+ * Floating button that appears after scrolling past the second book.
+ * Provides smooth scroll navigation back to the top of the page.
+ *
+ * @module components/library/BackToTop
+ * @since 1.0.0
+ *
+ * Visibility Logic:
+ * - Hidden initially
+ * - Appears when Book 2 section scrolls off screen
+ * - Uses intersection observer pattern
+ *
+ * Animation:
+ * - Scale and fade entrance/exit
+ * - 300ms easeOut transition
+ * - Hover scale effect (1.1x)
+ *
+ * Positioning:
+ * - Fixed bottom-right corner
+ * - Responsive sizing (40-48px)
+ * - High z-index (40) for overlay
+ *
+ * Accessibility:
+ * - aria-label for screen readers
+ * - Semantic button element
+ *
+ * @example
+ * ```tsx
+ * <BackToTop />
+ * ```
+ */
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { icons } from '../../config/assets';
 
+/**
+ * Renders a floating back-to-top button
+ *
+ * @returns Back to top button JSX element
+ */
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const book2Ref = useRef<HTMLElement | null>(null);

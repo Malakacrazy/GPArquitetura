@@ -1,6 +1,38 @@
+/**
+ * ParallaxImage Component
+ *
+ * Scroll-driven parallax effect for images. Creates a subtle vertical
+ * movement as the user scrolls past the image.
+ *
+ * @module components/library/ParallaxImage
+ * @since 1.0.0
+ *
+ * Effect:
+ * - Vertical translation based on scroll position
+ * - Configurable intensity (default 20px)
+ * - Offset from container start to end
+ *
+ * Implementation:
+ * - Uses Framer Motion useScroll and useTransform
+ * - Container ref for scroll tracking
+ * - Overflow hidden to crop parallax movement
+ *
+ * @example
+ * ```tsx
+ * <ParallaxImage
+ *   src="/images/book-cover.jpg"
+ *   alt="Architecture book cover"
+ *   intensity={30}
+ *   className="h-96"
+ * />
+ * ```
+ */
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 
+/**
+ * Props for the ParallaxImage component
+ */
 interface ParallaxImageProps {
   src: string;
   alt: string;
@@ -8,9 +40,15 @@ interface ParallaxImageProps {
   intensity?: number;
 }
 
-export function ParallaxImage({ 
-  src, 
-  alt, 
+/**
+ * Renders an image with scroll-driven parallax effect
+ *
+ * @param props - Component props
+ * @returns Parallax image JSX element
+ */
+export function ParallaxImage({
+  src,
+  alt,
   className = "",
   intensity = 20
 }: ParallaxImageProps) {

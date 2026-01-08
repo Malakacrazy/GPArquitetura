@@ -1,19 +1,65 @@
+/**
+ * ProjectsListView Component
+ *
+ * List/table view for portfolio projects with hover preview images.
+ * Alternative to grid view for displaying projects.
+ *
+ * @module components/portfolio/ProjectsListView
+ * @since 1.0.0
+ *
+ * Table Structure:
+ * - Project name + description
+ * - Year
+ * - Location
+ * - Header row (desktop only)
+ *
+ * Features:
+ * - Hover image preview following cursor
+ * - Smart positioning (left/right of cursor)
+ * - Color inversion on row hover
+ * - Staggered entrance animation
+ *
+ * Hover Preview:
+ * - 320x320px image follows mouse
+ * - Auto-positions to stay on screen
+ * - Smooth scale/fade transition
+ *
+ * @example
+ * ```tsx
+ * <ProjectsListView projects={projects} />
+ * ```
+ */
 import { useState } from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Project } from '../../types/project';
 import { motion } from 'framer-motion';
 import { urlFor } from '../../sanity/client';
 
+/**
+ * Helper function to get image URL from various formats
+ *
+ * @param image - Image reference (string or Sanity object)
+ * @returns Image URL string
+ */
 const getImageUrl = (image: any) => {
   if (typeof image === 'string') return image;
   if (image?._type === 'image') return urlFor(image).width(800).url();
   return image;
 };
 
+/**
+ * Props for the ProjectsListView component
+ */
 interface ProjectsListViewProps {
   projects: Project[];
 }
 
+/**
+ * Renders projects in a list/table format with hover preview
+ *
+ * @param props - Component props
+ * @returns Projects list view JSX element
+ */
 export function ProjectsListView({ projects }: ProjectsListViewProps) {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

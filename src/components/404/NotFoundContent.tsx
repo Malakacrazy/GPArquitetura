@@ -1,7 +1,45 @@
+/**
+ * NotFoundContent Component
+ *
+ * 404 error page content with a split-screen layout displaying
+ * an error message, navigation link, and decorative image.
+ *
+ * @module components/404/NotFoundContent
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Split-screen design (50/50 on desktop)
+ * - Left: Error message and home button
+ * - Right: Decorative image
+ *
+ * Content (Portuguese):
+ * - Friendly error message
+ * - "VOLTAR PARA HOME" call-to-action
+ * - Large "404 page not found" heading
+ *
+ * Animation:
+ * - Fade up for text content (0.8s, 0.2s delay)
+ * - Scale/fade for image (1.2s)
+ * - Hover effects on button
+ *
+ * Accessibility:
+ * - Semantic HTML structure
+ * - Descriptive link text
+ *
+ * @example
+ * ```tsx
+ * <NotFoundContent />
+ * ```
+ */
 import React from 'react';
 import { motion } from 'motion/react';
 import { images } from '../../config/assets';
 
+/**
+ * Renders the 404 error page content
+ *
+ * @returns 404 content JSX element
+ */
 export function NotFoundContent() {
   return (
     <main className="min-h-screen w-full">

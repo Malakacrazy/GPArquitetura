@@ -1,11 +1,53 @@
+/**
+ * ProjectHero Component (Portfolio)
+ *
+ * Full-screen hero section for project detail pages within the portfolio.
+ * Displays project title with background image and studio branding.
+ *
+ * @module components/portfolio/ProjectHero
+ * @since 1.0.0
+ *
+ * Layout:
+ * - Full viewport height
+ * - Background image with dark overlay (40%)
+ * - Studio name top-right
+ * - Project title bottom (responsive sizing)
+ * - Scroll indicator bottom-right
+ *
+ * Image Handling:
+ * - Supports string URLs or Sanity image references
+ * - Falls back to accent color if no image
+ * - 1920px width for optimal quality
+ *
+ * Typography:
+ * - Title: 6rem-10rem responsive uppercase
+ * - Mix-blend-difference for contrast
+ *
+ * @example
+ * ```tsx
+ * <ProjectHero
+ *   title="Casa Moderna"
+ *   heroImage={project.heroImage}
+ * />
+ * ```
+ */
 import { Reveal } from '../shared/Reveal';
 import { urlFor } from '../../sanity/client';
 
+/**
+ * Props for the ProjectHero component
+ */
 interface ProjectHeroProps {
   title: string;
   heroImage?: any;
 }
 
+/**
+ * Renders the project hero section
+ *
+ * @param props - Component props
+ * @returns Hero section JSX element
+ */
 export function ProjectHero({ title, heroImage }: ProjectHeroProps) {
   const getBackgroundUrl = () => {
     if (!heroImage) return '';

@@ -46,79 +46,504 @@ export function ToS() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
-              <p className="text-base md:text-lg">
-                Leia atentamente estes Termos de Serviço (“Termos”, “Termos de Serviço”) antes de utilizar o site https://www.gparquitetura.vercel.app (o “Serviço”) operado pela Giulia Parente Arquitetura (“nós”, “nos” ou “nosso”).
-              </p>
-              <p className="text-base md:text-lg">
-                O seu acesso e utilização do Serviço estão condicionados à sua aceitação e conformidade com estes Termos. Estes Termos se aplicam a todos os visitantes, usuários e outras pessoas que acessam ou utilizam o Serviço.
-              </p>
-              <p className="text-base md:text-lg">
-                Ao acessar ou utilizar o Serviço, você concorda em se comprometer com estes Termos. Caso discorde de qualquer parte dos termos, você não poderá acessar o Serviço.
+              <p className="text-sm md:text-base font-semibold text-[var(--color-primary)]">
+                Última atualização: Janeiro de 2026
               </p>
 
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Links para outros sites
-              </h6>
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                1. ACEITAÇÃO DOS TERMOS
+              </h2>
               <p className="text-base md:text-lg">
-                Nosso Serviço pode conter links para sites ou serviços de terceiros que não são de propriedade ou controlados pela Giuia Parente Arquitetura.
+                Bem-vindo ao site da GP Arquitetura, inscrita no CNPJ sob nº [00.000.000/0000-00], com sede em [endereço completo] (doravante "GP Arquitetura", "nós", "nos" ou "nosso").
               </p>
               <p className="text-base md:text-lg">
-                A Giuia Parente Arquitetura não tem controle e não assume responsabilidade pelo conteúdo, políticas de privacidade ou práticas de quaisquer sites ou serviços de terceiros. Você também reconhece e concorda que a Giuia Parente Arquitetura não será responsável, direta ou indiretamente, por qualquer dano ou perda causada ou alegadamente causada por ou em conexão com o uso ou confiança em qualquer conteúdo, bens ou serviços disponíveis em ou através de tais sites ou serviços.
+                Estes Termos de Uso e Serviço ("Termos") regem o acesso e utilização do site https://www.gparquitetura.com.br e https://gparquitetura.vercel.app (o "Site") e dos serviços oferecidos pela GP Arquitetura (os "Serviços").
               </p>
-              <p className="text-base md:text-lg">
-                Recomendamos enfaticamente que você leia os termos e condições e as políticas de privacidade de quaisquer sites ou serviços de terceiros que visitar.
-              </p>
-
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Lei aplicável
-              </h6>
-              <p className="text-base md:text-lg">
-                Estes Termos serão regidos e interpretados de acordo com as leis de São Paulo, Brasil, sem levar em consideração suas disposições sobre conflitos de leis.
-              </p>
-              <p className="text-base md:text-lg">
-                Nossa falha em fazer valer qualquer direito ou disposição destes Termos não será considerada uma renúncia a esses direitos. Se qualquer disposição destes Termos for considerada inválida ou inexequível por um tribunal, as demais disposições destes Termos permanecerão em vigor. Estes Termos constituem o acordo completo entre nós em relação ao nosso Serviço e substituem e revogam quaisquer acordos anteriores que possamos ter entre nós em relação ao Serviço.
+              <p className="text-base md:text-lg font-semibold">
+                Ao acessar ou utilizar o Site, você declara ter lido, compreendido e concordado integralmente com estes Termos. Caso discorde de qualquer disposição, você não está autorizado a acessar ou utilizar o Site.
               </p>
 
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Alterações
-              </h6>
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                2. DEFINIÇÕES
+              </h2>
+              <p className="text-base md:text-lg">Para fins destes Termos:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li><strong>Usuário ou Você:</strong> Qualquer pessoa física ou jurídica que acessa ou utiliza o Site.</li>
+                <li><strong>Conteúdo:</strong> Todo material disponível no Site, incluindo textos, imagens, fotografias, vídeos, projetos arquitetônicos, renders, plantas, gráficos, logotipos, ícones e outros elementos visuais.</li>
+                <li><strong>Serviços:</strong> Atividades de arquitetura e urbanismo oferecidas pela GP Arquitetura, incluindo projetos residenciais, comerciais, interiores e consultoria.</li>
+                <li><strong>Conta:</strong> Registro de usuário no Site (se aplicável para área restrita ou portal do cliente).</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                3. IDENTIFICAÇÃO DA EMPRESA
+              </h2>
               <p className="text-base md:text-lg">
-                Reservamo-nos o direito, a nosso exclusivo critério, de modificar ou substituir estes Termos a qualquer momento. Se uma revisão for significativa, tentaremos fornecer um aviso prévio de pelo menos 30 dias antes de quaisquer novos termos entrarem em vigor. O que constitui uma alteração significativa será determinado a nosso exclusivo critério.
+                <strong>Razão Social:</strong> [RAZÃO SOCIAL COMPLETA]<br />
+                <strong>Nome Fantasia:</strong> GP Arquitetura<br />
+                <strong>CNPJ:</strong> [00.000.000/0000-00]<br />
+                <strong>Registro CAU:</strong> [Número de registro no Conselho de Arquitetura e Urbanismo]<br />
+                <strong>Endereço:</strong> [Rua/Av completa, nº, Bairro, Cidade-UF, CEP]<br />
+                <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
+                <strong>Telefone:</strong> [Número com DDD]
               </p>
               <p className="text-base md:text-lg">
-                Ao continuar a acessar ou usar nosso Serviço após essas revisões entrarem em vigor, você concorda em se comprometer com os termos revisados. Se você não concordar com os novos termos, interrompa o uso do Serviço.
+                <strong>Responsável Técnico:</strong> Giulia Parente - Arquiteta e Urbanista<br />
+                <strong>CAU:</strong> [Número de registro profissional]
               </p>
 
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Propriedade intelectual
-              </h6>
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                4. DESCRIÇÃO DOS SERVIÇOS
+              </h2>
               <p className="text-base md:text-lg">
-                Os sites contêm materiais, como vídeos, fotografias, textos, gráficos, imagens e outros materiais fornecidos pela 53.554.180 Giuia Pessanha Parente ou em seu nome (coletivamente referidos como o “Conteúdo”). O Conteúdo pode ser de nossa propriedade ou de terceiros. O Conteúdo é protegido pelas leis australianas e estrangeiras. O uso não autorizado do Conteúdo pode violar leis de direitos autorais, marcas registradas e outras leis.
+                A GP Arquitetura oferece serviços de arquitetura e urbanismo, incluindo mas não limitado a:
               </p>
-              <p className="text-base md:text-lg">
-                Os visitantes podem visualizar todo o Conteúdo disponível publicamente para seu uso pessoal e não comercial. Os visitantes não têm outros direitos sobre o Conteúdo e você não utilizará o Conteúdo, exceto conforme permitido por este Contrato. Nenhum outro uso é permitido sem o consentimento prévio por escrito da 53.554.180 Giuia Pessanha Parente. A 53.554.180 Giuia Pessanha Parente detém todos os direitos, títulos e interesses, incluindo todos os direitos de propriedade intelectual, sobre o Conteúdo. Você deve manter todos os avisos de direitos autorais e outros avisos de propriedade contidos no Conteúdo original. Você não pode vender, transferir, ceder, licenciar, sublicenciar ou modificar o Conteúdo, nem reproduzir, exibir, executar publicamente, criar uma versão derivada, distribuir ou usar o Conteúdo de qualquer outra forma para qualquer finalidade pública ou comercial. O uso ou a publicação do Conteúdo em qualquer outro site, página de mídia social ou em um ambiente de computador em rede para qualquer finalidade é expressamente proibido.
-              </p>
-              <p className="text-base md:text-lg">
-                Se você violar qualquer parte deste Contrato, sua permissão para acessar e/ou utilizar o Conteúdo e os Sites será automaticamente rescindida e você deverá destruir imediatamente todas as cópias que tiver feito do Conteúdo.
-              </p>
-              <p className="text-base md:text-lg">
-                As marcas registradas, marcas de serviço e logotipos da 53.554.180 Giuia Pessanha Parente usados e exibidos nos sites são marcas registradas e não registradas ou marcas de serviço da 53.554.180 Giuia Pessanha Parente Outros nomes de empresas, produtos e serviços localizados nos sites podem ser marcas registradas ou marcas de serviço de propriedade de terceiros (as “Marcas Registradas de Terceiros” e, coletivamente com as Marcas Registradas da 53.554.180 Giuia Pessanha Parente, as “Marcas Registradas”). Nada nos sites deve ser interpretado como concessão, por implicação, preclusão ou de outra forma, de qualquer licença ou direito de uso das Marcas Registradas, sem nossa permissão prévia por escrito específica para cada uso. O uso das Marcas Registradas como parte de um link para ou de qualquer site é proibido, a menos que o estabelecimento de tal link seja aprovado previamente por nós por escrito. Toda a boa vontade gerada pelo uso das Marcas Registradas da 53.554.180 Giuia Pessanha Parente reverte em nosso benefício.
-              </p>
-              <p className="text-base md:text-lg">
-                Os elementos dos sites são protegidos por leis de imagem comercial, marcas registradas, concorrência desleal e outras leis estaduais e federais e não podem ser copiados ou imitados, no todo ou em parte, por qualquer meio, incluindo, mas não se limitando ao uso de framing ou mirrors. Nenhum conteúdo pode ser retransmitido sem o nosso consentimento expresso por escrito para cada caso específico.
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Projetos arquitetônicos residenciais e comerciais</li>
+                <li>Projetos de interiores</li>
+                <li>Consultoria em arquitetura</li>
+                <li>Elaboração de plantas e documentação técnica</li>
+                <li>Acompanhamento de obras</li>
+                <li>Renders e visualizações 3D</li>
+              </ul>
+              <p className="text-base md:text-lg font-semibold">
+                Importante: O Site tem caráter informativo e de divulgação. A contratação de serviços se formaliza mediante proposta comercial específica e contrato escrito.
               </p>
 
-              <h6 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl">
-                Contato
-              </h6>
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                5. USO DO SITE
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                5.1. Licença de Uso
+              </h3>
               <p className="text-base md:text-lg">
-                Se houver alguma dúvida sobre esta política de privacidade, entre em contato conosco usando as informações abaixo.
+                Concedemos a você uma licença <strong>limitada, não exclusiva, intransferível e revogável</strong> para acessar e usar o Site para fins pessoais e não comerciais.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                5.2. Proibições
+              </h3>
+              <p className="text-base md:text-lg">Você concorda em <strong>NÃO</strong>:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Utilizar o Site para fins ilícitos ou não autorizados</li>
+                <li>Reproduzir, distribuir, modificar ou criar obras derivadas do Conteúdo sem autorização</li>
+                <li>Fazer engenharia reversa, descompilar ou tentar obter o código-fonte do Site</li>
+                <li>Utilizar bots, scrapers ou sistemas automatizados para acessar o Site</li>
+                <li>Transmitir vírus, malware ou qualquer código prejudicial</li>
+                <li>Interferir ou interromper o funcionamento do Site</li>
+                <li>Violar direitos de propriedade intelectual da GP Arquitetura ou de terceiros</li>
+                <li>Coletar informações de outros usuários sem consentimento</li>
+                <li>Fazer uso comercial do Conteúdo sem autorização expressa e por escrito</li>
+                <li>Publicar o Conteúdo em outros sites, redes sociais ou plataformas sem permissão</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                5.3. Consequências de Violação
+              </h3>
+              <p className="text-base md:text-lg">A violação de qualquer disposição destes Termos resultará em:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Suspensão ou encerramento imediato do acesso ao Site</li>
+                <li>Obrigação de destruir todas as cópias do Conteúdo em sua posse</li>
+                <li>Responsabilização civil e criminal pelos danos causados</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                6. PROPRIEDADE INTELECTUAL
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                6.1. Direitos Autorais
+              </h3>
+              <p className="text-base md:text-lg">
+                Todo o Conteúdo disponível no Site é protegido por <strong>direitos autorais</strong> conforme a <strong>Lei nº 9.610/1998 (Lei de Direitos Autorais)</strong> e legislação aplicável.
+              </p>
+              <p className="text-base md:text-lg"><strong>Titularidade:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Os projetos arquitetônicos, renders, fotografias e textos originais são de propriedade exclusiva da GP Arquitetura</li>
+                <li>Algumas imagens podem pertencer a terceiros (fotógrafos, fornecedores) devidamente creditados</li>
+                <li>O uso não autorizado pode violar direitos autorais e outras leis de propriedade intelectual</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                6.2. Marcas Registradas
+              </h3>
+              <p className="text-base md:text-lg">
+                Os seguintes elementos são marcas da GP Arquitetura, protegidas pela <strong>Lei nº 9.279/1996 (Lei da Propriedade Industrial)</strong>:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Nome "GP Arquitetura"</li>
+                <li>Logotipo e identidade visual</li>
+                <li>Outros sinais distintivos exibidos no Site</li>
+              </ul>
+              <p className="text-base md:text-lg"><strong>Proibições:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Utilizar nossas marcas sem autorização prévia por escrito</li>
+                <li>Criar links para o Site sem aprovação (exceto links simples e não-comerciais)</li>
+                <li>Utilizar marcas de forma que sugira associação, patrocínio ou aprovação não existente</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                6.3. Uso Autorizado do Conteúdo
+              </h3>
+              <p className="text-base md:text-lg"><strong>Você PODE:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Visualizar o Conteúdo disponível publicamente no Site para uso pessoal e não comercial</li>
+                <li>Compartilhar links diretos para o Site em redes sociais (com crédito adequado)</li>
+                <li>Salvar imagens de referência para inspiração pessoal (não profissional)</li>
+              </ul>
+              <p className="text-base md:text-lg"><strong>Você NÃO PODE:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Reproduzir, publicar ou distribuir o Conteúdo comercialmente</li>
+                <li>Utilizar projetos, plantas ou renders em apresentações profissionais sem autorização</li>
+                <li>Remover avisos de copyright ou marcas d'água</li>
+                <li>Reivindicar autoria do Conteúdo</li>
+                <li>Vender, licenciar ou sublicenciar o Conteúdo</li>
+                <li>Utilizar o Conteúdo em outros sites, blogs ou portfólios</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                6.4. Solicitação de Autorização
+              </h3>
+              <p className="text-base md:text-lg">
+                Para uso comercial, profissional ou de maior alcance do Conteúdo:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Entre em contato: <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a></li>
+                <li>Especifique: tipo de uso, meio de divulgação, prazo</li>
+                <li>Aguarde autorização expressa por escrito</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                6.5. Direitos de Terceiros
+              </h3>
+              <p className="text-base md:text-lg">
+                Respeitamos os direitos de propriedade intelectual de terceiros. Se você acredita que algum Conteúdo no Site viola seus direitos:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Envie notificação para: <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a></li>
+                <li>Inclua: identificação do material, localização no Site, seus dados de contato e declaração de boa-fé</li>
+                <li>Analisaremos e tomaremos providências conforme a legislação</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                7. PRIVACIDADE E PROTEÇÃO DE DADOS
+              </h2>
+              <p className="text-base md:text-lg">
+                A coleta, uso e proteção de seus dados pessoais são regidos por nossa <strong>Política de Privacidade</strong>, elaborada em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>.
               </p>
               <p className="text-base md:text-lg">
-                <a href="http://www.gparquitetura.vercel.app" className="text-[var(--color-primary)] underline">www.gparquitetura.vercel.app</a>
+                Ao utilizar o Site, você também concorda com nossa Política de Privacidade, disponível em: [link para política de privacidade]
+              </p>
+              <p className="text-base md:text-lg"><strong>Principais pontos:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Coletamos apenas dados necessários para prestação de serviços</li>
+                <li>Respeitamos seus direitos como titular de dados</li>
+                <li>Implementamos medidas de segurança adequadas</li>
+                <li>Não comercializamos seus dados pessoais</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                8. CONTEÚDO DO USUÁRIO
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                8.1. Envio de Conteúdo
+              </h3>
+              <p className="text-base md:text-lg">
+                Ao enviar comentários, mensagens, imagens ou qualquer outro conteúdo através do Site (ex: formulário de contato):
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Você declara ser titular dos direitos sobre o conteúdo enviado</li>
+                <li>Você nos concede licença mundial, não exclusiva, gratuita e perpétua para utilizar, reproduzir e exibir o conteúdo para fins relacionados aos Serviços</li>
+                <li>Você garante que o conteúdo não viola direitos de terceiros</li>
+                <li>Você isenta a GP Arquitetura de qualquer reclamação relacionada ao conteúdo enviado</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                8.2. Moderação
+              </h3>
+              <p className="text-base md:text-lg">Reservamo-nos o direito de:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Revisar, editar ou remover qualquer conteúdo enviado</li>
+                <li>Recusar publicação de conteúdo inadequado, ofensivo ou ilegal</li>
+                <li>Excluir conteúdo que viole estes Termos</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                9. LINKS PARA SITES DE TERCEIROS
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                9.1. Links Externos
+              </h3>
+              <p className="text-base md:text-lg">
+                O Site pode conter links para sites de terceiros (fornecedores, parceiros, redes sociais, etc.).
+              </p>
+              <p className="text-base md:text-lg"><strong>Isenção de responsabilidade:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Não controlamos nem nos responsabilizamos pelo conteúdo de sites externos</li>
+                <li>Links não implicam em aprovação, patrocínio ou associação</li>
+                <li>Recomendamos que você leia os termos e políticas dos sites de terceiros</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                9.2. Links para Nosso Site
+              </h3>
+              <p className="text-base md:text-lg">Você pode criar links simples para nossa página inicial desde que:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Não sugira associação, aprovação ou patrocínio não existente</li>
+                <li>Não utilize framing, mirrors ou técnicas similares</li>
+                <li>O link não seja inserido em contextos ofensivos, ilegais ou prejudiciais à nossa reputação</li>
+              </ul>
+              <p className="text-base md:text-lg">
+                Para outros tipos de link (ex: deep links, uso de logotipo), solicite autorização: <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a>
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                10. ISENÇÃO DE GARANTIAS
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                10.1. Uso "No Estado"
+              </h3>
+              <p className="text-base md:text-lg">
+                O Site e os Serviços são fornecidos "no estado" e "conforme disponíveis", sem garantias de qualquer tipo.
+              </p>
+              <p className="text-base md:text-lg"><strong>Não garantimos:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Disponibilidade ininterrupta ou livre de erros do Site</li>
+                <li>Exatidão, completude ou atualidade das informações</li>
+                <li>Resultados específicos do uso do Site</li>
+                <li>Compatibilidade com todos os dispositivos ou navegadores</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                10.2. Conteúdo Informativo
+              </h3>
+              <p className="text-base md:text-lg">
+                As informações no Site têm caráter informativo geral. Para orientações específicas sobre projetos, serviços ou questões técnicas, solicite consultoria profissional formalizada.
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                11. LIMITAÇÃO DE RESPONSABILIDADE
+              </h2>
+              <p className="text-base md:text-lg">Na máxima extensão permitida pela lei brasileira:</p>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                11.1. Exclusão de Danos
+              </h3>
+              <p className="text-base md:text-lg">A GP Arquitetura não será responsável por:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Danos diretos, indiretos, incidentais, consequenciais ou punitivos</li>
+                <li>Perda de lucros, dados, oportunidades de negócio ou reputação</li>
+                <li>Interrupção de negócios ou uso do Site</li>
+                <li>Erros, vírus ou problemas técnicos</li>
+                <li>Ações de terceiros ou conteúdo de sites externos</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                11.2. Valor Máximo
+              </h3>
+              <p className="text-base md:text-lg">
+                Em qualquer caso, nossa responsabilidade total não excederá o valor pago por você pelos Serviços (se aplicável) nos 12 meses anteriores ao evento que deu origem à reclamação.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                11.3. Legislação Imperativa
+              </h3>
+              <p className="text-base md:text-lg">
+                Esta limitação não se aplica a responsabilidades que não possam ser excluídas ou limitadas pela legislação brasileira, como danos causados por dolo ou culpa grave.
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                12. INDENIZAÇÃO
+              </h2>
+              <p className="text-base md:text-lg">
+                Você concorda em indenizar, defender e isentar a GP Arquitetura, seus sócios, colaboradores e prestadores de serviços de todas as reclamações, perdas, responsabilidades, danos, custos e despesas (incluindo honorários advocatícios) decorrentes de:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Sua violação destes Termos</li>
+                <li>Seu uso inadequado do Site ou Serviços</li>
+                <li>Violação de direitos de terceiros</li>
+                <li>Qualquer conteúdo que você enviar através do Site</li>
+                <li>Violação de leis ou regulamentos aplicáveis</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                13. MODIFICAÇÕES
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                13.1. Alterações nos Termos
+              </h3>
+              <p className="text-base md:text-lg">
+                Reservamo-nos o direito de modificar estes Termos a qualquer momento, a nosso exclusivo critério.
+              </p>
+              <p className="text-base md:text-lg"><strong>Notificação:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Data de "Última atualização" será modificada</li>
+                <li>Para alterações significativas: aviso no Site com 30 dias de antecedência</li>
+                <li>Alterações materiais entram em vigor após o prazo de aviso</li>
+              </ul>
+              <p className="text-base md:text-lg"><strong>Aceitação:</strong></p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Continuar usando o Site após as alterações constitui aceitação dos novos Termos</li>
+                <li>Se discordar das alterações, descontinue o uso do Site</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                13.2. Alterações no Site
+              </h3>
+              <p className="text-base md:text-lg">
+                Podemos modificar, suspender ou descontinuar qualquer aspecto do Site, temporária ou permanentemente, sem aviso prévio.
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                14. RESCISÃO
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                14.1. Por Parte do Usuário
+              </h3>
+              <p className="text-base md:text-lg">
+                Você pode cessar o uso do Site a qualquer momento.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                14.2. Por Parte da GP Arquitetura
+              </h3>
+              <p className="text-base md:text-lg">Podemos suspender ou encerrar seu acesso ao Site imediatamente, sem aviso prévio, se:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Você violar estes Termos</li>
+                <li>Houver suspeita de atividade fraudulenta ou ilegal</li>
+                <li>For necessário por motivos legais ou regulatórios</li>
+                <li>A nosso exclusivo critério, para proteção de nossos interesses</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                14.3. Efeitos da Rescisão
+              </h3>
+              <p className="text-base md:text-lg">Após a rescisão:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Seu direito de acessar o Site cessa imediatamente</li>
+                <li>Disposições que por sua natureza devem sobreviver (propriedade intelectual, limitação de responsabilidade, etc.) permanecerão em vigor</li>
+                <li>Você deve destruir todas as cópias do Conteúdo em sua posse</li>
+              </ul>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                15. DISPOSIÇÕES GERAIS
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                15.1. Acordo Integral
+              </h3>
+              <p className="text-base md:text-lg">
+                Estes Termos, juntamente com a Política de Privacidade, constituem o acordo integral entre você e a GP Arquitetura sobre o uso do Site, substituindo todos os acordos anteriores.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                15.2. Renúncia
+              </h3>
+              <p className="text-base md:text-lg">
+                Nossa falha em exercer ou fazer cumprir qualquer direito previsto nestes Termos não constitui renúncia a tal direito.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                15.3. Independência das Cláusulas
+              </h3>
+              <p className="text-base md:text-lg">
+                Se qualquer disposição destes Termos for considerada inválida ou inexequível, as demais disposições permanecerão em pleno vigor e efeito.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                15.4. Cessão
+              </h3>
+              <p className="text-base md:text-lg">
+                Você não pode ceder ou transferir seus direitos sob estes Termos sem nosso consentimento prévio por escrito. Podemos ceder nossos direitos a qualquer afiliada ou sucessora.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                15.5. Força Maior
+              </h3>
+              <p className="text-base md:text-lg">
+                Não seremos responsáveis por atrasos ou falhas no cumprimento de obrigações devido a causas fora de nosso controle razoável (desastres naturais, guerras, pandemias, falhas de infraestrutura de internet, etc.).
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                16. LEI APLICÁVEL E JURISDIÇÃO
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                16.1. Lei Aplicável
+              </h3>
+              <p className="text-base md:text-lg">
+                Estes Termos são regidos e interpretados de acordo com as leis da <strong>República Federativa do Brasil</strong>, especialmente:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Lei nº 10.406/2002 (Código Civil)</li>
+                <li>Lei nº 8.078/1990 (Código de Defesa do Consumidor)</li>
+                <li>Lei nº 9.610/1998 (Direitos Autorais)</li>
+                <li>Lei nº 9.279/1996 (Propriedade Industrial)</li>
+                <li>Lei nº 13.709/2018 (LGPD)</li>
+                <li>Lei nº 12.965/2014 (Marco Civil da Internet)</li>
+              </ul>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                16.2. Foro
+              </h3>
+              <p className="text-base md:text-lg">
+                Fica eleito o foro da Comarca de [Cidade/Estado da sede da empresa] para dirimir quaisquer controvérsias oriundas destes Termos, com renúncia expressa a qualquer outro, por mais privilegiado que seja.
               </p>
               <p className="text-base md:text-lg">
-                <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a>
+                <strong>Exceção:</strong> Consumidores podem optar pelo foro de seu domicílio, conforme Art. 101, I do Código de Defesa do Consumidor.
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                17. RESOLUÇÃO DE CONFLITOS
+              </h2>
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                17.1. Negociação Direta
+              </h3>
+              <p className="text-base md:text-lg">
+                Antes de iniciar qualquer procedimento legal, as partes se comprometem a tentar resolver disputas por meio de negociação direta de boa-fé.
+              </p>
+
+              <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
+                17.2. Mediação (Opcional)
+              </h3>
+              <p className="text-base md:text-lg">
+                As partes podem, de comum acordo, submeter a disputa a mediação antes de recorrer ao judiciário.
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                18. CONTATO
+              </h2>
+              <p className="text-base md:text-lg">
+                Para questões, dúvidas ou solicitações relacionadas a estes Termos:
+              </p>
+              <p className="text-base md:text-lg">
+                <strong>E-mail geral:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
+                <strong>E-mail para questões jurídicas:</strong> [se houver e-mail específico]<br />
+                <strong>Telefone:</strong> [Número com DDD]<br />
+                <strong>Endereço:</strong> [Endereço completo]<br />
+                <strong>Horário de atendimento:</strong> [Dias e horários]
+              </p>
+              <p className="text-base md:text-lg">
+                <strong>Para questões sobre privacidade e dados pessoais:</strong><br />
+                privacidade@gparquitetura.com.br
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                19. IDIOMA
+              </h2>
+              <p className="text-base md:text-lg">
+                Estes Termos são redigidos em língua portuguesa (Brasil). Qualquer tradução é fornecida apenas para conveniência. Em caso de conflito, a versão em português prevalecerá.
+              </p>
+
+              <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
+                20. RECONHECIMENTO
+              </h2>
+              <p className="text-base md:text-lg">Ao utilizar o Site, você reconhece que:</p>
+              <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
+                <li>Leu e compreendeu integralmente estes Termos</li>
+                <li>Concorda em se comprometer com todas as disposições</li>
+                <li>Tem capacidade legal para aceitar estes Termos</li>
+                <li>Entende as limitações e exclusões de responsabilidade</li>
+              </ul>
+
+              <p className="text-sm md:text-base font-semibold text-[var(--color-primary)] pt-6">
+                Última atualização: Janeiro de 2026<br />
+                Versão: 1.0
               </p>
             </motion.div>
           </div>

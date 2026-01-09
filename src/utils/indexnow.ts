@@ -1,17 +1,64 @@
 /**
- * IndexNow Utility
+ * IndexNow Submission Utility
  *
- * This utility provides functions to submit URLs to IndexNow API
- * for instant indexing by search engines (Bing, Yandex, etc.)
+ * This module handles direct communication with the IndexNow API,
+ * allowing search engines to be notified immediately when URLs change.
+ *
+ * IndexNow is supported by:
+ * - Bing
+ * - Yandex
+ * - Other participating engines
+ *
+ * NOTE:
+ * - Google does NOT currently consume IndexNow payloads
+ * - This improves crawl freshness, not ranking
+ *
+ * @module services/indexnow
+ * @since 1.0.0
  */
 
+/**
+ * IndexNow API key.
+ *
+ * This key MUST:
+ * - Be publicly accessible
+ * - Match the file hosted at `/.well-known/{KEY}.txt`
+ *
+ * Security note:
+ * - This key is NOT secret
+ * - IndexNow keys are intentionally public
+ */
 const INDEXNOW_KEY = 'GPArquitetura-3d9f8c2e1a7b4d6f';
+
+/**
+ * Canonical host for the site.
+ *
+ * This must exactly match the domain being indexed,
+ * including subdomains.
+ */
 const HOST = 'gparquitetura.vercel.app';
+
+/**
+ * Absolute URL where the IndexNow key file is hosted.
+ *
+ * Search engines will verify this file before accepting
+ * any URL submissions.
+ */
 const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 
-// Default endpoint (you can use any IndexNow-supported search engine)
+/**
+ * Default IndexNow endpoint.
+ *
+ * This endpoint automatically routes the request
+ * to participating search engines.
+ */
 const DEFAULT_ENDPOINT = 'https://api.indexnow.org/indexnow';
 
+/**
+ * Shape of a successful IndexNow API response.
+ *
+ * Included for future extensibility and type safety.
+ */
 interface IndexNowResponse {
   success: boolean;
   status?: number;
@@ -134,7 +181,12 @@ export async function notifyProjectUpdate(projectSlug: string): Promise<IndexNow
 }
 
 /**
- * Constants for external use
+ * Public configuration object for external consumers.
+ *
+ * This allows:
+ * - Centralized config reuse
+ * - Explicit engine targeting if needed
+ * - Debugging and inspection
  */
 export const INDEXNOW_CONFIG = {
   key: INDEXNOW_KEY,

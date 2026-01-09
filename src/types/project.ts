@@ -1,18 +1,19 @@
-/**
- * Project Type Definitions
- *
- * TypeScript interfaces for portfolio project data structures.
- * Used throughout the application for type-safe project handling.
- *
- * @module types/project
- * @since 1.0.0
- */
 
 /**
- * Project interface representing a portfolio project
+ * Project Domain Model
  *
- * Combines fields from both the local grid system and Sanity CMS.
- * Used in portfolio views, project details, and related projects.
+ * This interface defines the **canonical shape** of a Project
+ * as used throughout the application.
+ *
+ * It intentionally merges:
+ * - UI concerns (grid layout, hero behavior)
+ * - CMS concerns (Sanity fields)
+ * - Routing concerns (slug, link)
+ *
+ * This avoids excessive mapping layers between CMS → UI → Router.
+ *
+ * @module domain/project
+ * @since 1.0.0
  */
 export interface Project {
   // Existing fields

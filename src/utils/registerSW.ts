@@ -1,6 +1,33 @@
-// Service Worker Registration
-// Registers the service worker for offline capability and caching
+/**
+ * Service Worker Registration Utility
+ *
+ * Handles registration and lifecycle management of the service worker
+ * for offline capability, caching, and PWA functionality.
+ *
+ * @module utils/registerSW
+ * @since 1.0.0
+ *
+ * Features:
+ * - Automatic service worker registration
+ * - Periodic update checks (every hour)
+ * - Update notification handling
+ * - Graceful fallback for unsupported browsers
+ *
+ * @example
+ * ```typescript
+ * import { registerServiceWorker } from '../utils/registerSW';
+ *
+ * // In main.tsx or App.tsx
+ * registerServiceWorker();
+ * ```
+ */
 
+/**
+ * Registers the service worker for offline capability and caching
+ *
+ * Sets up the service worker with automatic update checking and
+ * handles the installation lifecycle. Logs status messages for debugging.
+ */
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -48,6 +75,12 @@ export function registerServiceWorker() {
   }
 }
 
+/**
+ * Unregisters all service workers
+ *
+ * Useful for debugging or when disabling PWA functionality.
+ * Removes all registered service workers from the browser.
+ */
 export function unregisterServiceWorker() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then((registrations) => {

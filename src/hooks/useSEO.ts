@@ -1,5 +1,43 @@
+/**
+ * SEO Hook Module
+ *
+ * Custom React hook for managing page-level SEO metadata.
+ * Dynamically updates document title, meta tags, Open Graph,
+ * Twitter Cards, and JSON-LD structured data.
+ *
+ * @module hooks/useSEO
+ * @since 1.0.0
+ *
+ * Features:
+ * - Dynamic document title updates
+ * - Meta description and keywords
+ * - Canonical URL management
+ * - Open Graph protocol support
+ * - Twitter Card metadata
+ * - JSON-LD structured data injection
+ * - Cleanup on component unmount
+ *
+ * Exports:
+ * - useSEO: Main hook for SEO management
+ * - SEO_CONFIG: Pre-configured settings per page
+ * - createProjectJsonLd: Schema.org CreativeWork generator
+ * - createBreadcrumbJsonLd: Schema.org BreadcrumbList generator
+ *
+ * @example
+ * ```tsx
+ * import { useSEO, SEO_CONFIG } from '../hooks/useSEO';
+ *
+ * function AboutPage() {
+ *   useSEO(SEO_CONFIG.about);
+ *   return <AboutContent />;
+ * }
+ * ```
+ */
 import { useEffect } from 'react';
 
+/**
+ * SEO properties for page configuration
+ */
 interface SEOProps {
   title: string;
   description: string;
@@ -12,10 +50,40 @@ interface SEOProps {
   jsonLd?: Record<string, unknown>;
 }
 
+/** Base URL for all canonical and OG URLs */
 const BASE_URL = 'https://gparquitetura.vercel.app';
+/** Default Open Graph image path */
 const DEFAULT_IMAGE = `${BASE_URL}/images/og-image.png`;
+/** Site name used in titles and OG tags */
 const SITE_NAME = 'GP Arquitetura';
 
+/**
+ * React hook for managing page SEO metadata
+ *
+ * Updates document head with title, meta tags, Open Graph,
+ * Twitter Cards, and optional JSON-LD structured data.
+ * Cleans up page-specific JSON-LD on unmount.
+ *
+ * @param props - SEO configuration object
+ * @param props.title - Page title (appended with site name)
+ * @param props.description - Meta description
+ * @param props.keywords - Optional comma-separated keywords
+ * @param props.canonical - Optional canonical path (e.g., "/about")
+ * @param props.ogType - Open Graph type (default: "website")
+ * @param props.ogImage - Open Graph image URL
+ * @param props.ogImageAlt - Alt text for OG image
+ * @param props.noindex - If true, prevents search indexing
+ * @param props.jsonLd - Optional JSON-LD structured data object
+ *
+ * @example
+ * ```tsx
+ * useSEO({
+ *   title: 'Sobre Nós',
+ *   description: 'Conheça a GP Arquitetura...',
+ *   canonical: '/about'
+ * });
+ * ```
+ */
 export const useSEO = ({
   title,
   description,
@@ -113,7 +181,18 @@ export const useSEO = ({
   }, [title, description, keywords, canonical, ogType, ogImage, ogImageAlt, noindex, jsonLd]);
 };
 
-// Pre-configured SEO settings for each page
+/**
+ * Pre-configured SEO settings for each page
+ *
+ * Contains optimized title, description, and keywords for all
+ * main pages. Use with useSEO hook for consistent SEO across the site.
+ *
+ * @example
+ * ```tsx
+ * useSEO(SEO_CONFIG.home);
+ * useSEO(SEO_CONFIG.portfolio);
+ * ```
+ */
 export const SEO_CONFIG = {
   home: {
     title: 'Arquitetura e Design de Interiores em São Paulo',
@@ -173,7 +252,33 @@ export const SEO_CONFIG = {
   },
 };
 
-// JSON-LD templates for different page types
+/**
+ * Creates JSON-LD structured data for a project
+ *
+ * Generates Schema.org CreativeWork markup for portfolio projects.
+ * Improves search engine understanding of project content.
+ *
+ * @param project - Project data object
+ * @param project.name - Project name/title
+ * @param project.description - Project description
+ * @param project.image - Featured image URL
+ * @param project.slug - URL slug for the project
+ * @param project.category - Project category/type
+ * @param project.datePublished - Optional ISO date string
+ * @returns JSON-LD object for Schema.org CreativeWork
+ *
+ * @example
+ * ```tsx
+ * const jsonLd = createProjectJsonLd({
+ *   name: 'Casa Alphaville',
+ *   description: 'Residência contemporânea...',
+ *   image: '/images/casa-alphaville.jpg',
+ *   slug: 'casa-alphaville',
+ *   category: 'Residencial'
+ * });
+ * useSEO({ ...config, jsonLd });
+ * ```
+ */
 export const createProjectJsonLd = (project: {
   name: string;
   description: string;
@@ -201,6 +306,26 @@ export const createProjectJsonLd = (project: {
   },
 });
 
+/**
+ * Creates JSON-LD breadcrumb structured data
+ *
+ * Generates Schema.org BreadcrumbList markup for navigation.
+ * Helps search engines understand site hierarchy.
+ *
+ * @param items - Array of breadcrumb items
+ * @param items[].name - Display name for the breadcrumb
+ * @param items[].url - Relative URL path
+ * @returns JSON-LD object for Schema.org BreadcrumbList
+ *
+ * @example
+ * ```tsx
+ * const breadcrumbs = createBreadcrumbJsonLd([
+ *   { name: 'Home', url: '/' },
+ *   { name: 'Portfólio', url: '/portfolio' },
+ *   { name: 'Casa Alphaville', url: '/portfolio/casa-alphaville' }
+ * ]);
+ * ```
+ */
 export const createBreadcrumbJsonLd = (items: { name: string; url: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',

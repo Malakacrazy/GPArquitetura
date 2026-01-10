@@ -140,7 +140,7 @@ async function generateSitemap() {
     <loc>${BASE_URL}${page.loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>`;
+    <priority>${page.priority.toFixed(1)}</priority>`;
 
       // Add image if available
       if (page.image) {

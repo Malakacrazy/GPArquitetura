@@ -28,7 +28,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { images } from '../../config/assets';
-import { contact } from '../../config/contact';
+import { contact, company } from '../../config/contact';
 
 export function ToS() {
   return (
@@ -54,7 +54,7 @@ export function ToS() {
                 1. ACEITAÇÃO DOS TERMOS
               </h2>
               <p className="text-base md:text-lg">
-                Bem-vindo ao site da GP Arquitetura, inscrita no CNPJ sob nº [00.000.000/0000-00], com sede em [endereço completo] (doravante "GP Arquitetura", "nós", "nos" ou "nosso").
+                Bem-vindo ao site da {company.brandName}, com sede em {contact.location.city}, {contact.location.state}, {contact.location.country} (doravante "GP Arquitetura", "nós", "nos" ou "nosso").
               </p>
               <p className="text-base md:text-lg">
                 Estes Termos de Uso e Serviço ("Termos") regem o acesso e utilização do site https://www.gparquitetura.com.br e https://gparquitetura.vercel.app (o "Site") e dos serviços oferecidos pela GP Arquitetura (os "Serviços").
@@ -78,17 +78,14 @@ export function ToS() {
                 3. IDENTIFICAÇÃO DA EMPRESA
               </h2>
               <p className="text-base md:text-lg">
-                <strong>Razão Social:</strong> [RAZÃO SOCIAL COMPLETA]<br />
-                <strong>Nome Fantasia:</strong> GP Arquitetura<br />
-                <strong>CNPJ:</strong> [00.000.000/0000-00]<br />
-                <strong>Registro CAU:</strong> [Número de registro no Conselho de Arquitetura e Urbanismo]<br />
-                <strong>Endereço:</strong> [Rua/Av completa, nº, Bairro, Cidade-UF, CEP]<br />
+                <strong>Razão Social:</strong> {company.legalName}<br />
+                <strong>Nome Fantasia:</strong> {company.brandName}<br />
+                <strong>Endereço:</strong> {contact.location.city}, {contact.location.state}, {contact.location.country}<br />
                 <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
-                <strong>Telefone:</strong> [Número com DDD]
+                <strong>Telefone:</strong> {contact.whatsapp.display}
               </p>
               <p className="text-base md:text-lg">
-                <strong>Responsável Técnico:</strong> Giulia Parente - Arquiteta e Urbanista<br />
-                <strong>CAU:</strong> [Número de registro profissional]
+                <strong>Responsável Técnico:</strong> {company.founder} - Arquiteta e Urbanista
               </p>
 
               <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
@@ -230,7 +227,7 @@ export function ToS() {
                 A coleta, uso e proteção de seus dados pessoais são regidos por nossa <strong>Política de Privacidade</strong>, elaborada em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>.
               </p>
               <p className="text-base md:text-lg">
-                Ao utilizar o Site, você também concorda com nossa Política de Privacidade, disponível em: [link para política de privacidade]
+                Ao utilizar o Site, você também concorda com nossa Política de Privacidade, disponível em: <a href="/privacy-policy" className="text-[var(--color-primary)] underline">/privacy-policy</a>
               </p>
               <p className="text-base md:text-lg"><strong>Principais pontos:</strong></p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
@@ -482,7 +479,7 @@ export function ToS() {
                 16.2. Foro
               </h3>
               <p className="text-base md:text-lg">
-                Fica eleito o foro da Comarca de [Cidade/Estado da sede da empresa] para dirimir quaisquer controvérsias oriundas destes Termos, com renúncia expressa a qualquer outro, por mais privilegiado que seja.
+                Fica eleito o foro da Comarca de {contact.location.city}/{contact.location.state} para dirimir quaisquer controvérsias oriundas destes Termos, com renúncia expressa a qualquer outro, por mais privilegiado que seja.
               </p>
               <p className="text-base md:text-lg">
                 <strong>Exceção:</strong> Consumidores podem optar pelo foro de seu domicílio, conforme Art. 101, I do Código de Defesa do Consumidor.
@@ -512,11 +509,10 @@ export function ToS() {
                 Para questões, dúvidas ou solicitações relacionadas a estes Termos:
               </p>
               <p className="text-base md:text-lg">
-                <strong>E-mail geral:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
-                <strong>E-mail para questões jurídicas:</strong> [se houver e-mail específico]<br />
-                <strong>Telefone:</strong> [Número com DDD]<br />
-                <strong>Endereço:</strong> [Endereço completo]<br />
-                <strong>Horário de atendimento:</strong> [Dias e horários]
+                <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
+                <strong>Telefone:</strong> {contact.whatsapp.display}<br />
+                <strong>Endereço:</strong> {contact.location.city}, {contact.location.state}, {contact.location.country}<br />
+                <strong>Horário de atendimento:</strong> Segunda a Sexta, {contact.businessHours.openHour}h às {contact.businessHours.closeHour}h ({contact.location.timezone})
               </p>
               <p className="text-base md:text-lg">
                 <strong>Para questões sobre privacidade e dados pessoais:</strong><br />

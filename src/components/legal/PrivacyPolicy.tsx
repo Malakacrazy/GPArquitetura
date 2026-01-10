@@ -27,7 +27,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { images } from '../../config/assets';
-import { contact } from '../../config/contact';
+import { contact, company } from '../../config/contact';
 
 export function PrivacyPolicy() {
   return (
@@ -54,7 +54,7 @@ export function PrivacyPolicy() {
                 1. INTRODUÇÃO
               </h2>
               <p className="text-base md:text-lg">
-                A <strong>[RAZÃO SOCIAL COMPLETA]</strong>, inscrita no CNPJ sob nº <strong>[00.000.000/0000-00]</strong>, com sede em <strong>[endereço completo]</strong> (doravante "GP Arquitetura", "nós" ou "nosso"), está comprometida com a proteção da privacidade e dos dados pessoais de seus clientes, visitantes do site e demais interessados em todas as jurisdições onde atuamos.
+                A <strong>{company.legalName}</strong>, com sede em <strong>{contact.location.city}, {contact.location.state}, {contact.location.country}</strong> (doravante "GP Arquitetura", "nós" ou "nosso"), está comprometida com a proteção da privacidade e dos dados pessoais de seus clientes, visitantes do site e demais interessados em todas as jurisdições onde atuamos.
               </p>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
@@ -120,17 +120,14 @@ export function PrivacyPolicy() {
                 3. IDENTIFICAÇÃO DO CONTROLADOR
               </h2>
               <p className="text-base md:text-lg">
-                <strong>Razão Social:</strong> [RAZÃO SOCIAL COMPLETA]<br />
-                <strong>Nome Fantasia:</strong> GP Arquitetura<br />
-                <strong>CNPJ:</strong> [00.000.000/0000-00]<br />
-                <strong>Registro CAU:</strong> [Número CAU]<br />
-                <strong>Endereço:</strong> [Rua/Av completa, nº, Bairro, Cidade-UF, CEP]<br />
+                <strong>Razão Social:</strong> {company.legalName}<br />
+                <strong>Nome Fantasia:</strong> {company.brandName}<br />
+                <strong>Endereço:</strong> {contact.location.city}, {contact.location.state}, {contact.location.country}<br />
                 <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
-                <strong>Telefone:</strong> [número com DDD]
+                <strong>Telefone:</strong> {contact.whatsapp.display}
               </p>
               <p className="text-base md:text-lg">
-                <strong>Responsável Técnico:</strong> Giulia Parente - Arquiteta e Urbanista<br />
-                <strong>CAU:</strong> [número]
+                <strong>Responsável Técnico:</strong> {company.founder} - Arquiteta e Urbanista
               </p>
 
               <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
@@ -489,7 +486,7 @@ export function PrivacyPolicy() {
                 <li>Lei nº 8.078/1990 (Código de Defesa do Consumidor)</li>
               </ul>
               <p className="text-base md:text-lg">
-                <strong>Foro:</strong> Comarca de [Cidade/Estado da sede]<br />
+                <strong>Foro:</strong> Comarca de {contact.location.city}/{contact.location.state}<br />
                 <strong>Exceção:</strong> Consumidores podem optar pelo foro de seu domicílio (CDC Art. 101, I)
               </p>
 
@@ -522,8 +519,9 @@ export function PrivacyPolicy() {
               <p className="text-base md:text-lg"><strong>Para questões sobre privacidade e proteção de dados:</strong></p>
               <p className="text-base md:text-lg">
                 📧 <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
-                📞 <strong>Telefone:</strong> [Número com DDD e código internacional]<br />
+                📞 <strong>Telefone:</strong> {contact.whatsapp.display} / +{contact.whatsapp.number}<br />
                 <strong>Idiomas:</strong> Português, Inglês, Espanhol<br />
+                <strong>Horário:</strong> Segunda a Sexta, {contact.businessHours.openHour}h às {contact.businessHours.closeHour}h ({contact.location.timezone})<br />
                 <strong>Prazo de resposta inicial:</strong> 24-48 horas (dias úteis)
               </p>
               <p className="text-base md:text-lg"><strong>Assuntos específicos - use o subject:</strong></p>

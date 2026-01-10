@@ -46,8 +46,7 @@ export function PrivacyPolicy() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             >
               <p className="text-sm md:text-base font-semibold text-[var(--color-primary)]">
-                Última atualização: Janeiro de 2026<br />
-                Versão: 2.0 - Documento Consolidado
+                Última atualização: Janeiro de 2026
               </p>
 
               <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
@@ -76,7 +75,7 @@ export function PrivacyPolicy() {
                 <li>California Consumer Privacy Act - CCPA (California Civil Code §1798.100+)</li>
                 <li>California Privacy Rights Act - CPRA (2023+)</li>
               </ul>
-              <p className="text-base md:text-lg"><strong>🌍 Outras Jurisdições:</strong></p>
+              <p className="text-base md:text-lg"><strong>Outras Jurisdições:</strong></p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                 <li>PIPEDA (Canadá), Privacy Act 1988 (Austrália) e leis locais aplicáveis</li>
               </ul>
@@ -251,7 +250,7 @@ export function PrivacyPolicy() {
               <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
                 8. COMPARTILHAMENTO DE DADOS
               </h2>
-              <p className="text-base md:text-lg font-semibold">❌ NÃO vendemos, alugamos ou comercializamos seus dados pessoais.</p>
+              <p className="text-base md:text-lg font-semibold">NÃO vendemos, alugamos ou comercializamos seus dados pessoais.</p>
               <p className="text-base md:text-lg">Seus dados podem ser compartilhados com:</p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                 <li><strong>Fornecedores de tecnologia:</strong> Vercel (hospedagem), Google (analytics)</li>
@@ -374,7 +373,7 @@ export function PrivacyPolicy() {
                 <li><strong>Não-Discriminação:</strong> Não será discriminado por exercer direitos</li>
               </ul>
               <p className="text-base md:text-lg font-semibold">
-                ❌ NÃO vendemos suas informações pessoais conforme definição CCPA
+                NÃO vendemos suas informações pessoais conforme definição CCPA
               </p>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
@@ -443,7 +442,7 @@ export function PrivacyPolicy() {
                 <li>Processamento: máximo 48h</li>
               </ul>
               <p className="text-base md:text-lg font-semibold">
-                ❌ NÃO vendemos listas de e-mail
+                NÃO vendemos listas de e-mail
               </p>
 
               <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">
@@ -518,8 +517,8 @@ export function PrivacyPolicy() {
               </h2>
               <p className="text-base md:text-lg"><strong>Para questões sobre privacidade e proteção de dados:</strong></p>
               <p className="text-base md:text-lg">
-                📧 <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
-                📞 <strong>Telefone:</strong> {contact.whatsapp.display} / +{contact.whatsapp.number}<br />
+                <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
+                <strong>Telefone:</strong> {contact.whatsapp.display} / +{contact.whatsapp.number}<br />
                 <strong>Idiomas:</strong> Português, Inglês, Espanhol<br />
                 <strong>Horário:</strong> Segunda a Sexta, {contact.businessHours.openHour}h às {contact.businessHours.closeHour}h ({contact.location.timezone})<br />
                 <strong>Prazo de resposta inicial:</strong> 24-48 horas (dias úteis)
@@ -531,11 +530,6 @@ export function PrivacyPolicy() {
                 <li>"CCPA Privacy Request - California Resident" (Califórnia)</li>
                 <li>"Privacy Inquiry" (geral)</li>
               </ul>
-
-              <p className="text-sm md:text-base font-semibold text-[var(--color-primary)] pt-6">
-                Última atualização: Janeiro de 2026<br />
-                Versão: 2.0 - Documento Consolidado
-              </p>
             </motion.div>
           </div>
 

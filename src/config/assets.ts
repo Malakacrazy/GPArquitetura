@@ -545,10 +545,4 @@ export const pageSpecificAssets = {
       videos.portfolio3d.expertiseAnimation.mp4,
     ],
   },
-
-  // Library page (image-heavy)
-  library: {
-    images: images.library.books.flatMap(book => book.images),
-    videos: [] as string[],
-  },
 } as const;

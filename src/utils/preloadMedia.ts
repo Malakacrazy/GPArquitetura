@@ -171,21 +171,13 @@ export const preloadCriticalAssetsWithTimeout = async (
  * 
  * Called when user navigates to heavy pages:
  * - Portfolio3D: Heavy videos and case study images
- * - Library: Book gallery images
  * 
- * @param page - Page identifier ('portfolio3d' | 'library')
+ * @param page - Page identifier ('portfolio3d')
  */
-export const preloadPageAssets = async (
-  page: keyof typeof pageSpecificAssets,
+export const preloadPageSpecificAssets = async (
   onProgress?: PreloadProgressCallback
 ): Promise<void> => {
-  const assets = pageSpecificAssets[page];
-  if (!assets) {
-    console.warn(`No page-specific assets found for: ${page}`);
-    return;
-  }
-
-  const { images, videos } = assets;
+  const { images, videos } = pageSpecificAssets.portfolio3d;
   const allAssets = [...images, ...videos];
   const total = allAssets.length;
   let loaded = 0;
@@ -214,16 +206,15 @@ export const preloadPageAssets = async (
 /**
  * LAYER 2 with Timeout Fallback
  */
-export const preloadPageAssetsWithTimeout = async (
-  page: keyof typeof pageSpecificAssets,
-  timeoutMs: number = 8000,
+export const preloadPageSpecificAssetsWithTimeout = async (
+  timeoutMs: number = 10000,
   onProgress?: PreloadProgressCallback
 ): Promise<void> => {
   return Promise.race([
-    preloadPageAssets(page, onProgress),
+    preloadPageSpecificAssets(onProgress),
     new Promise<void>((resolve) => {
       setTimeout(() => {
-        console.warn(`Page-specific assets (${page}) preload timeout reached`);
+        console.warn('Page-specific assets preload timeout reached');
         resolve();
       }, timeoutMs);
     }),

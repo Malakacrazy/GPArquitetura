@@ -34,6 +34,7 @@
  */
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
+import { Loader } from '../components/portfolio3d/Loader';
 import { Navigation } from '../components/shared/Navigation';
 import { Hero } from '../components/portfolio3d/Hero';
 import { OurExpertise } from '../components/portfolio3d/OurExpertise';
@@ -42,7 +43,6 @@ import { CaseStudies } from '../components/portfolio3d/CaseStudies';
 import { HowItWorks } from '../components/portfolio3d/HowItWorks';
 import { FAQ } from '../components/portfolio3d/FAQ';
 import { Footer } from '../components/shared/Footer';
-import { Loader } from '../components/shared/Loader';
 import { useSEO, SEO_CONFIG, createBreadcrumbJsonLd } from '../hooks/useSEO';
 
 /**
@@ -52,7 +52,7 @@ import { useSEO, SEO_CONFIG, createBreadcrumbJsonLd } from '../hooks/useSEO';
  */
 export default function Portfolio3DPage() {
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Apply SEO settings for 3D Visualization page
   useSEO({
     ...SEO_CONFIG.portfolio3d,
@@ -68,7 +68,7 @@ export default function Portfolio3DPage() {
       <AnimatePresence>
         {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
-      
+
       {!isLoading && <Navigation />}
       <Hero />
       <OurExpertise />

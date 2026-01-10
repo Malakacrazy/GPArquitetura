@@ -6,7 +6,7 @@
  * smooth playback once the page is revealed.
  *
  * @module utils/preloadMedia
- * @since 1.0.0
+ * @since 1.0.1
  *
  * Strategy:
  * - Preloads all critical images and videos in parallel
@@ -15,7 +15,7 @@
  * - Supports timeout fallback to prevent infinite loading
  *
  * Asset Source:
- * - Uses preloadImages/preloadVideos arrays from config/assets.ts
+ * - Uses criticalAssets/pageSpecificAssets arrays from config/assets.ts
  * - Configured per-page to only load necessary assets
  *
  * @example
@@ -28,19 +28,7 @@
  * });
  * ```
  */
-import { preloadImages, preloadVideos } from '../config/assets';
-
-/**
- * Array of image URLs to preload
- * @deprecated Use preloadImages from config/assets.ts directly
- */
-export const IMAGE_URLS = preloadImages;
-
-/**
- * Array of video URLs to preload
- * @deprecated Use preloadVideos from config/assets.ts directly
- */
-export const VIDEO_URLS = preloadVideos;
+import { criticalAssets, pageSpecificAssets } from '../config/assets';
 
 /**
  * Progress tracking object for preload operations
@@ -121,12 +109,20 @@ const preloadVideo = (url: string): Promise<void> => {
 };
 
 /**
- * Preload all media assets with progress tracking
+ * LAYER 1: Preload Critical Assets (Frontloader)
+ * 
+ * Loads all essential assets for:
+ * - Navigation/Footer (shared)
+ * - Homepage
+ * - About, Portfolio, Contact pages
+ * 
+ * Excludes: Portfolio3D, Library (loaded on-demand)
  */
-export const preloadAllMedia = async (
+export const preloadCriticalAssets = async (
   onProgress?: PreloadProgressCallback
 ): Promise<void> => {
-  const allAssets = [...IMAGE_URLS, ...VIDEO_URLS];
+  const { images, videos } = criticalAssets;
+  const allAssets = [...images, ...videos];
   const total = allAssets.length;
   let loaded = 0;
 
@@ -135,42 +131,115 @@ export const preloadAllMedia = async (
     const percentage = Math.round((loaded / total) * 100);
 
     if (onProgress) {
-      onProgress({
-        loaded,
-        total,
-        percentage,
-      });
+      onProgress({ loaded, total, percentage });
     }
   };
 
-  // Create promises for all assets
-  const imagePromises = IMAGE_URLS.map(url =>
+  // Create promises
+  const imagePromises = images.map(url =>
     preloadImage(url).then(updateProgress)
   );
 
-  const videoPromises = VIDEO_URLS.map(url =>
+  const videoPromises = videos.map(url =>
     preloadVideo(url).then(updateProgress)
   );
 
-  // Wait for all assets to load (or fail gracefully)
   await Promise.all([...imagePromises, ...videoPromises]);
 };
 
 /**
- * Preload media with a timeout fallback
- * If media takes too long to load, the loader will complete anyway
+ * LAYER 1 with Timeout Fallback
+ * Prevents infinite loading if assets fail
  */
-export const preloadMediaWithTimeout = async (
-  timeoutMs: number = 10000, // 10 second max
+export const preloadCriticalAssetsWithTimeout = async (
+  timeoutMs: number = 10000,
   onProgress?: PreloadProgressCallback
 ): Promise<void> => {
   return Promise.race([
-    preloadAllMedia(onProgress),
+    preloadCriticalAssets(onProgress),
     new Promise<void>((resolve) => {
       setTimeout(() => {
-        console.warn('Media preload timeout reached');
+        console.warn('Critical assets preload timeout reached');
         resolve();
       }, timeoutMs);
     }),
   ]);
+};
+
+/**
+ * LAYER 2: Preload Page-Specific Assets
+ * 
+ * Called when user navigates to heavy pages:
+ * - Portfolio3D: Heavy videos and case study images
+ * - Library: Book gallery images
+ * 
+ * @param page - Page identifier ('portfolio3d' | 'library')
+ */
+export const preloadPageAssets = async (
+  page: keyof typeof pageSpecificAssets,
+  onProgress?: PreloadProgressCallback
+): Promise<void> => {
+  const assets = pageSpecificAssets[page];
+  if (!assets) {
+    console.warn(`No page-specific assets found for: ${page}`);
+    return;
+  }
+
+  const { images, videos } = assets;
+  const allAssets = [...images, ...videos];
+  const total = allAssets.length;
+  let loaded = 0;
+
+  const updateProgress = () => {
+    loaded++;
+    const percentage = Math.round((loaded / total) * 100);
+
+    if (onProgress) {
+      onProgress({ loaded, total, percentage });
+    }
+  };
+
+  // Create promises
+  const imagePromises = images.map(url =>
+    preloadImage(url).then(updateProgress)
+  );
+
+  const videoPromises = videos.map(url =>
+    preloadVideo(url).then(updateProgress)
+  );
+
+  await Promise.all([...imagePromises, ...videoPromises]);
+};
+
+/**
+ * LAYER 2 with Timeout Fallback
+ */
+export const preloadPageAssetsWithTimeout = async (
+  page: keyof typeof pageSpecificAssets,
+  timeoutMs: number = 8000,
+  onProgress?: PreloadProgressCallback
+): Promise<void> => {
+  return Promise.race([
+    preloadPageAssets(page, onProgress),
+    new Promise<void>((resolve) => {
+      setTimeout(() => {
+        console.warn(`Page-specific assets (${page}) preload timeout reached`);
+        resolve();
+      }, timeoutMs);
+    }),
+  ]);
+};
+
+/**
+ * Utility: Check if assets are already cached
+ */
+export const areAssetsCached = (urls: string[]): boolean => {
+  return urls.every(url => loadedAssets.has(url));
+};
+
+/**
+ * Utility: Clear cache (useful for development)
+ */
+export const clearAssetCache = (): void => {
+  loadedAssets.clear();
 };

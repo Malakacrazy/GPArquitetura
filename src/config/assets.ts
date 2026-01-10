@@ -4,6 +4,9 @@
  * All media assets are stored in the /public folder and served via Vercel CDN.
  * This is the SINGLE SOURCE OF TRUTH for all asset paths across the application.
  * 
+ * @module config/assets
+ * @since 1.0.1 
+ *  
  * Benefits of Vercel CDN:
  * - Automatic global CDN distribution
  * - Image optimization (when using next/image or Vercel's image optimization)
@@ -458,29 +461,94 @@ export const preloadAssets = {
 } as const;
 
 // =============================================================================
-// COMBINED PRELOAD LISTS (for preloadMedia.ts)
+// TWO-LAYER PRELOAD STRATEGY (for preloadMedia.ts)
 // =============================================================================
 
-// All images to preload
-export const preloadImages: string[] = [
-  ...preloadAssets.shared.images,
-  ...preloadAssets.home.images,
-  ...preloadAssets.about.images,
-  ...preloadAssets.library.images,
-  ...preloadAssets.portfolio.images,
-  ...preloadAssets.portfolio3d.images,
-  ...preloadAssets.contact.images,
-  ...preloadAssets.notFound.images,
-];
+/**
+ * LAYER 1: Critical Assets (Frontloader)
+ * These assets are loaded immediately on site entry and cached
+ * Excludes Portfolio3D and Library (heavy pages loaded on-demand)
+ */
+export const criticalAssets = {
+  images: [
+    // Shared/Navigation (always needed)
+    // No critical shared images currently
 
-// All videos to preload
-export const preloadVideos: string[] = [
-  ...preloadAssets.shared.videos,
-  ...preloadAssets.home.videos,
-  ...preloadAssets.about.videos,
-  ...preloadAssets.library.videos,
-  ...preloadAssets.portfolio.videos,
-  ...preloadAssets.portfolio3d.videos,
-  ...preloadAssets.contact.videos,
-  ...preloadAssets.notFound.videos,
-];
+    // Homepage
+    images.home.hero.background,
+    ...images.home.carousel.map(img => img.src),
+    images.home.projects.interior,
+    images.home.projects.architecture,
+    images.home.decorations.threadLine,
+
+    // About page
+    images.about.hero.background,
+    images.about.team.giuliaparente.photo,
+    ...images.about.bookThumbnails.map(book => book.image),
+
+    // Portfolio page
+    images.portfolio.hero.background,
+
+    // Contact page
+    images.contact.hero.background,
+
+    // 404 page
+    images.notFound.hero.src,
+  ],
+  videos: [
+    // Shared videos (navigation, footer)
+    videos.navigationBackground.mp4,
+    videos.footerBackground.mp4,
+
+    // Homepage videos
+    videos.home.projectsBackground.mp4,
+
+    // About page videos
+    videos.about.team.giuliaparente.mp4,
+    videos.about.library.mp4,
+  ],
+} as const;
+
+/**
+ * LAYER 2: Page-Specific Assets
+ * Loaded on-demand when user navigates to specific pages
+ */
+export const pageSpecificAssets = {
+  // Portfolio 3D page (heavy assets)
+  portfolio3d: {
+    images: [
+      images.portfolio3d.hero.background,
+      images.portfolio3d.ourExpertise.interiorRendering,
+      images.portfolio3d.ourExpertise.exteriorRendering,
+      images.portfolio3d.ourExpertise.virtualTour,
+      images.portfolio3d.ourExpertise.productBrand,
+      // Case Studies
+      images.portfolio3d.caseStudies.row1.aerialCampus,
+      images.portfolio3d.caseStudies.row1.coupleBalcony,
+      images.portfolio3d.caseStudies.row2.bedroomPatio,
+      images.portfolio3d.caseStudies.row2.modernKitchen,
+      images.portfolio3d.caseStudies.row2.bedroomCity,
+      images.portfolio3d.caseStudies.row3.skyscraper,
+      images.portfolio3d.caseStudies.row3.forestHouse,
+      images.portfolio3d.caseStudies.row4.apartmentEntrance,
+      images.portfolio3d.caseStudies.row4.apartmentBuilding,
+      images.portfolio3d.caseStudies.row4.luxuryInterior,
+      // How It Works
+      images.portfolio3d.howItWorks.technicalSpec,
+      images.portfolio3d.howItWorks.workProcess,
+      images.portfolio3d.howItWorks.preview1,
+      images.portfolio3d.howItWorks.preview2,
+      images.portfolio3d.howItWorks.finalRenders,
+    ],
+    videos: [
+      videos.portfolio3d.heroBackground.mp4,
+      videos.portfolio3d.expertiseAnimation.mp4,
+    ],
+  },
+
+  // Library page (image-heavy)
+  library: {
+    images: images.library.books.flatMap(book => book.images),
+    videos: [] as string[],
+  },
+} as const;

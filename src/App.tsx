@@ -5,7 +5,7 @@
  * Vercel analytics. This is the entry point rendered by main.tsx.
  *
  * @module App
- * @since 1.0.0
+ * @since 1.0.1
  *
  * Route Structure:
  * - / → HomePage (main landing page)
@@ -31,21 +31,24 @@
  * </BrowserRouter>
  * ```
  */
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 
 // Pages
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import LibraryPage from './pages/LibraryPage';
-import ProjectDetailPage from './pages/ProjectDetailPage';
-import PortfolioPage from './pages/PortfolioPage';
-import Portfolio3DPage from './pages/Portfolio3DPage';
-import ContactPage from './pages/ContactPage';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import TermsOfServicePage from './pages/TermsOfServicePage';
-import NotFoundPage from './pages/NotFoundPage';
+
+// Lazy-loaded pages (loaded on-demand)
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const LibraryPage = lazy(() => import('./pages/LibraryPage'));
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
+const Portfolio3DPage = lazy(() => import('./pages/Portfolio3DPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 /**
  * Root application component with route definitions
@@ -57,23 +60,25 @@ export default function App() {
     <>
       <SpeedInsights />
       <Analytics />
-      <Routes>
-        {/* Main Pages */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/about/library" element={<LibraryPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
-        <Route path="/3d-visualization" element={<Portfolio3DPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+      <Suspense>
+        <Routes>
+          {/* Main Pages */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about/library" element={<LibraryPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
+          <Route path="/3d-visualization" element={<Portfolio3DPage />} />
+          <Route path="/contact" element={<ContactPage />} />
 
-        {/* Legal Pages */}
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/tos" element={<TermsOfServicePage />} />
+          {/* Legal Pages */}
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/tos" element={<TermsOfServicePage />} />
 
-        {/* 404 Catch All */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          {/* 404 Catch All */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }

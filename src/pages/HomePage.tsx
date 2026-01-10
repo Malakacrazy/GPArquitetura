@@ -35,6 +35,7 @@
  */
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
+import { Loader } from '../components/home/Loader';
 import { Navigation } from '../components/shared/Navigation';
 import { Hero } from '../components/home/Hero';
 import { WhatWeDo } from '../components/home/WhatWeDo';
@@ -42,7 +43,6 @@ import { ProjectsSection } from '../components/home/ProjectsSection';
 import { ProcessSection } from '../components/home/ProcessSection';
 import { FeaturedWorks } from '../components/home/FeaturedWorks';
 import { Footer } from '../components/shared/Footer';
-import { Loader } from '../components/shared/Loader';
 import { useSEO, SEO_CONFIG } from '../hooks/useSEO';
 
 /**
@@ -61,7 +61,7 @@ export default function HomePage() {
       <AnimatePresence>
         {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
-      
+
       {!isLoading && <Navigation />}
       <Hero />
       <WhatWeDo />

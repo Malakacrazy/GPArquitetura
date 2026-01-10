@@ -536,11 +536,6 @@ export function ToS() {
                 <li>Tem capacidade legal para aceitar estes Termos</li>
                 <li>Entende as limitações e exclusões de responsabilidade</li>
               </ul>
-
-              <p className="text-sm md:text-base font-semibold text-[var(--color-primary)] pt-6">
-                Última atualização: Janeiro de 2026<br />
-                Versão: 1.0
-              </p>
             </motion.div>
           </div>
 

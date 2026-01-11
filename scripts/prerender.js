@@ -1,4 +1,4 @@
-import { writeFileSync, mkdirSync, existsSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 
 // Routes to prerender
@@ -57,7 +57,7 @@ const routeMetadata = {
   }
 };
 
-function generateHTML(route) {
+function generateHTML(route, scriptTags, cssTags) {
   const metadata = routeMetadata[route];
   const canonicalUrl = `https://gparquitetura.vercel.app${route}`;
 
@@ -187,6 +187,8 @@ function generateHTML(route) {
         }
       }
     </script>
+    ${scriptTags}
+    ${cssTags}
 
     <!-- Crawler-visible content -->
     <noscript>
@@ -203,7 +205,6 @@ function generateHTML(route) {
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 `;
@@ -219,12 +220,28 @@ async function prerender() {
     process.exit(1);
   }
 
+  // Read the built index.html to extract script and CSS tags
+  const builtIndexPath = resolve(distPath, 'index.html');
+  const builtIndexHtml = readFileSync(builtIndexPath, 'utf-8');
+
+  // Extract CSS link tags (stylesheet with href to /assets/)
+  const cssRegex = /<link[^>]*rel="stylesheet"[^>]*href="\/assets\/[^"]*"[^>]*>/g;
+  const cssMatches = builtIndexHtml.match(cssRegex) || [];
+  const cssTags = cssMatches.join('\n    ');
+
+  // Extract module script tags (with src to /assets/)
+  const scriptRegex = /<script[^>]*type="module"[^>]*src="\/assets\/[^"]*"[^>]*><\/script>/g;
+  const scriptMatches = builtIndexHtml.match(scriptRegex) || [];
+  const scriptTags = scriptMatches.join('\n    ');
+
+  console.log(`📦 Found ${cssMatches.length} CSS files and ${scriptMatches.length} script files\n`);
+
   let successCount = 0;
   let errorCount = 0;
 
   for (const route of routes) {
     try {
-      const html = generateHTML(route);
+      const html = generateHTML(route, scriptTags, cssTags);
 
       // Determine output path
       let outputPath;

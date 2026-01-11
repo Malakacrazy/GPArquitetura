@@ -292,7 +292,7 @@ export function FAQ() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-[var(--color-text-dark)] mb-6 md:mb-8 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight">
-              Perguntas Feitas Frequentemente
+              FAQ
             </h2>
 
             {/* Category Buttons - Responsive Grid on mobile, vertical on desktop */}

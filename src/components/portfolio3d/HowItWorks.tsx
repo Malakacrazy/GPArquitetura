@@ -44,7 +44,7 @@ import { motion } from "motion/react";
 import { images } from "../../config/assets";
 
 /**
- * Renders the process explanation and quote request section
+ * Renders the process explanation section for 3D visualization services
  *
  * @returns How it works section JSX element
  */

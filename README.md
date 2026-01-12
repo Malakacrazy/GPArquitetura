@@ -29,6 +29,7 @@
 - [Environment Variables](#-environment-variables)
 - [Deployment](#-deployment)
 - [SEO](#-seo)
+- [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -57,6 +58,8 @@ GP Arquitetura is a comprehensive portfolio website showcasing architectural pro
 | 🎬 **Smooth Animations** | Framer Motion powered transitions and effects |
 | 📱 **Responsive** | Mobile-first design approach |
 | 🔍 **SEO Optimized** | Meta tags, Open Graph, Twitter Cards, JSON-LD |
+| 🍪 **Cookie Consent** | Multi-jurisdictional banner with CookieHub |
+| 🔒 **Privacy Compliant** | Fully compliant with LGPD, GDPR, and CCPA |
 | 📊 **Analytics** | Google Analytics and Hotjar integration |
 | 🚀 **Fast Loading** | Optimized images, lazy loading, code splitting |
 | 📝 **CMS Integration** | Sanity Studio for content management |
@@ -81,6 +84,10 @@ GP Arquitetura is a comprehensive portfolio website showcasing architectural pro
 - **Radix UI** - Accessible component primitives
 - **Lucide React** - Icon library
 - **Embla Carousel** - Touch-friendly carousels
+
+### Legal & Compliance
+- **CookieHub** - Multi-jurisdictional cookie consent  
+- **LGPD/GDPR/CCPA** - Compliance frameworks implemented  
 
 ### Deployment & Analytics
 - **Vercel** - Hosting and deployment
@@ -260,6 +267,15 @@ Comprehensive SEO implementation including:
 
 ---
 
+## 🗺️ Roadmap
+
+- [ ] Dark mode toggle
+- [ ] Multi-language support (EN/PT)
+- [ ] AI-powered project recommendations
+- [ ] Client portal
+
+---
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -288,6 +304,8 @@ This project is proprietary software developed for GP Arquitetura.
 <div align="center">
 
 **Built with ❤️ for GP Arquitetura**
+
+**De espaços vazios a histórias habitadas**
 
 [⬆ Back to Top](#gp-arquitetura)
 

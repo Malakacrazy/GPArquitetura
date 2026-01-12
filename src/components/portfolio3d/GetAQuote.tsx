@@ -609,23 +609,23 @@ export function GetAQuote() {
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-sm">Nome <span className="text-red-500">*</span></Label>
-                        <Input id="name" placeholder="João da Silva*" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
+                        <Input id="name" placeholder="João da Silva" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm">Email <span className="text-red-500">*</span></Label>
-                        <Input id="email" type="email" placeholder="seu@email.com.br*" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
+                        <Input id="email" type="email" placeholder="seu@email.com.br" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm">Telefone <span className="text-red-500">*</span></Label>
-                        <Input id="phone" type="tel" placeholder="(11) 91234-5678*" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
+                        <Input id="phone" type="tel" placeholder="(11) 91234-5678" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <Button type="submit" className="w-full bg-[var(--color-text-dark)] text-[var(--color-background)] hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wider py-6">
+                    <Button type="submit" className="w-full bg-[var(--color-text-dark)] text-[var(--color-background)] hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wider py-6 cursor-pointer">
                       Receba seu Orçamento
                     </Button>
                   </div>

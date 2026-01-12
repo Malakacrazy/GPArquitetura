@@ -2,32 +2,38 @@
  * HowItWorks Component (Portfolio 3D)
  *
  * Process explanation section showing the 5-step 3D visualization workflow.
- * Includes a quote request modal dialog with form fields.
+ * Displays the complete production process from initial data collection to final delivery.
  *
  * @module components/portfolio3d/HowItWorks
- * @since 1.0.0
+ * @since 1.0.1
  *
  * Process Steps:
  * 1. Levantamento de Dados Técnicos (Technical Data Collection)
+ *    - Client submits technical materials (plans, sections, facades, specifications)
+ *    - Thorough review to ensure completeness before production
  * 2. Modelagem 3D (3D Modeling)
+ *    - Create 3D volumetry based on technical documentation
+ *    - Timeline alignment and volume approval before advancing
  * 3. Primeira Versão (First Draft)
+ *    - Initial scene composition and lighting setup
+ *    - Framing and atmosphere definition
  * 4. Segunda Versão (Second Draft)
+ *    - Detailed preview with enhanced lighting, textures, furniture
+ *    - Addition of decorative elements and exterior scenery
  * 5. Versão Final (Final Version)
+ *    - Implementation of client feedback and adjustments
+ *    - Final render files prepared for delivery
  *
  * Layout:
- * - Alternating image/text layout (zigzag)
- * - Step numbers in primary color
- * - 21:9 aspect ratio images
- *
- * Quote Dialog:
- * - Project type selection (Residential/Commercial)
- * - Render type checkboxes
- * - File upload area
- * - Contact form fields
+ * - Alternating image/text layout (zigzag pattern)
+ * - Step numbers styled in primary color
+ * - Images with 21:9 aspect ratio for cinematic effect
+ * - Responsive grid that stacks on mobile
  *
  * Animation:
- * - Slide in from left/right based on index
- * - Image scale on viewport entry
+ * - Text slides in from left/right based on step index (alternating)
+ * - Images scale up on viewport entry
+ * - Staggered entrance with viewport trigger
  *
  * @example
  * ```tsx
@@ -35,15 +41,6 @@
  * ```
  */
 import { motion } from "motion/react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "../ui/dialog";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { Textarea } from "../ui/textarea";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { Checkbox } from "../ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { useState } from "react";
 import { images } from "../../config/assets";
 
 /**
@@ -52,21 +49,6 @@ import { images } from "../../config/assets";
  * @returns How it works section JSX element
  */
 export function HowItWorks() {
-  const [projectType, setProjectType] = useState("Residential");
-
-  const residentialOptions = [
-    "Facade", "Streetscape", "Living / Kitchen / Dining", "Kitchen", 
-    "Living / Alfresco", "Bathroom", "Bedroom", "Alfresco / Backyard", 
-    "Photomontage", "Floor Plans"
-  ];
-
-  const commercialOptions = [
-    "Industrial", "Office Fit Out", "Retail Fit Out", "Education/Childcare",
-    "Sporting/Gym", "Reception", "Floor Plans"
-  ];
-
-  const currentOptions = projectType === "Residential" ? residentialOptions : commercialOptions;
-
   return (
     <section className="bg-[var(--color-background)] text-[var(--color-text-dark)] px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 overflow-hidden">
       <div className="mx-auto relative w-full">
@@ -143,141 +125,6 @@ export function HowItWorks() {
               </motion.div>
             </div>
           ))}
-          
-          {/* Call to Action */}
-          <motion.div 
-            className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-lg md:text-xl lg:text-2xl font-light text-[var(--color-text-dark)] leading-relaxed">
-              Vamos dar forma à sua ideia? <br />
-              Faça um orçamento prévio e entre em contato, responderemos assim que possível!
-            </p>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button 
-                  className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-[var(--color-text-dark)] no-underline bg-transparent border-none cursor-pointer"
-                >
-                  <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                  <span className="relative z-10 block px-6 py-3 transition-colors duration-300 text-[var(--color-text-dark)] group-hover:text-[var(--color-background)] uppercase text-xs flex items-center gap-2">
-                    <h6>SIMULAR ORÇAMENTO</h6>
-                  </span>
-                  <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
-                  <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
-                  <span className="absolute bottom-[-8px] top-[-8px] left-0 w-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:bottom-0 group-hover:top-0 group-hover:bg-[var(--color-primary)]"></span>
-                  <span className="absolute bottom-[-8px] top-[-8px] right-0 w-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:bottom-0 group-hover:top-0 group-hover:bg-[var(--color-primary)]"></span>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[800px] bg-[var(--color-background)] text-[var(--color-text-dark)] border-[var(--color-text-dark)] max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-light uppercase tracking-wide text-[36px]">Request a quote</DialogTitle>
-                </DialogHeader>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Left Column */}
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <Label className="uppercase text-xs tracking-wider opacity-70">Tab Option <span className="text-red-500">*</span></Label>
-                      <RadioGroup 
-                        defaultValue="Residential" 
-                        onValueChange={(value) => setProjectType(value)}
-                        className="flex gap-4"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="Residential" id="r1" className="border-[var(--color-text-dark)] text-[var(--color-primary)]" />
-                          <Label htmlFor="r1">Residential</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="Commercial" id="r2" className="border-[var(--color-text-dark)] text-[var(--color-primary)]" />
-                          <Label htmlFor="r2">Commercial</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label className="uppercase text-xs tracking-wider opacity-70">What 3D Renders do you require?</Label>
-                      <div className="grid grid-cols-2 gap-2">
-                        {currentOptions.map((item) => (
-                          <div key={item} className="flex items-center space-x-2">
-                            <Checkbox id={item} className="border-[var(--color-text-dark)] data-[state=checked]:bg-[var(--color-primary)] data-[state=checked]:border-[var(--color-primary)]" />
-                            <Label htmlFor={item} className="text-sm font-normal">{item}</Label>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="details" className="uppercase text-xs tracking-wider opacity-70">Or type here: Basement, attic, garage</Label>
-                      <Textarea 
-                        id="details" 
-                        placeholder="Or type here: Basement, attic, garage" 
-                        className="min-h-[100px] border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="package" className="uppercase text-xs tracking-wider opacity-70">Select a Package</Label>
-                      <Select>
-                        <SelectTrigger className="w-full border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]">
-                          <SelectValue placeholder="Or Select Package" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[var(--color-background)] border-[var(--color-text-dark)]">
-                          <SelectItem value="starter">01 Starter Package</SelectItem>
-                          <SelectItem value="colour">02 Colour Package</SelectItem>
-                          <SelectItem value="interior">03 Interior Package</SelectItem>
-                          <SelectItem value="full">04 Full Home Package</SelectItem>
-                          <SelectItem value="full-reel">05 Full Home Package + Reel</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  {/* Right Column */}
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <Label className="uppercase text-xs tracking-wider opacity-70">Do you have drawings?</Label>
-                      <div className="border-2 border-dashed border-[var(--color-text-dark)]/30 rounded-lg p-6 text-center hover:border-[var(--color-primary)] transition-colors cursor-pointer">
-                        <p className="text-sm opacity-70">Drop files here or</p>
-                        <Button variant="outline" className="mt-2 border-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-[var(--color-background)]">
-                          Select files
-                        </Button>
-                        <p className="text-xs opacity-50 mt-2">Max. file size: 512 MB</p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label className="uppercase text-xs tracking-wider opacity-70">How do we contact you?</Label>
-                      
-                      <div className="space-y-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="name" className="text-sm">Name <span className="text-red-500">*</span></Label>
-                          <Input id="name" placeholder="Name*" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <Label htmlFor="email" className="text-sm">Email <span className="text-red-500">*</span></Label>
-                          <Input id="email" type="email" placeholder="Email*" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="phone" className="text-sm">Phone <span className="text-red-500">*</span></Label>
-                          <Input id="phone" type="tel" placeholder="Phone*" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="pt-4">
-                      <Button type="submit" className="w-full bg-[var(--color-text-dark)] text-[var(--color-background)] hover:bg-[var(--color-primary)] hover:text-white uppercase tracking-wider py-6">
-                        Request Quote
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </motion.div>
         </div>
       </div>
     </section>

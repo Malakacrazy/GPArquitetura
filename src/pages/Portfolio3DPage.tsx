@@ -16,7 +16,8 @@
  * 4. OurVision - Design philosophy for 3D work
  * 5. CaseStudies - Portfolio of 3D rendering projects
  * 6. HowItWorks - Step-by-step process explanation
- * 7. FAQ - Frequently asked questions accordion
+ * 7. GetAQuote - Contact form for inquiries
+ * 8. FAQ - Frequently asked questions accordion
  *
  * Loading Behavior:
  * - Shows loader during asset preload
@@ -41,6 +42,7 @@ import { OurExpertise } from '../components/portfolio3d/OurExpertise';
 import { OurVision } from '../components/portfolio3d/OurVision';
 import { CaseStudies } from '../components/portfolio3d/CaseStudies';
 import { HowItWorks } from '../components/portfolio3d/HowItWorks';
+import { GetAQuote } from '../components/portfolio3d/GetAQuote';
 import { FAQ } from '../components/portfolio3d/FAQ';
 import { Footer } from '../components/shared/Footer';
 import { useSEO, SEO_CONFIG, createBreadcrumbJsonLd } from '../hooks/useSEO';
@@ -75,6 +77,7 @@ export default function Portfolio3DPage() {
       <OurVision />
       <CaseStudies />
       <HowItWorks />
+      <GetAQuote />
       <FAQ />
       <Footer />
     </div>

@@ -98,6 +98,13 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
     };
   }, []); // Empty dependency array to run only once on mount
 
+  // Re-enable scrolling as soon as fading starts - don't wait for unmount
+  useEffect(() => {
+    if (animationStage === 'fading') {
+      document.body.style.overflow = 'unset';
+    }
+  }, [animationStage]);
+
   // Circle properties
   // Reduced radius to make room for petals within the same container
   const radius = 45;

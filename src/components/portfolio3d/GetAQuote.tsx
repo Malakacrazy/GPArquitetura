@@ -286,27 +286,27 @@ export function GetAQuote() {
   /**
    * Calculates the total estimated budget based on user selections
    * Pricing logic:
-   * - External images: 1500 per image
-   * - Internal images: 1200 per image
-   * - Humanized plans: 800 per plan
-   * - Animation: 3000 base + 100 per second
-   * - Virtual tour: 5000 complete, or 2000 + 500 per room for partial
+   * - External images: 150 per image
+   * - Internal images: 120 per image
+   * - Humanized plans: 80 per plan
+   * - Animation: 300 base + 10 per second
+   * - Virtual tour: 500 complete, or 200 + 50 per room for partial
    *
    * @returns Total estimated price
    */
   const calculateTotal = () => {
     let total = 0;
-    if (formValues.externalValue) total += (parseInt(formValues.externalCount || '0') || 0) * 1500;
-    if (formValues.internalValue) total += (parseInt(formValues.internalCount || '0') || 0) * 1200;
-    if (formValues.humanizedValue) total += (parseInt(formValues.humanizedCount || '0') || 0) * 800;
+    if (formValues.externalValue) total += (parseInt(formValues.externalCount || '0') || 0) * 150;
+    if (formValues.internalValue) total += (parseInt(formValues.internalCount || '0') || 0) * 120;
+    if (formValues.humanizedValue) total += (parseInt(formValues.humanizedCount || '0') || 0) * 80;
     if (formValues.animationValue) {
       const count = parseInt(formValues.animationCount || '0') || 0;
       const seconds = parseInt((formValues.animationDuration || '').replace(/\D/g, '')) || 0;
-      total += count * (3000 + seconds * 100);
+      total += count * (300 + seconds * 10);
     }
     if (formValues.tourValue) {
-      if (formValues.tourType === 'Completo') total += 5000;
-      else total += 2000 + (parseInt(formValues.tourRooms || '0') || 0) * 500;
+      if (formValues.tourType === 'Completo') total += 500;
+      else total += 200 + (parseInt(formValues.tourRooms || '0') || 0) * 50;
     }
     return total;
   };

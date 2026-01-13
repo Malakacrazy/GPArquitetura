@@ -29,7 +29,8 @@
 - [Environment Variables](#-environment-variables)
 - [Deployment](#-deployment)
 - [SEO](#-seo)
-- [Roadmap](#-roadmap)
+- [Design](#-design-system)
+- [Roadmap](#%EF%B8%8F-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
 

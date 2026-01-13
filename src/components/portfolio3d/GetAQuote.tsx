@@ -111,16 +111,32 @@ const quoteFormSchema = z.object({
   message: "Quantidade de plantas humanizadas é obrigatória",
   path: ["humanizedCount"]
 }).refine((data) => {
-  // Validate animation fields if animation is selected
+  // Validate animation type if animation is selected
   if (data.animationValue === true) {
-    return data.animationType !== null &&
-           data.animationCount && !isNaN(Number(data.animationCount)) && Number(data.animationCount) > 0 &&
-           data.animationDuration && data.animationDuration.length > 0;
+    return data.animationType !== null;
   }
   return true;
 }, {
-  message: "Preencha todos os campos de animação",
+  message: "Selecione o tipo de animação",
+  path: ["animationType"]
+}).refine((data) => {
+  // Validate animation count if animation is selected
+  if (data.animationValue === true) {
+    return data.animationCount && !isNaN(Number(data.animationCount)) && Number(data.animationCount) > 0;
+  }
+  return true;
+}, {
+  message: "Quantidade de animações é obrigatória",
   path: ["animationCount"]
+}).refine((data) => {
+  // Validate animation duration if animation is selected
+  if (data.animationValue === true) {
+    return data.animationDuration && data.animationDuration.length > 0;
+  }
+  return true;
+}, {
+  message: "Tempo de animação é obrigatório",
+  path: ["animationDuration"]
 }).refine((data) => {
   // Validate tour fields if tour is selected
   if (data.tourValue === true) {
@@ -162,8 +178,9 @@ interface SelectionState {
  * @returns Quote section JSX element
  */
 export function GetAQuote() {
-  const { register, handleSubmit, watch, setValue, control, formState: { errors } } = useForm<QuoteFormData>({
+  const { register, handleSubmit, watch, setValue, control, clearErrors, formState: { errors } } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
+    mode: 'onChange',
     defaultValues: {
       floors: '',
       area: '',
@@ -198,7 +215,23 @@ export function GetAQuote() {
    */
   const handleSelection = (field: keyof QuoteFormData, value: boolean) => {
     const currentValue = formValues[field];
-    setValue(field as any, currentValue === value ? null : value);
+    const newValue = currentValue === value ? null : value;
+    setValue(field as any, newValue);
+
+    // Clear related errors when deselecting (setting to null)
+    if (newValue === null) {
+      if (field === 'externalValue') {
+        clearErrors('externalCount');
+      } else if (field === 'internalValue') {
+        clearErrors('internalCount');
+      } else if (field === 'humanizedValue') {
+        clearErrors('humanizedCount');
+      } else if (field === 'animationValue') {
+        clearErrors(['animationType', 'animationCount', 'animationDuration']);
+      } else if (field === 'tourValue') {
+        clearErrors(['tourType', 'tourRooms']);
+      }
+    }
   };
 
   /**
@@ -616,47 +649,55 @@ export function GetAQuote() {
                                   })}
                                 </AnimatePresence>
                               </div>
-                              <div className="flex items-center gap-4">
-                                <div className="flex items-center gap-2">
-                                  <Label className="text-sm whitespace-nowrap">Quantas?</Label>
-                                  <Controller
-                                    name="animationCount"
-                                    control={control}
-                                    render={({ field }) => (
-                                      <input
-                                        {...field}
-                                        type="number"
-                                        className={`w-16 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
-                                          errors.animationCount ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
-                                        } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
-                                      />
-                                    )}
-                                  />
+                              {errors.animationType && <p className="text-xs text-red-500 mt-1">{errors.animationType.message}</p>}
+                              <div className="flex flex-col gap-2">
+                                <div className="flex items-center gap-4">
+                                  <div className="flex items-center gap-2">
+                                    <Label className="text-sm whitespace-nowrap">Quantas?</Label>
+                                    <Controller
+                                      name="animationCount"
+                                      control={control}
+                                      render={({ field }) => (
+                                        <input
+                                          {...field}
+                                          type="number"
+                                          className={`w-16 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                            errors.animationCount ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                          } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                        />
+                                      )}
+                                    />
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <Label className="text-sm whitespace-nowrap">Tempo?</Label>
+                                    <Controller
+                                      name="animationDuration"
+                                      control={control}
+                                      render={({ field }) => (
+                                        <input
+                                          {...field}
+                                          type="text"
+                                          placeholder="Ex: 30s"
+                                          className={`w-24 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                            errors.animationDuration ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                          } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                        />
+                                      )}
+                                    />
+                                  </div>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                  <Label className="text-sm whitespace-nowrap">Tempo?</Label>
-                                  <Controller
-                                    name="animationDuration"
-                                    control={control}
-                                    render={({ field }) => (
-                                      <input
-                                        {...field}
-                                        type="text"
-                                        placeholder="Ex: 30s"
-                                        className={`w-24 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
-                                          errors.animationDuration ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
-                                        } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
-                                      />
-                                    )}
-                                  />
-                                </div>
+                                {(errors.animationCount || errors.animationDuration) && (
+                                  <div className="text-xs text-red-500">
+                                    {errors.animationCount && <p>{errors.animationCount.message}</p>}
+                                    {errors.animationDuration && <p>{errors.animationDuration.message}</p>}
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                    {errors.animationCount && <p className="text-xs text-red-500 mt-1">{errors.animationCount.message}</p>}
                   </div>
 
                   {/* Virtual Tour */}

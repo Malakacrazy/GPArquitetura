@@ -203,6 +203,9 @@ export function GetAQuote() {
     }
   });
 
+  // State for uploaded files
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+
   // Watch all form values for budget calculation and conditional rendering
   const formValues = watch();
 
@@ -232,6 +235,43 @@ export function GetAQuote() {
         clearErrors(['tourType', 'tourRooms']);
       }
     }
+  };
+
+  /**
+   * Handles file selection from input
+   */
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      const newFiles = Array.from(files);
+      setUploadedFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  /**
+   * Handles file drop
+   */
+  const handleFileDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    if (files) {
+      const newFiles = Array.from(files);
+      setUploadedFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  /**
+   * Handles file removal
+   */
+  const handleFileRemove = (index: number) => {
+    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
+  };
+
+  /**
+   * Prevents default drag behavior
+   */
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
   };
 
   /**
@@ -267,7 +307,8 @@ export function GetAQuote() {
    */
   const onSubmit = (data: QuoteFormData) => {
     console.log('Form submitted:', data);
-    // TODO: Add API call to submit the quote request
+    console.log('Uploaded files:', uploadedFiles);
+    // TODO: Add API call to submit the quote request with files
     alert('Orçamento enviado com sucesso! Entraremos em contato em breve.');
   };
 
@@ -639,7 +680,7 @@ export function GetAQuote() {
                                           type="button"
                                           size="sm"
                                           variant={isSelected ? "default" : "outline"}
-                                          onClick={() => setValue('animationType', isSelected ? null : type)}
+                                          onClick={() => setValue('animationType', isSelected ? null : type, { shouldValidate: true })}
                                           className={`text-xs border-[var(--color-text-dark)]/50 ${isSelected ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                                         >
                                           {type}
@@ -765,7 +806,7 @@ export function GetAQuote() {
                                           type="button"
                                           size="sm"
                                           variant={isSelected ? "default" : "outline"}
-                                          onClick={() => setValue('tourType', isSelected ? null : type)}
+                                          onClick={() => setValue('tourType', isSelected ? null : type, { shouldValidate: true })}
                                           className={`text-xs border-[var(--color-text-dark)]/50 ${isSelected ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                                         >
                                           {type}
@@ -775,6 +816,7 @@ export function GetAQuote() {
                                   })}
                                 </AnimatePresence>
                               </div>
+                              {errors.tourType && <p className="text-xs text-red-500 mt-1">{errors.tourType.message}</p>}
 
                               {formValues.tourType === 'Parcial' && (
                                 <motion.div
@@ -798,6 +840,7 @@ export function GetAQuote() {
                                   />
                                 </motion.div>
                               )}
+                              {errors.tourRooms && <p className="text-xs text-red-500 mt-1">{errors.tourRooms.message}</p>}
                             </div>
                           </motion.div>
                         )}
@@ -819,16 +862,51 @@ export function GetAQuote() {
 
                   <div className="space-y-3">
                     <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">Alguma referência?</Label>
-                    <div className="border-2 border-dashed border-[var(--color-text-dark)]/30 rounded-lg p-3 text-center hover:border-[var(--color-primary)] transition-colors cursor-pointer group">
+                    <div
+                      onDrop={handleFileDrop}
+                      onDragOver={handleDragOver}
+                      className="border-2 border-dashed border-[var(--color-text-dark)]/30 rounded-lg p-3 text-center hover:border-[var(--color-primary)] transition-colors cursor-pointer group"
+                    >
+                      <input
+                        type="file"
+                        id="file-upload"
+                        multiple
+                        onChange={handleFileSelect}
+                        className="hidden"
+                        accept="image/*,.pdf,.dwg,.skp"
+                      />
                       <div className="mb-1 text-[var(--color-primary)] opacity-50 group-hover:opacity-100 transition-opacity">
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
                       </div>
                       <p className="text-xs opacity-70">Arraste os arquivos aqui ou</p>
-                      <Button variant="outline" size="sm" className="mt-1 h-7 text-xs border-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-[var(--color-background)]">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => document.getElementById('file-upload')?.click()}
+                        className="mt-1 h-7 text-xs border-[var(--color-text-dark)] hover:bg-[var(--color-text-dark)] hover:text-[var(--color-background)]"
+                      >
                         Selecione os arquivos
                       </Button>
                       <p className="text-[10px] opacity-50 mt-1">Tamanho max. dos arquivos: 512 MB</p>
                     </div>
+                    {uploadedFiles.length > 0 && (
+                      <div className="space-y-2">
+                        {uploadedFiles.map((file, index) => (
+                          <div key={index} className="flex items-center justify-between bg-[var(--color-primary)]/10 p-2 rounded text-xs">
+                            <span className="truncate flex-1">{file.name}</span>
+                            <span className="text-[10px] opacity-50 mx-2">{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                            <button
+                              type="button"
+                              onClick={() => handleFileRemove(index)}
+                              className="text-red-500 hover:text-red-700 ml-2"
+                            >
+                              ✕
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   <div className="space-y-3">

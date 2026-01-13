@@ -395,10 +395,18 @@ export function GetAQuote() {
                             className="flex items-center gap-2"
                           >
                             <Label className="text-sm whitespace-nowrap">Quantas?</Label>
-                            <Input
-                              type="number"
-                              className="w-20 h-9 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                              {...register('externalCount')}
+                            <Controller
+                              name="externalCount"
+                              control={control}
+                              render={({ field }) => (
+                                <input
+                                  {...field}
+                                  type="number"
+                                  className={`w-20 h-9 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                    errors.externalCount ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                  } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                />
+                              )}
                             />
                           </motion.div>
                         )}
@@ -450,10 +458,18 @@ export function GetAQuote() {
                             className="flex items-center gap-2"
                           >
                             <Label className="text-sm whitespace-nowrap">Quantas?</Label>
-                            <Input
-                              type="number"
-                              className="w-20 h-9 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                              {...register('internalCount')}
+                            <Controller
+                              name="internalCount"
+                              control={control}
+                              render={({ field }) => (
+                                <input
+                                  {...field}
+                                  type="number"
+                                  className={`w-20 h-9 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                    errors.internalCount ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                  } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                />
+                              )}
                             />
                           </motion.div>
                         )}
@@ -505,10 +521,18 @@ export function GetAQuote() {
                             className="flex items-center gap-2"
                           >
                             <Label className="text-sm whitespace-nowrap">Quantas?</Label>
-                            <Input
-                              type="number"
-                              className="w-20 h-9 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                              {...register('humanizedCount')}
+                            <Controller
+                              name="humanizedCount"
+                              control={control}
+                              render={({ field }) => (
+                                <input
+                                  {...field}
+                                  type="number"
+                                  className={`w-20 h-9 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                    errors.humanizedCount ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                  } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                />
+                              )}
                             />
                           </motion.div>
                         )}
@@ -595,18 +619,35 @@ export function GetAQuote() {
                               <div className="flex items-center gap-4">
                                 <div className="flex items-center gap-2">
                                   <Label className="text-sm whitespace-nowrap">Quantas?</Label>
-                                  <Input
-                                    type="number"
-                                    className="w-16 h-8 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                                    {...register('animationCount')}
+                                  <Controller
+                                    name="animationCount"
+                                    control={control}
+                                    render={({ field }) => (
+                                      <input
+                                        {...field}
+                                        type="number"
+                                        className={`w-16 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                          errors.animationCount ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                        } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                      />
+                                    )}
                                   />
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <Label className="text-sm whitespace-nowrap">Tempo?</Label>
-                                  <Input
-                                    className="w-24 h-8 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                                    placeholder="Ex: 30s"
-                                    {...register('animationDuration')}
+                                  <Controller
+                                    name="animationDuration"
+                                    control={control}
+                                    render={({ field }) => (
+                                      <input
+                                        {...field}
+                                        type="text"
+                                        placeholder="Ex: 30s"
+                                        className={`w-24 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                          errors.animationDuration ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                        } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                      />
+                                    )}
                                   />
                                 </div>
                               </div>
@@ -701,10 +742,18 @@ export function GetAQuote() {
                                   className="flex items-center gap-2"
                                 >
                                   <Label className="text-sm whitespace-nowrap">Quantos ambientes?</Label>
-                                  <Input
-                                    type="number"
-                                    className="w-20 h-8 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                                    {...register('tourRooms')}
+                                  <Controller
+                                    name="tourRooms"
+                                    control={control}
+                                    render={({ field }) => (
+                                      <input
+                                        {...field}
+                                        type="number"
+                                        className={`w-20 h-8 rounded-md border px-2 text-base outline-none transition-colors bg-white ${
+                                          errors.tourRooms ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                                        } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                                      />
+                                    )}
                                   />
                                 </motion.div>
                               )}
@@ -794,7 +843,9 @@ export function GetAQuote() {
                               defaultCountry="br"
                               value={value}
                               onChange={onChange}
-                              placeholder="(11) 91234-5678"
+                              inputProps={{
+                                placeholder: '(11) 91234-5678'
+                              }}
                               inputStyle={{
                                 width: '100%',
                                 height: '36px',

@@ -975,7 +975,6 @@ export function GetAQuote() {
                               defaultCountry="br"
                               value={value}
                               onChange={onChange}
-                              placeholder="(11) 91234-5678"
                               inputStyle={{
                                 width: '100%',
                                 height: '36px',

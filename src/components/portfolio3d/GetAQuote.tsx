@@ -314,23 +314,39 @@ export function GetAQuote() {
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">Quantidade de pavimentos</Label>
-                      <Input
-                        type="number"
-                        min="1"
-                        placeholder="Ex: 2"
-                        className="w-full border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                        {...register('floors')}
+                      <Controller
+                        name="floors"
+                        control={control}
+                        render={({ field }) => (
+                          <input
+                            {...field}
+                            type="number"
+                            min="1"
+                            placeholder="Ex: 2"
+                            className={`flex h-9 w-full rounded-md border px-3 py-1 text-base outline-none transition-colors bg-white ${
+                              errors.floors ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                            } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                          />
+                        )}
                       />
                       {errors.floors && <p className="text-xs text-red-500 mt-1">{errors.floors.message}</p>}
                     </div>
                     <div className="space-y-2">
                       <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">m² por pavimentos</Label>
-                      <Input
-                        type="number"
-                        min="0"
-                        placeholder="Ex: 150"
-                        className="w-full border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                        {...register('area')}
+                      <Controller
+                        name="area"
+                        control={control}
+                        render={({ field }) => (
+                          <input
+                            {...field}
+                            type="number"
+                            min="0"
+                            placeholder="Ex: 150"
+                            className={`flex h-9 w-full rounded-md border px-3 py-1 text-base outline-none transition-colors bg-white ${
+                              errors.area ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
+                            } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
+                          />
+                        )}
                       />
                       {errors.area && <p className="text-xs text-red-500 mt-1">{errors.area.message}</p>}
                     </div>
@@ -739,7 +755,7 @@ export function GetAQuote() {
                               {...field}
                               id="name"
                               placeholder="João da Silva"
-                              className={`flex h-9 w-full rounded-md border px-3 py-1 text-base outline-none transition-colors ${
+                              className={`flex h-9 w-full rounded-md border px-3 py-1 text-base outline-none transition-colors bg-white ${
                                 errors.name ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
                               } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
                             />
@@ -759,7 +775,7 @@ export function GetAQuote() {
                               id="email"
                               type="text"
                               placeholder="seu@email.com.br"
-                              className={`flex h-9 w-full rounded-md border px-3 py-1 text-base outline-none transition-colors ${
+                              className={`flex h-9 w-full rounded-md border px-3 py-1 text-base outline-none transition-colors bg-white ${
                                 errors.email ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
                               } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
                             />
@@ -778,6 +794,7 @@ export function GetAQuote() {
                               defaultCountry="br"
                               value={value}
                               onChange={onChange}
+                              placeholder="(11) 91234-5678"
                               inputStyle={{
                                 width: '100%',
                                 height: '36px',

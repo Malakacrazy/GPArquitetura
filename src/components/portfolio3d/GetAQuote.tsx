@@ -184,7 +184,7 @@ interface SelectionState {
  * @returns Quote section JSX element
  */
 export function GetAQuote() {
-  const { register, handleSubmit, watch, setValue, control, clearErrors, formState: { errors } } = useForm<QuoteFormData>({
+  const { register, handleSubmit, watch, setValue, control, clearErrors, reset, formState: { errors } } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
     mode: 'onChange',
     defaultValues: {
@@ -208,6 +208,9 @@ export function GetAQuote() {
       tourRooms: ''
     }
   });
+
+  // State for dialog open/close
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // State for uploaded files
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
@@ -316,6 +319,11 @@ export function GetAQuote() {
     console.log('Uploaded files:', uploadedFiles);
     // TODO: Add API call to submit the quote request with files
     alert('Orçamento enviado com sucesso! Entraremos em contato em breve.');
+
+    // Reset form and close dialog
+    reset();
+    setUploadedFiles([]);
+    setIsDialogOpen(false);
   };
 
   return (
@@ -333,7 +341,7 @@ export function GetAQuote() {
             Vamos dar forma à sua ideia? <br />
             Faça um orçamento prévio e entre em contato, responderemos assim que possível!
           </p>
-          <Dialog>
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <button
                 className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-[var(--color-text-dark)] no-underline bg-transparent border-none cursor-pointer"

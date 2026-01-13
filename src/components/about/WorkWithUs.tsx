@@ -33,6 +33,18 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+/**
+ * Zod validation schema for the newsletter signup form
+ */
+const newsletterSchema = z.object({
+  email: z.string().email('Por favor, insira um endereço de e-mail válido').min(1, 'Email é obrigatório')
+});
+
+type NewsletterFormData = z.infer<typeof newsletterSchema>;
 
 /**
  * Renders the careers/work with us section
@@ -40,38 +52,29 @@ import { CheckCircle2 } from 'lucide-react';
  * @returns Work with us section JSX element
  */
 export function WorkWithUs() {
-  const [email, setEmail] = useState('');
-  const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const validateEmail = (value: string) => {
-    return value.includes('@') && value.includes('.');
-  };
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setEmail(value);
-    if (value.length > 0) {
-      setShowError(!validateEmail(value));
-    } else {
-      setShowError(false);
+  const { register, handleSubmit, reset, formState: { errors }, watch } = useForm<NewsletterFormData>({
+    resolver: zodResolver(newsletterSchema),
+    mode: 'onChange',
+    defaultValues: {
+      email: ''
     }
+  });
+
+  const email = watch('email');
+
+  const onSubmit = (data: NewsletterFormData) => {
+    console.log('Newsletter signup:', data);
+    // TODO: Add API call to subscribe to newsletter
+    setShowSuccess(true);
+    reset();
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
 
-  const handleSignUp = () => {
-    if (validateEmail(email)) {
-      setShowSuccess(true);
-      setEmail('');
-      setShowError(false);
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
-    } else {
-      setShowError(true);
-    }
-  };
-
-  const isInvalid = showError && email.length > 0;
+  const isInvalid = errors.email && email.length > 0;
 
   return (
     <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16">
@@ -102,27 +105,26 @@ export function WorkWithUs() {
               <h6 className="mb-4 md:mb-6 text-white text-base md:text-lg">
                 Seja notificado quando uma nova <span className="underline">vaga for publicada</span>
               </h6>
-              <div className="mb-3 md:mb-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="mb-3 md:mb-4">
                 <div className="flex gap-2 md:gap-3">
                   <input
                     type="email"
                     placeholder="Email"
-                    value={email}
-                    onChange={handleEmailChange}
+                    {...register('email')}
                     className={`flex-1 min-w-0 px-3 py-2 md:px-4 md:py-3 border-none rounded bg-white/50 text-[var(--color-text-dark)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-1 text-lg ${
                       isInvalid ? 'ring-1 ring-red-500 focus:ring-red-500' : 'focus:ring-[var(--color-primary)]'
                     }`}
                   />
                   <button
+                    type="submit"
                     className="px-4 py-2 md:px-6 md:py-3 bg-white/80 hover:bg-[var(--color-accent)] text-[var(--color-text-dark)] hover:text-white transition-colors duration-300 rounded uppercase tracking-wider text-sm md:text-lg whitespace-nowrap"
-                    onClick={handleSignUp}
                   >
                     Inscreva-se
                   </button>
                 </div>
                 {isInvalid && (
                   <p className="text-xs text-red-500 mt-1">
-                    Por favor, insira um endereço de e-mail válido
+                    {errors.email?.message}
                   </p>
                 )}
                 <AnimatePresence>
@@ -147,7 +149,7 @@ export function WorkWithUs() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </form>
               <div className="text-xs text-white/70">
                 Ao se inscrever, você concorda em receber e-mails de marketing da <h1 className="inline text-xs">Giulia Parente Arquitetura</h1> e concorda com nossa <a href="/privacy" className="underline hover:text-white transition-colors">Política de Privacidade</a>.
               </div>

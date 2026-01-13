@@ -38,6 +38,102 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+/**
+ * Zod validation schema for the quote form
+ */
+const quoteFormSchema = z.object({
+  // Project details
+  floors: z.string().min(1, "Quantidade de pavimentos é obrigatória").refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
+    message: "Deve ser um número maior que 0"
+  }),
+  area: z.string().min(1, "Metragem é obrigatória").refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
+    message: "Deve ser um número maior que 0"
+  }),
+
+  // Contact information
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos").regex(/^[\d\s()+-]+$/, "Telefone inválido"),
+
+  // External images
+  externalValue: z.boolean().nullable(),
+  externalCount: z.string().optional(),
+
+  // Internal images
+  internalValue: z.boolean().nullable(),
+  internalCount: z.string().optional(),
+
+  // Humanized plans
+  humanizedValue: z.boolean().nullable(),
+  humanizedCount: z.string().optional(),
+
+  // Animation
+  animationValue: z.boolean().nullable(),
+  animationType: z.string().nullable(),
+  animationCount: z.string().optional(),
+  animationDuration: z.string().optional(),
+
+  // Virtual tour
+  tourValue: z.boolean().nullable(),
+  tourType: z.string().nullable(),
+  tourRooms: z.string().optional(),
+}).refine((data) => {
+  // Validate external count if external is selected
+  if (data.externalValue === true) {
+    return data.externalCount && !isNaN(Number(data.externalCount)) && Number(data.externalCount) > 0;
+  }
+  return true;
+}, {
+  message: "Quantidade de imagens externas é obrigatória",
+  path: ["externalCount"]
+}).refine((data) => {
+  // Validate internal count if internal is selected
+  if (data.internalValue === true) {
+    return data.internalCount && !isNaN(Number(data.internalCount)) && Number(data.internalCount) > 0;
+  }
+  return true;
+}, {
+  message: "Quantidade de imagens internas é obrigatória",
+  path: ["internalCount"]
+}).refine((data) => {
+  // Validate humanized count if humanized is selected
+  if (data.humanizedValue === true) {
+    return data.humanizedCount && !isNaN(Number(data.humanizedCount)) && Number(data.humanizedCount) > 0;
+  }
+  return true;
+}, {
+  message: "Quantidade de plantas humanizadas é obrigatória",
+  path: ["humanizedCount"]
+}).refine((data) => {
+  // Validate animation fields if animation is selected
+  if (data.animationValue === true) {
+    return data.animationType !== null &&
+           data.animationCount && !isNaN(Number(data.animationCount)) && Number(data.animationCount) > 0 &&
+           data.animationDuration && data.animationDuration.length > 0;
+  }
+  return true;
+}, {
+  message: "Preencha todos os campos de animação",
+  path: ["animationCount"]
+}).refine((data) => {
+  // Validate tour fields if tour is selected
+  if (data.tourValue === true) {
+    if (data.tourType === 'Parcial') {
+      return data.tourRooms && !isNaN(Number(data.tourRooms)) && Number(data.tourRooms) > 0;
+    }
+    return data.tourType !== null;
+  }
+  return true;
+}, {
+  message: "Selecione o tipo de tour e preencha os campos necessários",
+  path: ["tourType"]
+});
+
+type QuoteFormData = z.infer<typeof quoteFormSchema>;
 
 /**
  * Selection state interface for the quote form
@@ -64,44 +160,43 @@ interface SelectionState {
  * @returns Quote section JSX element
  */
 export function GetAQuote() {
-  const [selections, setSelections] = useState<SelectionState>({
-    projectDetails: { floors: '', area: '' },
-    external: { value: null, count: '' },
-    internal: { value: null, count: '' },
-    humanized: { value: null, count: '' },
-    animation: { value: null, type: null, count: '', duration: '' },
-    tour: { value: null, type: null, rooms: '' }
+  const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<QuoteFormData>({
+    resolver: zodResolver(quoteFormSchema),
+    defaultValues: {
+      floors: '',
+      area: '',
+      name: '',
+      email: '',
+      phone: '',
+      externalValue: null,
+      externalCount: '',
+      internalValue: null,
+      internalCount: '',
+      humanizedValue: null,
+      humanizedCount: '',
+      animationValue: null,
+      animationType: null,
+      animationCount: '',
+      animationDuration: '',
+      tourValue: null,
+      tourType: null,
+      tourRooms: ''
+    }
   });
+
+  // Watch all form values for budget calculation and conditional rendering
+  const formValues = watch();
 
   /**
    * Handles boolean selection toggle (Yes/No buttons)
    * Clicking the same value again deselects it
    *
-   * @param key - The selection category key
+   * @param field - The form field name
    * @param value - The boolean value to set
    */
-  const handleSelection = (key: keyof SelectionState, value: boolean) => {
-    setSelections(prev => ({
-      ...prev,
-      [key]: {
-        ...prev[key],
-        value: prev[key].value === value ? null : value
-      }
-    }));
-  };
-
-  /**
-   * Updates a specific field within a selection category
-   *
-   * @param key - The selection category key
-   * @param field - The field name within the category
-   * @param value - The new value to set
-   */
-  const updateField = (key: keyof SelectionState, field: string, value: any) => {
-      setSelections(prev => ({
-      ...prev,
-      [key]: { ...prev[key], [field]: value }
-    }));
+  const handleSelection = (field: keyof QuoteFormData, value: boolean) => {
+    const currentValue = formValues[field];
+    setValue(field as any, currentValue === value ? null : value);
   };
 
   /**
@@ -117,19 +212,28 @@ export function GetAQuote() {
    */
   const calculateTotal = () => {
     let total = 0;
-    if (selections.external.value) total += (parseInt(selections.external.count) || 0) * 1500;
-    if (selections.internal.value) total += (parseInt(selections.internal.count) || 0) * 1200;
-    if (selections.humanized.value) total += (parseInt(selections.humanized.count) || 0) * 800;
-    if (selections.animation.value) {
-      const count = parseInt(selections.animation.count) || 0;
-      const seconds = parseInt(selections.animation.duration.replace(/\D/g, '')) || 0;
+    if (formValues.externalValue) total += (parseInt(formValues.externalCount || '0') || 0) * 1500;
+    if (formValues.internalValue) total += (parseInt(formValues.internalCount || '0') || 0) * 1200;
+    if (formValues.humanizedValue) total += (parseInt(formValues.humanizedCount || '0') || 0) * 800;
+    if (formValues.animationValue) {
+      const count = parseInt(formValues.animationCount || '0') || 0;
+      const seconds = parseInt((formValues.animationDuration || '').replace(/\D/g, '')) || 0;
       total += count * (3000 + seconds * 100);
     }
-    if (selections.tour.value) {
-      if (selections.tour.type === 'Completo') total += 5000;
-      else total += 2000 + (parseInt(selections.tour.rooms) || 0) * 500;
+    if (formValues.tourValue) {
+      if (formValues.tourType === 'Completo') total += 5000;
+      else total += 2000 + (parseInt(formValues.tourRooms || '0') || 0) * 500;
     }
     return total;
+  };
+
+  /**
+   * Handles form submission
+   */
+  const onSubmit = (data: QuoteFormData) => {
+    console.log('Form submitted:', data);
+    // TODO: Add API call to submit the quote request
+    alert('Orçamento enviado com sucesso! Entraremos em contato em breve.');
   };
 
   return (
@@ -197,7 +301,7 @@ export function GetAQuote() {
                     </motion.div>
                   </div>
               </DialogClose>
-              <div className="w-full h-full overflow-y-auto p-6 sm:p-8 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[var(--color-primary)] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-[var(--color-accent)]">
+              <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full overflow-y-auto p-6 sm:p-8 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[var(--color-primary)] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-[var(--color-accent)]">
               <DialogHeader>
                 <DialogTitle className="text-2xl md:text-4xl lg:text-5xl font-light uppercase tracking-wide">Orçamento</DialogTitle>
               </DialogHeader>
@@ -213,9 +317,9 @@ export function GetAQuote() {
                         min="1"
                         placeholder="Ex: 2"
                         className="w-full border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                        value={selections.projectDetails.floors}
-                        onChange={(e) => updateField('projectDetails', 'floors', e.target.value)}
+                        {...register('floors')}
                       />
+                      {errors.floors && <p className="text-xs text-red-500 mt-1">{errors.floors.message}</p>}
                     </div>
                     <div className="space-y-2">
                       <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">m² por pavimentos</Label>
@@ -224,9 +328,9 @@ export function GetAQuote() {
                         min="0"
                         placeholder="Ex: 150"
                         className="w-full border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                        value={selections.projectDetails.area}
-                        onChange={(e) => updateField('projectDetails', 'area', e.target.value)}
+                        {...register('area')}
                       />
+                      {errors.area && <p className="text-xs text-red-500 mt-1">{errors.area.message}</p>}
                     </div>
                   </div>
 
@@ -235,12 +339,13 @@ export function GetAQuote() {
                     <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">Imagens Externas?</Label>
                     <div className="flex items-center gap-4 min-h-[40px]">
                       <AnimatePresence mode="popLayout">
-                        {(selections.external.value === null || selections.external.value === true) && (
+                        {(formValues.externalValue === null || formValues.externalValue === true) && (
                           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                             <Button
-                              variant={selections.external.value === true ? "default" : "outline"}
-                              onClick={() => handleSelection('external', true)}
-                              className={`border-[var(--color-text-dark)] ${selections.external.value === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                              type="button"
+                              variant={formValues.externalValue === true ? "default" : "outline"}
+                              onClick={() => handleSelection('externalValue', true)}
+                              className={`border-[var(--color-text-dark)] ${formValues.externalValue === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                             >
                               Sim
                             </Button>
@@ -249,12 +354,13 @@ export function GetAQuote() {
                       </AnimatePresence>
 
                       <AnimatePresence mode="popLayout">
-                        {(selections.external.value === null || selections.external.value === false) && (
+                        {(formValues.externalValue === null || formValues.externalValue === false) && (
                           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                             <Button
-                              variant={selections.external.value === false ? "default" : "outline"}
-                              onClick={() => handleSelection('external', false)}
-                              className={`border-[var(--color-text-dark)] ${selections.external.value === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                              type="button"
+                              variant={formValues.externalValue === false ? "default" : "outline"}
+                              onClick={() => handleSelection('externalValue', false)}
+                              className={`border-[var(--color-text-dark)] ${formValues.externalValue === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                             >
                               Não
                             </Button>
@@ -263,7 +369,7 @@ export function GetAQuote() {
                       </AnimatePresence>
 
                       <AnimatePresence>
-                        {selections.external.value === true && (
+                        {formValues.externalValue === true && (
                           <motion.div
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -272,14 +378,15 @@ export function GetAQuote() {
                           >
                             <Label className="text-sm whitespace-nowrap">Quantas?</Label>
                             <Input
+                              type="number"
                               className="w-20 h-9 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                              value={selections.external.count}
-                              onChange={(e) => updateField('external', 'count', e.target.value)}
+                              {...register('externalCount')}
                             />
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
+                    {errors.externalCount && <p className="text-xs text-red-500 mt-1">{errors.externalCount.message}</p>}
                   </div>
 
                   {/* Internal Images */}
@@ -287,12 +394,13 @@ export function GetAQuote() {
                     <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">Imagens Internas?</Label>
                     <div className="flex items-center gap-4 min-h-[40px]">
                       <AnimatePresence mode="popLayout">
-                        {(selections.internal.value === null || selections.internal.value === true) && (
+                        {(formValues.internalValue === null || formValues.internalValue === true) && (
                           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                             <Button
-                              variant={selections.internal.value === true ? "default" : "outline"}
-                              onClick={() => handleSelection('internal', true)}
-                              className={`border-[var(--color-text-dark)] ${selections.internal.value === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                              type="button"
+                              variant={formValues.internalValue === true ? "default" : "outline"}
+                              onClick={() => handleSelection('internalValue', true)}
+                              className={`border-[var(--color-text-dark)] ${formValues.internalValue === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                             >
                               Sim
                             </Button>
@@ -301,12 +409,13 @@ export function GetAQuote() {
                       </AnimatePresence>
 
                       <AnimatePresence mode="popLayout">
-                        {(selections.internal.value === null || selections.internal.value === false) && (
+                        {(formValues.internalValue === null || formValues.internalValue === false) && (
                           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                             <Button
-                              variant={selections.internal.value === false ? "default" : "outline"}
-                              onClick={() => handleSelection('internal', false)}
-                              className={`border-[var(--color-text-dark)] ${selections.internal.value === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                              type="button"
+                              variant={formValues.internalValue === false ? "default" : "outline"}
+                              onClick={() => handleSelection('internalValue', false)}
+                              className={`border-[var(--color-text-dark)] ${formValues.internalValue === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                             >
                               Não
                             </Button>
@@ -315,7 +424,7 @@ export function GetAQuote() {
                       </AnimatePresence>
 
                       <AnimatePresence>
-                        {selections.internal.value === true && (
+                        {formValues.internalValue === true && (
                           <motion.div
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -324,14 +433,15 @@ export function GetAQuote() {
                           >
                             <Label className="text-sm whitespace-nowrap">Quantas?</Label>
                             <Input
+                              type="number"
                               className="w-20 h-9 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                              value={selections.internal.count}
-                              onChange={(e) => updateField('internal', 'count', e.target.value)}
+                              {...register('internalCount')}
                             />
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
+                    {errors.internalCount && <p className="text-xs text-red-500 mt-1">{errors.internalCount.message}</p>}
                   </div>
 
                   {/* Humanized Plans */}
@@ -339,12 +449,13 @@ export function GetAQuote() {
                     <Label className="uppercase text-xs tracking-wider opacity-70 text-sm">Plantas Humanizadas?</Label>
                     <div className="flex items-center gap-4 min-h-[40px]">
                       <AnimatePresence mode="popLayout">
-                        {(selections.humanized.value === null || selections.humanized.value === true) && (
+                        {(formValues.humanizedValue === null || formValues.humanizedValue === true) && (
                           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                             <Button
-                              variant={selections.humanized.value === true ? "default" : "outline"}
-                              onClick={() => handleSelection('humanized', true)}
-                              className={`border-[var(--color-text-dark)] ${selections.humanized.value === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                              type="button"
+                              variant={formValues.humanizedValue === true ? "default" : "outline"}
+                              onClick={() => handleSelection('humanizedValue', true)}
+                              className={`border-[var(--color-text-dark)] ${formValues.humanizedValue === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                             >
                               Sim
                             </Button>
@@ -353,12 +464,13 @@ export function GetAQuote() {
                       </AnimatePresence>
 
                       <AnimatePresence mode="popLayout">
-                        {(selections.humanized.value === null || selections.humanized.value === false) && (
+                        {(formValues.humanizedValue === null || formValues.humanizedValue === false) && (
                           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                             <Button
-                              variant={selections.humanized.value === false ? "default" : "outline"}
-                              onClick={() => handleSelection('humanized', false)}
-                              className={`border-[var(--color-text-dark)] ${selections.humanized.value === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                              type="button"
+                              variant={formValues.humanizedValue === false ? "default" : "outline"}
+                              onClick={() => handleSelection('humanizedValue', false)}
+                              className={`border-[var(--color-text-dark)] ${formValues.humanizedValue === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                             >
                               Não
                             </Button>
@@ -367,7 +479,7 @@ export function GetAQuote() {
                       </AnimatePresence>
 
                       <AnimatePresence>
-                        {selections.humanized.value === true && (
+                        {formValues.humanizedValue === true && (
                           <motion.div
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -376,14 +488,15 @@ export function GetAQuote() {
                           >
                             <Label className="text-sm whitespace-nowrap">Quantas?</Label>
                             <Input
+                              type="number"
                               className="w-20 h-9 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                              value={selections.humanized.count}
-                              onChange={(e) => updateField('humanized', 'count', e.target.value)}
+                              {...register('humanizedCount')}
                             />
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
+                    {errors.humanizedCount && <p className="text-xs text-red-500 mt-1">{errors.humanizedCount.message}</p>}
                   </div>
 
                   {/* Animation */}
@@ -392,12 +505,13 @@ export function GetAQuote() {
                     <div className="flex flex-col gap-3">
                       <div className="flex items-center gap-4 min-h-[40px]">
                         <AnimatePresence mode="popLayout">
-                          {(selections.animation.value === null || selections.animation.value === true) && (
+                          {(formValues.animationValue === null || formValues.animationValue === true) && (
                             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                               <Button
-                                variant={selections.animation.value === true ? "default" : "outline"}
-                                onClick={() => handleSelection('animation', true)}
-                                className={`border-[var(--color-text-dark)] ${selections.animation.value === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                                type="button"
+                                variant={formValues.animationValue === true ? "default" : "outline"}
+                                onClick={() => handleSelection('animationValue', true)}
+                                className={`border-[var(--color-text-dark)] ${formValues.animationValue === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                               >
                                 Sim
                               </Button>
@@ -406,12 +520,13 @@ export function GetAQuote() {
                         </AnimatePresence>
 
                         <AnimatePresence mode="popLayout">
-                          {(selections.animation.value === null || selections.animation.value === false) && (
+                          {(formValues.animationValue === null || formValues.animationValue === false) && (
                             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                               <Button
-                                variant={selections.animation.value === false ? "default" : "outline"}
-                                onClick={() => handleSelection('animation', false)}
-                                className={`border-[var(--color-text-dark)] ${selections.animation.value === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                                type="button"
+                                variant={formValues.animationValue === false ? "default" : "outline"}
+                                onClick={() => handleSelection('animationValue', false)}
+                                className={`border-[var(--color-text-dark)] ${formValues.animationValue === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                               >
                                 Não
                               </Button>
@@ -421,7 +536,7 @@ export function GetAQuote() {
                       </div>
 
                       <AnimatePresence>
-                        {selections.animation.value === true && (
+                        {formValues.animationValue === true && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
@@ -432,8 +547,8 @@ export function GetAQuote() {
                               <div className="flex flex-wrap gap-2 min-h-[32px]">
                                 <AnimatePresence mode="popLayout">
                                   {['Externa', 'Interna', 'Ambos'].map(type => {
-                                    const isSelected = selections.animation.type === type;
-                                    const isHidden = selections.animation.type !== null && !isSelected;
+                                    const isSelected = formValues.animationType === type;
+                                    const isHidden = formValues.animationType !== null && !isSelected;
 
                                     if (isHidden) return null;
 
@@ -446,9 +561,10 @@ export function GetAQuote() {
                                         layout
                                       >
                                         <Button
+                                          type="button"
                                           size="sm"
                                           variant={isSelected ? "default" : "outline"}
-                                          onClick={() => updateField('animation', 'type', isSelected ? null : type)}
+                                          onClick={() => setValue('animationType', isSelected ? null : type)}
                                           className={`text-xs border-[var(--color-text-dark)]/50 ${isSelected ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                                         >
                                           {type}
@@ -462,9 +578,9 @@ export function GetAQuote() {
                                 <div className="flex items-center gap-2">
                                   <Label className="text-sm whitespace-nowrap">Quantas?</Label>
                                   <Input
+                                    type="number"
                                     className="w-16 h-8 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                                    value={selections.animation.count}
-                                    onChange={(e) => updateField('animation', 'count', e.target.value)}
+                                    {...register('animationCount')}
                                   />
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -472,8 +588,7 @@ export function GetAQuote() {
                                   <Input
                                     className="w-24 h-8 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
                                     placeholder="Ex: 30s"
-                                    value={selections.animation.duration}
-                                    onChange={(e) => updateField('animation', 'duration', e.target.value)}
+                                    {...register('animationDuration')}
                                   />
                                 </div>
                               </div>
@@ -482,6 +597,7 @@ export function GetAQuote() {
                         )}
                       </AnimatePresence>
                     </div>
+                    {errors.animationCount && <p className="text-xs text-red-500 mt-1">{errors.animationCount.message}</p>}
                   </div>
 
                   {/* Virtual Tour */}
@@ -490,12 +606,13 @@ export function GetAQuote() {
                     <div className="flex flex-col gap-3">
                       <div className="flex items-center gap-4 min-h-[40px]">
                         <AnimatePresence mode="popLayout">
-                          {(selections.tour.value === null || selections.tour.value === true) && (
+                          {(formValues.tourValue === null || formValues.tourValue === true) && (
                             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                               <Button
-                                variant={selections.tour.value === true ? "default" : "outline"}
-                                onClick={() => handleSelection('tour', true)}
-                                className={`border-[var(--color-text-dark)] ${selections.tour.value === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                                type="button"
+                                variant={formValues.tourValue === true ? "default" : "outline"}
+                                onClick={() => handleSelection('tourValue', true)}
+                                className={`border-[var(--color-text-dark)] ${formValues.tourValue === true ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                               >
                                 Sim
                               </Button>
@@ -504,12 +621,13 @@ export function GetAQuote() {
                         </AnimatePresence>
 
                         <AnimatePresence mode="popLayout">
-                          {(selections.tour.value === null || selections.tour.value === false) && (
+                          {(formValues.tourValue === null || formValues.tourValue === false) && (
                             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
                               <Button
-                                variant={selections.tour.value === false ? "default" : "outline"}
-                                onClick={() => handleSelection('tour', false)}
-                                className={`border-[var(--color-text-dark)] ${selections.tour.value === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
+                                type="button"
+                                variant={formValues.tourValue === false ? "default" : "outline"}
+                                onClick={() => handleSelection('tourValue', false)}
+                                className={`border-[var(--color-text-dark)] ${formValues.tourValue === false ? "bg-[var(--color-text-dark)] text-white hover:bg-[var(--color-text-dark)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                               >
                                 Não
                               </Button>
@@ -519,7 +637,7 @@ export function GetAQuote() {
                       </div>
 
                       <AnimatePresence>
-                        {selections.tour.value === true && (
+                        {formValues.tourValue === true && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
@@ -530,8 +648,8 @@ export function GetAQuote() {
                               <div className="flex flex-wrap gap-2 min-h-[32px]">
                                 <AnimatePresence mode="popLayout">
                                   {['Completo', 'Parcial'].map(type => {
-                                    const isSelected = selections.tour.type === type;
-                                    const isHidden = selections.tour.type !== null && !isSelected;
+                                    const isSelected = formValues.tourType === type;
+                                    const isHidden = formValues.tourType !== null && !isSelected;
 
                                     if (isHidden) return null;
 
@@ -544,9 +662,10 @@ export function GetAQuote() {
                                         layout
                                       >
                                         <Button
+                                          type="button"
                                           size="sm"
                                           variant={isSelected ? "default" : "outline"}
-                                          onClick={() => updateField('tour', 'type', isSelected ? null : type)}
+                                          onClick={() => setValue('tourType', isSelected ? null : type)}
                                           className={`text-xs border-[var(--color-text-dark)]/50 ${isSelected ? "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90" : "hover:bg-[var(--color-text-muted)]/60 hover:text-white/90"}`}
                                         >
                                           {type}
@@ -557,7 +676,7 @@ export function GetAQuote() {
                                 </AnimatePresence>
                               </div>
 
-                              {selections.tour.type === 'Parcial' && (
+                              {formValues.tourType === 'Parcial' && (
                                 <motion.div
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
@@ -565,9 +684,9 @@ export function GetAQuote() {
                                 >
                                   <Label className="text-sm whitespace-nowrap">Quantos ambientes?</Label>
                                   <Input
+                                    type="number"
                                     className="w-20 h-8 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]"
-                                    value={selections.tour.rooms}
-                                    onChange={(e) => updateField('tour', 'rooms', e.target.value)}
+                                    {...register('tourRooms')}
                                   />
                                 </motion.div>
                               )}
@@ -576,6 +695,7 @@ export function GetAQuote() {
                         )}
                       </AnimatePresence>
                     </div>
+                    {errors.tourType && <p className="text-xs text-red-500 mt-1">{errors.tourType.message}</p>}
                   </div>
                 </div>
 
@@ -609,17 +729,20 @@ export function GetAQuote() {
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-sm">Nome <span className="text-red-500">*</span></Label>
-                        <Input id="name" placeholder="João da Silva" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
+                        <Input id="name" placeholder="João da Silva" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('name')} />
+                        {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm">Email <span className="text-red-500">*</span></Label>
-                        <Input id="email" type="email" placeholder="seu@email.com.br" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
+                        <Input id="email" type="email" placeholder="seu@email.com.br" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('email')} />
+                        {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm">Telefone <span className="text-red-500">*</span></Label>
-                        <Input id="phone" type="tel" placeholder="(11) 91234-5678" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" required />
+                        <Input id="phone" type="tel" placeholder="(11) 91234-5678" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('phone')} />
+                        {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
                       </div>
                     </div>
                   </div>
@@ -631,7 +754,7 @@ export function GetAQuote() {
                   </div>
                 </div>
               </div>
-              </div>
+              </form>
             </DialogContent>
           </Dialog>
         </motion.div>

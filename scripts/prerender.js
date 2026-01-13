@@ -176,7 +176,7 @@ function generateHTML(route, scriptTags, cssTags) {
           "closes": "18:00"
         },
         "sameAs": [
-          "https://www.instagram.com/giuliaparente_parquitetura",
+          "https://www.instagram.com/giuliaparente_arquitetura",
           "https://www.linkedin.com/in/giulia-parente",
           "https://www.pinterest.com/giuliaparentearq"
         ],

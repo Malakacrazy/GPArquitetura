@@ -41,19 +41,8 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
-/**
- * Country phone configuration
- */
-const COUNTRIES = {
-  BR: { code: '+55', flag: '🇧🇷', format: /^\(\d{2}\)\s\d{4,5}-\d{4}$/, placeholder: '(11) 91234-5678', name: 'Brasil' },
-  US: { code: '+1', flag: '🇺🇸', format: /^\(\d{3}\)\s\d{3}-\d{4}$/, placeholder: '(555) 123-4567', name: 'USA' },
-  PT: { code: '+351', flag: '🇵🇹', format: /^\d{3}\s\d{3}\s\d{3}$/, placeholder: '912 345 678', name: 'Portugal' },
-  ES: { code: '+34', flag: '🇪🇸', format: /^\d{3}\s\d{2}\s\d{2}\s\d{2}$/, placeholder: '612 34 56 78', name: 'España' },
-  AR: { code: '+54', flag: '🇦🇷', format: /^\d{2}\s\d{4}-\d{4}$/, placeholder: '11 1234-5678', name: 'Argentina' },
-} as const;
-
-type CountryCode = keyof typeof COUNTRIES;
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 
 /**
  * Zod validation schema for the quote form
@@ -70,8 +59,7 @@ const quoteFormSchema = z.object({
   // Contact information
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
   email: z.string().min(1, "Email é obrigatório").email("Formato de email inválido"),
-  phoneCountry: z.string().default('BR'),
-  phone: z.string().min(1, "Telefone é obrigatório"),
+  phone: z.string().min(8, "Telefone é obrigatório"),
 
   // External images
   externalValue: z.boolean().nullable(),
@@ -145,18 +133,6 @@ const quoteFormSchema = z.object({
 }, {
   message: "Selecione o tipo de tour e preencha os campos necessários",
   path: ["tourType"]
-}).refine((data) => {
-  // Validate phone format based on country
-  if (data.phone) {
-    const country = COUNTRIES[data.phoneCountry as CountryCode];
-    if (country) {
-      return country.format.test(data.phone);
-    }
-  }
-  return true;
-}, {
-  message: "Formato de telefone inválido",
-  path: ["phone"]
 });
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
@@ -186,9 +162,6 @@ interface SelectionState {
  * @returns Quote section JSX element
  */
 export function GetAQuote() {
-  const [selectedCountry, setSelectedCountry] = useState<CountryCode>('BR');
-  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
-
   const { register, handleSubmit, watch, setValue, control, formState: { errors } } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
@@ -196,8 +169,7 @@ export function GetAQuote() {
       area: '',
       name: '',
       email: '',
-      phoneCountry: 'BR',
-      phone: '',
+      phone: '+55',
       externalValue: null,
       externalCount: '',
       internalValue: null,
@@ -255,69 +227,6 @@ export function GetAQuote() {
       else total += 2000 + (parseInt(formValues.tourRooms || '0') || 0) * 500;
     }
     return total;
-  };
-
-  /**
-   * Formats phone number based on country
-   */
-  const formatPhoneNumber = (value: string, country: CountryCode) => {
-    // Remove all non-numeric characters
-    const numbers = value.replace(/\D/g, '');
-
-    switch (country) {
-      case 'BR':
-        // Brazilian format: (11) 91234-5678
-        if (numbers.length <= 2) return numbers;
-        if (numbers.length <= 6) return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
-        if (numbers.length <= 10) return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 6)}-${numbers.slice(6)}`;
-        return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
-
-      case 'US':
-        // US format: (555) 123-4567
-        if (numbers.length <= 3) return numbers;
-        if (numbers.length <= 6) return `(${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
-        return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6, 10)}`;
-
-      case 'PT':
-        // Portugal format: 912 345 678
-        if (numbers.length <= 3) return numbers;
-        if (numbers.length <= 6) return `${numbers.slice(0, 3)} ${numbers.slice(3)}`;
-        return `${numbers.slice(0, 3)} ${numbers.slice(3, 6)} ${numbers.slice(6, 9)}`;
-
-      case 'ES':
-        // Spain format: 612 34 56 78
-        if (numbers.length <= 3) return numbers;
-        if (numbers.length <= 5) return `${numbers.slice(0, 3)} ${numbers.slice(3)}`;
-        if (numbers.length <= 7) return `${numbers.slice(0, 3)} ${numbers.slice(3, 5)} ${numbers.slice(5)}`;
-        return `${numbers.slice(0, 3)} ${numbers.slice(3, 5)} ${numbers.slice(5, 7)} ${numbers.slice(7, 9)}`;
-
-      case 'AR':
-        // Argentina format: 11 1234-5678
-        if (numbers.length <= 2) return numbers;
-        if (numbers.length <= 6) return `${numbers.slice(0, 2)} ${numbers.slice(2)}`;
-        return `${numbers.slice(0, 2)} ${numbers.slice(2, 6)}-${numbers.slice(6, 10)}`;
-
-      default:
-        return numbers;
-    }
-  };
-
-  /**
-   * Handles phone input change with formatting
-   */
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatPhoneNumber(e.target.value, selectedCountry);
-    setValue('phone', formatted);
-  };
-
-  /**
-   * Handles country change
-   */
-  const handleCountryChange = (country: CountryCode) => {
-    setSelectedCountry(country);
-    setValue('phoneCountry', country);
-    setValue('phone', ''); // Clear phone when changing country
-    setShowCountryDropdown(false);
   };
 
   /**
@@ -861,61 +770,30 @@ export function GetAQuote() {
 
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm">Telefone <span className="text-red-500">*</span></Label>
-                        <div className="relative">
-                          {/* Country Selector */}
-                          <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
-                            <button
-                              type="button"
-                              onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-                              className="flex items-center gap-1 hover:bg-gray-100 rounded px-1 py-0.5 transition-colors"
-                            >
-                              <span className="text-xl">{COUNTRIES[selectedCountry].flag}</span>
-                              <span className="text-sm text-[var(--color-text-muted)]">{COUNTRIES[selectedCountry].code}</span>
-                              <svg className="w-3 h-3 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </button>
-
-                            {/* Country Dropdown */}
-                            {showCountryDropdown && (
-                              <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-[200px]">
-                                {(Object.keys(COUNTRIES) as CountryCode[]).map((countryCode) => (
-                                  <button
-                                    key={countryCode}
-                                    type="button"
-                                    onClick={() => handleCountryChange(countryCode)}
-                                    className="w-full flex items-center gap-2 px-3 py-2 hover:bg-gray-100 transition-colors text-left"
-                                  >
-                                    <span className="text-xl">{COUNTRIES[countryCode].flag}</span>
-                                    <span className="text-sm flex-1">{COUNTRIES[countryCode].name}</span>
-                                    <span className="text-xs text-[var(--color-text-muted)]">{COUNTRIES[countryCode].code}</span>
-                                  </button>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-
-                          <Controller
-                            name="phone"
-                            control={control}
-                            render={({ field }) => (
-                              <input
-                                {...field}
-                                id="phone"
-                                type="text"
-                                placeholder={COUNTRIES[selectedCountry].placeholder}
-                                maxLength={20}
-                                onChange={(e) => {
-                                  const formatted = formatPhoneNumber(e.target.value, selectedCountry);
-                                  field.onChange(formatted);
-                                }}
-                                className={`flex h-9 w-full rounded-md border pl-28 pr-3 py-1 text-base outline-none transition-colors ${
-                                  errors.phone ? 'border-red-500' : 'border-[var(--color-text-dark)]/30'
-                                } focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20`}
-                              />
-                            )}
-                          />
-                        </div>
+                        <Controller
+                          name="phone"
+                          control={control}
+                          render={({ field: { onChange, value } }) => (
+                            <PhoneInput
+                              defaultCountry="br"
+                              value={value}
+                              onChange={onChange}
+                              inputStyle={{
+                                width: '100%',
+                                height: '36px',
+                                fontSize: '14px',
+                                borderColor: errors.phone ? '#ef4444' : 'rgba(0, 0, 0, 0.2)',
+                                borderRadius: '6px',
+                              }}
+                              countrySelectorStyleProps={{
+                                buttonStyle: {
+                                  borderColor: errors.phone ? '#ef4444' : 'rgba(0, 0, 0, 0.2)',
+                                  borderRadius: '6px 0 0 6px',
+                                }
+                              }}
+                            />
+                          )}
+                        />
                         {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
                       </div>
                     </div>

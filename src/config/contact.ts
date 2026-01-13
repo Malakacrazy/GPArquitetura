@@ -94,9 +94,9 @@ export const socialLinks = {
    */
   instagram: {
     /** Profile URL */
-    url: 'https://www.instagram.com/giuliaparente_parquitetura',
+    url: 'https://www.instagram.com/giuliaparente_arquitetura',
     /** Username for display */
-    username: '@giuliaparente_parquitetura',
+    username: '@giuliaparente_arquitetura',
     /** Platform name */
     platform: 'Instagram',
   },

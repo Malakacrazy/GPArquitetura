@@ -105,10 +105,10 @@ export function WorkWithUs() {
               <h6 className="mb-4 md:mb-6 text-white text-base md:text-lg">
                 Seja notificado quando uma nova <span className="underline">vaga for publicada</span>
               </h6>
-              <form onSubmit={handleSubmit(onSubmit)} className="mb-3 md:mb-4">
+              <form onSubmit={handleSubmit(onSubmit)} noValidate className="mb-3 md:mb-4">
                 <div className="flex gap-2 md:gap-3">
                   <input
-                    type="email"
+                    type="text"
                     placeholder="Email"
                     {...register('email')}
                     className={`flex-1 min-w-0 px-3 py-2 md:px-4 md:py-3 border-none rounded bg-white/50 text-[var(--color-text-dark)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-1 text-lg ${

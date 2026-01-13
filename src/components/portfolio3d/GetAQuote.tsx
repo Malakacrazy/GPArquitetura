@@ -301,7 +301,7 @@ export function GetAQuote() {
                     </motion.div>
                   </div>
               </DialogClose>
-              <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full overflow-y-auto p-6 sm:p-8 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[var(--color-primary)] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-[var(--color-accent)]">
+              <form onSubmit={handleSubmit(onSubmit)} noValidate className="w-full h-full overflow-y-auto p-6 sm:p-8 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[var(--color-primary)] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-[var(--color-accent)]">
               <DialogHeader>
                 <DialogTitle className="text-2xl md:text-4xl lg:text-5xl font-light uppercase tracking-wide">Orçamento</DialogTitle>
               </DialogHeader>
@@ -735,13 +735,13 @@ export function GetAQuote() {
 
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm">Email <span className="text-red-500">*</span></Label>
-                        <Input id="email" type="email" placeholder="seu@email.com.br" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('email')} />
+                        <Input id="email" type="text" placeholder="seu@email.com.br" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('email')} />
                         {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm">Telefone <span className="text-red-500">*</span></Label>
-                        <Input id="phone" type="tel" placeholder="(11) 91234-5678" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('phone')} />
+                        <Input id="phone" type="text" placeholder="(11) 91234-5678" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('phone')} />
                         {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
                       </div>
                     </div>

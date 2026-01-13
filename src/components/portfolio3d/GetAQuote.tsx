@@ -56,8 +56,8 @@ const quoteFormSchema = z.object({
 
   // Contact information
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
-  email: z.string().email("Email inválido"),
-  phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos").regex(/^[\d\s()+-]+$/, "Telefone inválido"),
+  email: z.string().min(1, "Email é obrigatório").email("Formato de email inválido"),
+  phone: z.string().min(1, "Telefone é obrigatório").regex(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "Formato inválido. Use: (11) 91234-5678"),
 
   // External images
   externalValue: z.boolean().nullable(),
@@ -225,6 +225,33 @@ export function GetAQuote() {
       else total += 2000 + (parseInt(formValues.tourRooms || '0') || 0) * 500;
     }
     return total;
+  };
+
+  /**
+   * Formats phone number to Brazilian format: (11) 91234-5678
+   */
+  const formatPhoneNumber = (value: string) => {
+    // Remove all non-numeric characters
+    const numbers = value.replace(/\D/g, '');
+
+    // Apply Brazilian phone format
+    if (numbers.length <= 2) {
+      return numbers;
+    } else if (numbers.length <= 6) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+    } else if (numbers.length <= 10) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 6)}-${numbers.slice(6)}`;
+    } else {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
+    }
+  };
+
+  /**
+   * Handles phone input change with formatting
+   */
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setValue('phone', formatted);
   };
 
   /**
@@ -729,19 +756,47 @@ export function GetAQuote() {
                     <div className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-sm">Nome <span className="text-red-500">*</span></Label>
-                        <Input id="name" placeholder="João da Silva" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('name')} />
+                        <Input
+                          id="name"
+                          placeholder="João da Silva"
+                          className={`border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)] ${errors.name ? 'border-red-500' : ''}`}
+                          {...register('name')}
+                          aria-invalid={undefined}
+                        />
                         {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm">Email <span className="text-red-500">*</span></Label>
-                        <Input id="email" type="text" placeholder="seu@email.com.br" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('email')} />
+                        <Input
+                          id="email"
+                          type="text"
+                          placeholder="seu@email.com.br"
+                          className={`border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)] ${errors.email ? 'border-red-500' : ''}`}
+                          {...register('email')}
+                          aria-invalid={undefined}
+                        />
                         {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm">Telefone <span className="text-red-500">*</span></Label>
-                        <Input id="phone" type="text" placeholder="(11) 91234-5678" className="border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)]" {...register('phone')} />
+                        <div className="relative">
+                          <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none z-10">
+                            <span className="text-xl">🇧🇷</span>
+                            <span className="text-sm text-[var(--color-text-muted)]">+55</span>
+                          </div>
+                          <Input
+                            id="phone"
+                            type="text"
+                            placeholder="(11) 91234-5678"
+                            maxLength={15}
+                            className={`pl-20 border-[var(--color-text-dark)]/30 focus:border-[var(--color-primary)] ${errors.phone ? 'border-red-500' : ''}`}
+                            {...register('phone')}
+                            onChange={handlePhoneChange}
+                            aria-invalid={undefined}
+                          />
+                        </div>
                         {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
                       </div>
                     </div>

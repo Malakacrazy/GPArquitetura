@@ -138,17 +138,23 @@ const quoteFormSchema = z.object({
   message: "Tempo de animação é obrigatório",
   path: ["animationDuration"]
 }).refine((data) => {
-  // Validate tour fields if tour is selected
+  // Validate tour type if tour is selected
   if (data.tourValue === true) {
-    if (data.tourType === 'Parcial') {
-      return data.tourRooms && !isNaN(Number(data.tourRooms)) && Number(data.tourRooms) > 0;
-    }
     return data.tourType !== null;
   }
   return true;
 }, {
-  message: "Selecione o tipo de tour e preencha os campos necessários",
+  message: "Selecione o tipo de tour",
   path: ["tourType"]
+}).refine((data) => {
+  // Validate tour rooms if Parcial tour is selected
+  if (data.tourValue === true && data.tourType === 'Parcial') {
+    return data.tourRooms && !isNaN(Number(data.tourRooms)) && Number(data.tourRooms) > 0;
+  }
+  return true;
+}, {
+  message: "Quantidade de ambientes é obrigatória",
+  path: ["tourRooms"]
 });
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
@@ -186,7 +192,7 @@ export function GetAQuote() {
       area: '',
       name: '',
       email: '',
-      phone: '+55',
+      phone: '',
       externalValue: null,
       externalCount: '',
       internalValue: null,
@@ -846,7 +852,6 @@ export function GetAQuote() {
                         )}
                       </AnimatePresence>
                     </div>
-                    {errors.tourType && <p className="text-xs text-red-500 mt-1">{errors.tourType.message}</p>}
                   </div>
                 </div>
 
@@ -962,9 +967,7 @@ export function GetAQuote() {
                               defaultCountry="br"
                               value={value}
                               onChange={onChange}
-                              inputProps={{
-                                placeholder: '(11) 91234-5678'
-                              }}
+                              placeholder="(11) 91234-5678"
                               inputStyle={{
                                 width: '100%',
                                 height: '36px',

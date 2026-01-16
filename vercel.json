@@ -1,8 +1,14 @@
 {
   "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml$|robots\\.txt$|favicon\\.ico$|site\\.webmanifest$|.*\\.png$|.*\\.jpg$|.*\\.jpeg$|.*\\.webp$|.*\\.svg$|.*\\.ico$|.*\\.woff$|.*\\.woff2$|.*\\.ttf$|.*\\.eot$).*)",
+      "source": "/portfolio/:slug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/((?!about|portfolio|3d-visualization|contact|privacy|tos|about/library|assets|images|icons|videos|sitemap\\.xml|robots\\.txt|favicon\\.ico|site\\.webmanifest|GPArquitetura-3d9f8c2e1a7b4d6f\\.txt|.*\\.(js|css|png|jpg|jpeg|webp|svg|ico|woff|woff2|ttf|eot|mp4|webm)).*)",
       "destination": "/index.html"
     }
   ],

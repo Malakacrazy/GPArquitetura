@@ -141,7 +141,7 @@ function generateHTML(route, scriptTags, cssTags) {
     </script>
 
     <!-- Hotjar / Contentsquare Tracking -->
-    <script src="https://t.contentsquare.net/uxa/146c09594161b.js" async></script>
+    <script src="https://t.contentsquare.net/uxa/387fba793be53.js" async></script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">

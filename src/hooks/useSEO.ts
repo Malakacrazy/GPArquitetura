@@ -40,6 +40,8 @@ import { useEffect } from 'react';
  */
 interface SEOProps {
   title: string;
+  /** Use `title` as-is, without appending the site name */
+  absoluteTitle?: boolean;
   description: string;
   keywords?: string;
   canonical?: string;
@@ -51,11 +53,11 @@ interface SEOProps {
 }
 
 /** Base URL for all canonical and OG URLs */
-const BASE_URL = 'https://gparquitetura.vercel.app';
+const BASE_URL = 'https://studioaraci.com.br';
 /** Default Open Graph image path */
 const DEFAULT_IMAGE = `${BASE_URL}/images/og-image.png`;
 /** Site name used in titles and OG tags */
-const SITE_NAME = 'GP Arquitetura';
+const SITE_NAME = 'Studio Araci';
 
 /**
  * React hook for managing page SEO metadata
@@ -79,7 +81,7 @@ const SITE_NAME = 'GP Arquitetura';
  * ```tsx
  * useSEO({
  *   title: 'Sobre Nós',
- *   description: 'Conheça a GP Arquitetura...',
+ *   description: 'Conheça a Studio Araci...',
  *   canonical: '/about'
  * });
  * ```
@@ -87,17 +89,18 @@ const SITE_NAME = 'GP Arquitetura';
 export const useSEO = ({
   title,
   description,
+  absoluteTitle = false,
   keywords,
   canonical,
   ogType = 'website',
   ogImage = DEFAULT_IMAGE,
-  ogImageAlt = 'GP Arquitetura - Escritório de Arquitetura em São Paulo',
+  ogImageAlt = 'Studio Araci - Escritório de Arquitetura em São Paulo',
   noindex = false,
   jsonLd,
 }: SEOProps) => {
   useEffect(() => {
     // Update document title
-    const fullTitle = `${title} | ${SITE_NAME}`;
+    const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
     document.title = fullTitle;
 
     // Helper function to update or create meta tag
@@ -178,7 +181,7 @@ export const useSEO = ({
         pageScript.remove();
       }
     };
-  }, [title, description, keywords, canonical, ogType, ogImage, ogImageAlt, noindex, jsonLd]);
+  }, [title, absoluteTitle, description, keywords, canonical, ogType, ogImage, ogImageAlt, noindex, jsonLd]);
 };
 
 /**
@@ -195,15 +198,16 @@ export const useSEO = ({
  */
 export const SEO_CONFIG = {
   home: {
-    title: 'Arquitetura e Design de Interiores em São Paulo',
-    description: 'GP Arquitetura é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores. Transformamos espaços com elegância e funcionalidade.',
-    keywords: 'arquitetura, design de interiores, arquiteto São Paulo, projeto arquitetônico, GP Arquitetura, Giulia Parente',
+    title: 'Arquitetura Emocional e Design de Interiores em São Paulo',
+    absoluteTitle: true,
+    description: 'Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. Conheça nosso processo e fale conosco.',
+    keywords: 'arquitetura, design de interiores, arquiteto São Paulo, projeto arquitetônico, Studio Araci, Giulia Parente',
     canonical: '/',
   },
   about: {
     title: 'Sobre Nós',
-    description: 'Conheça a GP Arquitetura e nossa equipe de profissionais apaixonados por criar espaços únicos e funcionais. Nossa história, valores e compromisso com a excelência em arquitetura.',
-    keywords: 'sobre GP Arquitetura, equipe arquitetura, Giulia Parente arquiteta, escritório arquitetura São Paulo',
+    description: 'Conheça a Studio Araci e nossa equipe de profissionais apaixonados por criar espaços únicos e funcionais. Nossa história, valores e compromisso com a excelência em arquitetura.',
+    keywords: 'sobre Studio Araci, equipe arquitetura, Giulia Parente arquiteta, escritório arquitetura São Paulo',
     canonical: '/about',
   },
   library: {
@@ -214,7 +218,7 @@ export const SEO_CONFIG = {
   },
   portfolio: {
     title: 'Portfólio',
-    description: 'Explore nosso portfólio de projetos arquitetônicos. Residências, apartamentos, espaços comerciais e projetos de design de interiores desenvolvidos pela GP Arquitetura.',
+    description: 'Explore nosso portfólio de projetos arquitetônicos. Residências, apartamentos, espaços comerciais e projetos de design de interiores desenvolvidos pela Studio Araci.',
     keywords: 'portfólio arquitetura, projetos residenciais, projetos comerciais, design interiores, obras arquitetura São Paulo',
     canonical: '/portfolio',
   },
@@ -226,27 +230,27 @@ export const SEO_CONFIG = {
   },
   contact: {
     title: 'Contato',
-    description: 'Entre em contato com a GP Arquitetura. Estamos prontos para transformar seu projeto em realidade. Agende uma consulta ou solicite um orçamento.',
-    keywords: 'contato arquitetura, orçamento projeto, consulta arquiteto, GP Arquitetura contato',
+    description: 'Entre em contato com a Studio Araci. Estamos prontos para transformar seu projeto em realidade. Agende uma consulta ou solicite um orçamento.',
+    keywords: 'contato arquitetura, orçamento projeto, consulta arquiteto, Studio Araci contato',
     canonical: '/contact',
   },
   privacy: {
     title: 'Política de Privacidade',
-    description: 'Política de privacidade da GP Arquitetura. Saiba como tratamos seus dados pessoais e protegemos sua privacidade.',
-    keywords: 'política privacidade, LGPD, proteção dados, GP Arquitetura',
+    description: 'Política de privacidade da Studio Araci. Saiba como tratamos seus dados pessoais e protegemos sua privacidade.',
+    keywords: 'política privacidade, LGPD, proteção dados, Studio Araci',
     canonical: '/privacy',
     noindex: true,
   },
   tos: {
     title: 'Termos de Serviço',
-    description: 'Termos de serviço e condições de uso do site GP Arquitetura.',
-    keywords: 'termos serviço, condições uso, GP Arquitetura',
+    description: 'Termos de serviço e condições de uso do site Studio Araci.',
+    keywords: 'termos serviço, condições uso, Studio Araci',
     canonical: '/tos',
     noindex: true,
   },
   notFound: {
     title: 'Página Não Encontrada',
-    description: 'A página que você está procurando não foi encontrada. Retorne à página inicial da GP Arquitetura.',
+    description: 'A página que você está procurando não foi encontrada. Retorne à página inicial da Studio Araci.',
     canonical: '/404',
     noindex: true,
   },
@@ -295,13 +299,13 @@ export const createProjectJsonLd = (project: {
   url: `${BASE_URL}/portfolio/${project.slug}`,
   author: {
     '@type': 'Organization',
-    name: 'GP Arquitetura',
+    name: 'Studio Araci',
   },
   datePublished: project.datePublished || new Date().toISOString().split('T')[0],
   genre: project.category,
   isPartOf: {
     '@type': 'WebSite',
-    name: 'GP Arquitetura',
+    name: 'Studio Araci',
     url: BASE_URL,
   },
 });

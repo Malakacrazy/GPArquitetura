@@ -49,7 +49,7 @@ export const ContactFooter = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-8 gap-x-4">
               {/* Left Column */}
               <div className="flex flex-col space-y-1.5">
-                <div>© 2025 Copyright Giulia Parente Arquitetura</div>
+                <div>© 2025 Copyright Studio Araci</div>
                 <div>
                   {(() => {
                      const date = new Date();

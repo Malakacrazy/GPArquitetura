@@ -34,7 +34,7 @@
  * <FAQ />
  * ```
  */
-import { motion, AnimatePresence } from "motion/react";
+import { m as motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { categories, faqs } from "../../config/faq";

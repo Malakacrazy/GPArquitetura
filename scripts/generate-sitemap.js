@@ -10,7 +10,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const BASE_URL = 'https://gparquitetura.vercel.app';
+const BASE_URL = 'https://studioaraci.com.br';
 
 // Helper function to get current ISO 8601 date with timezone
 function getCurrentDate() {
@@ -36,7 +36,7 @@ const staticPages = [
     lastmod: getCurrentDate(),
     image: {
       loc: '/images/hero-bg.webp',
-      title: 'GP Arquitetura - Home'
+      title: 'Studio Araci - Home'
     }
   },
   {
@@ -46,7 +46,7 @@ const staticPages = [
     lastmod: getCurrentDate(),
     image: {
       loc: '/images/hero-about-us-bg.webp',
-      title: 'Sobre GP Arquitetura'
+      title: 'Sobre Studio Araci'
     }
   },
   {
@@ -62,7 +62,7 @@ const staticPages = [
     lastmod: getCurrentDate(),
     image: {
       loc: '/images/hero-portfolio-bg.webp',
-      title: 'Portfólio GP Arquitetura'
+      title: 'Portfólio Studio Araci'
     }
   },
   {
@@ -72,7 +72,7 @@ const staticPages = [
     lastmod: getCurrentDate(),
     image: {
       loc: '/images/hero-3drendering-bg.webp',
-      title: 'Renderização 3D - GP Arquitetura'
+      title: 'Renderização 3D - Studio Araci'
     }
   },
   {
@@ -82,7 +82,7 @@ const staticPages = [
     lastmod: getCurrentDate(),
     image: {
       loc: '/images/hero-contact-bg.webp',
-      title: 'Contato - GP Arquitetura'
+      title: 'Contato - Studio Araci'
     }
   },
   {

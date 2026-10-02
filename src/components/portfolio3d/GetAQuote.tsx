@@ -32,7 +32,7 @@
  * <GetAQuote />
  * ```
  */
-import { motion, AnimatePresence } from "motion/react";
+import { m as motion, AnimatePresence } from "motion/react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";

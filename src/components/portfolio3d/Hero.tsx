@@ -31,6 +31,7 @@
 import { Reveal } from '../shared/Reveal';
 import { useEffect, useRef } from 'react';
 import { images, videos } from '../../config/assets';
+import { BrandLogo } from '../shared/BrandLogo';
 
 /**
  * Video background subcomponent with autoplay handling
@@ -105,7 +106,7 @@ export function Hero() {
               <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">3D Visualization</span>
             </Reveal>
             <Reveal>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">Giulia Parente</h1>
+              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>
             </Reveal>
           </div>
 

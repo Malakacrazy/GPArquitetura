@@ -3,55 +3,72 @@
 :root {
   --font-size: 16px;
   
-  /* Fonts */
-  --font-body: "El Messiri", sans-serif;
-  --font-heading: "Megrim", cursive;
-  --font-subtitle: "Instrument Serif", serif;
-  
-  /* Default: Warm Earth */
-  --color-background: #E0D2B6;
-  --color-primary: #BB7154;
-  --color-accent: #D8AE70;
-  --color-text-dark: #2C2A26;
-  --color-text-muted: #8B7355;
-  
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
+  /* Fonts — Studio Araci: Bodoni Moda (assinatura), Italiana (contemporaneidade), Poppins (sustentação) */
+  --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Bodoni Moda", Georgia, "Times New Roman", serif;
+  --font-subtitle: "Italiana", Georgia, serif;
+
+  /* Studio Araci palette (Manual da Marca) */
+  --araci-terracota: #9F4F39;
+  --araci-ferrugem: #A35940;
+  --araci-semente-cacau: #B36C51;
+  --araci-baleia-azul: #5E6979;
+  --araci-nevoa-azul: #C6D0DA;
+  --araci-azul-ardosia: #7F92A8;
+  --araci-grafite-mineral: #454D59;
+  --araci-grafite-mare: #434B57;
+  --araci-duna-suave: #CDB8A3;
+  --araci-areia-clara: #E8DED4;
+  --araci-dourado-mineral: #AA9C79;
+  --araci-areia-dourada: #CABA94;
+  --araci-papel: #FAF7F4;
+  --araci-tinta: #2C3038;
+
+  /* Semantic theme tokens used across the site */
+  --color-background: var(--araci-papel);
+  --color-primary: var(--araci-terracota);
+  --color-accent: var(--araci-dourado-mineral);
+  --color-text-dark: var(--araci-grafite-mare);
+  --color-text-muted: var(--araci-baleia-azul);
+  --color-border-soft: rgba(69, 77, 89, 0.16);
+
+  /* shadcn/ui tokens mapped onto the brand */
+  --background: var(--araci-papel);
+  --foreground: var(--araci-grafite-mineral);
   --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
+  --card-foreground: var(--araci-grafite-mineral);
+  --popover: #ffffff;
+  --popover-foreground: var(--araci-grafite-mineral);
+  --primary: var(--araci-terracota);
+  --primary-foreground: #ffffff;
+  --secondary: var(--araci-areia-clara);
+  --secondary-foreground: var(--araci-grafite-mineral);
+  --muted: var(--araci-areia-clara);
+  --muted-foreground: var(--araci-baleia-azul);
+  --accent: var(--araci-areia-clara);
+  --accent-foreground: var(--araci-grafite-mineral);
+  --destructive: var(--araci-terracota);
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --border: var(--araci-duna-suave);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: #ffffff;
+  --switch-background: var(--araci-duna-suave);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --ring: var(--araci-semente-cacau);
+  --chart-1: var(--araci-terracota);
+  --chart-2: var(--araci-baleia-azul);
+  --chart-3: var(--araci-dourado-mineral);
+  --chart-4: var(--araci-azul-ardosia);
+  --chart-5: var(--araci-semente-cacau);
+  --sidebar: var(--araci-papel);
+  --sidebar-foreground: var(--araci-grafite-mineral);
+  --sidebar-primary: var(--araci-terracota);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--araci-areia-clara);
+  --sidebar-accent-foreground: var(--araci-grafite-mineral);
+  --sidebar-border: var(--araci-duna-suave);
+  --sidebar-ring: var(--araci-semente-cacau);
 }
 
 .dark {
@@ -161,10 +178,14 @@
   
   h1, h2, h3, h4, h5 {
     font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
   
   h6 {
     font-family: var(--font-subtitle);
+    font-weight: 400;
+    letter-spacing: 0.04em;
   }
   
   p, span, div, a, li, label, button, input, textarea {

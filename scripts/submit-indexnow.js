@@ -7,7 +7,7 @@ const parseXML = promisify(parseString);
 
 // IndexNow configuration
 const INDEXNOW_KEY = 'GPArquitetura-3d9f8c2e1a7b4d6f';
-const HOST = 'gparquitetura.vercel.app';
+const HOST = 'studioaraci.com.br';
 const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 
 // IndexNow endpoints (you can submit to any of these)

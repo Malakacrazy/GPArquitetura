@@ -26,7 +26,7 @@
  * ```
  */
 import React from 'react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { images } from '../../config/assets';
 import { contact, company } from '../../config/contact';
 
@@ -57,7 +57,7 @@ export function ToS() {
                 Bem-vindo ao site da {company.brandName}, com sede em {contact.location.city}, {contact.location.state}, {contact.location.country} (doravante "GP Arquitetura", "nós", "nos" ou "nosso").
               </p>
               <p className="text-base md:text-lg">
-                Estes Termos de Uso e Serviço ("Termos") regem o acesso e utilização do site https://www.gparquitetura.com.br e https://gparquitetura.vercel.app (o "Site") e dos serviços oferecidos pela GP Arquitetura (os "Serviços").
+                Estes Termos de Uso e Serviço ("Termos") regem o acesso e utilização do site https://studioaraci.com.br (o "Site") e dos serviços oferecidos pelo Studio Araci (os "Serviços").
               </p>
               <p className="text-base md:text-lg font-semibold">
                 Ao acessar ou utilizar o Site, você declara ter lido, compreendido e concordado integralmente com estes Termos. Caso discorde de qualquer disposição, você não está autorizado a acessar ou utilizar o Site.

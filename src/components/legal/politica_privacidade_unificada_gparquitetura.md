@@ -81,7 +81,7 @@ Para facilitar a compreensão desta política, definimos alguns termos técnicos
 **CNPJ:** [00.000.000/0000-00]  
 **Registro CAU:** [Número CAU]  
 **Endereço:** [Rua/Av completa, nº, Bairro, Cidade-UF, CEP]  
-**E-mail:** giuliap.arquitetura@gmail.com  
+**E-mail:** giuliaparente@studioaraci.com.br  
 **Telefone:** [número com DDD]  
 
 **Responsável Técnico:**  
@@ -95,7 +95,7 @@ CAU: [número]
 Conforme Art. 41 da LGPD e Art. 37 do GDPR (quando aplicável), designamos um Encarregado de Dados:
 
 **Nome:** [Nome completo do responsável]  
-**E-mail para privacidade:** giuliap.arquitetura@gmail.com  
+**E-mail para privacidade:** giuliaparente@studioaraci.com.br  
 **Telefone:** [número com código internacional para atender clientes internacionais]  
 **Idiomas de atendimento:** Português, Inglês, Espanhol
 
@@ -212,7 +212,7 @@ Todo tratamento de dados tem uma base legal conforme legislação aplicável.
 - Opt-in para newsletter
 
 **Como revogar consentimento:**
-- E-mail: giuliap.arquitetura@gmail.com
+- E-mail: giuliaparente@studioaraci.com.br
 - Link "descadastrar" em e-mails
 - Configurações do banner de cookies
 - **Efeito:** Revogação não afeta tratamento anterior baseado em consentimento válido
@@ -366,7 +366,7 @@ Você tem direito a:
 - ✓ Opor-se a transferências baseadas em legítimo interesse
 - ✓ Revogar consentimento para transferências (ex: cookies)
 
-**Para exercer:** giuliap.arquitetura@gmail.com
+**Para exercer:** giuliaparente@studioaraci.com.br
 
 ---
 
@@ -586,7 +586,7 @@ Tratamos dados de residentes europeus com base em:
 - Nome e dados de contato
 - Endereço na UE
 
-**Até lá:** Contato direto via giuliap.arquitetura@gmail.com
+**Até lá:** Contato direto via giuliaparente@studioaraci.com.br
 
 ### 13.4. Autoridade Supervisora
 
@@ -712,8 +712,8 @@ Garantimos que você **não será discriminado** por exercer direitos CCPA:
 ### 14.8. Como Exercer Direitos CCPA
 
 **Métodos de solicitação:**
-- 📧 **E-mail:** giuliap.arquitetura@gmail.com
-- 📧 **E-mail alternativo:** giuliap.arquitetura@gmail.com
+- 📧 **E-mail:** giuliaparente@studioaraci.com.br
+- 📧 **E-mail alternativo:** giuliaparente@studioaraci.com.br
 - 📞 **Telefone:** [número com código +1 para EUA]
 - 🌐 **Formulário web:** [se implementado]
 
@@ -797,7 +797,7 @@ Se você reside em jurisdição não listada, garantimos:
 
 ### 16.1. Canal Único de Atendimento
 
-**E-mail principal:** giuliap.arquitetura@gmail.com  
+**E-mail principal:** giuliaparente@studioaraci.com.br  
 **Telefone:** [número com DDD e código internacional]  
 **Idiomas:** Português, Inglês, Espanhol
 
@@ -1077,7 +1077,7 @@ Seguimos o **Guia Orientativo da ANPD sobre Cookies** (outubro/2022):
 - Processamento imediato (máximo 48h)
 
 **Método 2 - E-mail direto:**
-- Envie para: giuliap.arquitetura@gmail.com
+- Envie para: giuliaparente@studioaraci.com.br
 - Assunto: "Cancelar Newsletter"
 - Processamento em até 5 dias úteis
 
@@ -1115,7 +1115,7 @@ Apesar de empresa brasileira, seguimos boas práticas internacionais:
 **Você pode optar por não ser rastreado:**
 - Bloqueie imagens nos e-mails
 - Use clientes de e-mail com proteção de privacidade
-- Solicite exclusão de analytics: giuliap.arquitetura@gmail.com
+- Solicite exclusão de analytics: giuliaparente@studioaraci.com.br
 
 ---
 
@@ -1168,7 +1168,7 @@ Nossos serviços são direcionados a adultos. **Não coletamos intencionalmente 
 - Oriente sobre não fornecer dados pessoais
 
 **Se acredita que seu filho forneceu dados:**
-- Entre em contato: giuliap.arquitetura@gmail.com
+- Entre em contato: giuliaparente@studioaraci.com.br
 - Informe: nome do menor, idade aproximada, data provável
 - Solicitaremos comprovação de parentesco
 - Excluiremos dados imediatamente após verificação
@@ -1279,7 +1279,7 @@ Nosso site pode conter links para sites externos:
 - Não insira links em contexto ofensivo ou ilegal
 
 **Deep links e uso de logotipo:**
-- Solicite autorização: giuliap.arquitetura@gmail.com
+- Solicite autorização: giuliaparente@studioaraci.com.br
 - Avaliamos caso a caso
 
 ---
@@ -1410,8 +1410,8 @@ Esta Política é regida pela legislação brasileira, especialmente:
 
 **Para questões sobre privacidade e proteção de dados:**
 
-📧 **E-mail principal:** giuliap.arquitetura@gmail.com  
-📧 **E-mail geral:** giuliap.arquitetura@gmail.com  
+📧 **E-mail principal:** giuliaparente@studioaraci.com.br  
+📧 **E-mail geral:** giuliaparente@studioaraci.com.br  
 📞 **Telefone:** [Número com DDD e código internacional]  
 📍 **Endereço:** [Endereço completo da empresa]
 
@@ -1466,4 +1466,4 @@ Esta Política é regida pela legislação brasileira, especialmente:
 - Identificação de informações pouco claras
 - Solicitações de recursos adicionais
 
-Envie para: giuliap.arquitetura@gmail.com com assunto "Feedback - Privacy Policy"
+Envie para: giuliaparente@studioaraci.com.br com assunto "Feedback - Privacy Policy"

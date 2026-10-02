@@ -41,7 +41,7 @@ export default function ContactPage() {
   // Apply SEO settings for Contact page
   useSEO({
     ...SEO_CONFIG.contact,
-    ogImage: 'https://gparquitetura.vercel.app/images/hero-contact-bg.webp',
+    ogImage: 'https://studioaraci.com.br/images/hero-contact-bg.webp',
     jsonLd: createBreadcrumbJsonLd([
       { name: 'Home', url: '/' },
       { name: 'Contato', url: '/contact' },

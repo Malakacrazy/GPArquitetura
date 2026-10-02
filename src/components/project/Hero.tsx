@@ -34,6 +34,7 @@
  */
 import { Reveal } from '../shared/Reveal';
 import { urlFor } from '../../sanity/client';
+import { BrandLogo } from '../shared/BrandLogo';
 
 /**
  * Props for the Project Hero component
@@ -73,9 +74,7 @@ export function Hero({ title, heroImage }: ProjectHeroProps) {
         <div className="relative z-10 h-full flex flex-col justify-between px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 text-white">
           <div className="flex justify-end items-center">
             <Reveal>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-                Giulia Parente
-              </h1>
+              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>
             </Reveal>
           </div>
 

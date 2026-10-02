@@ -30,24 +30,24 @@
  * <OurExpertise />
  * ```
  */
-import { motion, AnimatePresence, useScroll } from 'motion/react';
+import { m as motion, AnimatePresence, useScroll } from 'motion/react';
 import { useState, useRef, useEffect } from 'react';
 import { images, videos } from '../../config/assets';
 
 /** Light theme colors for cards 0, 1, 4 */
 const lightTheme = {
-  background: '#E0D2B6',
-  primary: '#BB7154',
-  text: '#2C2A26',
-  muted: '#8B7355'
+  background: '#E8DED4',
+  primary: '#9F4F39',
+  text: '#434B57',
+  muted: '#5E6979'
 };
 
 /** Dark theme colors for cards 2, 3 (animations, virtual tour) */
 const darkTheme = {
-  background: '#BB7154',
-  primary: '#E0D2B6',
+  background: '#9F4F39',
+  primary: '#E8DED4',
   text: 'white',
-  muted: 'rgba(255, 255, 255, 0.7)'
+  muted: '#FFFFFF'
 };
 
 /**

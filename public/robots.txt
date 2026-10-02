@@ -1,5 +1,5 @@
 # GP Arquitetura - robots.txt
-# https://gparquitetura.vercel.app
+# https://studioaraci.com.br
 
 # Allow all crawlers
 User-agent: *
@@ -16,7 +16,7 @@ Allow: /icons/
 Allow: /videos/
 
 # Sitemap location
-Sitemap: https://gparquitetura.vercel.app/sitemap.xml
+Sitemap: https://studioaraci.com.br/sitemap.xml
 
 # Google-specific
 User-agent: Googlebot

@@ -16,42 +16,42 @@ const routes = [
 // Base HTML template with proper meta tags for each route
 const routeMetadata = {
   '/': {
-    title: 'GP Arquitetura | Arquitetura e Design de Interiores em São Paulo',
-    description: 'GP Arquitetura é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores. Transformamos espaços com elegância e funcionalidade.',
+    title: 'Arquitetura Emocional e Design de Interiores em São Paulo',
+    description: 'Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. Conheça nosso processo e fale conosco.',
     image: '/images/hero-bg.webp'
   },
   '/about': {
-    title: 'Sobre GP Arquitetura | Nossa História e Filosofia',
-    description: 'Conheça a história, filosofia e equipe da GP Arquitetura. Descubra como transformamos sonhos em realidade através de projetos arquitetônicos únicos.',
+    title: 'Sobre Studio Araci | Nossa História e Filosofia',
+    description: 'Conheça a história, filosofia e equipe da Studio Araci. Descubra como transformamos sonhos em realidade através de projetos arquitetônicos únicos.',
     image: '/images/hero-about-us-bg.webp'
   },
   '/about/library': {
-    title: 'Biblioteca | GP Arquitetura',
-    description: 'Explore nossa biblioteca de recursos, materiais e inspirações arquitetônicas da GP Arquitetura.',
+    title: 'Biblioteca | Studio Araci',
+    description: 'Explore nossa biblioteca de recursos, materiais e inspirações arquitetônicas da Studio Araci.',
     image: '/images/hero-about-us-bg.webp'
   },
   '/portfolio': {
-    title: 'Portfólio | Projetos GP Arquitetura',
-    description: 'Veja nosso portfólio completo de projetos residenciais e comerciais. Conheça o trabalho da GP Arquitetura em São Paulo.',
+    title: 'Portfólio | Projetos Studio Araci',
+    description: 'Veja nosso portfólio completo de projetos residenciais e comerciais. Conheça o trabalho da Studio Araci em São Paulo.',
     image: '/images/hero-portfolio-bg.webp'
   },
   '/3d-visualization': {
-    title: 'Renderização 3D | Visualização Arquitetônica | GP Arquitetura',
+    title: 'Renderização 3D | Visualização Arquitetônica | Studio Araci',
     description: 'Serviços profissionais de renderização 3D e visualização arquitetônica. Veja seus projetos ganhar vida antes mesmo da construção.',
     image: '/images/hero-3drendering-bg.webp'
   },
   '/contact': {
-    title: 'Contato | GP Arquitetura',
-    description: 'Entre em contato com a GP Arquitetura. Vamos conversar sobre seu próximo projeto arquitetônico em São Paulo.',
+    title: 'Contato | Studio Araci',
+    description: 'Entre em contato com a Studio Araci. Vamos conversar sobre seu próximo projeto arquitetônico em São Paulo.',
     image: '/images/hero-contact-bg.webp'
   },
   '/privacy': {
-    title: 'Política de Privacidade | GP Arquitetura',
+    title: 'Política de Privacidade | Studio Araci',
     description: 'Leia nossa política de privacidade e saiba como protegemos seus dados.',
     image: '/images/og-image.png'
   },
   '/tos': {
-    title: 'Termos de Serviço | GP Arquitetura',
+    title: 'Termos de Serviço | Studio Araci',
     description: 'Leia nossos termos de serviço e condições de uso.',
     image: '/images/og-image.png'
   }
@@ -59,7 +59,7 @@ const routeMetadata = {
 
 function generateHTML(route, scriptTags, cssTags) {
   const metadata = routeMetadata[route];
-  const canonicalUrl = `https://gparquitetura.vercel.app${route}`;
+  const canonicalUrl = `https://studioaraci.com.br${route}`;
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -69,7 +69,7 @@ function generateHTML(route, scriptTags, cssTags) {
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TTSHVTMG');</script>
+    })(window,document,'script','dataLayer','GTM-WRK33L84');</script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
@@ -79,8 +79,8 @@ function generateHTML(route, scriptTags, cssTags) {
     <title>${metadata.title}</title>
     <meta name="title" content="${metadata.title}" />
     <meta name="description" content="${metadata.description}" />
-    <meta name="keywords" content="arquitetura, design de interiores, arquiteto São Paulo, projeto arquitetônico, renderização 3D, visualização arquitetônica, GP Arquitetura, Giulia Parente, arquitetura residencial, arquitetura comercial, reforma, decoração" />
-    <meta name="author" content="GP Arquitetura - Giulia Parente" />
+    <meta name="keywords" content="arquitetura, design de interiores, arquiteto São Paulo, projeto arquitetônico, renderização 3D, visualização arquitetônica, Studio Araci, Giulia Parente, arquitetura residencial, arquitetura comercial, reforma, decoração" />
+    <meta name="author" content="Studio Araci - Giulia Parente" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="Portuguese" />
     <meta name="revisit-after" content="7 days" />
@@ -95,11 +95,11 @@ function generateHTML(route, scriptTags, cssTags) {
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${metadata.title}" />
     <meta property="og:description" content="${metadata.description}" />
-    <meta property="og:image" content="https://gparquitetura.vercel.app${metadata.image}" />
+    <meta property="og:image" content="https://studioaraci.com.br${metadata.image}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="GP Arquitetura - Escritório de Arquitetura em São Paulo" />
-    <meta property="og:site_name" content="GP Arquitetura" />
+    <meta property="og:image:alt" content="Studio Araci - Escritório de Arquitetura em São Paulo" />
+    <meta property="og:site_name" content="Studio Araci" />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter -->
@@ -107,8 +107,8 @@ function generateHTML(route, scriptTags, cssTags) {
     <meta property="twitter:url" content="${canonicalUrl}" />
     <meta property="twitter:title" content="${metadata.title}" />
     <meta property="twitter:description" content="${metadata.description}" />
-    <meta property="twitter:image" content="https://gparquitetura.vercel.app${metadata.image}" />
-    <meta property="twitter:image:alt" content="GP Arquitetura - Escritório de Arquitetura em São Paulo" />
+    <meta property="twitter:image" content="https://studioaraci.com.br${metadata.image}" />
+    <meta property="twitter:image:alt" content="Studio Araci - Escritório de Arquitetura em São Paulo" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="/favicon.ico" />
@@ -116,8 +116,8 @@ function generateHTML(route, scriptTags, cssTags) {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#8B7355" />
-    <meta name="msapplication-TileColor" content="#8B7355" />
+    <meta name="theme-color" content="#9F4F39" />
+    <meta name="msapplication-TileColor" content="#9F4F39" />
 
     <!-- Preconnect to important third-party origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,36 +126,36 @@ function generateHTML(route, scriptTags, cssTags) {
     <link rel="preconnect" href="https://cdn.sanity.io" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Italiana&family=Megrim&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Italiana&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
 
     <!-- Bing Webmaster Tools Verification -->
     <meta name="msvalidate.01" content="2A614E064AB65E6EFA77A9FB7A4F4FA3" />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0R14TNRKBH"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWV35TXN66"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-0R14TNRKBH');
+      gtag('config', 'G-BWV35TXN66');
     </script>
 
     <!-- Hotjar / Contentsquare Tracking -->
-    <script src="https://t.contentsquare.net/uxa/146c09594161b.js" async></script>
+    <script src="https://t.contentsquare.net/uxa/387fba793be53.js" async></script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ArchitecturalBusiness",
-        "name": "GP Arquitetura",
-        "alternateName": "GP Arquitetura - Giulia Parente",
-        "url": "https://gparquitetura.vercel.app",
-        "logo": "https://gparquitetura.vercel.app/favicon.ico",
-        "description": "GP Arquitetura é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores.",
-        "image": "https://gparquitetura.vercel.app/images/og-image.png",
+        "name": "Studio Araci",
+        "alternateName": "Studio Araci - Giulia Parente",
+        "url": "https://studioaraci.com.br",
+        "logo": "https://studioaraci.com.br/favicon.ico",
+        "description": "Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores.",
+        "image": "https://studioaraci.com.br/images/og-image.png",
         "telephone": "+55-11-94773-9339",
-        "email": "giuliap.arquitetura@gmail.com",
+        "email": "giuliaparente@studioaraci.com.br",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "São Paulo",
@@ -200,7 +200,7 @@ function generateHTML(route, scriptTags, cssTags) {
 
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTSHVTMG"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRK33L84"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 

@@ -151,7 +151,7 @@ export function WorkWithUs() {
                 </AnimatePresence>
               </form>
               <div className="text-xs text-white/70">
-                Ao se inscrever, você concorda em receber e-mails de marketing da <h1 className="inline text-xs">Giulia Parente Arquitetura</h1> e concorda com nossa <a href="/privacy" className="underline hover:text-white transition-colors">Política de Privacidade</a>.
+                Ao se inscrever, você concorda em receber e-mails de marketing da <h1 className="inline text-xs">Studio Araci</h1> e concorda com nossa <a href="/privacy" className="underline hover:text-white transition-colors">Política de Privacidade</a>.
               </div>
             </motion.div>
           </div>

@@ -29,7 +29,7 @@
  * ```
  */
 import { useState, useRef } from 'react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { images, videos, icons } from '../../config/assets';
 
 /**
@@ -247,7 +247,7 @@ export function OurTeam() {
 
                 <div className="space-y-4 md:space-y-6 text-justify text-base md:text-lg" style={{ color: 'var(--color-text-muted)' }}>
                   <p>
-                    Arquiteta e urbanista formada pela Universidade Paulista (UNIP) e pós-graduada em Design Emocional pelo Centro Universitário Belas Artes, Giulia Parente está à frente do Studio Giulia Parente desde 2022, com atuação na Região Metropolitana de São Paulo.
+                    Arquiteta e urbanista formada pela Universidade Paulista (UNIP) e pós-graduada em Design Emocional pelo Centro Universitário Belas Artes, Giulia Parente está à frente do Studio Araci desde 2022, com atuação na Região Metropolitana de São Paulo.
                   </p>
                   <p>
                     Com foco em arquitetura de interiores residencial e comercial, seu trabalho é pautado pelos princípios da neuroarquitetura e da psicoarquitetura, explorando a relação entre espaço, emoções e bem-estar. Cada projeto é desenvolvido de forma sensível e personalizada, considerando não apenas a estética, mas principalmente a saúde emocional do cliente e a maneira como ele vivencia os ambientes.

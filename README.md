@@ -6,13 +6,13 @@
 
 **Portfolio website for GP Arquitetura - Architecture and Interior Design Studio based in São Paulo, Brazil**
 
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://gparquitetura.vercel.app)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://studioaraci.com.br)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
 
-[Live Demo](https://gparquitetura.vercel.app) • [Portfolio](https://gparquitetura.vercel.app/portfolio) • [3D Visualization](https://gparquitetura.vercel.app/3d-visualization) • [Contact](https://gparquitetura.vercel.app/contact)
+[Live Demo](https://studioaraci.com.br) • [Portfolio](https://studioaraci.com.br/portfolio) • [3D Visualization](https://studioaraci.com.br/3d-visualization) • [Contact](https://studioaraci.com.br/contact)
 
 </div>
 
@@ -244,7 +244,7 @@ Comprehensive SEO implementation including:
 - ✅ XML Sitemap
 - ✅ robots.txt
 - ✅ Canonical URLs
-- ✅ Google Analytics (G-0R14TNRKBH)
+- ✅ Google Analytics (G-BWV35TXN66)
 - ✅ Hotjar/Contentsquare tracking
 
 ---

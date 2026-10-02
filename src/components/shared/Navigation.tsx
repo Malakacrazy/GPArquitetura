@@ -21,7 +21,7 @@
  */
 import { Button } from '../ui/button';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { m as motion, AnimatePresence } from 'motion/react';
 import { videos, icons } from '../../config/assets';
 import { contact, socialLinks } from '../../config/contact';
 
@@ -104,7 +104,7 @@ export function Navigation() {
       <Button 
         variant="ghost" 
         size="icon" 
-        className={`fixed top-4 left-4 md:top-6 md:left-6 z-[60] backdrop-blur-sm rounded-xl w-10 h-10 md:w-12 md:h-12 transition-all duration-300 ${
+        className={`fixed top-4 left-4 md:top-6 md:left-6 z-[60] backdrop-blur-sm rounded-full w-10 h-10 md:w-12 md:h-12 transition-all duration-300 ${
           isOpen
             ? 'bg-[var(--color-primary)]/90 hover:bg-[var(--color-primary)] text-white'
             : isDarkSection 
@@ -118,16 +118,17 @@ export function Navigation() {
         onTouchEnd={() => setIsHovered(false)}
       >
         <div className="relative w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-          {/* Dots Image - Default State (only visible when closed and not hovered) */}
+          {/* Brand symbol - Default State (only visible when closed and not hovered) */}
           <motion.img
-            src={icons.menu}
+            src={`/brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-96.png`}
+            srcSet={`/brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-96.png 1x, /brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-192.png 2x`}
             alt="menu"
-            className={`absolute w-6 h-6 md:w-8 md:h-8 transition-all duration-300 ${
-              isOpen || isDarkSection ? 'brightness-0' : 'brightness-0 invert'
-            }`}
+            width={32}
+            height={32}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 max-w-none object-contain"
             initial={{ opacity: 1 }}
-            animate={{ opacity: !isOpen && !isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
+            animate={{ opacity: !isOpen && !isHovered ? 1 : 0, rotate: isHovered ? 180 : 0 }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           />
           
           {/* Animated Bars - Transform to X when open */}
@@ -208,9 +209,9 @@ export function Navigation() {
             {/* Scrolling Marquee Background Text */}
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none select-none z-0">
               <div className="flex whitespace-nowrap animate-marquee">
-                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Giulia Parente</h5>
-                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Giulia Parente</h5>
-                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Giulia Parente</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
               </div>
             </div>
 

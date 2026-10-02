@@ -46,9 +46,9 @@ export const contact = {
    */
   email: {
     /** Email address */
-    address: 'giuliap.arquitetura@gmail.com',
+    address: 'giuliaparente@studioaraci.com.br',
     /** Pre-built mailto URL */
-    url: 'mailto:giuliap.arquitetura@gmail.com',
+    url: 'mailto:giuliaparente@studioaraci.com.br',
   },
 
   /**
@@ -135,9 +135,9 @@ export const socialLinks = {
  */
 export const company = {
   /** Full legal name */
-  legalName: 'Giulia Parente Arquitetura',
+  legalName: 'Studio Araci',
   /** Brand name for display */
-  brandName: 'GP Arquitetura',
+  brandName: 'Studio Araci',
   /** Owner/Founder name */
   founder: 'Giulia Parente',
   /** Year established */

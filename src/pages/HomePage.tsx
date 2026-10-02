@@ -33,16 +33,16 @@
  * <Route path="/" element={<HomePage />} />
  * ```
  */
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { Loader } from '../components/home/Loader';
 import { Navigation } from '../components/shared/Navigation';
 import { Hero } from '../components/home/Hero';
-import { WhatWeDo } from '../components/home/WhatWeDo';
-import { ProjectsSection } from '../components/home/ProjectsSection';
-import { ProcessSection } from '../components/home/ProcessSection';
-import { FeaturedWorks } from '../components/home/FeaturedWorks';
-import { Footer } from '../components/shared/Footer';
+const WhatWeDo = lazy(() => import('../components/home/WhatWeDo').then((m) => ({ default: m.WhatWeDo })));
+const ProjectsSection = lazy(() => import('../components/home/ProjectsSection').then((m) => ({ default: m.ProjectsSection })));
+const ProcessSection = lazy(() => import('../components/home/ProcessSection').then((m) => ({ default: m.ProcessSection })));
+const FeaturedWorks = lazy(() => import('../components/home/FeaturedWorks').then((m) => ({ default: m.FeaturedWorks })));
+const Footer = lazy(() => import('../components/shared/Footer').then((m) => ({ default: m.Footer })));
 import { useSEO, SEO_CONFIG } from '../hooks/useSEO';
 
 /**
@@ -64,11 +64,14 @@ export default function HomePage() {
 
       {!isLoading && <Navigation />}
       <Hero />
-      <WhatWeDo />
-      <ProjectsSection />
-      <ProcessSection />
-      <FeaturedWorks />
-      <Footer />
+      {/* Below-the-fold sections load in separate chunks (keeps Sanity, react-slick out of the initial bundle) */}
+      <Suspense fallback={<div className="min-h-screen" aria-hidden="true" />}>
+        <WhatWeDo />
+        <ProjectsSection />
+        <ProcessSection />
+        <FeaturedWorks />
+        <Footer />
+      </Suspense>
     </div>
   );
 }

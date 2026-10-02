@@ -1,8 +1,9 @@
 /**
  * BrandLogo
  *
- * Studio Araci lockup without the slogan: symbol above the wordmark, built
- * from the official `simbolo-*` and `nome-*` files (same pieces as the loader).
+ * Studio Araci horizontal signature (symbol + wordmark + slogan).
+ * Uses the display-scale raster below 400px and the print-scale one above,
+ * per the brand manual (hairline strokes must not be downscaled too far).
  */
 interface BrandLogoProps {
   /** Colourway: terracota on light grounds, branco on photos / dark grounds */
@@ -12,20 +13,11 @@ interface BrandLogoProps {
 
 export function BrandLogo({ tone = 'branco', className = 'w-32 md:w-40 lg:w-44' }: BrandLogoProps) {
   return (
-    <span role="img" aria-label="Studio Araci" className={`flex flex-col items-center gap-[7%] ${className}`}>
-      <img
-        src={`/brand/simbolo-${tone}-192.png`}
-        alt=""
-        aria-hidden="true"
-        className="block w-[34%] h-auto"
-      />
-      <img
-        src={`/brand/nome-${tone}-sm.png`}
-        srcSet={`/brand/nome-${tone}-sm.png 1x, /brand/nome-${tone}.png 2x`}
-        alt=""
-        aria-hidden="true"
-        className="block w-full h-auto"
-      />
-    </span>
+    <img
+      src={`/brand/horizontal-${tone}-sm.png`}
+      srcSet={`/brand/horizontal-${tone}-sm.png 1x, /brand/horizontal-${tone}.png 2x`}
+      alt="Studio Araci — tudo começa pelo que você sente"
+      className={`block h-auto ${className}`}
+    />
   );
 }

@@ -127,8 +127,8 @@ export function Navigation() {
             height={32}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 max-w-none object-contain"
             initial={{ opacity: 1 }}
-            animate={{ opacity: !isOpen && !isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
+            animate={{ opacity: !isOpen && !isHovered ? 1 : 0, rotate: isHovered ? 180 : 0 }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           />
           
           {/* Animated Bars - Transform to X when open */}
@@ -206,20 +206,13 @@ export function Navigation() {
             exit="exit"
             variants={containerVariants}
           >
-            {/* Watermark: top-right quarter of the symbol + architectural line drawing */}
-            <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden" aria-hidden="true">
-              <div className="absolute top-0 right-0 w-[56vw] h-[56vw] max-w-[620px] max-h-[620px] overflow-hidden opacity-[0.12]" style={{ WebkitMaskImage: 'linear-gradient(to bottom left, #000 45%, transparent 95%)', maskImage: 'linear-gradient(to bottom left, #000 45%, transparent 95%)' }}>
-                <img
-                  src="/brand/simbolo-terracota.png"
-                  alt=""
-                  className="absolute top-0 right-0 w-[200%] h-[200%] max-w-none"
-                />
+            {/* Scrolling Marquee Background Text */}
+            <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none select-none z-0">
+              <div className="flex whitespace-nowrap animate-marquee">
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
               </div>
-              <img
-                src="/brand/menu-lines.svg"
-                alt=""
-                className="absolute bottom-0 right-0 w-[130vw] md:w-[62vw] max-w-none md:max-w-[980px] opacity-[0.18]"
-              />
             </div>
 
             {/* Radial Background Gradient (Subtle Warmth) */}

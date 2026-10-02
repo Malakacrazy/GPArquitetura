@@ -134,7 +134,7 @@ export const images = {
       architecture: `${ASSET_BASE}/images/project-architecture.webp`,
     },
     decorations: {
-      threadLine: `${ASSET_BASE}/images/decoration.svg`,
+      threadLine: `${ASSET_BASE}/images/decoration-gold.svg`,
     },
     // Note: Featured works now loaded from Sanity CMS
   },

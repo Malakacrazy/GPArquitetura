@@ -129,7 +129,7 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
         transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
       >
         <img
-          src="/brand/simbolo-terracota.png"
+          src="/brand/simbolo-terracota-192.png"
           alt=""
           className="w-14 h-14 md:w-20 md:h-20 animate-[spin_3.2s_linear_infinite]"
         />
@@ -138,6 +138,12 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
           srcSet="/brand/nome-terracota-sm.png 1x, /brand/nome-terracota.png 2x"
           alt="Studio Araci"
           className="w-40 md:w-56 h-auto"
+        />
+        <img
+          src="/brand/slogan-terracota-sm.png"
+          srcSet="/brand/slogan-terracota-sm.png 1x, /brand/slogan-terracota.png 2x"
+          alt="Tudo começa pelo que você sente"
+          className="w-64 md:w-80 h-auto -mt-2"
         />
         <div className="w-44 md:w-56 h-px bg-[var(--araci-duna-suave)] overflow-hidden">
           <div

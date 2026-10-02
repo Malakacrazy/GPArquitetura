@@ -11,7 +11,7 @@ interface BrandLogoProps {
   className?: string;
 }
 
-export function BrandLogo({ tone = 'branco', className = 'w-48 md:w-64 lg:w-80' }: BrandLogoProps) {
+export function BrandLogo({ tone = 'branco', className = 'w-32 md:w-40 lg:w-44' }: BrandLogoProps) {
   return (
     <img
       src={`/brand/horizontal-${tone}-sm.png`}

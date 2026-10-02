@@ -42,7 +42,7 @@
             "generate-sitemap": "node scripts/generate-sitemap.js",
             "submit-indexnow": "node scripts/submit-indexnow.js",
             "prebuild": "npm run generate-sitemap",
-            "postbuild": "npm run submit-indexnow"
+            "postbuild": "npm run submit-indexnow || echo \"IndexNow submission failed (non-fatal)\""
       },
       "type": "module"
 }

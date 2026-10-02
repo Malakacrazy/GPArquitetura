@@ -34,8 +34,8 @@ export function Footer() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={videos.footerBackground.webm} type="video/webm" />
           <source src={videos.footerBackground.mp4} type="video/mp4" />
+          <source src={videos.footerBackground.webm} type="video/webm" />
         </video>
       </div>
       

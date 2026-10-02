@@ -36,7 +36,7 @@ const INDEXNOW_KEY = 'GPArquitetura-3d9f8c2e1a7b4d6f';
  * This must exactly match the domain being indexed,
  * including subdomains.
  */
-const HOST = 'gparquitetura.vercel.app';
+const HOST = 'studioaraci.com.br';
 
 /**
  * Absolute URL where the IndexNow key file is hosted.
@@ -69,7 +69,7 @@ interface IndexNowResponse {
 /**
  * Submit a single URL to IndexNow
  *
- * @param url - The full URL to submit (e.g., 'https://gparquitetura.vercel.app/portfolio/project-slug')
+ * @param url - The full URL to submit (e.g., 'https://studioaraci.com.br/portfolio/project-slug')
  * @param endpoint - Optional custom endpoint (defaults to api.indexnow.org)
  * @returns Promise with submission result
  */

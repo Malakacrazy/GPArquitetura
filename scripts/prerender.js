@@ -59,7 +59,7 @@ const routeMetadata = {
 
 function generateHTML(route, scriptTags, cssTags) {
   const metadata = routeMetadata[route];
-  const canonicalUrl = `https://gparquitetura.vercel.app${route}`;
+  const canonicalUrl = `https://studioaraci.com.br${route}`;
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -95,7 +95,7 @@ function generateHTML(route, scriptTags, cssTags) {
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${metadata.title}" />
     <meta property="og:description" content="${metadata.description}" />
-    <meta property="og:image" content="https://gparquitetura.vercel.app${metadata.image}" />
+    <meta property="og:image" content="https://studioaraci.com.br${metadata.image}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Studio Araci - Escritório de Arquitetura em São Paulo" />
@@ -107,7 +107,7 @@ function generateHTML(route, scriptTags, cssTags) {
     <meta property="twitter:url" content="${canonicalUrl}" />
     <meta property="twitter:title" content="${metadata.title}" />
     <meta property="twitter:description" content="${metadata.description}" />
-    <meta property="twitter:image" content="https://gparquitetura.vercel.app${metadata.image}" />
+    <meta property="twitter:image" content="https://studioaraci.com.br${metadata.image}" />
     <meta property="twitter:image:alt" content="Studio Araci - Escritório de Arquitetura em São Paulo" />
 
     <!-- Favicon -->
@@ -150,12 +150,12 @@ function generateHTML(route, scriptTags, cssTags) {
         "@type": "ArchitecturalBusiness",
         "name": "Studio Araci",
         "alternateName": "Studio Araci - Giulia Parente",
-        "url": "https://gparquitetura.vercel.app",
-        "logo": "https://gparquitetura.vercel.app/favicon.ico",
+        "url": "https://studioaraci.com.br",
+        "logo": "https://studioaraci.com.br/favicon.ico",
         "description": "Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores.",
-        "image": "https://gparquitetura.vercel.app/images/og-image.png",
+        "image": "https://studioaraci.com.br/images/og-image.png",
         "telephone": "+55-11-94773-9339",
-        "email": "giuliap.arquitetura@gmail.com",
+        "email": "giuliaparente@studioaraci.com.br",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "São Paulo",

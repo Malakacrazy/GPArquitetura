@@ -58,7 +58,7 @@ export default function Portfolio3DPage() {
   // Apply SEO settings for 3D Visualization page
   useSEO({
     ...SEO_CONFIG.portfolio3d,
-    ogImage: 'https://gparquitetura.vercel.app/images/hero-3drendering-bg.webp',
+    ogImage: 'https://studioaraci.com.br/images/hero-3drendering-bg.webp',
     jsonLd: createBreadcrumbJsonLd([
       { name: 'Home', url: '/' },
       { name: 'Visualização 3D', url: '/3d-visualization' },

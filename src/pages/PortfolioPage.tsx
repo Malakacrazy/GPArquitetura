@@ -56,7 +56,7 @@ export default function PortfolioPage() {
   // Apply SEO settings for Portfolio page
   useSEO({
     ...SEO_CONFIG.portfolio,
-    ogImage: 'https://gparquitetura.vercel.app/images/hero-portfolio-bg.webp',
+    ogImage: 'https://studioaraci.com.br/images/hero-portfolio-bg.webp',
     jsonLd: createBreadcrumbJsonLd([
       { name: 'Home', url: '/' },
       { name: 'Portfólio', url: '/portfolio' },

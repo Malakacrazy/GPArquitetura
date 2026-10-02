@@ -10,7 +10,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const BASE_URL = 'https://gparquitetura.vercel.app';
+const BASE_URL = 'https://studioaraci.com.br';
 
 // Helper function to get current ISO 8601 date with timezone
 function getCurrentDate() {

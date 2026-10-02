@@ -71,7 +71,7 @@ const ProjectDetailPage = () => {
     keywords: `${project?.title || 'projeto'}, arquitetura, GP Arquitetura, ${project?.location || 'São Paulo'}`,
     canonical: `/portfolio/${slug}`,
     ogType: 'article',
-    ogImage: project?.heroImage || 'https://gparquitetura.vercel.app/images/hero-portfolio-bg.webp',
+    ogImage: project?.heroImage || 'https://studioaraci.com.br/images/hero-portfolio-bg.webp',
     ogImageAlt: project?.title || 'Projeto GP Arquitetura',
     jsonLd: project ? {
       ...createProjectJsonLd({

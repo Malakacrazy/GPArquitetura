@@ -46,9 +46,9 @@ export const contact = {
    */
   email: {
     /** Email address */
-    address: 'giuliap.arquitetura@gmail.com',
+    address: 'giuliaparente@studioaraci.com.br',
     /** Pre-built mailto URL */
-    url: 'mailto:giuliap.arquitetura@gmail.com',
+    url: 'mailto:giuliaparente@studioaraci.com.br',
   },
 
   /**

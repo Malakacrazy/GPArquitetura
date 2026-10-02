@@ -51,7 +51,7 @@ interface SEOProps {
 }
 
 /** Base URL for all canonical and OG URLs */
-const BASE_URL = 'https://gparquitetura.vercel.app';
+const BASE_URL = 'https://studioaraci.com.br';
 /** Default Open Graph image path */
 const DEFAULT_IMAGE = `${BASE_URL}/images/og-image.png`;
 /** Site name used in titles and OG tags */

@@ -32,7 +32,7 @@
  * <CaseStudies />
  * ```
  */
-import { motion } from "motion/react";
+import { m as motion } from "motion/react";
 import { useState } from "react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { images } from "../../config/assets";

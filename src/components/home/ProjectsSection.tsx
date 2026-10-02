@@ -24,7 +24,7 @@
  * ```
  */
 import { useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { m as motion, useScroll, useTransform } from 'motion/react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { images, videos } from '../../config/assets';
 

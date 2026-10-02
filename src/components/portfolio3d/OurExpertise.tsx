@@ -30,7 +30,7 @@
  * <OurExpertise />
  * ```
  */
-import { motion, AnimatePresence, useScroll } from 'motion/react';
+import { m as motion, AnimatePresence, useScroll } from 'motion/react';
 import { useState, useRef, useEffect } from 'react';
 import { images, videos } from '../../config/assets';
 

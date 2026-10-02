@@ -33,6 +33,7 @@
  */
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { LazyMotion } from 'motion/react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -57,7 +58,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
  */
 export default function App() {
   return (
-    <>
+    <LazyMotion features={() => import('./components/shared/motionFeatures').then((mod) => mod.default)}>
       <SpeedInsights />
       <Analytics />
       <Suspense>
@@ -79,6 +80,6 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-    </>
+    </LazyMotion>
   );
 }

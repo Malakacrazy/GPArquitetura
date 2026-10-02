@@ -29,7 +29,7 @@
  * ```
  */
 import { useState, useRef } from 'react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { images, videos, icons } from '../../config/assets';
 
 /**

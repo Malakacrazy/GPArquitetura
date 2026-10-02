@@ -34,7 +34,7 @@
 import React, { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Slider from "react-slick";
-import { motion } from "motion/react";
+import { m as motion } from "motion/react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { Reveal } from "../shared/Reveal";
 import { useFeaturedProjects } from "../../hooks/useProjects";

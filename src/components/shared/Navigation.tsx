@@ -118,15 +118,13 @@ export function Navigation() {
         onTouchEnd={() => setIsHovered(false)}
       >
         <div className="relative w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-          {/* Dots Image - Default State (only visible when closed and not hovered) */}
+          {/* Brand symbol - Default State (only visible when closed and not hovered) */}
           <motion.img
-            src={icons.menu}
+            src={isOpen || !isDarkSection ? '/brand/simbolo-branco.png' : '/brand/simbolo-terracota.png'}
             alt="menu"
-            className={`absolute w-6 h-6 md:w-8 md:h-8 transition-all duration-300 ${
-              isOpen || isDarkSection ? 'brightness-0' : 'brightness-0 invert'
-            }`}
+            className="absolute w-6 h-6 md:w-8 md:h-8"
             initial={{ opacity: 1 }}
-            animate={{ opacity: !isOpen && !isHovered ? 1 : 0 }}
+            animate={{ opacity: !isOpen && !isHovered ? 1 : 0, rotate: isHovered ? 90 : 0 }}
             transition={{ duration: 0.3 }}
           />
           

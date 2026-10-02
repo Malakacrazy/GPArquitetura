@@ -244,7 +244,7 @@ Comprehensive SEO implementation including:
 - ✅ XML Sitemap
 - ✅ robots.txt
 - ✅ Canonical URLs
-- ✅ Google Analytics (G-0R14TNRKBH)
+- ✅ Google Analytics (G-BWV35TXN66)
 - ✅ Hotjar/Contentsquare tracking
 
 ---

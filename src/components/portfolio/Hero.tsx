@@ -21,6 +21,7 @@
  */
 import { Reveal } from '../shared/Reveal';
 import { images } from '../../config/assets';
+import { BrandLogo } from '../shared/BrandLogo';
 
 /**
  * Renders the Portfolio page hero section
@@ -47,7 +48,7 @@ export function Hero() {
               <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">Nossos Projetos</span>
             </Reveal>
             <Reveal>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">Giulia Parente</h1>
+              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>
             </Reveal>
           </div>
 

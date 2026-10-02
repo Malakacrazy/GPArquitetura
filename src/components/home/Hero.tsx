@@ -25,6 +25,7 @@
  */
 import { Reveal } from '../shared/Reveal';
 import { images } from '../../config/assets';
+import { BrandLogo } from '../shared/BrandLogo';
 
 /**
  * Renders the homepage hero section with full-screen background
@@ -48,7 +49,7 @@ export function Hero() {
           {/* Header */}
           <div className="flex justify-end items-center">
             <Reveal>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">Giulia Parente</h1>
+              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>
             </Reveal>
           </div>
 
@@ -58,7 +59,7 @@ export function Hero() {
                {/* Description and Scroll */}
                <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:gap-8 lg:gap-12">
                   <h6 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug max-w-5xl tracking-tight">
-                     O estilo do Studio Giulia Parente é caracterizado pelo minimalismo quente e acolhedor e uma estética autêntica e emocional
+                     O estilo do Studio Araci é caracterizado pelo minimalismo quente e acolhedor e uma estética autêntica e emocional
                   </h6>
                   <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
                      (Rolar para Baixo)

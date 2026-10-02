@@ -67,7 +67,7 @@ export function WhatWeDo() {
             {/* Layer 1: Decorative Background Card */}
             <motion.div 
               className="absolute w-[70%] h-[85%] rounded-[2rem] shadow-lg z-0"
-              style={{ backgroundColor: '#BB7154' }}
+              style={{ backgroundColor: 'var(--color-primary)' }}
               initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
               animate={{ 
                 opacity: 0.9, 

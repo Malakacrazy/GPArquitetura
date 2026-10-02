@@ -169,7 +169,7 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
                       <motion.ellipse
                         rx={8}
                         ry={20}
-                        fill="#D97706" // Warm ochre/amber
+                        fill="#AA9C79" // Warm ochre/amber
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{
                           scale: petal.petalProgress,
@@ -188,17 +188,17 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
                 <g transform="rotate(-90, 60, 60)">
                   {/* Track */}
                   <circle
-                    stroke="#78350F" // Dark brown track
+                    stroke="#9F4F39" // Dark brown track
                     strokeWidth={stroke}
                     strokeOpacity={0.2}
-                    fill="#FFFBEB" // Very light warm background for center
+                    fill="#FAF7F4" // Very light warm background for center
                     r={normalizedRadius}
                     cx={60}
                     cy={60}
                   />
                   {/* Progress Indicator */}
                   <circle
-                    stroke="#78350F" // Dark brown progress (seeds color)
+                    stroke="#9F4F39" // Dark brown progress (seeds color)
                     strokeWidth={stroke + (progress / 100) * 2}
                     fill="transparent"
                     r={normalizedRadius}
@@ -210,7 +210,7 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
                   />
                 </g>
               </svg>
-              <span className="absolute text-2xl md:text-3xl font-bold tracking-tighter text-[#78350F]">
+              <span className="absolute text-2xl md:text-3xl font-bold tracking-tighter text-[var(--color-primary)]">
                 {Math.round(progress)}%
               </span>
             </motion.div>
@@ -230,14 +230,14 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
                 animate={animationStage === 'fading' ? { opacity: 0, scale: 1.1 } : { opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                 style={progress < 100 ? {
-                  backgroundImage: `linear-gradient(to right, #000000 ${progress}%, rgba(0,0,0,0.1) ${progress}%)`,
+                  backgroundImage: `linear-gradient(to right, var(--color-primary) ${progress}%, var(--color-border-soft) ${progress}%)`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 } : {
-                  color: '#000000'
+                  color: 'var(--color-primary)'
                 }}
               >
-                Giulia Parente
+                Studio Araci
               </motion.h1>
             </div>
             <AnimatePresence>

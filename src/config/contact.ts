@@ -135,9 +135,9 @@ export const socialLinks = {
  */
 export const company = {
   /** Full legal name */
-  legalName: 'Giulia Parente Arquitetura',
+  legalName: 'Studio Araci',
   /** Brand name for display */
-  brandName: 'GP Arquitetura',
+  brandName: 'Studio Araci',
   /** Owner/Founder name */
   founder: 'Giulia Parente',
   /** Year established */

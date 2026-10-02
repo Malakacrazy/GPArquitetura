@@ -1,10 +1,10 @@
-# GP Arquitetura | Arquitetura e Design de Interiores em São Paulo
+# Studio Araci | Arquitetura e Design de Interiores em São Paulo
 
-> GP Arquitetura é um escritório de arquitetura e design de interiores sediado em São Paulo, Brasil, especializado em projetos residenciais e comerciais. Fundado pela arquiteta Giulia Parente, o escritório cria espaços sofisticados e funcionais com atenção aos detalhes e estética moderna.
+> Studio Araci é um escritório de arquitetura e design de interiores sediado em São Paulo, Brasil, especializado em projetos residenciais e comerciais. Fundado pela arquiteta Giulia Parente, o escritório cria espaços sofisticados e funcionais com atenção aos detalhes e estética moderna.
 
 - [Página Inicial](https://gparquitetura.vercel.app/): Escritório de Arquitetura – Portfólio, Serviços, Projetos Residenciais e Comerciais
-title: GP Arquitetura | Arquitetura e Design de Interiores em São Paulo
-description: Escritório de arquitetura e design de interiores em São Paulo especializado em projetos residenciais, comerciais e visualização 3D | GP Arquitetura - Giulia Parente
+title: Studio Araci | Arquitetura e Design de Interiores em São Paulo
+description: Escritório de arquitetura e design de interiores em São Paulo especializado em projetos residenciais, comerciais e visualização 3D | Studio Araci - Giulia Parente
 
 ## Access Guidelines
 Site Type: Portfolio Website, Architecture Showcase
@@ -19,17 +19,17 @@ Cache-Retention: 7 days
 Data-Retention: indefinite
 Training-Use: allow
 Derived-Content: allow-paraphrase
-Rights: © GP Arquitetura - Giulia Parente
+Rights: © Studio Araci - Giulia Parente
 Authors: Giulia Parente, Matheus Malaquias (Web Development)
 Output-Credit: preferred
 Attribution-Link: https://gparquitetura.vercel.app/
-Attribution-Format: "Source: GP Arquitetura (https://gparquitetura.vercel.app/)"
+Attribution-Format: "Source: Studio Araci (https://gparquitetura.vercel.app/)"
 Content-License: All Rights Reserved
 updated: 2026-01-07
 
 ## Serviços
 Type: service
-> O escritório GP Arquitetura oferece serviços completos de arquitetura e design de interiores, desde o conceito inicial até a execução final do projeto.
+> O escritório Studio Araci oferece serviços completos de arquitetura e design de interiores, desde o conceito inicial até a execução final do projeto.
 
 ### Arquitetura
 1. [**Projetos Residenciais**](https://gparquitetura.vercel.app/portfolio): Desenvolvimento de projetos arquitetônicos residenciais completos, incluindo casas, apartamentos e reformas, com foco em funcionalidade, estética e conforto dos moradores.
@@ -49,25 +49,25 @@ Type: service
 ## Sobre
 Type: info
 Category: About / Sobre
-> Conheça a GP Arquitetura, a arquiteta Giulia Parente, a filosofia de design do escritório e os valores que guiam cada projeto.
+> Conheça a Studio Araci, a arquiteta Giulia Parente, a filosofia de design do escritório e os valores que guiam cada projeto.
 
 ### A Arquiteta
-- [**Giulia Parente**](https://gparquitetura.vercel.app/about): Arquiteta e fundadora da GP Arquitetura, Giulia Parente traz uma abordagem contemporânea e sensível ao design de espaços. Com formação em arquitetura e design de interiores, desenvolve projetos que equilibram funcionalidade, estética e bem-estar.
+- [**Giulia Parente**](https://gparquitetura.vercel.app/about): Arquiteta e fundadora da Studio Araci, Giulia Parente traz uma abordagem contemporânea e sensível ao design de espaços. Com formação em arquitetura e design de interiores, desenvolve projetos que equilibram funcionalidade, estética e bem-estar.
 
 ### Filosofia de Design
-- [**Nossa Abordagem**](https://gparquitetura.vercel.app/about): A GP Arquitetura acredita que cada projeto é único e merece uma solução personalizada. Nossa filosofia combina escuta ativa das necessidades do cliente, atenção aos detalhes, uso consciente de materiais e criação de espaços que promovem qualidade de vida.
+- [**Nossa Abordagem**](https://gparquitetura.vercel.app/about): A Studio Araci acredita que cada projeto é único e merece uma solução personalizada. Nossa filosofia combina escuta ativa das necessidades do cliente, atenção aos detalhes, uso consciente de materiais e criação de espaços que promovem qualidade de vida.
 
 ### Valores
-- [**Nossos Valores**](https://gparquitetura.vercel.app/about): Qualidade, criatividade, sustentabilidade e compromisso com a satisfação do cliente são os pilares que sustentam todos os projetos da GP Arquitetura.
+- [**Nossos Valores**](https://gparquitetura.vercel.app/about): Qualidade, criatividade, sustentabilidade e compromisso com a satisfação do cliente são os pilares que sustentam todos os projetos da Studio Araci.
 
 ## Portfólio
 Type: portfolio
-> Explore os projetos desenvolvidos pela GP Arquitetura, incluindo residências, espaços comerciais e trabalhos de design de interiores.
+> Explore os projetos desenvolvidos pela Studio Araci, incluindo residências, espaços comerciais e trabalhos de design de interiores.
 
-- [**Ver Todos os Projetos**](https://gparquitetura.vercel.app/portfolio): Galeria completa de projetos arquitetônicos e de design de interiores realizados pela GP Arquitetura, organizados por categoria e apresentados em formato de grade ou lista.
+- [**Ver Todos os Projetos**](https://gparquitetura.vercel.app/portfolio): Galeria completa de projetos arquitetônicos e de design de interiores realizados pela Studio Araci, organizados por categoria e apresentados em formato de grade ou lista.
 
 ### Projetos em Destaque
-> Os projetos abaixo representam o portfólio diversificado da GP Arquitetura, demonstrando expertise em diferentes tipologias e estilos.
+> Os projetos abaixo representam o portfólio diversificado da Studio Araci, demonstrando expertise em diferentes tipologias e estilos.
 
 Note: Os projetos específicos são gerenciados dinamicamente através do Sanity CMS. Para visualizar todos os projetos atualizados, visite a [página de portfólio](https://gparquitetura.vercel.app/portfolio).
 
@@ -80,7 +80,7 @@ Categorias de Projetos:
 
 ## Visualização 3D
 Type: service-page
-> A GP Arquitetura oferece serviços especializados de visualização 3D e renderização, permitindo que clientes visualizem seus projetos com realismo antes da execução.
+> A Studio Araci oferece serviços especializados de visualização 3D e renderização, permitindo que clientes visualizem seus projetos com realismo antes da execução.
 
 - [**Serviços de Visualização 3D**](https://gparquitetura.vercel.app/3d-visualization): Página dedicada aos serviços de renderização 3D, tour virtual e apresentações fotorrealísticas, com exemplos de trabalhos e benefícios da visualização prévia.
 
@@ -101,13 +101,13 @@ Type: service-page
 ## Biblioteca
 Type: content
 Category: Inspiration / Library
-> A biblioteca da GP Arquitetura apresenta referências, inspirações e livros de arquitetura que influenciam o trabalho do escritório.
+> A biblioteca da Studio Araci apresenta referências, inspirações e livros de arquitetura que influenciam o trabalho do escritório.
 
-- [**Biblioteca de Arquitetura**](https://gparquitetura.vercel.app/about/library): Coleção curada de livros e referências de arquitetura e design que inspiram os projetos da GP Arquitetura, apresentados de forma visual e interativa.
+- [**Biblioteca de Arquitetura**](https://gparquitetura.vercel.app/about/library): Coleção curada de livros e referências de arquitetura e design que inspiram os projetos da Studio Araci, apresentados de forma visual e interativa.
 
 ## Contato
 Type: contact
-> Entre em contato com a GP Arquitetura para consultas sobre projetos, orçamentos e parcerias.
+> Entre em contato com a Studio Araci para consultas sobre projetos, orçamentos e parcerias.
 
 - [**Fale Conosco**](https://gparquitetura.vercel.app/contact): Formulário de contato, informações de localização em São Paulo, e-mail e telefone para comunicação direta com o escritório.
 
@@ -120,14 +120,14 @@ Type: contact
 
 ## Legal
 Type: legal
-> Informações legais, política de privacidade e termos de serviço do website da GP Arquitetura.
+> Informações legais, política de privacidade e termos de serviço do website da Studio Araci.
 
 - [**Política de Privacidade**](https://gparquitetura.vercel.app/privacy): Declaração de como os dados dos visitantes são coletados, processados e protegidos, em conformidade com a LGPD (Lei Geral de Proteção de Dados).
-- [**Termos de Serviço**](https://gparquitetura.vercel.app/tos): Termos e condições de uso do website e dos serviços oferecidos pela GP Arquitetura.
+- [**Termos de Serviço**](https://gparquitetura.vercel.app/tos): Termos e condições de uso do website e dos serviços oferecidos pela Studio Araci.
 
 ## Tecnologia do Website
 Type: technical-info
-> O website da GP Arquitetura foi desenvolvido com tecnologias modernas para garantir performance, acessibilidade e experiência do usuário.
+> O website da Studio Araci foi desenvolvido com tecnologias modernas para garantir performance, acessibilidade e experiência do usuário.
 
 ### Stack Tecnológica
 - **Frontend**: React 18 com TypeScript

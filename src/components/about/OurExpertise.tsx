@@ -74,7 +74,7 @@ export function OurExpertise() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-accent)] mb-4 md:mb-6 uppercase">Nossas Conquistas</span>
+            <span className="text-xs font-medium tracking-[0.2em] text-white mb-4 md:mb-6 uppercase">Nossas Conquistas</span>
             <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-white">
               Criamos ambientes que não apenas funcionam, mas que fazem sentido para quem vive neles
             </h6>

@@ -208,9 +208,9 @@ export function Navigation() {
             {/* Scrolling Marquee Background Text */}
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none select-none z-0">
               <div className="flex whitespace-nowrap animate-marquee">
-                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Giulia Parente</h5>
-                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Giulia Parente</h5>
-                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Giulia Parente</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
+                <h5 className="text-[15vw] md:text-[18vw] lg:text-[20vw] uppercase font-semibold leading-none text-transparent bg-clip-text bg-gradient-to-b from-[var(--color-text-dark)]/5 from-0% to-transparent to-80% px-4 md:px-6 lg:px-8">Studio Araci</h5>
               </div>
             </div>
 

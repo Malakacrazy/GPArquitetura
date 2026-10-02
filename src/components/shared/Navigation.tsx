@@ -104,7 +104,7 @@ export function Navigation() {
       <Button 
         variant="ghost" 
         size="icon" 
-        className={`fixed top-4 left-4 md:top-6 md:left-6 z-[60] backdrop-blur-sm rounded-xl w-10 h-10 md:w-12 md:h-12 transition-all duration-300 ${
+        className={`fixed top-4 left-4 md:top-6 md:left-6 z-[60] backdrop-blur-sm rounded-full w-10 h-10 md:w-12 md:h-12 transition-all duration-300 ${
           isOpen
             ? 'bg-[var(--color-primary)]/90 hover:bg-[var(--color-primary)] text-white'
             : isDarkSection 

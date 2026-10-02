@@ -1,313 +1,219 @@
-# GP Arquitetura
-
 <div align="center">
 
-![GP Arquitetura](public/favicon.ico)
+<img src="public/brand/horizontal-terracota.png" alt="Studio Araci" width="320" />
 
-**Portfolio website for GP Arquitetura - Architecture and Interior Design Studio based in São Paulo, Brazil**
+**Site do Studio Araci: escritório autoral de arquitetura e interiores em São Paulo, fundado por Giulia Parente.**
 
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://studioaraci.com.br)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+*Tudo começa pelo que você sente.*
 
-[Live Demo](https://studioaraci.com.br) • [Portfolio](https://studioaraci.com.br/portfolio) • [3D Visualization](https://studioaraci.com.br/3d-visualization) • [Contact](https://studioaraci.com.br/contact)
+[![Vercel](https://img.shields.io/badge/Vercel-deploy-black?style=flat-square&logo=vercel)](https://studioaraci.com.br)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
+[![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+[![Sanity](https://img.shields.io/badge/CMS-Sanity-F03E2F?style=flat-square&logo=sanity)](https://www.sanity.io)
+
+[studioaraci.com.br](https://studioaraci.com.br)
 
 </div>
 
 ---
 
-## 📋 Table of Contents
+## Sumário
 
-- [About](#-about)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Scripts](#-scripts)
-- [Environment Variables](#-environment-variables)
-- [Deployment](#-deployment)
-- [SEO](#-seo)
-- [Design](#-design-system)
-- [Roadmap](#%EF%B8%8F-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
-
----
-
-## 🏛️ About
-
-GP Arquitetura is a comprehensive portfolio website showcasing architectural projects and 3D visualization services. The site features a modern, elegant design with smooth animations and dynamic content management through Sanity CMS.
-
-### Key Highlights
-
-- **Portfolio Showcase**: Display architectural projects with detailed galleries and information
-- **3D Visualization Services**: Dedicated section for rendering and visualization work
-- **Dynamic Content**: Projects managed through Sanity CMS
-- **Responsive Design**: Optimized for all devices
-- **Performance Optimized**: Fast loading with optimized assets
+- [Sobre](#sobre)
+- [Páginas](#páginas)
+- [Stack](#stack)
+- [Começando](#começando)
+- [Scripts](#scripts)
+- [Variáveis de ambiente](#variáveis-de-ambiente)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Identidade visual](#identidade-visual)
+- [Conteúdo (Sanity)](#conteúdo-sanity)
+- [SEO e analytics](#seo-e-analytics)
+- [Desempenho](#desempenho)
+- [Deploy](#deploy)
+- [Licença e créditos](#licença-e-créditos)
 
 ---
 
-## ✨ Features
+## Sobre
 
-| Feature | Description |
-|---------|-------------|
-| 🎨 **Modern UI** | Clean, elegant design with earth-tone color palette |
-| 🖼️ **Project Gallery** | Grid and list views with detailed project pages |
-| 🎬 **Smooth Animations** | Framer Motion powered transitions and effects |
-| 📱 **Responsive** | Mobile-first design approach |
-| 🔍 **SEO Optimized** | Meta tags, Open Graph, Twitter Cards, JSON-LD |
-| 🍪 **Cookie Consent** | Multi-jurisdictional banner with CookieHub |
-| 🔒 **Privacy Compliant** | Fully compliant with LGPD, GDPR, and CCPA |
-| 📊 **Analytics** | Google Analytics and Hotjar integration |
-| 🚀 **Fast Loading** | Optimized images, lazy loading, code splitting |
-| 📝 **CMS Integration** | Sanity Studio for content management |
+Site institucional e portfólio do Studio Araci. Apresenta o estúdio, os projetos de arquitetura e interiores, o serviço de visualização 3D e a biblioteca de referências. Os projetos são gerenciados no Sanity; o restante do conteúdo vive no código.
 
----
+A marca segue o Manual da Marca desenvolvido pela agência Fogueira (paleta de 12 tons, três famílias tipográficas e a assinatura horizontal com símbolo, nome e slogan).
 
-## 🛠️ Tech Stack
+## Páginas
 
-### Frontend
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **Tailwind CSS 4** - Utility-first styling
-- **Framer Motion** - Animations
-- **React Router 7** - Client-side routing
+| Rota | Conteúdo |
+|------|----------|
+| `/` | Home: apresentação, o que fazemos, projetos, processo e obras em destaque |
+| `/about` | O estúdio, a equipe, conquistas e a Giulia |
+| `/about/library` | Biblioteca de livros de referência |
+| `/portfolio` | Lista de projetos (grade e lista) |
+| `/portfolio/:slug` | Página de cada projeto (conteúdo do Sanity) |
+| `/3d-visualization` | Serviço de visualização 3D |
+| `/contact` | Contato |
+| `/privacy`, `/tos` | Política de Privacidade e Termos de Uso |
+| `*` | 404 |
 
-### Backend / CMS
-- **Sanity CMS** - Headless CMS for project content
-- **Sanity Image URL** - Image optimization
+Apenas a home é carregada no bundle inicial. As demais páginas, e as seções abaixo da dobra da home, são carregadas sob demanda.
 
-### UI Components
-- **Radix UI** - Accessible component primitives
-- **Lucide React** - Icon library
-- **Embla Carousel** - Touch-friendly carousels
+## Stack
 
-### Legal & Compliance
-- **CookieHub** - Multi-jurisdictional cookie consent  
-- **LGPD/GDPR/CCPA** - Compliance frameworks implemented  
+- **React 18** + **TypeScript** (páginas e componentes)
+- **Vite 6** (build e dev server) com **Tailwind CSS 4**
+- **React Router 7**
+- **Motion** (`motion/react`) com `LazyMotion`: componentes `m` leves, recursos de animação carregados à parte
+- **Sanity** (`@sanity/client`, `@sanity/image-url`) como CMS dos projetos
+- **Radix UI** (accordion, dialog, label), **lucide-react**, **react-slick**
+- **react-hook-form** + **zod** + **react-international-phone** (formulário de orçamento)
+- **Vercel** (hospedagem, Analytics e Speed Insights)
 
-### Deployment & Analytics
-- **Vercel** - Hosting and deployment
-- **Google Analytics** - Traffic analytics
-- **Hotjar/Contentsquare** - User behavior tracking
+## Começando
 
----
-
-## 📁 Project Structure
-
-```
-GPArquitetura/
-├── public/                 # Static assets
-│   ├── icons/             # UI icons
-│   ├── images/            # Static images
-│   ├── videos/            # Video assets
-│   ├── favicon.ico        # Site favicon
-│   ├── robots.txt         # Search engine rules
-│   ├── sitemap.xml        # XML sitemap
-│   └── site.webmanifest   # PWA manifest
-├── src/
-│   ├── components/        # React components
-│   │   ├── 404/          # Not found page
-│   │   ├── about/        # About page sections
-│   │   ├── contact/      # Contact page
-│   │   ├── home/         # Homepage sections
-│   │   ├── legal/        # Privacy & ToS
-│   │   ├── library/      # Book library
-│   │   ├── portfolio/    # Portfolio listing
-│   │   ├── portfolio3d/  # 3D services page
-│   │   ├── project/      # Project detail
-│   │   └── shared/       # Shared components
-│   ├── config/           # App configuration
-│   ├── hooks/            # Custom React hooks
-│   │   ├── useProjects.js
-│   │   └── useSEO.ts
-│   ├── pages/            # Page components
-│   ├── sanity/           # Sanity client config
-│   ├── styles/           # Global styles
-│   ├── types/            # TypeScript types
-│   ├── utils/            # Utility functions
-│   ├── App.tsx           # Main app component
-│   ├── main.tsx          # Entry point
-│   └── index.css         # Global CSS
-├── sanity-studio/        # Sanity Studio (CMS)
-├── docs/                 # Documentation
-├── index.html            # HTML entry point
-├── package.json          # Dependencies
-├── vite.config.ts        # Vite configuration
-├── vercel.json           # Vercel config
-└── README.md             # This file
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/GPArquitetura.git
-   cd GPArquitetura
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   ```
-   Edit `.env` with your Sanity project credentials.
-
-4. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open in browser**
-   ```
-   http://localhost:3000
-   ```
-
----
-
-## 📜 Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server on port 3000 |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-
-### Sanity Studio
+Pré-requisitos: Node.js 18+ e npm.
 
 ```bash
-cd sanity-studio
+git clone https://github.com/Malakacrazy/GPArquitetura.git
+cd GPArquitetura
 npm install
 npm run dev
 ```
 
----
+O servidor de desenvolvimento abre em `http://localhost:3000`. Sem variáveis de ambiente, o site usa o projeto Sanity padrão definido em `src/sanity/client.js`.
 
-## 🔐 Environment Variables
+## Scripts
 
-Create a `.env` file in the root directory:
+| Comando | O que faz |
+|---------|-----------|
+| `npm run dev` | Servidor de desenvolvimento (porta 3000) |
+| `npm run build` | Gera o sitemap (`prebuild`), faz o build do Vite, pré-renderiza as rotas (`prerender`) e envia as URLs ao IndexNow (`postbuild`) |
+| `npm run prerender` | Gera o HTML estático por rota em `build/` (título, meta tags e JSON-LD de cada página) |
+| `npm run generate-sitemap` | Gera `public/sitemap.xml` com as páginas fixas e os projetos do Sanity |
+| `npm run submit-indexnow` | Envia as URLs do sitemap ao IndexNow |
+
+Observações:
+
+- O `generate-sitemap` consulta o Sanity. Sem acesso à rede, ele gera só as páginas fixas e avisa; não faça commit desse `sitemap.xml` reduzido.
+- Falha no IndexNow não derruba o build (o `postbuild` só avisa). Ele precisa que o arquivo da chave (`public/GPArquitetura-3d9f8c2e1a7b4d6f.txt`) esteja acessível no domínio publicado.
+
+## Variáveis de ambiente
+
+Opcionais, em um arquivo `.env` na raiz:
 
 ```env
-VITE_SANITY_PROJECT_ID=your_project_id
+VITE_SANITY_PROJECT_ID=dffchnvy
 VITE_SANITY_DATASET=production
-VITE_SANITY_API_VERSION=2024-01-01
 ```
 
----
+Se não forem definidas, esses são os valores padrão.
 
-## 🌐 Deployment
+## Estrutura do projeto
 
-The site is deployed on **Vercel** with automatic deployments from the `main` branch.
+```
+├── public/
+│   ├── brand/            # Logos e símbolo (terracota e branco)
+│   ├── images/           # Imagens estáticas
+│   ├── videos/           # Vídeos de fundo (mp4 e webm)
+│   ├── icons/            # Ícones da interface
+│   ├── sw.js             # Service worker (cache de assets)
+│   ├── robots.txt, sitemap.xml, llms.txt, site.webmanifest
+│   └── favicon*, apple-touch-icon.png, android-chrome-*.png
+├── scripts/              # prerender, sitemap e IndexNow
+├── sanity-studio/        # Sanity Studio (schema dos projetos)
+├── src/
+│   ├── components/       # home, about, portfolio, portfolio3d, library, contact, legal, shared...
+│   ├── config/           # assets.ts, contact.ts, faq.ts (fontes únicas de verdade)
+│   ├── hooks/            # useSEO, useProjects
+│   ├── pages/            # Uma página por rota
+│   ├── sanity/           # Cliente Sanity e urlFor
+│   ├── styles/           # globals.css: tokens de marca e Tailwind
+│   └── utils/            # preload de mídia, adaptador do Sanity, IndexNow, service worker
+├── index.html            # Shell HTML, meta tags e scripts de analytics
+└── vercel.json           # Rewrites SPA e cabeçalhos de segurança
+```
 
-### Manual Deployment
+Contatos, redes sociais e dados da empresa ficam em `src/config/contact.ts`; os caminhos de imagens e vídeos em `src/config/assets.ts`.
+
+## Identidade visual
+
+Os tokens ficam em `src/styles/globals.css` e são usados pelo site por meio das variáveis `--color-*` e `--font-*`.
+
+### Paleta
+
+| Papel | Cor | Hex |
+|-------|-----|-----|
+| Fundo da página | Papel | `#FAF7F4` |
+| Principal e acentos | Terracota | `#9F4F39` |
+| Acento de luz | Dourado Mineral | `#AA9C79` |
+| Texto | Grafite da Maré | `#434B57` |
+| Texto secundário | Baleia Azul | `#5E6979` |
+| Superfícies suaves | Areia Clara / Duna Suave | `#E8DED4` / `#CDB8A3` |
+
+Os 12 tons oficiais estão como variáveis `--araci-*` no mesmo arquivo. A Terracota é o único acento de fato; texto pequeno sobre terracota deve ser branco.
+
+### Tipografia
+
+| Uso | Fonte |
+|-----|-------|
+| Títulos | Bodoni Moda |
+| Subtítulos | Italiana |
+| Corpo e interface | Poppins |
+
+As fontes vêm do Google Fonts (links em `index.html` e em `scripts/prerender.js`).
+
+### Logo
+
+Em `public/brand/`. O componente `src/components/shared/BrandLogo.tsx` usa a assinatura horizontal (símbolo, nome e slogan) nos heros. O loader e o botão do menu usam o símbolo e o nome em arquivos separados. O logo tem versões `-sm` para uso em tela; não reduza os arquivos grandes por CSS para tamanhos muito pequenos.
+
+## Conteúdo (Sanity)
+
+Os projetos do portfólio são gerenciados no Sanity (projeto `dffchnvy`, dataset `production`).
 
 ```bash
-npm run build
-vercel --prod
+cd sanity-studio
+npm install
+npm run dev      # Studio local
 ```
 
-### Vercel Configuration
+O Studio também carrega a tag do Google (configurada em `sanity-studio/sanity.cli.ts`), que passa a valer quando ele é publicado de novo (`sanity deploy`).
 
-The `vercel.json` includes:
-- SPA routing rewrites
-- Security headers
-- Cache optimization for static assets
+## SEO e analytics
 
----
+- Meta tags, Open Graph e Twitter Cards por página (`src/hooks/useSEO.ts`); a home usa título sem o sufixo da marca (`absoluteTitle`)
+- HTML pré-renderizado por rota, com JSON-LD `ArchitecturalBusiness` (`scripts/prerender.js`)
+- `sitemap.xml`, `robots.txt`, `llms.txt` e IndexNow
+- Canonical e URLs em `https://studioaraci.com.br`
 
-## 🔍 SEO
+| Ferramenta | ID |
+|------------|----|
+| Google Tag Manager | `GTM-WRK33L84` |
+| Google Analytics (gtag) | `G-BWV35TXN66` |
+| Contentsquare | `387fba793be53` |
+| CookieHub | banner de consentimento (LGPD, GDPR, CCPA) |
 
-Comprehensive SEO implementation including:
+Se o container do GTM também enviar eventos ao GA4, as visitas podem ser contadas duas vezes; mantenha só um dos dois.
 
-- ✅ Dynamic meta tags per page
-- ✅ Open Graph tags for social sharing
-- ✅ Twitter Cards
-- ✅ JSON-LD structured data (ArchitecturalBusiness schema)
-- ✅ XML Sitemap
-- ✅ robots.txt
-- ✅ Canonical URLs
-- ✅ Google Analytics (G-BWV35TXN66)
-- ✅ Hotjar/Contentsquare tracking
+## Desempenho
 
----
+- Divisão de código por rota (`React.lazy`) e das seções abaixo da dobra da home
+- `LazyMotion`: bundle inicial de aproximadamente 307 KB (101 KB gzip)
+- Service worker (`public/sw.js`) para cache de imagens, fontes e vídeos. Ao alterar um arquivo estático com o mesmo nome, aumente `CACHE_VERSION` ou renomeie o arquivo
+- Vídeos com fonte `webm` e `mp4`
 
-## 🎨 Design System
+Ao medir no PageSpeed, os maiores pesos restantes são os vídeos de fundo, as imagens do Sanity e os scripts de terceiros (GTM e Contentsquare).
 
-### Colors
+## Deploy
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Primary | `#8B7355` | Brand color, accents |
-| Background | `#F5F5F0` | Page backgrounds |
-| Text Primary | `#1A1A1A` | Headings |
-| Text Secondary | `#666666` | Body text |
+O deploy é feito na **Vercel**, com `npm run build` e saída em `build/`. O `vercel.json` define os rewrites da SPA e os cabeçalhos de segurança (incluindo a CSP, que lista os domínios de analytics, Sanity e CookieHub; ao adicionar um serviço de terceiros, inclua o domínio nela).
 
-### Typography
+O domínio `studioaraci.com.br` (e `www`) precisa estar adicionado ao projeto na Vercel, com o DNS apontado, para que o certificado seja emitido.
 
-- **Headings**: El Messiri, Italiana
-- **Display**: Megrim
-- **Body**: System fonts
+## Licença e créditos
 
----
+Software proprietário, desenvolvido para o Studio Araci.
 
-## 🗺️ Roadmap
-
-- [ ] Dark mode toggle
-- [ ] Multi-language support (EN/PT)
-- [ ] AI-powered project recommendations
-- [ ] Client portal
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is proprietary software developed for GP Arquitetura.
-
----
-
-## 👥 Credits
-
-- **Design & Development**: Matheus Malaquias
-- **Architecture**: GP Arquitetura - Giulia Parente
-- **Icons**: [Lucide](https://lucide.dev)
-- **Fonts**: [Google Fonts](https://fonts.google.com)
-
----
-
-<div align="center">
-
-**Built with ❤️ for GP Arquitetura**
-
-**De espaços vazios a histórias habitadas**
-
-[⬆ Back to Top](#gp-arquitetura)
-
-</div>
+- **Estúdio**: Studio Araci, Giulia Parente (Arquiteta, CEO e Founder)
+- **Identidade visual**: Fogueira
+- **Desenvolvimento**: Matheus Malaquias
+- **Fontes**: [Google Fonts](https://fonts.google.com) · **Ícones**: [Lucide](https://lucide.dev)

@@ -16,8 +16,8 @@ const routes = [
 // Base HTML template with proper meta tags for each route
 const routeMetadata = {
   '/': {
-    title: 'Studio Araci | Arquitetura e Design de Interiores em São Paulo',
-    description: 'Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores. Transformamos espaços com elegância e funcionalidade.',
+    title: 'Arquitetura Emocional e Design de Interiores em São Paulo',
+    description: 'Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. Conheça nosso processo e fale conosco.',
     image: '/images/hero-bg.webp'
   },
   '/about': {

@@ -130,7 +130,7 @@ export function Loader({ onLoadingComplete }: LoaderProps) {
       >
         <img
           src="/brand/simbolo-terracota-192.png"
-          alt=""
+          alt="Símbolo do Studio Araci"
           className="w-14 h-14 md:w-20 md:h-20 animate-[spin_3.2s_linear_infinite]"
         />
         <img

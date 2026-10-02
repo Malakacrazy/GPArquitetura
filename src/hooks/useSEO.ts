@@ -40,6 +40,8 @@ import { useEffect } from 'react';
  */
 interface SEOProps {
   title: string;
+  /** Use `title` as-is, without appending the site name */
+  absoluteTitle?: boolean;
   description: string;
   keywords?: string;
   canonical?: string;
@@ -87,6 +89,7 @@ const SITE_NAME = 'Studio Araci';
 export const useSEO = ({
   title,
   description,
+  absoluteTitle = false,
   keywords,
   canonical,
   ogType = 'website',
@@ -97,7 +100,7 @@ export const useSEO = ({
 }: SEOProps) => {
   useEffect(() => {
     // Update document title
-    const fullTitle = `${title} | ${SITE_NAME}`;
+    const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
     document.title = fullTitle;
 
     // Helper function to update or create meta tag
@@ -178,7 +181,7 @@ export const useSEO = ({
         pageScript.remove();
       }
     };
-  }, [title, description, keywords, canonical, ogType, ogImage, ogImageAlt, noindex, jsonLd]);
+  }, [title, absoluteTitle, description, keywords, canonical, ogType, ogImage, ogImageAlt, noindex, jsonLd]);
 };
 
 /**
@@ -195,8 +198,9 @@ export const useSEO = ({
  */
 export const SEO_CONFIG = {
   home: {
-    title: 'Arquitetura e Design de Interiores em São Paulo',
-    description: 'Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores. Transformamos espaços com elegância e funcionalidade.',
+    title: 'Arquitetura Emocional e Design de Interiores em São Paulo',
+    absoluteTitle: true,
+    description: 'Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. Conheça nosso processo e fale conosco.',
     keywords: 'arquitetura, design de interiores, arquiteto São Paulo, projeto arquitetônico, Studio Araci, Giulia Parente',
     canonical: '/',
   },

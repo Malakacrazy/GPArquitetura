@@ -384,8 +384,8 @@ export function Navigation() {
                           playsInline
                           className="w-full h-full object-cover"
                         >
-                          <source src={videos.navigationBackground.mp4} type="video/mp4" />
                           <source src={videos.navigationBackground.webm} type="video/webm" />
+                          <source src={videos.navigationBackground.mp4} type="video/mp4" />
                         </video>
                       </div>
                     </motion.div>

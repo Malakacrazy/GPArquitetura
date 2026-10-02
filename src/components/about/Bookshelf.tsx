@@ -126,8 +126,8 @@ export function Bookshelf() {
             opacity: 0.75
           }}
         >
-          <source src={videos.about.library.mp4} type="video/mp4" />
           <source src={videos.about.library.webm} type="video/webm" />
+          <source src={videos.about.library.mp4} type="video/mp4" />
         </video>
         
         {/* Book Cards with left margin only */}

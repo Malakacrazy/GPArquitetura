@@ -466,47 +466,21 @@ export const preloadAssets = {
 
 /**
  * LAYER 1: Critical Assets (Frontloader)
- * These assets are loaded immediately on site entry and cached
- * Excludes Portfolio3D and Library (heavy pages loaded on-demand)
+ * Above-the-fold hero images only, loaded on site entry before the reveal.
+ * Everything else loads lazily with its section.
  */
 export const criticalAssets = {
+  // Only what is visible above the fold. Everything else (carousel, project
+  // cards, team photo, book thumbnails, videos) loads lazily with its section,
+  // so the loader no longer waits on ~20 MB of media (this was the LCP bottleneck).
   images: [
-    // Shared/Navigation (always needed)
-    // No critical shared images currently
-
-    // Homepage
     images.home.hero.background,
-    ...images.home.carousel.map(img => img.src),
-    images.home.projects.interior,
-    images.home.projects.architecture,
-    images.home.decorations.threadLine,
-
-    // About page
     images.about.hero.background,
-    images.about.team.giuliaparente.photo,
-    ...images.about.bookThumbnails.map(book => book.image),
-
-    // Portfolio page
     images.portfolio.hero.background,
-
-    // Contact page
     images.contact.hero.background,
-
-    // 404 page
     images.notFound.hero.src,
   ],
-  videos: [
-    // Shared videos (navigation, footer)
-    videos.navigationBackground.mp4,
-    videos.footerBackground.mp4,
-
-    // Homepage videos
-    videos.home.projectsBackground.mp4,
-
-    // About page videos
-    videos.about.team.giuliaparente.mp4,
-    videos.about.library.mp4,
-  ],
+  videos: [] as string[],
 } as const;
 
 /**

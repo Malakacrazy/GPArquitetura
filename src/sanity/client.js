@@ -77,5 +77,6 @@ const builder = createImageUrlBuilder(client)
  * ```
  */
 export function urlFor(source) {
-  return builder.image(source)
+  // auto('format') serves WebP/AVIF when supported; quality 75 avoids multi-MB PNGs
+  return builder.image(source).auto('format').quality(75)
 }

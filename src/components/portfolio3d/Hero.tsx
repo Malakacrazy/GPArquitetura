@@ -65,8 +65,8 @@ function VideoBackground() {
           console.error('Video failed to load:', e);
         }}
       >
-        <source src={videos.portfolio3d.heroBackground.mp4} type="video/mp4" />
         <source src={videos.portfolio3d.heroBackground.webm} type="video/webm" />
+        <source src={videos.portfolio3d.heroBackground.mp4} type="video/mp4" />
       </video>
     </div>
   );

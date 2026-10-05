@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { m as motion } from 'motion/react';
 import { blogUrlFor } from '../../sanity/client';
-import { formatPostDate } from './formatPostDate';
+import { formatPostDate } from './postMeta';
 
 interface PostCardProps {
   post: any;

@@ -13,7 +13,7 @@ import { PortableText } from '@portabletext/react';
 import { Navigation } from '../components/shared/Navigation';
 import { Footer } from '../components/shared/Footer';
 import { PostCard } from '../components/blog/PostCard';
-import { formatPostDate } from '../components/blog/formatPostDate';
+import { formatPostDate } from '../components/blog/postMeta';
 import { blogUrlFor } from '../sanity/client';
 import { usePost, useLatestPosts } from '../hooks/usePosts';
 import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';

@@ -21,7 +21,8 @@ const POST_LIST_FIELDS = `
   excerpt,
   category,
   publishedAt,
-  coverImage
+  coverImage,
+  "chars": length(pt::text(body))
 `
 
 /**

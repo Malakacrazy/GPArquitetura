@@ -63,7 +63,7 @@ const routeMetadata = {
   '/blog': {
     title: 'Blog | Arquitetura Emocional e Interiores | Studio Araci',
     description: 'Dicas e ideias de arquitetura emocional, reforma e design de interiores em São Paulo, pela Studio Araci.',
-    image: '/images/hero-bg.webp'
+    image: '/images/hero-about-us-bg.webp'
   },
   '/contact': {
     title: 'Contato | Studio Araci',

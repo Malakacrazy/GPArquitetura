@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Portfolio CMS',
+  title: 'Blog CMS',
 
-  projectId: 'dffchnvy',
+  projectId: 'bdmwaevv',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],

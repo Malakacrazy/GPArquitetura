@@ -108,7 +108,7 @@ VITE_SANITY_BLOG_PROJECT_ID=bdmwaevv
 VITE_SANITY_BLOG_DATASET=production
 ```
 
-Se não forem definidas, esses são os valores padrão. O blog usa um projeto Sanity próprio (`bdmwaevv`), separado do portfólio.
+Se não forem definidas, esses são os valores padrão. O blog usa um projeto Sanity próprio (`bdmwaevv`), separado do portfólio. O Studio do blog fica em `studio-blog-cms/` (veja o README da pasta).
 
 ## Estrutura do projeto
 

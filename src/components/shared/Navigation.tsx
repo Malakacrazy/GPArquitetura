@@ -269,7 +269,7 @@ export function Navigation() {
                   {/* Right side: Get In Touch, Social Links, and Video */}
                   <div className="flex flex-col gap-8 md:gap-10 lg:gap-12">
                     {/* Top section: Get In Touch and Social Links */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-8 md:gap-12 lg:gap-16">
                       {/* Get In Touch */}
                       <motion.div
                         custom={0.4}
@@ -291,9 +291,9 @@ export function Navigation() {
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src={icons.email} alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
-                            <div>
+                            <div className="min-w-0">
                               <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</h6>
-                              <a href={contact.email.url} className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">{contact.email.address}</a>
+                              <a href={contact.email.url} className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition [overflow-wrap:anywhere]">{contact.email.address.split('@')[0]}@<wbr />{contact.email.address.split('@')[1]}</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">

@@ -45,10 +45,29 @@ export const client = createClient({
 })
 
 /**
+ * Sanity client for the blog
+ *
+ * The blog lives in its own Sanity project, separate from the portfolio.
+ *
+ * Environment Variables:
+ * - VITE_SANITY_BLOG_PROJECT_ID (default: bdmwaevv)
+ * - VITE_SANITY_BLOG_DATASET (default: production)
+ *
+ * @type {import('@sanity/client').SanityClient}
+ */
+export const blogClient = createClient({
+  projectId: import.meta.env.VITE_SANITY_BLOG_PROJECT_ID || 'bdmwaevv',
+  dataset: import.meta.env.VITE_SANITY_BLOG_DATASET || 'production',
+  useCdn: true,
+  apiVersion: '2024-01-01'
+})
+
+/**
  * Image URL builder instance
  * @private
  */
 const builder = createImageUrlBuilder(client)
+const blogBuilder = createImageUrlBuilder(blogClient)
 
 /**
  * Generates optimized image URLs from Sanity image references
@@ -78,4 +97,14 @@ const builder = createImageUrlBuilder(client)
  */
 export function urlFor(source) {
   return builder.image(source)
+}
+
+/**
+ * Same as urlFor, for images stored in the blog's Sanity project
+ *
+ * @param {Object} source - Sanity image reference object
+ * @returns {import('@sanity/image-url').ImageUrlBuilder} Image URL builder
+ */
+export function blogUrlFor(source) {
+  return blogBuilder.image(source)
 }

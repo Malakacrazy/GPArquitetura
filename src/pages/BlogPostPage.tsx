@@ -14,7 +14,7 @@ import { Navigation } from '../components/shared/Navigation';
 import { Footer } from '../components/shared/Footer';
 import { PostCard } from '../components/blog/PostCard';
 import { formatPostDate } from '../components/blog/formatPostDate';
-import { urlFor } from '../sanity/client';
+import { blogUrlFor } from '../sanity/client';
 import { usePost, useLatestPosts } from '../hooks/usePosts';
 import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';
 import NotFoundPage from './NotFoundPage';
@@ -49,7 +49,7 @@ const portableTextComponents = {
     image: ({ value }: any) => (
       <figure className="my-8">
         <img
-          src={urlFor(value).width(1200).url()}
+          src={blogUrlFor(value).width(1200).url()}
           alt={value.alt || ''}
           loading="lazy"
           className="w-full h-auto"
@@ -72,7 +72,7 @@ export default function BlogPostPage() {
     description: post?.excerpt || 'Artigo do blog da Studio Araci.',
     canonical: `/blog/${slug}`,
     ogType: 'article',
-    ogImage: post?.coverImage ? urlFor(post.coverImage).width(1200).height(630).fit('crop').url() : undefined,
+    ogImage: post?.coverImage ? blogUrlFor(post.coverImage).width(1200).height(630).fit('crop').url() : undefined,
     ogImageAlt: post?.coverImage?.alt || post?.title,
     noindex: !loading && !post,
     jsonLd: post
@@ -82,7 +82,7 @@ export default function BlogPostPage() {
             createBlogPostingJsonLd({
               title: post.title,
               description: post.excerpt,
-              image: post.coverImage ? urlFor(post.coverImage).width(1200).url() : undefined,
+              image: post.coverImage ? blogUrlFor(post.coverImage).width(1200).url() : undefined,
               slug,
               datePublished: post.publishedAt,
               dateModified: post._updatedAt,
@@ -138,7 +138,7 @@ export default function BlogPostPage() {
 
           {post.coverImage && (
             <img
-              src={urlFor(post.coverImage).width(1600).url()}
+              src={blogUrlFor(post.coverImage).width(1600).url()}
               alt={post.coverImage.alt || post.title}
               className="w-full max-w-5xl mx-auto mt-10 aspect-[16/9] object-cover"
             />

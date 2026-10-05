@@ -104,9 +104,11 @@ Opcionais, em um arquivo `.env` na raiz:
 ```env
 VITE_SANITY_PROJECT_ID=dffchnvy
 VITE_SANITY_DATASET=production
+VITE_SANITY_BLOG_PROJECT_ID=bdmwaevv
+VITE_SANITY_BLOG_DATASET=production
 ```
 
-Se não forem definidas, esses são os valores padrão.
+Se não forem definidas, esses são os valores padrão. O blog usa um projeto Sanity próprio (`bdmwaevv`), separado do portfólio.
 
 ## Estrutura do projeto
 

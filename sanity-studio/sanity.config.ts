@@ -1,18 +1,27 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import {portfolioSchemaTypes, blogSchemaTypes} from './schemaTypes'
 
-export default defineConfig({
-  name: 'default',
-  title: 'Portfolio CMS',
+const plugins = [structureTool(), visionTool()]
 
-  projectId: 'dffchnvy',
-  dataset: 'production',
-
-  plugins: [structureTool(), visionTool()],
-
-  schema: {
-    types: schemaTypes,
+export default defineConfig([
+  {
+    name: 'default',
+    title: 'Portfolio CMS',
+    basePath: '/portfolio',
+    projectId: 'dffchnvy',
+    dataset: 'production',
+    plugins,
+    schema: {types: portfolioSchemaTypes},
   },
-})
+  {
+    name: 'blog',
+    title: 'Blog CMS',
+    basePath: '/blog',
+    projectId: 'bdmwaevv',
+    dataset: 'production',
+    plugins,
+    schema: {types: blogSchemaTypes},
+  },
+])

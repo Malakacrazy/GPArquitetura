@@ -10,6 +10,14 @@ const client = createClient({
   useCdn: false,
 });
 
+// Blog content lives in its own Sanity project
+const blogClient = createClient({
+  projectId: process.env.VITE_SANITY_BLOG_PROJECT_ID || 'bdmwaevv',
+  dataset: process.env.VITE_SANITY_BLOG_DATASET || 'production',
+  apiVersion: process.env.VITE_SANITY_API_VERSION || '2024-01-01',
+  useCdn: false,
+});
+
 const BASE_URL = 'https://studioaraci.com.br';
 
 // Helper function to get current ISO 8601 date with timezone
@@ -121,8 +129,16 @@ async function generateSitemap() {
     `);
 
     console.log(`Found ${projects.length} projects`);
+  } catch (sanityError) {
+    console.warn('⚠️  Warning: Could not fetch projects from Sanity:', sanityError.message);
+    console.log('Continuing with static pages only...');
+    projects = [];
+  }
 
-    posts = await client.fetch(`
+  try {
+    console.log('Fetching blog posts from Sanity...');
+
+    posts = await blogClient.fetch(`
       *[_type == "post" && defined(slug.current)] {
         "slug": slug.current,
         _updatedAt
@@ -131,9 +147,8 @@ async function generateSitemap() {
 
     console.log(`Found ${posts.length} blog posts`);
   } catch (sanityError) {
-    console.warn('⚠️  Warning: Could not fetch projects from Sanity:', sanityError.message);
-    console.log('Continuing with static pages only...');
-    projects = [];
+    console.warn('⚠️  Warning: Could not fetch blog posts from Sanity:', sanityError.message);
+    posts = [];
   }
 
   try {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { m as motion } from 'motion/react';
-import { urlFor } from '../../sanity/client';
+import { blogUrlFor } from '../../sanity/client';
 import { formatPostDate } from './formatPostDate';
 
 interface PostCardProps {
@@ -24,7 +24,7 @@ export const PostCard = ({ post, index = 0 }: PostCardProps) => (
       <div className="aspect-[4/3] overflow-hidden bg-[var(--color-accent)] mb-6 md:mb-8">
         {post.coverImage && (
           <img
-            src={urlFor(post.coverImage).width(800).url()}
+            src={blogUrlFor(post.coverImage).width(800).url()}
             alt={post.coverImage.alt || post.title}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -1,7 +1,8 @@
 /**
  * Blog Post Hooks Module
  *
- * Custom React hooks for fetching blog posts from Sanity CMS.
+ * Custom React hooks for fetching blog posts from the blog's Sanity project
+ * (separate from the portfolio project, see blogClient).
  *
  * @module hooks/usePosts
  *
@@ -11,7 +12,7 @@
  * - useLatestPosts(currentSlug, limit) - Fetch the newest posts, excluding the current one
  */
 import { useState, useEffect } from 'react'
-import { client } from '../sanity/client'
+import { blogClient as client } from '../sanity/client'
 
 const POST_LIST_FIELDS = `
   _id,

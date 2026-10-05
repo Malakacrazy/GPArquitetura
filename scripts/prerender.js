@@ -10,6 +10,14 @@ const client = createClient({
   useCdn: false,
 });
 
+// Blog content lives in its own Sanity project
+const blogClient = createClient({
+  projectId: process.env.VITE_SANITY_BLOG_PROJECT_ID || 'bdmwaevv',
+  dataset: process.env.VITE_SANITY_BLOG_DATASET || 'production',
+  apiVersion: process.env.VITE_SANITY_API_VERSION || '2024-01-01',
+  useCdn: false,
+});
+
 const BASE_URL = 'https://studioaraci.com.br';
 
 // Routes to prerender
@@ -295,7 +303,7 @@ async function prerender() {
   // Blog posts come from Sanity; if it is unreachable, only the static routes are built
   let pages = routes.map((route) => ({ route, metadata: routeMetadata[route] }));
   try {
-    const posts = await client.fetch(`*[_type == "post" && defined(slug.current)] {
+    const posts = await blogClient.fetch(`*[_type == "post" && defined(slug.current)] {
       title,
       "slug": slug.current,
       excerpt,

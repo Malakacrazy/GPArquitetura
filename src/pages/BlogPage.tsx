@@ -3,7 +3,7 @@
  *
  * Blog listing page, laid out as an editorial magazine: split hero with the
  * latest post, intro, featured stories, offset grid, call-to-action band and
- * a filterable archive. Posts are managed in the blog's Sanity project
+ * a filterable archive and the newsletter signup. Posts are managed in the blog's Sanity project
  * (document type "post"). Posts are numbered newest first (01 = latest).
  *
  * @module pages/BlogPage
@@ -17,6 +17,7 @@ import { FeaturedStories } from '../components/blog/FeaturedStories';
 import { FieldNotes } from '../components/blog/FieldNotes';
 import { CtaBand } from '../components/blog/CtaBand';
 import { Archive } from '../components/blog/Archive';
+import { Newsletter } from '../components/blog/Newsletter';
 import { usePosts } from '../hooks/usePosts';
 import { useSEO, SEO_CONFIG, createBreadcrumbJsonLd } from '../hooks/useSEO';
 
@@ -57,6 +58,7 @@ export default function BlogPage() {
         <FieldNotes posts={notes} firstNumber={featured.length + 2} />
         <CtaBand />
         {posts.length > 0 && <Archive posts={posts} />}
+        <Newsletter />
       </main>
 
       <Footer />

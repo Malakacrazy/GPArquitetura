@@ -1,9 +1,10 @@
 /**
  * BlogPostPage
  *
- * Single blog post. Content comes from Sanity CMS (document type "post").
- * Includes BlogPosting + breadcrumb structured data and a CTA that links
- * back to the main site (portfolio / contact).
+ * Single blog post, same editorial design as the blog page: split hero with
+ * the arched cover, reading column with a meta gutter, related stories, CTA
+ * band and newsletter. Content comes from the blog's Sanity project
+ * (document type "post"). Includes BlogPosting + breadcrumb structured data.
  *
  * @module pages/BlogPostPage
  * @route /blog/:slug
@@ -13,7 +14,10 @@ import { PortableText } from '@portabletext/react';
 import { Navigation } from '../components/shared/Navigation';
 import { Footer } from '../components/shared/Footer';
 import { PostCard } from '../components/blog/PostCard';
-import { formatPostDate } from '../components/blog/postMeta';
+import { PostHero } from '../components/blog/PostHero';
+import { CtaBand } from '../components/blog/CtaBand';
+import { Newsletter } from '../components/blog/Newsletter';
+import { formatPostDate, readingMinutes } from '../components/blog/postMeta';
 import { blogUrlFor } from '../sanity/client';
 import { usePost, useLatestPosts } from '../hooks/usePosts';
 import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';
@@ -22,21 +26,24 @@ import NotFoundPage from './NotFoundPage';
 const portableTextComponents = {
   block: {
     h2: ({ children }: any) => (
-      <h2 className="mt-10 mb-4 text-2xl md:text-3xl font-medium text-[var(--color-text-dark)]">{children}</h2>
+      <h2 className="mt-14 mb-5 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]">{children}</h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="mt-8 mb-3 text-xl md:text-2xl font-medium text-[var(--color-text-dark)]">{children}</h3>
+      <h3 className="mt-10 mb-4 text-2xl md:text-3xl leading-tight text-[var(--color-text-dark)]">{children}</h3>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="my-8 border-l-2 border-[var(--color-primary)] pl-6 italic text-[var(--color-text-dark)]">
+      <blockquote
+        className="my-12 border-l border-[var(--color-primary)] pl-6 md:pl-8 text-2xl md:text-3xl leading-snug italic text-[var(--color-text-dark)]"
+        style={{ fontFamily: 'var(--font-heading)' }}
+      >
         {children}
       </blockquote>
     ),
-    normal: ({ children }: any) => <p className="mb-5">{children}</p>,
+    normal: ({ children }: any) => <p className="mb-6">{children}</p>,
   },
   list: {
-    bullet: ({ children }: any) => <ul className="mb-5 list-disc pl-6 space-y-2">{children}</ul>,
-    number: ({ children }: any) => <ol className="mb-5 list-decimal pl-6 space-y-2">{children}</ol>,
+    bullet: ({ children }: any) => <ul className="mb-6 list-disc pl-6 space-y-2">{children}</ul>,
+    number: ({ children }: any) => <ol className="mb-6 list-decimal pl-6 space-y-2">{children}</ol>,
   },
   marks: {
     link: ({ children, value }: any) => (
@@ -47,15 +54,15 @@ const portableTextComponents = {
   },
   types: {
     image: ({ value }: any) => (
-      <figure className="my-8">
+      <figure className="my-12">
         <img
           src={blogUrlFor(value).width(1200).url()}
           alt={value.alt || ''}
           loading="lazy"
-          className="w-full h-auto"
+          className="w-full h-auto rounded-[16px]"
         />
         {value.caption && (
-          <figcaption className="mt-2 text-sm text-[var(--color-text-muted)]">{value.caption}</figcaption>
+          <figcaption className="mt-3 text-sm text-[var(--color-text-muted)]">{value.caption}</figcaption>
         )}
       </figure>
     ),
@@ -115,62 +122,60 @@ export default function BlogPostPage() {
 
   if (!post) return <NotFoundPage />;
 
+  const minutes = readingMinutes(post.chars);
+
   return (
     <div className="page_wrap bg-[var(--color-background)] min-h-screen w-full font-sans selection:bg-[var(--color-primary)] selection:text-white">
       <Navigation />
+      <PostHero post={post} />
 
       <main>
-        <article className="w-full px-6 md:px-12 lg:px-16 xl:px-20 pt-28 md:pt-36 pb-12 md:pb-16">
-          <header className="max-w-3xl mx-auto">
-            <Link
-              to="/blog"
-              className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-primary)] no-underline"
-            >
-              ← Blog
-            </Link>
-            <h1 className="mt-6 text-3xl md:text-5xl font-medium tracking-tight text-[var(--color-text-dark)]">
-              {post.title}
-            </h1>
-            <p className="mt-4 text-sm text-[var(--color-text-muted)]">
-              {[post.category, formatPostDate(post.publishedAt)].filter(Boolean).join(' · ')}
-            </p>
-          </header>
+        <article className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+          <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
+            <aside className="space-y-4 text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)] lg:pt-2">
+              <p>
+                Por<br />
+                <span className="text-[var(--color-text-dark)]">Giulia Parente</span>
+              </p>
+              <p>{formatPostDate(post.publishedAt)}</p>
+              {minutes && <p>{minutes} min de leitura</p>}
+            </aside>
 
-          {post.coverImage && (
-            <img
-              src={blogUrlFor(post.coverImage).width(1600).url()}
-              alt={post.coverImage.alt || post.title}
-              className="w-full max-w-5xl mx-auto mt-10 aspect-[16/9] object-cover"
-            />
-          )}
+            <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
+              <PortableText value={post.body} components={portableTextComponents} />
 
-          <div className="max-w-3xl mx-auto mt-10 text-[var(--color-text-muted)] font-light text-base md:text-lg leading-8">
-            <PortableText value={post.body} components={portableTextComponents} />
+              <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-[var(--color-border-soft)] pt-8">
+                <Link
+                  to="/blog"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="text-xs font-bold tracking-[0.15em] uppercase text-[var(--color-primary)] no-underline border-b border-[var(--color-primary)] pb-1"
+                >
+                  ← Voltar ao blog
+                </Link>
+                {post.category && (
+                  <span className="text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)]">{post.category}</span>
+                )}
+              </div>
+            </div>
           </div>
-
-          <aside className="max-w-3xl mx-auto mt-16 border-t border-[var(--color-border-soft)] pt-10">
-            <p className="text-xl md:text-2xl font-medium text-[var(--color-text-dark)]">
-              Quer um projeto pensado para o seu jeito de viver?
-            </p>
-            <p className="mt-3 text-[var(--color-text-muted)] font-light">
-              Conheça nosso <Link to="/portfolio" className="text-[var(--color-primary)] underline underline-offset-4">portfólio</Link>{' '}
-              ou <Link to="/contact" className="text-[var(--color-primary)] underline underline-offset-4">fale com a Studio Araci</Link>.
-            </p>
-          </aside>
         </article>
 
         {latest.length > 0 && (
-          <section className="w-full px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-12 lg:py-16">
-            <span className="block mb-8 md:mb-12 text-xs text-[var(--color-primary)] font-medium tracking-[0.2em] uppercase">
-              Leia também
-            </span>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+          <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+            <span className="block text-xs tracking-[0.2em] uppercase text-[var(--color-primary)]">Leia também</span>
+            <h2 className="mt-3 mb-10 md:mb-14 text-4xl md:text-5xl tracking-tight text-[var(--color-text-dark)]">
+              Mais histórias
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
               {latest.map((p: any, index: number) => (
                 <PostCard key={p._id} post={p} index={index} />
               ))}
             </div>
           </section>
         )}
+
+        <CtaBand />
+        <Newsletter />
       </main>
 
       <Footer />

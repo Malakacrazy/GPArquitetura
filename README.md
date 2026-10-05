@@ -110,6 +110,24 @@ VITE_SANITY_BLOG_DATASET=production
 
 Se não forem definidas, esses são os valores padrão. O blog usa um projeto Sanity próprio (`bdmwaevv`), separado do portfólio. O Studio do blog fica em `studio-blog-cms/` (veja o README da pasta).
 
+### Newsletter
+
+O formulário do blog envia o e-mail para `api/subscribe.js` (função serverless do Vercel), que grava um documento `subscriber` em um **dataset privado** do projeto do blog, para que os e-mails nunca fiquem legíveis pela API pública. Configuração:
+
+```bash
+cd studio-blog-cms
+npx sanity datasets create newsletter --visibility private
+npx sanity tokens add "Newsletter (Vercel)" --role editor   # copie o token exibido
+```
+
+No Vercel (Project Settings → Environment Variables), defina `SANITY_NEWSLETTER_TOKEN` com o token. Opcional: `SANITY_NEWSLETTER_DATASET` (padrão `newsletter`). Para ver os inscritos:
+
+```bash
+npx sanity documents query '*[_type == "subscriber"] | order(createdAt desc)' --dataset newsletter
+```
+
+Sem o token, o formulário mostra uma mensagem de erro. O `vite dev` não serve `/api`; use `vercel dev` para testar localmente.
+
 ## Estrutura do projeto
 
 ```

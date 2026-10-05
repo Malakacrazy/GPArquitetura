@@ -1,0 +1,60 @@
+import { Link } from 'react-router-dom';
+import { Reveal } from '../shared/Reveal';
+import { blogUrlFor } from '../../sanity/client';
+import { formatPostDate, postMeta } from './postMeta';
+
+/** Split hero for a single post: title and lede on the left, arched cover on the right */
+export function PostHero({ post }: { post: any }) {
+  const meta = [postMeta(post), formatPostDate(post.publishedAt)].filter(Boolean).join(' · ');
+
+  return (
+    <section id="home" className="relative overflow-hidden bg-[var(--color-background)]">
+      <div className="pointer-events-none absolute -top-24 -right-40 w-[34rem] h-[34rem] md:w-[46rem] md:h-[46rem] rounded-full bg-[var(--araci-nevoa-azul)]/50" />
+
+      <div className="relative z-10 grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center min-h-[90vh] px-6 md:px-12 lg:px-16 xl:px-20 pt-28 md:pt-32 pb-12 md:pb-16">
+        <div>
+          <Reveal>
+            <Link
+              to="/blog"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-primary)] no-underline"
+            >
+              ← Blog
+            </Link>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h1 className="mt-6 md:mt-8 text-4xl md:text-5xl xl:text-6xl leading-[1.08] tracking-tight text-[var(--color-text-dark)]">
+              {post.title}
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-8 h-[2px] w-16 bg-[var(--color-primary)]" />
+            <p className="mt-8 max-w-md text-lg md:text-xl font-light leading-relaxed text-[var(--color-text-muted)]">{post.excerpt}</p>
+            <p className="mt-6 text-xs tracking-[0.15em] uppercase text-[var(--color-text-dark)]">{meta}</p>
+          </Reveal>
+        </div>
+
+        {post.coverImage && (
+          <Reveal delay={0.15}>
+            <div className="relative">
+              <div className="aspect-[4/5] md:aspect-[5/4] lg:aspect-[17/18] overflow-hidden rounded-[24px] rounded-tl-[140px] md:rounded-tl-[200px] bg-[var(--color-accent)] shadow-[0_30px_60px_-25px_rgba(44,48,56,0.35)]">
+                <img
+                  src={blogUrlFor(post.coverImage).width(1400).url()}
+                  alt={post.coverImage.alt || post.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {post.category && (
+                <span className="absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-full bg-white/90 px-4 py-2 text-xs text-[var(--color-text-dark)] shadow-sm">
+                  {post.category}
+                </span>
+              )}
+            </div>
+          </Reveal>
+        )}
+      </div>
+    </section>
+  );
+}

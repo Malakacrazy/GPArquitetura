@@ -52,6 +52,14 @@ export const contact = {
   },
 
   /**
+   * Meeting scheduling (Google Calendar appointment page)
+   */
+  scheduling: {
+    /** Booking page URL */
+    url: 'https://calendar.app.google/2JWxY3w6uUiXp3F46',
+  },
+
+  /**
    * Physical location information
    */
   location: {

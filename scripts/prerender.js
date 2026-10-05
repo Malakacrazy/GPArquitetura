@@ -75,6 +75,11 @@ const routeMetadata = {
     description: 'Leia nossa política de privacidade e saiba como protegemos seus dados.',
     image: '/images/og-image.png'
   },
+  '/404': {
+    title: 'Página Não Encontrada | Studio Araci',
+    description: 'A página que você está procurando não foi encontrada. Retorne à página inicial do Studio Araci.',
+    image: '/images/og-image.png'
+  },
   '/tos': {
     title: 'Termos de Serviço | Studio Araci',
     description: 'Leia nossos termos de serviço e condições de uso.',
@@ -207,11 +212,14 @@ function generateHTML(route, scriptTags, cssTags, metadata = routeMetadata[route
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ArchitecturalBusiness",
+        "@type": ["Organization", "LocalBusiness", "ArchitecturalBusiness"],
+        "@id": "https://studioaraci.com.br/#organization",
         "name": "Studio Araci",
+        "legalName": "Studio Araci",
+        "founder": { "@id": "https://studioaraci.com.br/#giulia-parente" },
         "alternateName": "Studio Araci - Giulia Parente",
         "url": "https://studioaraci.com.br",
-        "logo": "https://studioaraci.com.br/favicon.ico",
+        "logo": "https://studioaraci.com.br/android-chrome-512x512.png",
         "description": "Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores.",
         "image": "https://studioaraci.com.br/images/og-image.png",
         "telephone": "+55-11-94773-9339",
@@ -245,6 +253,35 @@ function generateHTML(route, scriptTags, cssTags, metadata = routeMetadata[route
           "@type": "Country",
           "name": "Brasil"
         }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://studioaraci.com.br/#giulia-parente",
+            "name": "Giulia Parente",
+            "jobTitle": "Arquiteta, CEO e Founder",
+            "url": "https://studioaraci.com.br/about",
+            "email": "giuliaparente@studioaraci.com.br",
+            "worksFor": { "@id": "https://studioaraci.com.br/#organization" },
+            "sameAs": [
+              "https://www.instagram.com/giuliaparente_arquitetura",
+              "https://www.linkedin.com/in/giulia-parente",
+              "https://www.pinterest.com/giuliaparentearq"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://studioaraci.com.br/#website",
+            "url": "https://studioaraci.com.br",
+            "name": "Studio Araci",
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "https://studioaraci.com.br/#organization" }
+          }
+        ]
       }
     </script>
     ${metadata.jsonLd ? `<script type="application/ld+json" data-page-jsonld="true">${JSON.stringify(metadata.jsonLd).replace(/</g, '\\u003c')}</script>` : ''}
@@ -344,6 +381,24 @@ async function prerender() {
       console.error(`❌ Error prerendering ${route}:`, error.message);
       errorCount++;
     }
+  }
+
+  // 404.html: Vercel serves it with a real 404 status for any URL that is not a
+  // prerendered route or a project page (see vercel.json rewrites). The SPA
+  // loads on that URL and React Router renders NotFoundPage.
+  try {
+    const notFoundHtml = generateHTML('/404', scriptTags, cssTags)
+      .replace('<meta name="robots" content="index, follow" />', '<meta name="robots" content="noindex, nofollow" />')
+      .replace(/^\s*<link rel="canonical"[^\n]*\n/m, '')
+      .replace(/^\s*<meta property="og:url"[^\n]*\n/m, '')
+      .replace(/^\s*<meta property="twitter:url"[^\n]*\n/m, '');
+    const notFoundPath = resolve(distPath, '404.html');
+    writeFileSync(notFoundPath, notFoundHtml, 'utf-8');
+    console.log(`✅ Prerendered: 404 → ${notFoundPath}`);
+    successCount++;
+  } catch (error) {
+    console.error('❌ Error prerendering 404:', error.message);
+    errorCount++;
   }
 
   console.log(`\n📊 Prerendering complete:`);

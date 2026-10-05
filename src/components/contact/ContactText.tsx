@@ -90,6 +90,17 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
         <motion.a
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
+          href={contact.scheduling.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-base md:text-lg font-medium uppercase tracking-[0.2em] text-[var(--color-white)] underline decoration-1 underline-offset-8 transition-colors duration-300 hover:text-[var(--color-accent)]"
+        >
+          Marque uma reunião conosco &rarr;
+        </motion.a>
+
+        <motion.a
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
           href={contact.email.url}
           className="contact-two-hero-link inline-block transition-colors duration-300 hover:text-[var(--color-accent)]"
         >

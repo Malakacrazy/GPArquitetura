@@ -52,6 +52,7 @@ export function Footer() {
           <Reveal delay={0.2} className="flex flex-col justify-end flex-1 space-y-6 md:space-y-8 mt-12 md:mt-16 lg:mt-20 pb-8 md:pb-12">
             {/* Phone Number & Email */}
             <div className="text-white/90 text-base md:text-lg font-light space-y-1">
+              <a href={contact.scheduling.url} target="_blank" rel="noopener noreferrer" className="block font-medium hover:underline">Marque uma reunião conosco &rarr;</a>
               <a href={contact.email.url} className="block hover:underline">{contact.email.address}</a>
               <a href={contact.whatsapp.url} target="_blank" rel="noopener noreferrer" className="block hover:underline">{contact.whatsapp.display}</a>
             </div>

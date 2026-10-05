@@ -126,11 +126,12 @@ export const socialLinks = {
   },
 
   /**
-   * Blog (WordPress) - content and backlinks to the main site
+   * Blog (WordPress) - served under /blog of the main domain (Vercel rewrite
+   * in vercel.json) so its backlinks count for studioaraci.com.br
    */
   blog: {
     /** Blog URL */
-    url: 'https://blog.studioaraci.com.br',
+    url: '/blog',
     /** Platform name */
     platform: 'Blog',
   },

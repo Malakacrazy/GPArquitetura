@@ -6,10 +6,6 @@
     {
       "source": "/portfolio/:slug",
       "destination": "/index.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
     }
   ],
   "trailingSlash": false,

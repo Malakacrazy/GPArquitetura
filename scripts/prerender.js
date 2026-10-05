@@ -50,6 +50,11 @@ const routeMetadata = {
     description: 'Leia nossa política de privacidade e saiba como protegemos seus dados.',
     image: '/images/og-image.png'
   },
+  '/404': {
+    title: 'Página Não Encontrada | Studio Araci',
+    description: 'A página que você está procurando não foi encontrada. Retorne à página inicial do Studio Araci.',
+    image: '/images/og-image.png'
+  },
   '/tos': {
     title: 'Termos de Serviço | Studio Araci',
     description: 'Leia nossos termos de serviço e condições de uso.',
@@ -285,6 +290,24 @@ async function prerender() {
       console.error(`❌ Error prerendering ${route}:`, error.message);
       errorCount++;
     }
+  }
+
+  // 404.html: Vercel serves it with a real 404 status for any URL that is not a
+  // prerendered route or a project page (see vercel.json rewrites). The SPA
+  // loads on that URL and React Router renders NotFoundPage.
+  try {
+    const notFoundHtml = generateHTML('/404', scriptTags, cssTags)
+      .replace('<meta name="robots" content="index, follow" />', '<meta name="robots" content="noindex, nofollow" />')
+      .replace(/^\s*<link rel="canonical"[^\n]*\n/m, '')
+      .replace(/^\s*<meta property="og:url"[^\n]*\n/m, '')
+      .replace(/^\s*<meta property="twitter:url"[^\n]*\n/m, '');
+    const notFoundPath = resolve(distPath, '404.html');
+    writeFileSync(notFoundPath, notFoundHtml, 'utf-8');
+    console.log(`✅ Prerendered: 404 → ${notFoundPath}`);
+    successCount++;
+  } catch (error) {
+    console.error('❌ Error prerendering 404:', error.message);
+    errorCount++;
   }
 
   console.log(`\n📊 Prerendering complete:`);

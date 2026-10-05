@@ -110,6 +110,23 @@ VITE_SANITY_BLOG_DATASET=production
 
 Se não forem definidas, esses são os valores padrão. O blog usa um projeto Sanity próprio (`bdmwaevv`), separado do portfólio. O Studio do blog fica em `studio-blog-cms/` (veja o README da pasta).
 
+### Publicar posts: webhook Sanity → Vercel
+
+O texto de um post aparece no site assim que ele é publicado no Sanity, mas o HTML pré-renderizado (título, descrição, JSON-LD para o Google) e o `sitemap.xml` só são gerados no build. Para um novo deploy sair sozinho a cada publicação:
+
+1. **Vercel:** Project Settings → Git → **Deploy Hooks** → crie um hook (nome, por exemplo, `Sanity blog`, branch `main`) e copie a URL. Ela funciona como uma senha: quem a tiver dispara builds. Não commite nem cole em chats.
+2. **Sanity:** em [sanity.io/manage](https://www.sanity.io/manage), abra o projeto `bdmwaevv` → **API** → **Webhooks** → **Create webhook** e preencha:
+   - **URL:** a URL do Deploy Hook do Vercel
+   - **Dataset:** `production`
+   - **Trigger on:** Create, Update e Delete
+   - **Filter:** `_type == "post"`
+   - **HTTP method:** `POST`
+   - **Drafts:** deixe desmarcado (rascunhos não disparam build)
+   - **Projection:** em branco, e deixe o webhook habilitado
+3. **Teste:** publique (ou despublique) um post no Studio. Em poucos segundos aparece um deploy novo no painel do Vercel; no log do build procure por `Found N blog posts`.
+
+Sem o webhook o site continua funcionando: posts novos abrem normalmente, mas sem o HTML pré-renderizado e fora do sitemap até o próximo deploy manual (Vercel → Deployments → Redeploy).
+
 ### Newsletter
 
 O formulário do blog envia o e-mail para `api/subscribe.js` (função serverless do Vercel), que grava um documento `subscriber` em um **dataset privado** do projeto do blog, para que os e-mails nunca fiquem legíveis pela API pública. Configuração:

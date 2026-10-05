@@ -138,7 +138,7 @@ function generateHTML(route, scriptTags, cssTags) {
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": ["Organization", "ArchitecturalBusiness"],
+        "@type": ["Organization", "LocalBusiness", "ArchitecturalBusiness"],
         "@id": "https://studioaraci.com.br/#organization",
         "name": "Studio Araci",
         "legalName": "Studio Araci",

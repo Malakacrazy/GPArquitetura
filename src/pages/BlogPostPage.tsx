@@ -1,0 +1,184 @@
+/**
+ * BlogPostPage
+ *
+ * Single blog post, same editorial design as the blog page: split hero with
+ * the arched cover, reading column with a meta gutter, related stories, CTA
+ * band and newsletter. Content comes from the blog's Sanity project
+ * (document type "post"). Includes BlogPosting + breadcrumb structured data.
+ *
+ * @module pages/BlogPostPage
+ * @route /blog/:slug
+ */
+import { Link, useParams } from 'react-router-dom';
+import { PortableText } from '@portabletext/react';
+import { Navigation } from '../components/shared/Navigation';
+import { Footer } from '../components/shared/Footer';
+import { PostCard } from '../components/blog/PostCard';
+import { PostHero } from '../components/blog/PostHero';
+import { CtaBand } from '../components/blog/CtaBand';
+import { Newsletter } from '../components/blog/Newsletter';
+import { formatPostDate, readingMinutes } from '../components/blog/postMeta';
+import { blogUrlFor } from '../sanity/client';
+import { usePost, useLatestPosts } from '../hooks/usePosts';
+import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';
+import NotFoundPage from './NotFoundPage';
+
+const portableTextComponents = {
+  block: {
+    h2: ({ children }: any) => (
+      <h2 className="mt-14 mb-5 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]">{children}</h2>
+    ),
+    h3: ({ children }: any) => (
+      <h3 className="mt-10 mb-4 text-2xl md:text-3xl leading-tight text-[var(--color-text-dark)]">{children}</h3>
+    ),
+    blockquote: ({ children }: any) => (
+      <blockquote
+        className="my-12 border-l border-[var(--color-primary)] pl-6 md:pl-8 text-2xl md:text-3xl leading-snug italic text-[var(--color-text-dark)]"
+        style={{ fontFamily: 'var(--font-heading)' }}
+      >
+        {children}
+      </blockquote>
+    ),
+    normal: ({ children }: any) => <p className="mb-6">{children}</p>,
+  },
+  list: {
+    bullet: ({ children }: any) => <ul className="mb-6 list-disc pl-6 space-y-2">{children}</ul>,
+    number: ({ children }: any) => <ol className="mb-6 list-decimal pl-6 space-y-2">{children}</ol>,
+  },
+  marks: {
+    link: ({ children, value }: any) => (
+      <a href={value?.href} className="text-[var(--color-primary)] underline underline-offset-4">
+        {children}
+      </a>
+    ),
+  },
+  types: {
+    image: ({ value }: any) => (
+      <figure className="my-12">
+        <img
+          src={blogUrlFor(value).width(1200).url()}
+          alt={value.alt || ''}
+          loading="lazy"
+          className="w-full h-auto rounded-[16px]"
+        />
+        {value.caption && (
+          <figcaption className="mt-3 text-sm text-[var(--color-text-muted)]">{value.caption}</figcaption>
+        )}
+      </figure>
+    ),
+  },
+};
+
+export default function BlogPostPage() {
+  const { slug = '' } = useParams();
+  const { post, loading, error } = usePost(slug);
+  const { posts: latest } = useLatestPosts(slug, 3);
+
+  useSEO({
+    title: post?.title || 'Blog',
+    description: post?.excerpt || 'Artigo do blog da Studio Araci.',
+    canonical: `/blog/${slug}`,
+    ogType: 'article',
+    ogImage: post?.coverImage ? blogUrlFor(post.coverImage).width(1200).height(630).fit('crop').url() : undefined,
+    ogImageAlt: post?.coverImage?.alt || post?.title,
+    noindex: !loading && !post,
+    jsonLd: post
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [
+            createBlogPostingJsonLd({
+              title: post.title,
+              description: post.excerpt,
+              image: post.coverImage ? blogUrlFor(post.coverImage).width(1200).url() : undefined,
+              slug,
+              datePublished: post.publishedAt,
+              dateModified: post._updatedAt,
+            }),
+            createBreadcrumbJsonLd([
+              { name: 'Home', url: '/' },
+              { name: 'Blog', url: '/blog' },
+              { name: post.title, url: `/blog/${slug}` },
+            ]),
+          ].map(({ '@context': _ctx, ...node }: any) => node),
+        }
+      : undefined,
+  });
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[var(--color-background)] flex items-center justify-center">
+        <div className="animate-pulse text-[var(--color-text-muted)]">Carregando...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[var(--color-background)] flex items-center justify-center">
+        <div className="text-red-500">Não foi possível carregar o artigo. Tente novamente.</div>
+      </div>
+    );
+  }
+
+  if (!post) return <NotFoundPage />;
+
+  const minutes = readingMinutes(post.chars);
+
+  return (
+    <div className="page_wrap bg-[var(--color-background)] min-h-screen w-full font-sans selection:bg-[var(--color-primary)] selection:text-white">
+      <Navigation />
+      <PostHero post={post} />
+
+      <main>
+        <article className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+          <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
+            <aside className="space-y-4 text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)] lg:pt-2">
+              <p>
+                Por<br />
+                <span className="text-[var(--color-text-dark)]">Giulia Parente</span>
+              </p>
+              <p>{formatPostDate(post.publishedAt)}</p>
+              {minutes && <p>{minutes} min de leitura</p>}
+            </aside>
+
+            <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
+              <PortableText value={post.body} components={portableTextComponents} />
+
+              <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-[var(--color-border-soft)] pt-8">
+                <Link
+                  to="/blog"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="text-xs font-bold tracking-[0.15em] uppercase text-[var(--color-primary)] no-underline border-b border-[var(--color-primary)] pb-1"
+                >
+                  ← Voltar ao blog
+                </Link>
+                {post.category && (
+                  <span className="text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)]">{post.category}</span>
+                )}
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {latest.length > 0 && (
+          <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+            <span className="block text-xs tracking-[0.2em] uppercase text-[var(--color-primary)]">Leia também</span>
+            <h2 className="mt-3 mb-10 md:mb-14 text-4xl md:text-5xl tracking-tight text-[var(--color-text-dark)]">
+              Mais histórias
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
+              {latest.map((p: any, index: number) => (
+                <PostCard key={p._id} post={p} index={index} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        <CtaBand />
+        <Newsletter />
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

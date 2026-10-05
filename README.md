@@ -104,9 +104,48 @@ Opcionais, em um arquivo `.env` na raiz:
 ```env
 VITE_SANITY_PROJECT_ID=dffchnvy
 VITE_SANITY_DATASET=production
+VITE_SANITY_BLOG_PROJECT_ID=bdmwaevv
+VITE_SANITY_BLOG_DATASET=production
 ```
 
-Se não forem definidas, esses são os valores padrão.
+Se não forem definidas, esses são os valores padrão. O blog usa um projeto Sanity próprio (`bdmwaevv`), separado do portfólio. O Studio do blog fica em `studio-blog-cms/` (veja o README da pasta).
+
+### Publicar posts: webhook Sanity → Vercel
+
+O texto de um post aparece no site assim que ele é publicado no Sanity, mas o HTML pré-renderizado (título, descrição, JSON-LD para o Google) e o `sitemap.xml` só são gerados no build. Para um novo deploy sair sozinho a cada publicação:
+
+1. **Vercel:** Project Settings → Git → **Deploy Hooks** → crie um hook (nome, por exemplo, `Sanity blog`, branch `main`) e copie a URL. Ela funciona como uma senha: quem a tiver dispara builds. Não commite nem cole em chats.
+2. **Sanity:** em [sanity.io/manage](https://www.sanity.io/manage), abra o projeto `bdmwaevv` → **API** → **Webhooks** → **Create webhook** e preencha:
+   - **URL:** a URL do Deploy Hook do Vercel
+   - **Dataset:** `production`
+   - **Trigger on:** Create, Update e Delete
+   - **Filter:** `_type == "post"`
+   - **HTTP method:** `POST`
+   - **Drafts:** deixe desmarcado (rascunhos não disparam build)
+   - **Projection:** em branco, e deixe o webhook habilitado
+3. **Teste:** publique (ou despublique) um post no Studio. Em poucos segundos aparece um deploy novo no painel do Vercel; no log do build procure por `Found N blog posts`.
+
+Sem o webhook o site continua funcionando: posts novos abrem normalmente, mas sem o HTML pré-renderizado e fora do sitemap até o próximo deploy manual (Vercel → Deployments → Redeploy).
+
+### Newsletter
+
+O formulário do blog envia o e-mail para `api/subscribe.js` (função serverless do Vercel), que grava um documento `subscriber` em um **dataset privado** do projeto do blog, para que os e-mails nunca fiquem legíveis pela API pública. Configuração:
+
+```bash
+cd studio-blog-cms
+npx sanity datasets create newsletter --visibility private
+npx sanity tokens add "Newsletter (Vercel)" --role editor   # copie o token exibido
+```
+
+No Vercel (Project Settings → Environment Variables), defina `SANITY_NEWSLETTER_TOKEN` com o token. Opcional: `SANITY_NEWSLETTER_DATASET` (padrão `newsletter`). Para ver os inscritos:
+
+```bash
+npx sanity documents query '*[_type == "subscriber"] | order(createdAt desc)' --dataset newsletter
+```
+
+Antispam (em `api/subscribe.js`, sem serviço externo): verificação de origem, campo-isca, token assinado que o formulário busca ao carregar (rejeita envios com menos de 3 s ou mais de 2 h), limite de 5 envios por IP a cada 10 min (por instância, melhor esforço), lista de e-mails descartáveis e checagem DNS (MX) do domínio. Origens extras podem ser liberadas em `NEWSLETTER_ALLOWED_ORIGINS` (separadas por vírgula); o domínio do site, o deploy atual do Vercel e `localhost` já são aceitos.
+
+Sem o token, o formulário mostra uma mensagem de erro. O `vite dev` não serve `/api`; use `vercel dev` para testar localmente.
 
 ## Estrutura do projeto
 

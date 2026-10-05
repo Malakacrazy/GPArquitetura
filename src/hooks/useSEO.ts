@@ -228,6 +228,12 @@ export const SEO_CONFIG = {
     keywords: 'renderização 3D, visualização arquitetônica, render arquitetura, imagens 3D, tour virtual',
     canonical: '/3d-visualization',
   },
+  blog: {
+    title: 'Blog',
+    description: 'Dicas e ideias de arquitetura emocional, reforma e design de interiores em São Paulo, pela Studio Araci.',
+    keywords: 'blog arquitetura, dicas reforma, design de interiores, arquitetura emocional, Studio Araci',
+    canonical: '/blog',
+  },
   contact: {
     title: 'Contato',
     description: 'Entre em contato com a Studio Araci. Estamos prontos para transformar seu projeto em realidade. Agende uma consulta ou solicite um orçamento.',
@@ -306,6 +312,40 @@ export const createProjectJsonLd = (project: {
   isPartOf: {
     '@type': 'WebSite',
     name: 'Studio Araci',
+    url: BASE_URL,
+  },
+});
+
+/**
+ * Creates JSON-LD BlogPosting structured data for a blog post
+ *
+ * @param post - Post data (slug is the bare slug, without /blog/)
+ * @returns JSON-LD object for Schema.org BlogPosting
+ */
+export const createBlogPostingJsonLd = (post: {
+  title: string;
+  description: string;
+  image?: string;
+  slug: string;
+  datePublished: string;
+  dateModified?: string;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  image: post.image,
+  url: `${BASE_URL}/blog/${post.slug}`,
+  mainEntityOfPage: `${BASE_URL}/blog/${post.slug}`,
+  datePublished: post.datePublished,
+  dateModified: post.dateModified || post.datePublished,
+  author: {
+    '@type': 'Person',
+    name: 'Giulia Parente',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_NAME,
     url: BASE_URL,
   },
 });

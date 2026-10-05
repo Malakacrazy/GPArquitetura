@@ -46,6 +46,8 @@ const LibraryPage = lazy(() => import('./pages/LibraryPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const Portfolio3DPage = lazy(() => import('./pages/Portfolio3DPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
@@ -70,6 +72,8 @@ export default function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
           <Route path="/3d-visualization" element={<Portfolio3DPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
           {/* Legal Pages */}

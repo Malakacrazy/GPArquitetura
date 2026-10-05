@@ -10,6 +10,14 @@ const client = createClient({
   useCdn: false,
 });
 
+// Blog content lives in its own Sanity project
+const blogClient = createClient({
+  projectId: process.env.VITE_SANITY_BLOG_PROJECT_ID || 'bdmwaevv',
+  dataset: process.env.VITE_SANITY_BLOG_DATASET || 'production',
+  apiVersion: '2026-10-05',
+  useCdn: false,
+});
+
 const BASE_URL = 'https://studioaraci.com.br';
 
 // Helper function to get current ISO 8601 date with timezone
@@ -76,6 +84,12 @@ const staticPages = [
     }
   },
   {
+    loc: '/blog',
+    priority: 0.8,
+    changefreq: 'weekly',
+    lastmod: getCurrentDate()
+  },
+  {
     loc: '/contact',
     priority: 0.8,
     changefreq: 'monthly',
@@ -101,6 +115,7 @@ const staticPages = [
 
 async function generateSitemap() {
   let projects = [];
+  let posts = [];
 
   try {
     console.log('Fetching projects from Sanity...');
@@ -118,6 +133,22 @@ async function generateSitemap() {
     console.warn('⚠️  Warning: Could not fetch projects from Sanity:', sanityError.message);
     console.log('Continuing with static pages only...');
     projects = [];
+  }
+
+  try {
+    console.log('Fetching blog posts from Sanity...');
+
+    posts = await blogClient.fetch(`
+      *[_type == "post" && defined(slug.current)] {
+        "slug": slug.current,
+        _updatedAt
+      }
+    `);
+
+    console.log(`Found ${posts.length} blog posts`);
+  } catch (sanityError) {
+    console.warn('⚠️  Warning: Could not fetch blog posts from Sanity:', sanityError.message);
+    posts = [];
   }
 
   try {
@@ -178,6 +209,22 @@ async function generateSitemap() {
       });
     }
 
+    // Add blog posts
+    if (posts.length > 0) {
+      sitemap += `
+  <!-- Blog Posts -->
+`;
+      posts.forEach(post => {
+        sitemap += `  <url>
+    <loc>${BASE_URL}/blog/${encodeURI(post.slug)}</loc>
+    <lastmod>${new Date(post._updatedAt).toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+`;
+      });
+    }
+
     sitemap += `
 </urlset>
 `;
@@ -189,7 +236,8 @@ async function generateSitemap() {
     console.log(`✅ Sitemap generated successfully at ${sitemapPath}`);
     console.log(`   - ${staticPages.length} static pages`);
     console.log(`   - ${projects.length} portfolio projects`);
-    console.log(`   - Total: ${staticPages.length + projects.length} URLs`);
+    console.log(`   - ${posts.length} blog posts`);
+    console.log(`   - Total: ${staticPages.length + projects.length + posts.length} URLs`);
 
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);

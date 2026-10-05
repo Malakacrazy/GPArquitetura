@@ -132,6 +132,16 @@ export const socialLinks = {
     /** Platform name */
     platform: 'Pinterest',
   },
+
+  /**
+   * Blog - Sanity-powered pages served under /blog of the main domain
+   */
+  blog: {
+    /** Blog URL */
+    url: '/blog',
+    /** Platform name */
+    platform: 'Blog',
+  },
 } as const;
 
 // =============================================================================

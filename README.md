@@ -187,12 +187,9 @@ O Studio também carrega a tag do Google (configurada em `sanity-studio/sanity.c
 
 | Ferramenta | ID |
 |------------|----|
-| Google Tag Manager | `GTM-WRK33L84` |
-| Google Analytics (gtag) | `G-BWV35TXN66` |
+| Google Tag Manager | `GTM-WRK33L84` (inclui o Google Analytics `G-BWV35TXN66`; não há gtag direto no HTML) |
 | Contentsquare | `387fba793be53` |
 | CookieHub | banner de consentimento (LGPD, GDPR, CCPA) |
-
-Se o container do GTM também enviar eventos ao GA4, as visitas podem ser contadas duas vezes; mantenha só um dos dois.
 
 ## Desempenho
 

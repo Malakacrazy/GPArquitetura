@@ -14,7 +14,7 @@ const client = createClient({
 const blogClient = createClient({
   projectId: process.env.VITE_SANITY_BLOG_PROJECT_ID || 'bdmwaevv',
   dataset: process.env.VITE_SANITY_BLOG_DATASET || 'production',
-  apiVersion: process.env.VITE_SANITY_API_VERSION || '2024-01-01',
+  apiVersion: '2026-10-05',
   useCdn: false,
 });
 

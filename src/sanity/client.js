@@ -59,7 +59,7 @@ export const blogClient = createClient({
   projectId: import.meta.env.VITE_SANITY_BLOG_PROJECT_ID || 'bdmwaevv',
   dataset: import.meta.env.VITE_SANITY_BLOG_DATASET || 'production',
   useCdn: true,
-  apiVersion: '2024-01-01'
+  apiVersion: '2026-10-05'
 })
 
 /**

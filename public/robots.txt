@@ -17,7 +17,6 @@ Allow: /videos/
 
 # Sitemap location
 Sitemap: https://studioaraci.com.br/sitemap.xml
-Sitemap: https://studioaraci.com.br/blog/wp-sitemap.xml
 
 # Google-specific
 User-agent: Googlebot

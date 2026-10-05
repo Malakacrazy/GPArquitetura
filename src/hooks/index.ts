@@ -15,10 +15,16 @@
  * - useProject: Fetch single project by slug
  * - useRelatedProjects: Fetch random related projects
  *
+ * Blog Hooks (from usePosts):
+ * - usePosts: Fetch all blog posts
+ * - usePost: Fetch single post by slug
+ * - useLatestPosts: Fetch newest posts excluding the current one
+ *
  * SEO Hooks (from useSEO):
  * - useSEO: Manage page SEO metadata
  * - SEO_CONFIG: Pre-configured page settings
  * - createProjectJsonLd: Generate project structured data
+ * - createBlogPostingJsonLd: Generate blog post structured data
  * - createBreadcrumbJsonLd: Generate breadcrumb structured data
  *
  * @example
@@ -33,4 +39,5 @@
  * ```
  */
 export { useProjects, useFeaturedProjects, useProject, useRelatedProjects } from './useProjects';
-export { useSEO, SEO_CONFIG, createProjectJsonLd, createBreadcrumbJsonLd } from './useSEO';
+export { usePosts, usePost, useLatestPosts } from './usePosts';
+export { useSEO, SEO_CONFIG, createProjectJsonLd, createBlogPostingJsonLd, createBreadcrumbJsonLd } from './useSEO';

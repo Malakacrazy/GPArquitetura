@@ -1,5 +1,16 @@
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
+import { createClient } from '@sanity/client';
+
+// Sanity client (same config as generate-sitemap.js)
+const client = createClient({
+  projectId: process.env.VITE_SANITY_PROJECT_ID || 'dffchnvy',
+  dataset: process.env.VITE_SANITY_DATASET || 'production',
+  apiVersion: process.env.VITE_SANITY_API_VERSION || '2024-01-01',
+  useCdn: false,
+});
+
+const BASE_URL = 'https://studioaraci.com.br';
 
 // Routes to prerender
 const routes = [
@@ -8,6 +19,7 @@ const routes = [
   '/about/library',
   '/portfolio',
   '/3d-visualization',
+  '/blog',
   '/contact',
   '/privacy',
   '/tos'
@@ -40,6 +52,11 @@ const routeMetadata = {
     description: 'Serviços profissionais de renderização 3D e visualização arquitetônica. Veja seus projetos ganhar vida antes mesmo da construção.',
     image: '/images/hero-3drendering-bg.webp'
   },
+  '/blog': {
+    title: 'Blog | Arquitetura Emocional e Interiores | Studio Araci',
+    description: 'Dicas e ideias de arquitetura emocional, reforma e design de interiores em São Paulo, pela Studio Araci.',
+    image: '/images/hero-bg.webp'
+  },
   '/contact': {
     title: 'Contato | Studio Araci',
     description: 'Entre em contato com a Studio Araci. Vamos conversar sobre seu próximo projeto arquitetônico em São Paulo.',
@@ -57,9 +74,53 @@ const routeMetadata = {
   }
 };
 
-function generateHTML(route, scriptTags, cssTags) {
-  const metadata = routeMetadata[route];
-  const canonicalUrl = `https://studioaraci.com.br${route}`;
+// Plain text from a Portable Text array (crawler-visible fallback content)
+function portableTextToParagraphs(blocks = []) {
+  return blocks
+    .filter((block) => block._type === 'block')
+    .map((block) => (block.children || []).map((child) => child.text).join(''))
+    .filter(Boolean);
+}
+
+function escapeHtml(text = '') {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Builds the metadata for a blog post page
+function postMetadata(post) {
+  const image = post.coverImageUrl || `${BASE_URL}/images/hero-bg.webp`;
+  return {
+    title: escapeHtml(`${post.title} | Studio Araci`),
+    description: escapeHtml(post.excerpt),
+    image,
+    ogType: 'article',
+    // data-page-jsonld lets useSEO replace this tag once the app mounts
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      image,
+      url: `${BASE_URL}/blog/${post.slug}`,
+      mainEntityOfPage: `${BASE_URL}/blog/${post.slug}`,
+      datePublished: post.publishedAt,
+      dateModified: post._updatedAt || post.publishedAt,
+      author: { '@type': 'Person', name: 'Giulia Parente' },
+      publisher: { '@type': 'Organization', name: 'Studio Araci', url: BASE_URL },
+    },
+    noscriptHtml: `<h1>${escapeHtml(post.title)}</h1>\n      ${portableTextToParagraphs(post.body)
+      .map((p) => `<p>${escapeHtml(p)}</p>`)
+      .join('\n      ')}`,
+  };
+}
+
+function generateHTML(route, scriptTags, cssTags, metadata = routeMetadata[route]) {
+  const canonicalUrl = `${BASE_URL}${route}`;
+  const ogImage = metadata.image.startsWith('http') ? metadata.image : `${BASE_URL}${metadata.image}`;
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -91,11 +152,11 @@ function generateHTML(route, scriptTags, cssTags) {
     <link rel="canonical" href="${canonicalUrl}" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${metadata.ogType || 'website'}" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${metadata.title}" />
     <meta property="og:description" content="${metadata.description}" />
-    <meta property="og:image" content="https://studioaraci.com.br${metadata.image}" />
+    <meta property="og:image" content="${ogImage}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Studio Araci - Escritório de Arquitetura em São Paulo" />
@@ -107,7 +168,7 @@ function generateHTML(route, scriptTags, cssTags) {
     <meta property="twitter:url" content="${canonicalUrl}" />
     <meta property="twitter:title" content="${metadata.title}" />
     <meta property="twitter:description" content="${metadata.description}" />
-    <meta property="twitter:image" content="https://studioaraci.com.br${metadata.image}" />
+    <meta property="twitter:image" content="${ogImage}" />
     <meta property="twitter:image:alt" content="Studio Araci - Escritório de Arquitetura em São Paulo" />
 
     <!-- Favicon -->
@@ -178,13 +239,14 @@ function generateHTML(route, scriptTags, cssTags) {
         }
       }
     </script>
+    ${metadata.jsonLd ? `<script type="application/ld+json" data-page-jsonld="true">${JSON.stringify(metadata.jsonLd).replace(/</g, '\\u003c')}</script>` : ''}
     ${scriptTags}
     ${cssTags}
 
     <!-- Crawler-visible content -->
     <noscript>
-      <h1>${metadata.title}</h1>
-      <p>${metadata.description}</p>
+      ${metadata.noscriptHtml || `<h1>${metadata.title}</h1>
+      <p>${metadata.description}</p>`}
       <p>Para melhor experiência, por favor habilite JavaScript em seu navegador.</p>
     </noscript>
   </head>
@@ -230,9 +292,30 @@ async function prerender() {
   let successCount = 0;
   let errorCount = 0;
 
-  for (const route of routes) {
+  // Blog posts come from Sanity; if it is unreachable, only the static routes are built
+  let pages = routes.map((route) => ({ route, metadata: routeMetadata[route] }));
+  try {
+    const posts = await client.fetch(`*[_type == "post" && defined(slug.current)] {
+      title,
+      "slug": slug.current,
+      excerpt,
+      publishedAt,
+      _updatedAt,
+      "coverImageUrl": coverImage.asset->url + "?w=1200&h=630&fit=crop&auto=format",
+      body
+    }`);
+    console.log(`📝 Found ${posts.length} blog posts\n`);
+    pages = pages.concat(
+      posts.map((post) => ({ route: `/blog/${post.slug}`, metadata: postMetadata(post) }))
+    );
+  } catch (sanityError) {
+    console.warn('⚠️  Warning: Could not fetch blog posts from Sanity:', sanityError.message);
+    console.log('Continuing with static routes only...\n');
+  }
+
+  for (const { route, metadata } of pages) {
     try {
-      const html = generateHTML(route, scriptTags, cssTags);
+      const html = generateHTML(route, scriptTags, cssTags, metadata);
 
       // Determine output path
       let outputPath;

@@ -226,11 +226,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // /blog is proxied to WordPress, not part of the SPA
-  if (new URL(event.request.url).pathname.startsWith('/blog')) {
-    return;
-  }
-
   const strategy = getCachingStrategy(event.request);
 
   if (strategy === CACHE_STRATEGIES.NETWORK_ONLY) {

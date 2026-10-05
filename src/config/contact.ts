@@ -126,8 +126,7 @@ export const socialLinks = {
   },
 
   /**
-   * Blog (WordPress) - served under /blog of the main domain (Vercel rewrite
-   * in vercel.json) so its backlinks count for studioaraci.com.br
+   * Blog - Sanity-powered pages served under /blog of the main domain
    */
   blog: {
     /** Blog URL */

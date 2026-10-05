@@ -63,13 +63,14 @@ export function ImageWithFallback({
   className = '',
   ...props
 }: ImageWithFallbackProps) {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [hasError, setHasError] = useState(false);
+  // Track which src failed instead of copying src into state, so the image
+  // follows prop changes (e.g. a hover preview switching between projects)
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const imgSrc = failedSrc === src ? fallbackSrc : src;
 
   const handleError = () => {
-    if (!hasError) {
-      setHasError(true);
-      setImgSrc(fallbackSrc);
+    if (failedSrc !== src) {
+      setFailedSrc(src);
     }
   };
 

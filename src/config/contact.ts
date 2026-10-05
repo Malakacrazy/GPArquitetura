@@ -124,6 +124,16 @@ export const socialLinks = {
     /** Platform name */
     platform: 'Pinterest',
   },
+
+  /**
+   * Blog (WordPress) - content and backlinks to the main site
+   */
+  blog: {
+    /** Blog URL */
+    url: 'https://blog.studioaraci.com.br',
+    /** Platform name */
+    platform: 'Blog',
+  },
 } as const;
 
 // =============================================================================

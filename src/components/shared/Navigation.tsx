@@ -366,6 +366,13 @@ export function Navigation() {
                             />
                             <span className="text-base md:text-lg font-light">Pinterest</span>
                           </a>
+                          <a href={socialLinks.blog.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
+                            <svg className="w-6 h-6 md:w-8 md:h-8 p-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M4 20h4L19.5 8.5a2.12 2.12 0 0 0-3-3L5 17l-1 3z" />
+                              <path d="M14 7l3 3" />
+                            </svg>
+                            <span className="text-base md:text-lg font-light">Blog</span>
+                          </a>
                         </div>
                       </motion.div>
                     </div>

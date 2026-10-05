@@ -1,26 +1,74 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Reveal } from '../shared/Reveal';
 import { images } from '../../config/assets';
 
 type Status = 'idle' | 'sending' | 'done' | 'error';
 
-/** Newsletter signup. Posts to /api/subscribe (see api/subscribe.js) */
+// Must match MIN_FORM_AGE_MS in api/subscribe.js (plus a small margin for clock/latency differences)
+const MIN_WAIT_MS = 3500;
+
+const ERROR_MESSAGES: Record<string, string> = {
+  invalid_email: 'Confira o e-mail e tente novamente.',
+  rate_limited: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
+};
+const DEFAULT_ERROR = 'Não foi possível concluir agora. Tente novamente em instantes.';
+
+/** Newsletter signup. Talks to /api/subscribe (see api/subscribe.js for the anti-spam rules) */
 export function Newsletter() {
   const [status, setStatus] = useState<Status>('idle');
+  const [message, setMessage] = useState('');
+  // Signed form token from the server, plus when this browser received it
+  const token = useRef<{ t: number; sig: string; receivedAt: number } | null>(null);
+
+  const loadToken = async () => {
+    try {
+      const response = await fetch('/api/subscribe');
+      if (!response.ok) throw new Error('token');
+      token.current = { ...(await response.json()), receivedAt: Date.now() };
+    } catch {
+      token.current = null;
+    }
+  };
+
+  useEffect(() => {
+    loadToken();
+  }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     setStatus('sending');
+    setMessage('');
     try {
+      if (!token.current) await loadToken();
+      if (!token.current) throw new Error('token');
+      // Autofill can submit instantly; the server rejects forms younger than a few seconds
+      const wait = MIN_WAIT_MS - (Date.now() - token.current.receivedAt);
+      if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
+
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: form.get('email'), website: form.get('website') }),
+        body: JSON.stringify({
+          email: form.get('email'),
+          website: form.get('website'),
+          t: token.current.t,
+          sig: token.current.sig,
+        }),
       });
-      setStatus(response.ok ? 'done' : 'error');
+      if (response.ok) {
+        setStatus('done');
+        return;
+      }
+      const { error } = await response.json().catch(() => ({ error: '' }));
+      setMessage(ERROR_MESSAGES[error] || DEFAULT_ERROR);
+      // Start over with a fresh token after any failure
+      token.current = null;
+      loadToken();
+      setStatus('error');
     } catch {
+      setMessage(DEFAULT_ERROR);
       setStatus('error');
     }
   };
@@ -67,7 +115,7 @@ export function Newsletter() {
                 </div>
                 {status === 'error' && (
                   <p role="alert" className="mt-4 text-sm text-white">
-                    Não foi possível concluir agora. Confira o e-mail e tente novamente.
+                    {message}
                   </p>
                 )}
                 <p className="mt-4 text-xs text-white/60">

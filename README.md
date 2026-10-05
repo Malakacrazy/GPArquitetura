@@ -126,6 +126,8 @@ No Vercel (Project Settings → Environment Variables), defina `SANITY_NEWSLETTE
 npx sanity documents query '*[_type == "subscriber"] | order(createdAt desc)' --dataset newsletter
 ```
 
+Antispam (em `api/subscribe.js`, sem serviço externo): verificação de origem, campo-isca, token assinado que o formulário busca ao carregar (rejeita envios com menos de 3 s ou mais de 2 h), limite de 5 envios por IP a cada 10 min (por instância, melhor esforço), lista de e-mails descartáveis e checagem DNS (MX) do domínio. Origens extras podem ser liberadas em `NEWSLETTER_ALLOWED_ORIGINS` (separadas por vírgula); o domínio do site, o deploy atual do Vercel e `localhost` já são aceitos.
+
 Sem o token, o formulário mostra uma mensagem de erro. O `vite dev` não serve `/api`; use `vercel dev` para testar localmente.
 
 ## Estrutura do projeto

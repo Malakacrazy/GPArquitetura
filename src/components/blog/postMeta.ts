@@ -29,3 +29,16 @@ export const readingMinutes = (chars?: number | null): number | undefined =>
 /** "Reforma · 6 min" style line (category and reading time, when available) */
 export const postMeta = (post: { category?: string; chars?: number | null }): string =>
   [post.category, readingMinutes(post.chars) && `${readingMinutes(post.chars)} min`].filter(Boolean).join(' · ');
+
+/** Plain text of a Portable Text block (spans only) */
+export const blockText = (block: any): string =>
+  (block?.children || []).map((child: any) => child.text || '').join('');
+
+/** URL-safe anchor id for a heading ("Por que faz diferença?" -> "por-que-faz-diferenca") */
+export const headingId = (text: string): string =>
+  text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');

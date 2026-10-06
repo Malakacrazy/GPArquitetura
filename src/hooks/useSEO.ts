@@ -381,4 +381,20 @@ export const createBreadcrumbJsonLd = (items: { name: string; url: string }[]) =
   })),
 });
 
+/**
+ * Creates JSON-LD FAQPage structured data from question/answer pairs
+ *
+ * @param items - FAQ entries (plain-text answers)
+ * @returns JSON-LD object for Schema.org FAQPage
+ */
+export const createFaqJsonLd = (items: { question: string; answer: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+});
+
 export default useSEO;

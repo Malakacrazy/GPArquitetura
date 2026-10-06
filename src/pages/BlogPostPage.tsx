@@ -17,16 +17,21 @@ import { PostCard } from '../components/blog/PostCard';
 import { PostHero } from '../components/blog/PostHero';
 import { CtaBand } from '../components/blog/CtaBand';
 import { Newsletter } from '../components/blog/Newsletter';
-import { formatPostDate, readingMinutes } from '../components/blog/postMeta';
+import { formatPostDate, readingMinutes, blockText, headingId } from '../components/blog/postMeta';
 import { blogUrlFor } from '../sanity/client';
 import { usePost, useLatestPosts } from '../hooks/usePosts';
-import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd } from '../hooks/useSEO';
+import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd, createFaqJsonLd } from '../hooks/useSEO';
 import NotFoundPage from './NotFoundPage';
 
 const portableTextComponents = {
   block: {
-    h2: ({ children }: any) => (
-      <h2 className="mt-14 mb-5 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]">{children}</h2>
+    h2: ({ children, value }: any) => (
+      <h2
+        id={headingId(blockText(value))}
+        className="mt-14 mb-5 scroll-mt-24 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]"
+      >
+        {children}
+      </h2>
     ),
     h3: ({ children }: any) => (
       <h3 className="mt-10 mb-4 text-2xl md:text-3xl leading-tight text-[var(--color-text-dark)]">{children}</h3>
@@ -53,6 +58,47 @@ const portableTextComponents = {
     ),
   },
   types: {
+    callout: ({ value }: any) => (
+      <aside className="my-10 border-l-2 border-[var(--color-primary)] bg-[var(--color-background)] px-6 py-5 text-base md:text-lg">
+        <span className="block mb-2 text-xs font-bold tracking-[0.15em] uppercase text-[var(--color-primary)]">
+          {value.label || 'Dica profissional'}
+        </span>
+        <p className="whitespace-pre-line">{value.text}</p>
+      </aside>
+    ),
+    table: ({ value }: any) => {
+      const [header, ...rows] = value.rows || [];
+      if (!header) return null;
+      return (
+        <div className="my-10 overflow-x-auto">
+          <table className="w-full border-collapse text-left text-sm md:text-base">
+            <thead>
+              <tr>
+                {(header.cells || []).map((cell: string, i: number) => (
+                  <th
+                    key={i}
+                    className="border-b border-[var(--color-primary)] px-4 py-3 text-xs font-bold tracking-[0.1em] uppercase text-[var(--color-text-dark)]"
+                  >
+                    {cell}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row: any) => (
+                <tr key={row._key}>
+                  {(row.cells || []).map((cell: string, i: number) => (
+                    <td key={i} className="border-b border-[var(--color-border-soft)] px-4 py-3 align-top">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    },
     image: ({ value }: any) => (
       <figure className="my-12">
         <img
@@ -99,6 +145,7 @@ export default function BlogPostPage() {
               { name: 'Blog', url: '/blog' },
               { name: post.title, url: `/blog/${slug}` },
             ]),
+            ...(post.faq?.length ? [createFaqJsonLd(post.faq)] : []),
           ].map(({ '@context': _ctx, ...node }: any) => node),
         }
       : undefined,
@@ -123,6 +170,9 @@ export default function BlogPostPage() {
   if (!post) return <NotFoundPage />;
 
   const minutes = readingMinutes(post.chars);
+  const toc = (post.body || [])
+    .filter((block: any) => block._type === 'block' && block.style === 'h2')
+    .map((block: any) => ({ id: headingId(blockText(block)), text: blockText(block) }));
 
   return (
     <div className="page_wrap bg-[var(--color-background)] min-h-screen w-full font-sans selection:bg-[var(--color-primary)] selection:text-white">
@@ -142,7 +192,69 @@ export default function BlogPostPage() {
             </aside>
 
             <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
+              {post.tldr?.length > 0 && (
+                <section className="mb-12 border-y border-[var(--color-border-soft)] py-8">
+                  <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Em resumo</h2>
+                  <ul className="list-disc pl-6 space-y-2">
+                    {post.tldr.map((item: string, i: number) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {toc.length > 1 && (
+                <nav aria-label="Índice" className="mb-12">
+                  <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Índice</h2>
+                  <ol className="list-decimal pl-6 space-y-2">
+                    {toc.map((item: { id: string; text: string }) => (
+                      <li key={item.id}>
+                        <a href={`#${item.id}`} className="text-[var(--color-text-dark)] no-underline hover:underline underline-offset-4">
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              )}
+
               <PortableText value={post.body} components={portableTextComponents} />
+
+              {post.faq?.length > 0 && (
+                <section className="mt-14">
+                  <h2 id="perguntas-frequentes" className="mb-5 scroll-mt-24 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]">
+                    Perguntas frequentes
+                  </h2>
+                  {post.faq.map((item: any) => (
+                    <div key={item._key}>
+                      <h3 className="mt-8 mb-3 text-xl md:text-2xl leading-snug text-[var(--color-text-dark)]">{item.question}</h3>
+                      <p className="whitespace-pre-line">{item.answer}</p>
+                    </div>
+                  ))}
+                </section>
+              )}
+
+              {post.sources?.length > 0 && (
+                <section className="mt-14">
+                  <h2 id="fontes" className="mb-5 scroll-mt-24 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">
+                    Fontes
+                  </h2>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base">
+                    {post.sources.map((source: any) => (
+                      <li key={source._key}>
+                        <a
+                          href={source.url}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          className="text-[var(--color-primary)] underline underline-offset-4"
+                        >
+                          {source.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-[var(--color-border-soft)] pt-8">
                 <Link

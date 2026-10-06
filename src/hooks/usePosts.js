@@ -69,7 +69,10 @@ export function usePost(slug) {
       .fetch(`*[_type == "post" && slug.current == $slug][0] {
         ${POST_LIST_FIELDS},
         _updatedAt,
-        body
+        tldr,
+        body,
+        faq,
+        sources
       }`, { slug })
       .then((data) => {
         setPost(data)

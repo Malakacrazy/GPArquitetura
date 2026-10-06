@@ -58,6 +58,14 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'tldr',
+      title: 'Em resumo (TL;DR)',
+      type: 'array',
+      description: 'Key takeaways shown right after the intro. 3–5 short bullets',
+      of: [{type: 'string'}],
+      validation: Rule => Rule.max(5)
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'array',
@@ -86,9 +94,134 @@ export default {
               type: 'string'
             }
           ]
+        },
+        {
+          name: 'callout',
+          title: 'Callout (Dica profissional)',
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              initialValue: 'Dica profissional'
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+              rows: 3,
+              validation: Rule => Rule.required()
+            }
+          ],
+          preview: {
+            select: {title: 'label', subtitle: 'text'}
+          }
+        },
+        {
+          name: 'table',
+          title: 'Table',
+          type: 'object',
+          fields: [
+            {
+              name: 'rows',
+              title: 'Rows',
+              type: 'array',
+              description: 'First row is the header. Every row needs the same number of cells',
+              of: [
+                {
+                  name: 'tableRow',
+                  title: 'Row',
+                  type: 'object',
+                  fields: [
+                    {
+                      name: 'cells',
+                      title: 'Cells',
+                      type: 'array',
+                      of: [{type: 'string'}]
+                    }
+                  ],
+                  preview: {
+                    select: {cells: 'cells'},
+                    prepare: ({cells}) => ({title: (cells || []).join(' | ')})
+                  }
+                }
+              ],
+              validation: Rule => Rule.required().min(2)
+            }
+          ],
+          preview: {
+            select: {rows: 'rows'},
+            prepare: ({rows}) => ({
+              title: 'Table',
+              subtitle: ((rows && rows[0] && rows[0].cells) || []).join(' | ')
+            })
+          }
         }
       ],
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'faq',
+      title: 'Perguntas frequentes (FAQ)',
+      type: 'array',
+      description: 'Question/answer pairs shown after the body (also usable as FAQ structured data)',
+      of: [
+        {
+          name: 'faqItem',
+          title: 'Question',
+          type: 'object',
+          fields: [
+            {
+              name: 'question',
+              title: 'Question',
+              type: 'string',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'answer',
+              title: 'Answer',
+              type: 'text',
+              rows: 4,
+              description: 'Plain text, 1–3 sentences',
+              validation: Rule => Rule.required()
+            }
+          ],
+          preview: {
+            select: {title: 'question', subtitle: 'answer'}
+          }
+        }
+      ]
+    },
+    {
+      name: 'sources',
+      title: 'Fontes',
+      type: 'array',
+      description: 'References cited in the article, listed at the end',
+      of: [
+        {
+          name: 'source',
+          title: 'Source',
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: Rule => Rule.required().uri({scheme: ['http', 'https']})
+            }
+          ],
+          preview: {
+            select: {title: 'title', subtitle: 'url'}
+          }
+        }
+      ]
     }
   ],
 

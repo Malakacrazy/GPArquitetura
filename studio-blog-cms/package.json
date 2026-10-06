@@ -25,7 +25,6 @@
     "@sanity/eslint-config-studio": "^5.0.2",
     "@types/react": "^19.1",
     "eslint": "^9.28",
-    "node-html-parser": "^9.0.4",
     "prettier": "^3.5",
     "typescript": "^5.8"
   },

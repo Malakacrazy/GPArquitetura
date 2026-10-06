@@ -13,6 +13,17 @@
     }
   ],
   "trailingSlash": false,
+  "functions": {
+    "api/sync-babylovegrowth.js": {
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/sync-babylovegrowth",
+      "schedule": "0 9 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -147,6 +147,36 @@ Antispam (em `api/subscribe.js`, sem serviço externo): verificação de origem,
 
 Sem o token, o formulário mostra uma mensagem de erro. O `vite dev` não serve `/api`; use `vercel dev` para testar localmente.
 
+### Importar artigos do BabyLoveGrowth
+
+`api/sync-babylovegrowth.js` busca os artigos na [API do BabyLoveGrowth](https://www.babylovegrowth.ai/docs/integrations/api) e cria no Sanity os posts que o blog ainda não tem. Roda sozinha uma vez por dia (Vercel Cron, `vercel.json`, 09:00 UTC); no plano Hobby o Vercel não permite cron mais frequente que isso.
+
+Configuração, no Vercel (Project Settings → Environment Variables):
+
+| Variável | Valor |
+|----------|-------|
+| `BABYLOVEGROWTH_API_KEY` | chave gerada no BabyLoveGrowth (Settings → Publishing → API → Connect) |
+| `SANITY_BLOG_TOKEN` | token com acesso de escrita ao blog: `cd studio-blog-cms && npx sanity tokens add "BabyLoveGrowth (Vercel)" --role editor` |
+| `CRON_SECRET` | texto aleatório longo; o Vercel o envia como `Authorization: Bearer ...` ao chamar o cron e o endpoint recusa quem não o tiver |
+
+Antes de deixar o cron rodar, confira o que seria importado (não grava nada):
+
+```bash
+curl -H "Authorization: Bearer $CRON_SECRET" "https://studioaraci.com.br/api/sync-babylovegrowth?dryRun=1"
+```
+
+Para importar na hora, é o mesmo comando sem `?dryRun=1`. A resposta lista `imported`, `skipped`, `pending` (o que ficou para a próxima execução) e `errors`; com erro a resposta é 500, e o erro aparece nos logs da função.
+
+Como funciona:
+
+- **Só cria, nunca sobrescreve.** Um artigo é pulado se o blog já tem um post com o mesmo slug ou o mesmo título, ou se ele já foi importado antes. Edições feitas no Studio ficam como estão, e um post apagado no Studio não volta (os ids importados ficam no documento `blg-sync-state`).
+- **Publica direto.** O post entra publicado, com a data de criação do artigo no BabyLoveGrowth, as imagens enviadas ao Sanity e o conteúdo convertido para Portable Text (HTML cru nunca é guardado). Como o post é publicado, o webhook Sanity → Vercel (seção acima) dispara o deploy que gera o HTML pré-renderizado e o sitemap.
+- **Categoria.** A API não informa categoria; defina no Studio (o post aparece no blog sem categoria até lá).
+- **Limites.** Cada execução para de iniciar novos artigos depois de 40 s e deixa o restante para o dia seguinte.
+- **Mudanças no BabyLoveGrowth depois da importação não são refletidas:** a API não informa data de atualização, então atualizar um artigo já importado é manual no Studio.
+
+A conversão fica em `api/_lib/htmlToPost.js` e é a mesma usada por `studio-blog-cms/scripts/html-to-sanity.mjs`, que importa arquivos `.html` exportados do painel (veja o cabeçalho do arquivo). Testes: `node --test "api/_lib/*.test.js"`.
+
 ## Estrutura do projeto
 
 ```

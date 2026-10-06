@@ -17,7 +17,7 @@ import { PostCard } from '../components/blog/PostCard';
 import { PostHero } from '../components/blog/PostHero';
 import { CtaBand } from '../components/blog/CtaBand';
 import { Newsletter } from '../components/blog/Newsletter';
-import { formatPostDate, readingMinutes, blockText, headingId } from '../components/blog/postMeta';
+import { formatPostDate, readingMinutes, blockText, headingId, splitIntro } from '../components/blog/postMeta';
 import { blogUrlFor } from '../sanity/client';
 import { usePost, useLatestPosts } from '../hooks/usePosts';
 import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd, createFaqJsonLd } from '../hooks/useSEO';
@@ -170,7 +170,8 @@ export default function BlogPostPage() {
   if (!post) return <NotFoundPage />;
 
   const minutes = readingMinutes(post.chars);
-  const toc = (post.body || [])
+  const { intro, rest } = splitIntro(post.body);
+  const toc = rest
     .filter((block: any) => block._type === 'block' && block.style === 'h2')
     .map((block: any) => ({ id: headingId(blockText(block)), text: blockText(block) }));
 
@@ -180,7 +181,8 @@ export default function BlogPostPage() {
       <PostHero post={post} />
 
       <main>
-        <article className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+        {/* 1. Opening paragraph + summary */}
+        <article className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 pt-16 md:pt-24 pb-4">
           <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
             <aside className="space-y-4 text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)] lg:pt-2">
               <p>
@@ -192,8 +194,10 @@ export default function BlogPostPage() {
             </aside>
 
             <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
+              <PortableText value={intro} components={portableTextComponents} />
+
               {post.tldr?.length > 0 && (
-                <section className="mb-12 border-y border-[var(--color-border-soft)] py-8">
+                <section className="mt-10 mb-12 border-y border-[var(--color-border-soft)] py-8">
                   <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Em resumo</h2>
                   <ul className="list-disc pl-6 space-y-2">
                     {post.tldr.map((item: string, i: number) => (
@@ -203,6 +207,17 @@ export default function BlogPostPage() {
                 </section>
               )}
 
+            </div>
+          </div>
+        </article>
+
+        {/* 2. Brand band, then índice, body, FAQ and references */}
+        <CtaBand />
+
+        <div className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+          <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
+            <div className="hidden lg:block" />
+            <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
               {toc.length > 1 && (
                 <nav aria-label="Índice" className="mb-12">
                   <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Índice</h2>
@@ -218,7 +233,7 @@ export default function BlogPostPage() {
                 </nav>
               )}
 
-              <PortableText value={post.body} components={portableTextComponents} />
+              <PortableText value={rest} components={portableTextComponents} />
 
               {post.faq?.length > 0 && (
                 <section className="mt-14">
@@ -256,6 +271,28 @@ export default function BlogPostPage() {
                 </section>
               )}
 
+              <section className="mt-14">
+                <h2 id="recomendacoes" className="mb-5 scroll-mt-24 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">
+                  Recomendações
+                </h2>
+                <ul className="list-disc pl-6 space-y-2 text-sm md:text-base">
+                  {[
+                    { to: '/3d-visualization', label: 'Visualização Arquitetônica' },
+                    { to: '/portfolio', label: 'Portfólio' },
+                  ].map((link) => (
+                    <li key={link.to}>
+                      <Link
+                        to={link.to}
+                        onClick={() => window.scrollTo(0, 0)}
+                        className="text-[var(--color-primary)] underline underline-offset-4"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
               <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-[var(--color-border-soft)] pt-8">
                 <Link
                   to="/blog"
@@ -270,7 +307,7 @@ export default function BlogPostPage() {
               </div>
             </div>
           </div>
-        </article>
+        </div>
 
         {latest.length > 0 && (
           <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
@@ -286,7 +323,6 @@ export default function BlogPostPage() {
           </section>
         )}
 
-        <CtaBand />
         <Newsletter />
       </main>
 

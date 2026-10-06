@@ -87,12 +87,19 @@ const routeMetadata = {
   }
 };
 
-// Plain text from a Portable Text array (crawler-visible fallback content)
-function portableTextToParagraphs(blocks = []) {
-  return blocks
-    .filter((block) => block._type === 'block')
-    .map((block) => (block.children || []).map((child) => child.text).join(''))
-    .filter(Boolean);
+// Plain text of a Portable Text block
+function blockText(block) {
+  return (block.children || []).map((child) => child.text || '').join('');
+}
+
+// Anchor id for a heading, same rules as headingId() in components/blog/postMeta.ts
+function headingId(text) {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
 function escapeHtml(text = '') {
@@ -101,6 +108,89 @@ function escapeHtml(text = '') {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// Portable Text body as crawler-visible HTML (headings, paragraphs, lists, callouts, tables)
+function bodyToHtml(blocks = []) {
+  const html = [];
+  let list = null; // { tag, items }
+  const flushList = () => {
+    if (list) html.push(`<${list.tag}>${list.items.map((item) => `<li>${item}</li>`).join('')}</${list.tag}>`);
+    list = null;
+  };
+
+  for (const block of blocks) {
+    if (block._type === 'block' && block.listItem) {
+      const tag = block.listItem === 'number' ? 'ol' : 'ul';
+      if (list?.tag !== tag) {
+        flushList();
+        list = { tag, items: [] };
+      }
+      list.items.push(escapeHtml(blockText(block)));
+      continue;
+    }
+    flushList();
+
+    if (block._type === 'block') {
+      const text = blockText(block);
+      if (!text) continue;
+      if (block.style === 'h2') html.push(`<h2 id="${headingId(text)}">${escapeHtml(text)}</h2>`);
+      else if (block.style === 'h3') html.push(`<h3>${escapeHtml(text)}</h3>`);
+      else if (block.style === 'blockquote') html.push(`<blockquote>${escapeHtml(text)}</blockquote>`);
+      else html.push(`<p>${escapeHtml(text)}</p>`);
+    } else if (block._type === 'callout') {
+      html.push(`<aside><strong>${escapeHtml(block.label || 'Dica profissional')}:</strong> ${escapeHtml(block.text)}</aside>`);
+    } else if (block._type === 'table') {
+      const [header, ...rows] = block.rows || [];
+      if (!header) continue;
+      const cells = (row, tag) => `<tr>${(row.cells || []).map((cell) => `<${tag}>${escapeHtml(cell)}</${tag}>`).join('')}</tr>`;
+      html.push(`<table><thead>${cells(header, 'th')}</thead><tbody>${rows.map((row) => cells(row, 'td')).join('')}</tbody></table>`);
+    }
+  }
+  flushList();
+  return html.join('\n      ');
+}
+
+// Same order as the post page: opening paragraph, resumo, índice, body, FAQ, fontes, recomendações
+function postNoscriptHtml(post) {
+  const body = post.body || [];
+  const [first, ...others] = body;
+  const hasIntro = first?._type === 'block' && first.style === 'normal' && blockText(first);
+  const intro = hasIntro ? [first] : [];
+  const rest = hasIntro ? others : body;
+
+  const headings = rest.filter((block) => block._type === 'block' && block.style === 'h2' && blockText(block));
+  const parts = [`<h1>${escapeHtml(post.title)}</h1>`, bodyToHtml(intro)];
+
+  if (post.tldr?.length) {
+    parts.push(`<h2>Em resumo</h2>\n      <ul>${post.tldr.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`);
+  }
+  if (headings.length > 1) {
+    parts.push(
+      `<nav aria-label="Índice"><h2>Índice</h2>\n      <ol>${headings
+        .map((block) => `<li><a href="#${headingId(blockText(block))}">${escapeHtml(blockText(block))}</a></li>`)
+        .join('')}</ol></nav>`
+    );
+  }
+  parts.push(bodyToHtml(rest));
+  if (post.faq?.length) {
+    parts.push(
+      `<h2 id="perguntas-frequentes">Perguntas frequentes</h2>\n      ${post.faq
+        .map((item) => `<h3>${escapeHtml(item.question)}</h3>\n      <p>${escapeHtml(item.answer)}</p>`)
+        .join('\n      ')}`
+    );
+  }
+  if (post.sources?.length) {
+    parts.push(
+      `<h2 id="fontes">Fontes</h2>\n      <ul>${post.sources
+        .map((source) => `<li><a href="${escapeHtml(source.url)}" rel="nofollow noopener noreferrer">${escapeHtml(source.title)}</a></li>`)
+        .join('')}</ul>`
+    );
+  }
+  parts.push(
+    `<h2 id="recomendacoes">Recomendações</h2>\n      <ul><li><a href="/3d-visualization">Visualização Arquitetônica</a></li><li><a href="/portfolio">Portfólio</a></li></ul>`
+  );
+  return parts.filter(Boolean).join('\n      ');
 }
 
 // Builds the metadata for a blog post page
@@ -125,10 +215,7 @@ function postMetadata(post) {
       author: { '@type': 'Person', name: 'Giulia Parente' },
       publisher: { '@type': 'Organization', name: 'Studio Araci', url: BASE_URL },
     },
-    noscriptHtml: `<h1>${escapeHtml(post.title)}</h1>\n      ${portableTextToParagraphs(post.body)
-      .map((p) => `<p>${escapeHtml(p)}</p>`)
-      .join('\n      ')}`,
-  };
+    noscriptHtml: postNoscriptHtml(post),  };
 }
 
 function generateHTML(route, scriptTags, cssTags, metadata = routeMetadata[route]) {
@@ -347,7 +434,10 @@ async function prerender() {
       publishedAt,
       _updatedAt,
       "coverImageUrl": coverImage.asset->url + "?w=1200&h=630&fit=crop&auto=format",
-      body
+      tldr,
+      body,
+      faq,
+      sources
     }`);
     console.log(`📝 Found ${posts.length} blog posts\n`);
     pages = pages.concat(

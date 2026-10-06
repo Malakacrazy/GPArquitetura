@@ -42,3 +42,11 @@ export const headingId = (text: string): string =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+
+/** Splits the opening paragraph (shown before the summary) from the rest of the body */
+export const splitIntro = (body: any[] = []): { intro: any[]; rest: any[] } => {
+  const [first, ...rest] = body;
+  return first?._type === 'block' && first.style === 'normal' && blockText(first)
+    ? { intro: [first], rest }
+    : { intro: [], rest: body };
+};

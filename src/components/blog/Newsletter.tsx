@@ -75,8 +75,8 @@ export function Newsletter() {
 
   return (
     <section className="relative overflow-hidden bg-[var(--color-text-dark)] text-white">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-0 items-center">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center">
+        <div className="min-w-0 px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
           <Reveal>
             <span className="text-xs font-medium tracking-[0.2em] uppercase text-white/70">Newsletter</span>
             <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
@@ -103,7 +103,7 @@ export function Newsletter() {
                     required
                     autoComplete="email"
                     placeholder="seuemail@exemplo.com"
-                    className="min-w-0 flex-1 bg-transparent px-4 py-2 text-base text-white placeholder:text-white/50 outline-none"
+                    className="w-full min-w-0 flex-1 bg-transparent px-4 py-2 text-base text-white placeholder:text-white/50 outline-none"
                   />
                   <button
                     type="submit"

@@ -242,9 +242,9 @@ export default function BlogPostPage() {
         <CtaBand variant="card" />
 
         <div className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 pb-8 md:pb-10">
-          <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
             <div className="hidden lg:block" />
-            <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
+            <div className="min-w-0 break-words text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
               {toc.length > 1 && (
                 <nav aria-label="Índice" className="mb-12">
                   <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Índice</h2>

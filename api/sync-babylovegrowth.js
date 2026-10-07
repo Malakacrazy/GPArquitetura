@@ -12,11 +12,13 @@
  * - BABYLOVEGROWTH_API_KEY: API key from BabyLoveGrowth (Settings -> Publishing -> API)
  * - SANITY_BLOG_TOKEN: Sanity API token with write access (Editor) to the blog dataset
  * - CRON_SECRET: random string; protects this endpoint
+ * - CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN (optional): Workers AI picks each new post's category; without them posts import with none
  * - VITE_SANITY_BLOG_PROJECT_ID / VITE_SANITY_BLOG_DATASET: blog project (defaults: bdmwaevv / production)
  */
 import { createClient } from '@sanity/client'
 import { timingSafeEqual } from 'node:crypto'
 import { createApi, syncArticles } from './_lib/syncArticles.js'
+import { createClassifier } from './_lib/classifyCategory.js'
 
 const safeEqual = (a, b) => {
   const x = Buffer.from(a)
@@ -49,11 +51,16 @@ export function createHandler(overrides = {}) {
         useCdn: false,
       })
 
+    const { CLOUDFLARE_ACCOUNT_ID: accountId, CLOUDFLARE_API_TOKEN: apiToken } = process.env
+    const classifier = accountId && apiToken ? createClassifier({ accountId, apiToken }) : undefined
+    if (!classifier) console.warn('CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN not set: posts import without category')
+
     try {
       const result = await syncArticles({
         client,
         api: overrides.api || createApi(apiKey),
         download: overrides.download,
+        classify: overrides.classify || classifier,
         dryRun: req.query?.dryRun === '1',
       })
       console.log(`BabyLoveGrowth sync: ${JSON.stringify(result)}`)

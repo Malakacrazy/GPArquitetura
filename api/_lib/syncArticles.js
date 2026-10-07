@@ -35,11 +35,12 @@ async function listArticles(api) {
  * @param {object} deps.client      Sanity client (write access)
  * @param {Function} deps.api       (path) => parsed JSON
  * @param {Function} [deps.download] image downloader (tests)
+ * @param {Function} [deps.classify] (article) => category name or undefined
  * @param {Function} [deps.now]      ms clock
  * @param {number} [deps.budgetMs]   stop starting new articles after this long; the rest wait for the next run
  * @param {boolean} [deps.dryRun]    report what would be imported without writing
  */
-export async function syncArticles({ client, api, download, now = Date.now, budgetMs = 40_000, dryRun = false }) {
+export async function syncArticles({ client, api, download, classify, now = Date.now, budgetMs = 40_000, dryRun = false }) {
   const started = now()
   const [state, posts, articles] = await Promise.all([
     client.fetch('*[_id == $id][0]', { id: STATE_ID }),
@@ -75,7 +76,8 @@ export async function syncArticles({ client, api, download, now = Date.now, budg
     }
     try {
       const full = await api(`/v1/articles/${article.id}`)
-      result.imported.push(await importPost({ ...article, ...full }, { client, download }))
+      const category = await classify?.(article)
+      result.imported.push(await importPost({ ...article, ...full }, { client, download, category }))
       seen.add(article.id)
       await remember()
     } catch (error) {

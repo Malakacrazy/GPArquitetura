@@ -137,3 +137,11 @@ test('the endpoint answers 500 when an article failed, so the failure shows in V
   failIds.add(1)
   assert.equal((await call({ authorization: 'Bearer secret' })).code, 500)
 })
+
+test('new posts get the category the classifier picked, and an unclassifiable article still imports', async () => {
+  const classify = async (a) => (a.id === 1 ? 'Processo' : undefined)
+  await run({ classify })
+  const byId = Object.fromEntries(created().map((d) => [d._id, d]))
+  assert.equal(byId['post-primeiro-artigo'].category, 'Processo')
+  assert.equal(byId['post-segundo-artigo'].category, undefined)
+})

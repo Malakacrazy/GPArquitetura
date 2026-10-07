@@ -74,7 +74,7 @@ async function uploadImages(doc, client, download) {
  *
  * @returns {Promise<string>} the document id
  */
-export async function importPost(article, { client, download = downloadImage }) {
+export async function importPost(article, { client, download = downloadImage, category }) {
   if (!article.content_html) throw new ImportError('missing_content', 'content_html is empty')
   if (!article.title) throw new ImportError('missing_title', 'title is empty')
   const slug = articleSlug(article)
@@ -87,6 +87,7 @@ export async function importPost(article, { client, download = downloadImage }) 
       title: article.title,
       excerpt: article.meta_description,
       heroImageUrl: article.hero_image_url,
+      category,
       publishedAt: new Date(article.created_at || Date.now()).toISOString(),
     })
   } catch (error) {

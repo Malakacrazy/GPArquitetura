@@ -1,60 +1,70 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../shared/Reveal';
 import { blogUrlFor } from '../../sanity/client';
-import { formatPostDate, postMeta } from './postMeta';
+import { formatPostDate, readingMinutes } from './postMeta';
 
-/** Split hero for a single post: title and lede on the left, arched cover on the right */
+const AUTHOR = 'Giulia Parente';
+
+/** Blue hero for a single post: meta column and headline, then the full-width cover with a caption bar */
 export function PostHero({ post }: { post: any }) {
-  const meta = [postMeta(post), formatPostDate(post.publishedAt)].filter(Boolean).join(' · ');
+  const minutes = readingMinutes(post.chars);
+  const meta = [
+    { label: 'Texto', value: AUTHOR },
+    { label: 'Publicado em', value: formatPostDate(post.publishedAt) },
+    minutes ? { label: 'Leitura', value: `${minutes} min` } : null,
+  ].filter(Boolean) as { label: string; value: string }[];
 
   return (
-    <section id="home" className="relative overflow-hidden bg-[var(--color-background)]">
-      <div className="pointer-events-none absolute -top-24 -right-40 w-[34rem] h-[34rem] md:w-[46rem] md:h-[46rem] rounded-full bg-[var(--araci-nevoa-azul)]/50" />
-
-      <div className="relative z-10 grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center min-h-[90vh] px-6 md:px-12 lg:px-16 xl:px-20 pt-28 md:pt-32 pb-12 md:pb-16">
-        <div>
+    <>
+      <section id="home" className="bg-[var(--color-text-dark)] text-white px-6 md:px-12 lg:px-16 xl:px-20 pt-20 pb-10 md:pb-12">
+        <div className="grid lg:grid-cols-[16rem_minmax(0,1fr)] gap-10 lg:gap-16">
           <Reveal>
             <Link
               to="/blog"
               onClick={() => window.scrollTo(0, 0)}
-              className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-primary)] no-underline"
+              className="block text-xs font-medium tracking-[0.2em] uppercase text-white/80 no-underline hover:text-white"
             >
-              ← Blog
+              ← Voltar ao blog
             </Link>
+            {post.category && (
+              <p className="mt-8 flex items-center gap-3 text-xs font-medium tracking-[0.2em] uppercase">
+                <span className="size-3 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />
+                {post.category}
+              </p>
+            )}
+            <div className="mt-6 h-px bg-white/40" />
+            <dl className="mt-6 space-y-5">
+              {meta.map((item) => (
+                <div key={item.label}>
+                  <dt className="text-[0.65rem] tracking-[0.15em] uppercase text-white/60">{item.label}</dt>
+                  <dd className="mt-1 text-sm">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <h1 className="mt-6 md:mt-8 text-4xl md:text-5xl xl:text-6xl leading-[1.08] tracking-tight text-[var(--color-text-dark)]">
-              {post.title}
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="mt-8 h-[2px] w-16 bg-[var(--color-primary)]" />
-            <p className="mt-8 max-w-md text-lg md:text-xl font-light leading-relaxed text-[var(--color-text-muted)]">{post.excerpt}</p>
-            <p className="mt-6 text-xs tracking-[0.15em] uppercase text-[var(--color-text-dark)]">{meta}</p>
-          </Reveal>
+          <div>
+            <Reveal delay={0.1}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] tracking-tight break-words">
+                {post.title}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-8 max-w-2xl text-lg md:text-xl font-light leading-relaxed text-white/75">{post.excerpt}</p>
+            </Reveal>
+          </div>
         </div>
+      </section>
 
-        {post.coverImage && (
-          <Reveal delay={0.15}>
-            <div className="relative">
-              <div className="aspect-[4/5] md:aspect-[5/4] lg:aspect-[17/18] overflow-hidden rounded-[24px] rounded-tl-[140px] md:rounded-tl-[200px] bg-[var(--color-accent)] shadow-[0_30px_60px_-25px_rgba(44,48,56,0.35)]">
-                <img
-                  src={blogUrlFor(post.coverImage).width(1400).url()}
-                  alt={post.coverImage.alt || post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {post.category && (
-                <span className="absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-full bg-white/90 px-4 py-2 text-xs text-[var(--color-text-dark)] shadow-sm">
-                  {post.category}
-                </span>
-              )}
-            </div>
-          </Reveal>
-        )}
-      </div>
-    </section>
+      {post.coverImage && (
+        <figure className="bg-[var(--color-background)]">
+          <img
+            src={blogUrlFor(post.coverImage).width(2000).url()}
+            alt={post.coverImage.alt || post.title}
+            className="w-full h-[50vh] md:h-[65vh] max-h-[44rem] object-cover"
+          />
+        </figure>
+      )}
+    </>
   );
 }

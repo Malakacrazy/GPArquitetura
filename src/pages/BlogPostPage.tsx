@@ -11,17 +11,47 @@
  */
 import { Link, useParams } from 'react-router-dom';
 import { PortableText } from '@portabletext/react';
+import { Lightbulb } from 'lucide-react';
 import { Navigation } from '../components/shared/Navigation';
 import { Footer } from '../components/shared/Footer';
 import { PostCard } from '../components/blog/PostCard';
 import { PostHero } from '../components/blog/PostHero';
 import { CtaBand } from '../components/blog/CtaBand';
 import { Newsletter } from '../components/blog/Newsletter';
-import { formatPostDate, readingMinutes, blockText, headingId, splitIntro } from '../components/blog/postMeta';
+import { blockText, headingId, splitIntro } from '../components/blog/postMeta';
 import { blogUrlFor } from '../sanity/client';
 import { usePost, useLatestPosts } from '../hooks/usePosts';
 import { useSEO, createBlogPostingJsonLd, createBreadcrumbJsonLd, createFaqJsonLd } from '../hooks/useSEO';
 import NotFoundPage from './NotFoundPage';
+
+const pad = (n: number) => String(n).padStart(2, '0');
+
+// Section headings get their number from the índice; on desktop it sits in the left gutter
+const makePortableTextComponents = (toc: { id: string }[]) => ({
+  ...portableTextComponents,
+  block: {
+    ...portableTextComponents.block,
+    h2: ({ children, value }: any) => {
+      const id = headingId(blockText(value));
+      const number = toc.findIndex((item) => item.id === id) + 1;
+      return (
+        <div className="relative mt-16 mb-5">
+          {number > 0 && (
+            <div className="mb-3 lg:mb-0 lg:absolute lg:right-full lg:mr-8 lg:w-36 lg:pt-2">
+              <span className="block text-3xl lg:text-4xl leading-none text-[var(--color-primary)]" style={{ fontFamily: 'var(--font-heading)' }}>
+                {pad(number)}
+              </span>
+              <div className="hidden lg:block mt-3 h-px bg-[var(--color-border-soft)]" />
+            </div>
+          )}
+          <h2 id={id} className="scroll-mt-24 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]">
+            {children}
+          </h2>
+        </div>
+      );
+    },
+  },
+});
 
 const portableTextComponents = {
   block: {
@@ -59,11 +89,16 @@ const portableTextComponents = {
   },
   types: {
     callout: ({ value }: any) => (
-      <aside className="my-10 border-l-2 border-[var(--color-primary)] bg-[var(--color-background)] px-6 py-5 text-base md:text-lg">
-        <span className="block mb-2 text-xs font-bold tracking-[0.15em] uppercase text-[var(--color-primary)]">
-          {value.label || 'Dica profissional'}
-        </span>
-        <p className="whitespace-pre-line">{value.text}</p>
+      <aside className="my-12 rounded-[16px] rounded-tr-[80px] border border-[var(--araci-baleia-azul)]/20 bg-[var(--araci-nevoa-azul)]/60 p-6 md:p-10 text-[var(--color-text-dark)] shadow-[0_20px_40px_-25px_rgba(44,48,56,0.35)]">
+        <div className="mb-5 flex items-center gap-3">
+          <span className="flex size-10 items-center justify-center rounded-full bg-white/70 text-[var(--araci-baleia-azul)]">
+            <Lightbulb className="size-5" strokeWidth={1.5} aria-hidden="true" />
+          </span>
+          <span className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--araci-baleia-azul)]">
+            {value.label || 'Dica profissional'}
+          </span>
+        </div>
+        <p className="whitespace-pre-line text-xl md:text-2xl leading-snug" style={{ fontFamily: 'var(--font-heading)' }}>{value.text}</p>
       </aside>
     ),
     table: ({ value }: any) => {
@@ -169,7 +204,6 @@ export default function BlogPostPage() {
 
   if (!post) return <NotFoundPage />;
 
-  const minutes = readingMinutes(post.chars);
   const { intro, rest } = splitIntro(post.body);
   const toc = rest
     .filter((block: any) => block._type === 'block' && block.style === 'h2')
@@ -182,22 +216,15 @@ export default function BlogPostPage() {
 
       <main>
         {/* 1. Opening paragraph + summary */}
-        <article className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 pt-16 md:pt-24 pb-4">
-          <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
-            <aside className="space-y-4 text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)] lg:pt-2">
-              <p>
-                Por<br />
-                <span className="text-[var(--color-text-dark)]">Giulia Parente</span>
-              </p>
-              <p>{formatPostDate(post.publishedAt)}</p>
-              {minutes && <p>{minutes} min de leitura</p>}
-            </aside>
-
+        <article className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 pt-6 md:pt-8 pb-8">
+          <div>
             <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
-              <PortableText value={intro} components={portableTextComponents} />
+              <div className="text-xl md:text-2xl leading-relaxed text-[var(--color-text-dark)]" style={{ fontFamily: 'var(--font-heading)' }}>
+                <PortableText value={intro} components={portableTextComponents} />
+              </div>
 
               {post.tldr?.length > 0 && (
-                <section className="mt-10 mb-12 border-y border-[var(--color-border-soft)] py-8">
+                <section className="mt-10">
                   <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Em resumo</h2>
                   <ul className="list-disc pl-6 space-y-2">
                     {post.tldr.map((item: string, i: number) => (
@@ -211,20 +238,21 @@ export default function BlogPostPage() {
           </div>
         </article>
 
-        {/* 2. Brand band, then índice, body, FAQ and references */}
-        <CtaBand />
+        {/* 2. Brand card, then índice, body, FAQ and references */}
+        <CtaBand variant="card" />
 
-        <div className="bg-white px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+        <div className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 pb-8 md:pb-10">
           <div className="grid lg:grid-cols-[1fr_minmax(0,44rem)_1fr] gap-10 lg:gap-12">
             <div className="hidden lg:block" />
             <div className="text-[var(--color-text-muted)] font-light text-base md:text-lg leading-[1.9]">
               {toc.length > 1 && (
                 <nav aria-label="Índice" className="mb-12">
                   <h2 className="mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">Índice</h2>
-                  <ol className="list-decimal pl-6 space-y-2">
-                    {toc.map((item: { id: string; text: string }) => (
+                  <ol className="space-y-3 text-sm md:text-base">
+                    {toc.map((item: { id: string; text: string }, i: number) => (
                       <li key={item.id}>
-                        <a href={`#${item.id}`} className="text-[var(--color-text-dark)] no-underline hover:underline underline-offset-4">
+                        <a href={`#${item.id}`} className="flex gap-4 text-[var(--color-text-dark)] no-underline hover:text-[var(--color-primary)] transition-colors">
+                          <span className="text-xs text-[var(--color-primary)] pt-1">{pad(i + 1)}</span>
                           {item.text}
                         </a>
                       </li>
@@ -233,17 +261,17 @@ export default function BlogPostPage() {
                 </nav>
               )}
 
-              <PortableText value={rest} components={portableTextComponents} />
+              <PortableText value={rest} components={makePortableTextComponents(toc)} />
 
               {post.faq?.length > 0 && (
-                <section className="mt-14">
-                  <h2 id="perguntas-frequentes" className="mb-5 scroll-mt-24 text-3xl md:text-4xl leading-tight tracking-tight text-[var(--color-text-dark)]">
+                <section className="mt-16">
+                  <h2 id="perguntas-frequentes" className="mb-2 scroll-mt-24 text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]">
                     Perguntas frequentes
                   </h2>
                   {post.faq.map((item: any) => (
                     <div key={item._key}>
-                      <h3 className="mt-8 mb-3 text-xl md:text-2xl leading-snug text-[var(--color-text-dark)]">{item.question}</h3>
-                      <p className="whitespace-pre-line">{item.answer}</p>
+                      <h3 className="mt-8 mb-3 text-2xl md:text-3xl leading-snug text-[var(--color-text-dark)]">{item.question}</h3>
+                      <p className="whitespace-pre-line text-base">{item.answer}</p>
                     </div>
                   ))}
                 </section>
@@ -310,7 +338,7 @@ export default function BlogPostPage() {
         </div>
 
         {latest.length > 0 && (
-          <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+          <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 pt-8 md:pt-10 pb-16 md:pb-24">
             <span className="block text-xs tracking-[0.2em] uppercase text-[var(--color-primary)]">Leia também</span>
             <h2 className="mt-3 mb-10 md:mb-14 text-4xl md:text-5xl tracking-tight text-[var(--color-text-dark)]">
               Mais histórias

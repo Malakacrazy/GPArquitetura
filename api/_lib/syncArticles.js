@@ -35,7 +35,7 @@ async function listArticles(api) {
  * @param {object} deps.client      Sanity client (write access)
  * @param {Function} deps.api       (path) => parsed JSON
  * @param {Function} [deps.download] image downloader (tests)
- * @param {Function} [deps.classify] (article) => category name or undefined
+ * @param {Function} [deps.classify] (article, existingCategories) => category name or undefined
  * @param {Function} [deps.now]      ms clock
  * @param {number} [deps.budgetMs]   stop starting new articles after this long; the rest wait for the next run
  * @param {boolean} [deps.dryRun]    report what would be imported without writing
@@ -44,13 +44,14 @@ export async function syncArticles({ client, api, download, classify, now = Date
   const started = now()
   const [state, posts, articles] = await Promise.all([
     client.fetch('*[_id == $id][0]', { id: STATE_ID }),
-    client.fetch('*[_type == "post"]{_id, title}'),
+    client.fetch('*[_type == "post"]{_id, title, category}'),
     listArticles(api),
   ])
 
   const seen = new Set(state?.importedIds || [])
   const knownIds = new Set(posts.map((post) => post._id.replace(/^drafts\./, '')))
   const knownTitles = new Set(posts.map((post) => post.title))
+  const categories = new Set(posts.map((post) => post.category).filter(Boolean))
   const alreadyInBlog = (article) => knownIds.has(`post-${articleSlug(article)}`) || knownTitles.has(article.title)
 
   const result = { imported: [], skipped: 0, pending: [], errors: [] }
@@ -76,7 +77,8 @@ export async function syncArticles({ client, api, download, classify, now = Date
     }
     try {
       const full = await api(`/v1/articles/${article.id}`)
-      const category = await classify?.(article)
+      const category = await classify?.(article, [...categories])
+      if (category) categories.add(category) // later articles in this run can reuse it
       result.imported.push(await importPost({ ...article, ...full }, { client, download, category }))
       seen.add(article.id)
       await remember()

@@ -145,3 +145,11 @@ test('new posts get the category the classifier picked, and an unclassifiable ar
   assert.equal(byId['post-primeiro-artigo'].category, 'Processo')
   assert.equal(byId['post-segundo-artigo'].category, undefined)
 })
+
+test('the classifier sees the categories already in the blog, including ones created earlier in the same run', async () => {
+  posts = [{ _id: 'post-velho', title: 'Velho', category: 'Reforma' }]
+  const seen = []
+  await run({ classify: async (a, known) => (seen.push([a.id, known]), 'Neurodesign') })
+  assert.deepEqual(seen[0][1], ['Reforma'])
+  assert.deepEqual(seen[1][1], ['Reforma', 'Neurodesign'])
+})

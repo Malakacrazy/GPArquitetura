@@ -21,3 +21,14 @@ test('a rambling answer never becomes a category', async () => {
 test('an API failure yields no category instead of breaking the import', async () => {
   assert.equal(await classify(reply('', false)), undefined)
 })
+
+test('the model is shown the categories in use, and answers are spelled like the existing one', async () => {
+  let prompt
+  const fetchFn = async (_url, { body }) => {
+    prompt = JSON.parse(body).messages[0].content
+    return { ok: true, json: async () => ({ result: { response: 'interiores' } }) }
+  }
+  const category = await createClassifier({ accountId: 'a', apiToken: 't' }, fetchFn)({ title: 'x' }, ['Interiores', 'Processo'])
+  assert.match(prompt, /Existing categories: Interiores, Processo/)
+  assert.equal(category, 'Interiores')
+})

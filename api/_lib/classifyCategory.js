@@ -1,23 +1,22 @@
 /**
  * Picks a blog category for an article with Cloudflare Workers AI (the BabyLoveGrowth API sends none).
- * The model prefers the usual categories but may invent a new one when none fits. Code only
- * checks the shape (short, one line) and reuses the exact spelling of a known category, so a
- * rambling reply can't end up as a category. Any failure resolves to undefined: the post is
+ * The model sees the categories the blog already uses, reuses one only when it fits well and
+ * otherwise invents a new one. Code only checks the shape (short, one line) and reuses the exact
+ * spelling of a known category, so a rambling reply can't end up as a category. Any failure resolves to undefined: the post is
  * still imported (without category) and the failure is logged.
  */
-export const CATEGORIES = ['Interiores', 'Processo', 'Reforma', 'Investidores']
 const MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
 const MAX_WORDS = 3
 const MAX_CHARS = 30
 
 /** Model answer -> category, or undefined when it isn't a short label */
-export const cleanCategory = (answer) => {
+export const cleanCategory = (answer, known = []) => {
   const label = String(answer).split('\n')[0].replace(/^category:\s*/i, '').replace(/["'.*]/g, '').trim()
   if (!label || label.length > MAX_CHARS || label.split(/\s+/).length > MAX_WORDS) return undefined
-  return CATEGORIES.find((name) => name.toLowerCase() === label.toLowerCase()) || label
+  return known.find((name) => name.toLowerCase() === label.toLowerCase()) || label
 }
 
-export const createClassifier = ({ accountId, apiToken }, fetchFn = fetch) => async (article) => {
+export const createClassifier = ({ accountId, apiToken }, fetchFn = fetch) => async (article, known = []) => {
   try {
     const response = await fetchFn(`https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${MODEL}`, {
       method: 'POST',
@@ -26,7 +25,7 @@ export const createClassifier = ({ accountId, apiToken }, fetchFn = fetch) => as
         messages: [
           {
             role: 'system',
-            content: `You categorise blog articles of an architecture studio, in Portuguese. Prefer one of: ${CATEGORIES.join(', ')}. If none fits, answer with a new category of 1-2 words, same style. Answer with the category only.`,
+            content: `You categorise blog articles of an architecture studio, in Portuguese. ${known.length ? `Existing categories: ${known.join(', ')}. Reuse one only if it fits the article well; otherwise create a new one` : 'Create a category'} of 1-2 words, as specific as the article's main subject. Answer with the category only.`,
           },
           { role: 'user', content: `Title: ${article.title}\nDescription: ${article.meta_description || ''}` },
         ],
@@ -36,7 +35,7 @@ export const createClassifier = ({ accountId, apiToken }, fetchFn = fetch) => as
     })
     if (!response.ok) throw new Error(`Workers AI ${response.status}`)
     const answer = String((await response.json()).result?.response || '')
-    const category = cleanCategory(answer)
+    const category = cleanCategory(answer, known)
     if (!category) throw new Error(`unexpected answer "${answer.slice(0, 40)}"`)
     return category
   } catch (error) {

@@ -12,7 +12,7 @@ export function FeaturedStories({ posts }: { posts: any[] }) {
   if (!lead) return null;
 
   return (
-    <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24 lg:py-28">
+    <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 py-8 md:py-12 lg:py-14">
       <div className="flex items-end justify-between gap-6 mb-10 md:mb-14">
         <Reveal>
           <span className="text-xs tracking-[0.2em] uppercase text-[var(--color-primary)]">Seleção recente</span>

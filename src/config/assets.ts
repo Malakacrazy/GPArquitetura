@@ -36,6 +36,7 @@ export const icons = {
   instagram: `${ASSET_BASE}/icons/instagram.png`,
   linkedin: `${ASSET_BASE}/icons/linkedin.png`,
   pinterest: `${ASSET_BASE}/icons/pinterest.png`,
+  blog: `${ASSET_BASE}/icons/interior-design.png`,
   // About Us page specific icons
   projects: `${ASSET_BASE}/icons/projects.png`,
   awards: `${ASSET_BASE}/icons/awards.png`,

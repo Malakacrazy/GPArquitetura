@@ -34,7 +34,9 @@ export default function BlogPage() {
   });
 
   // Page layout: 1 hero, 3 featured, 4 offset grid, then the full archive
-  const [hero, ...afterHero] = posts;
+  // The investor article has its own section; the rest feed the hero, featured and grid
+  const investor = posts.find((p) => p.category === 'Investidores');
+  const [hero, ...afterHero] = posts.filter((p) => p !== investor);
   const featured = afterHero.slice(0, 3);
   const notes = afterHero.slice(3, 7);
 
@@ -44,7 +46,7 @@ export default function BlogPage() {
       <Hero post={hero} />
 
       <main>
-        <IntroLetter />
+        <IntroLetter post={investor} />
 
         {loading && <p className="px-6 md:px-12 lg:px-16 xl:px-20 py-16 text-[var(--color-text-muted)]">Carregando artigos...</p>}
         {error && <p className="px-6 md:px-12 lg:px-16 xl:px-20 py-16 text-red-500">Não foi possível carregar os artigos. Tente novamente.</p>}

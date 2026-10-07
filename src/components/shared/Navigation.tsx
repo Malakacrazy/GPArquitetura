@@ -29,7 +29,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
-  
+  const [isBlueSection, setIsBlueSection] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       // Get all sections
@@ -37,7 +38,8 @@ export function Navigation() {
       const scrollPosition = window.scrollY + 100; // Offset for button position
       
       let currentIsDark = false;
-      
+      let currentIsBlue = false;
+
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionBottom = sectionTop + section.offsetHeight;
@@ -52,11 +54,13 @@ export function Navigation() {
             currentIsDark = true;
           } else if (classList.includes('bg-[var(--color-text-dark)]')) {
             currentIsDark = true;
+            currentIsBlue = true;
           }
         }
       });
-      
+
       setIsDarkSection(currentIsDark);
+      setIsBlueSection(currentIsBlue);
     };
     
     handleScroll(); // Check on mount
@@ -107,7 +111,9 @@ export function Navigation() {
         className={`fixed top-4 left-4 md:top-6 md:left-6 z-[60] backdrop-blur-sm rounded-full w-10 h-10 md:w-12 md:h-12 transition-all duration-300 ${
           isOpen
             ? 'bg-[var(--color-primary)]/90 hover:bg-[var(--color-primary)] text-white'
-            : isDarkSection 
+            : isBlueSection
+            ? 'bg-[var(--araci-areia-clara)] hover:bg-[var(--araci-areia-clara)] text-[var(--araci-baleia-azul)]'
+            : isDarkSection
             ? 'bg-[var(--color-background)]/90 hover:bg-[var(--color-background)] text-[var(--color-text-dark)]' 
             : 'bg-[var(--color-primary)]/80 hover:bg-[var(--color-primary)] text-white'
         }`}
@@ -119,6 +125,25 @@ export function Navigation() {
       >
         <div className="relative w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
           {/* Brand symbol - Default State (only visible when closed and not hovered) */}
+          {isBlueSection && !isOpen ? (
+            <motion.div
+              aria-label="menu"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 bg-[var(--araci-baleia-azul)]"
+              style={{
+                maskImage: "url('/brand/simbolo-branco-192.png')",
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center',
+                WebkitMaskImage: "url('/brand/simbolo-branco-192.png')",
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+              }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: !isHovered ? 1 : 0, rotate: isHovered ? 180 : 0 }}
+              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+            />
+          ) : (
           <motion.img
             src={`/brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-96.png`}
             srcSet={`/brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-96.png 1x, /brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-192.png 2x`}
@@ -130,7 +155,8 @@ export function Navigation() {
             animate={{ opacity: !isOpen && !isHovered ? 1 : 0, rotate: isHovered ? 180 : 0 }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           />
-          
+          )}
+
           {/* Animated Bars - Transform to X when open */}
           <motion.div
             className="absolute inset-0 flex flex-col justify-center gap-[5px]"
@@ -141,7 +167,7 @@ export function Navigation() {
             {/* Top bar - rotates to form top of X */}
             <motion.div
               className={`w-full h-[1.5px] rounded-full transition-colors duration-300 ${
-                isOpen ? 'bg-white' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
+                isOpen ? 'bg-white' : isBlueSection ? 'bg-[var(--araci-baleia-azul)]' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
               }`}
               initial={{ scaleX: 0, rotate: 0, y: 0 }}
               animate={{ 
@@ -155,7 +181,7 @@ export function Navigation() {
             {/* Second bar - fades out when open */}
             <motion.div
               className={`w-full h-[1.5px] rounded-full transition-colors duration-300 ${
-                isOpen ? 'bg-white' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
+                isOpen ? 'bg-white' : isBlueSection ? 'bg-[var(--araci-baleia-azul)]' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
               }`}
               initial={{ scaleX: 0, opacity: 1 }}
               animate={{ 
@@ -168,7 +194,7 @@ export function Navigation() {
             {/* Third bar - fades out when open */}
             <motion.div
               className={`w-full h-[1.5px] rounded-full transition-colors duration-300 ${
-                isOpen ? 'bg-white' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
+                isOpen ? 'bg-white' : isBlueSection ? 'bg-[var(--araci-baleia-azul)]' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
               }`}
               initial={{ scaleX: 0, opacity: 1 }}
               animate={{ 
@@ -181,7 +207,7 @@ export function Navigation() {
             {/* Bottom bar - rotates to form bottom of X */}
             <motion.div
               className={`w-full h-[1.5px] rounded-full transition-colors duration-300 ${
-                isOpen ? 'bg-white' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
+                isOpen ? 'bg-white' : isBlueSection ? 'bg-[var(--araci-baleia-azul)]' : isDarkSection ? 'bg-[var(--color-text-dark)]' : 'bg-white'
               }`}
               initial={{ scaleX: 0, rotate: 0, y: 0 }}
               animate={{ 
@@ -367,10 +393,19 @@ export function Navigation() {
                             <span className="text-base md:text-lg font-light">Pinterest</span>
                           </a>
                           <a href={socialLinks.blog.url} className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
-                            <svg className="w-6 h-6 md:w-8 md:h-8 p-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                              <path d="M4 20h4L19.5 8.5a2.12 2.12 0 0 0-3-3L5 17l-1 3z" />
-                              <path d="M14 7l3 3" />
-                            </svg>
+                            <div
+                              className="w-5 h-5 md:w-6 md:h-6 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
+                              style={{
+                                maskImage: `url('${icons.blog}')`,
+                                maskSize: 'contain',
+                                maskRepeat: 'no-repeat',
+                                maskPosition: 'center',
+                                WebkitMaskImage: `url('${icons.blog}')`,
+                                WebkitMaskSize: 'contain',
+                                WebkitMaskRepeat: 'no-repeat',
+                                WebkitMaskPosition: 'center'
+                              }}
+                            />
                             <span className="text-base md:text-lg font-light">Blog</span>
                           </a>
                         </div>

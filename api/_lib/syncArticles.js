@@ -4,12 +4,14 @@
  * "Already has" means any of: its BabyLoveGrowth id was imported before (recorded in the
  * `blg-sync-state` document, so a post deleted in the Studio does not come back), a post
  * with the same slug exists, or a post with the same title exists. Existing posts are never
- * touched, so Studio edits survive every sync.
+ * touched, so Studio edits survive every sync. The one exception: a post with no category at all
+ * (the classifier failed when it was imported) gets one on a later run; a category is never changed.
  */
 import { articleSlug, importPost } from './importPost.js'
 
 export const STATE_ID = 'blg-sync-state'
 const PAGE_SIZE = 50 // API maximum
+const BACKFILL_LIMIT = 3 // posts without category retried per run, so the time budget stays safe
 
 /** Thin client for the BabyLoveGrowth API; throws on any non-2xx so failures are loud */
 export const createApi = (apiKey, fetchFn = fetch) => async (path) => {
@@ -44,7 +46,7 @@ export async function syncArticles({ client, api, download, classify, now = Date
   const started = now()
   const [state, posts, articles] = await Promise.all([
     client.fetch('*[_id == $id][0]', { id: STATE_ID }),
-    client.fetch('*[_type == "post"]{_id, title, category}'),
+    client.fetch('*[_type == "post"]{_id, title, category, excerpt}'),
     listArticles(api),
   ])
 
@@ -54,7 +56,7 @@ export async function syncArticles({ client, api, download, classify, now = Date
   const categories = new Set(posts.map((post) => post.category).filter(Boolean))
   const alreadyInBlog = (article) => knownIds.has(`post-${articleSlug(article)}`) || knownTitles.has(article.title)
 
-  const result = { imported: [], skipped: 0, pending: [], errors: [] }
+  const result = { imported: [], categorised: [], skipped: 0, pending: [], errors: [] }
   const todo = []
   let recognised = false
   for (const article of articles) {
@@ -86,6 +88,30 @@ export async function syncArticles({ client, api, download, classify, now = Date
       result.errors.push(`${article.id} ${articleSlug(article)}: ${error.message}`)
     }
   }
+
+  // Retry the category of posts that have none (a draft and its published twin count as one post)
+  const byPost = new Map()
+  for (const post of posts) {
+    const key = post._id.replace(/^drafts\./, '')
+    const group = byPost.get(key) || { ids: [], title: post.title, excerpt: post.excerpt, hasCategory: false }
+    group.ids.push(post._id)
+    group.hasCategory ||= Boolean(post.category)
+    byPost.set(key, group)
+  }
+  const uncategorised = [...byPost.values()].filter((group) => !group.hasCategory).slice(0, BACKFILL_LIMIT)
+  for (const group of classify ? uncategorised : []) {
+    if (now() - started > budgetMs) break
+    try {
+      const category = await classify({ title: group.title, meta_description: group.excerpt }, [...categories])
+      if (!category) continue // classifier failed or answered badly: stays blank, retried next run
+      categories.add(category)
+      for (const id of group.ids) await client.patch(id).set({ category }).commit()
+      result.categorised.push(group.ids[0].replace(/^drafts\./, ''))
+    } catch (error) {
+      result.errors.push(`categorise ${group.ids[0]}: ${error.message}`)
+    }
+  }
+
   // Also persist ids that were only recognised as already present
   if (recognised) await remember()
   return result

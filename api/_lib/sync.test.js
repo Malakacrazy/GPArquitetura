@@ -31,6 +31,7 @@ let writes, uploads, posts, state, library, failIds
 const client = () => ({
   fetch: async (query) => (query.includes('blg-sync-state') || query.includes('$id') ? state : posts),
   assets: { upload: async (_k, _b, { filename }) => (uploads.push(filename), { _id: `image-${filename}` }) },
+  patch: (id) => ({ set: (fields) => ({ commit: async () => writes.push(['patch', id, fields]) }) }),
   createIfNotExists: async (doc) => writes.push(['createIfNotExists', doc]),
   createOrReplace: async (doc) => {
     writes.push(['createOrReplace', doc])
@@ -152,4 +153,36 @@ test('the classifier sees the categories already in the blog, including ones cre
   await run({ classify: async (a, known) => (seen.push([a.id, known]), 'Neurodesign') })
   assert.deepEqual(seen[0][1], ['Reforma'])
   assert.deepEqual(seen[1][1], ['Reforma', 'Neurodesign'])
+})
+
+test('a post left without category is categorised on a later run, but one that has a category is never changed', async () => {
+  library = []
+  posts = [
+    { _id: 'post-sem', title: 'Sem categoria', excerpt: 'Sobre luz' },
+    { _id: 'post-com', title: 'Com categoria', category: 'Reforma' }, // set by hand in the Studio
+    { _id: 'post-twin', title: 'Gêmeo', category: 'Processo' },
+    { _id: 'drafts.post-twin', title: 'Gêmeo' }, // draft without category next to a categorised twin
+  ]
+  const seen = []
+  const result = await run({ classify: async (a) => (seen.push(a), 'Iluminação') })
+  assert.deepEqual(result.categorised, ['post-sem'])
+  assert.deepEqual(writes, [['patch', 'post-sem', { category: 'Iluminação' }]])
+  assert.deepEqual(seen, [{ title: 'Sem categoria', meta_description: 'Sobre luz' }])
+})
+
+test('a failing classifier leaves the post blank without failing the sync, so the next run retries', async () => {
+  library = []
+  posts = [{ _id: 'post-sem', title: 'Sem categoria' }]
+  const result = await run({ classify: async () => undefined })
+  assert.deepEqual(result.categorised, [])
+  assert.deepEqual(result.errors, [])
+  assert.deepEqual(writes, [])
+})
+
+test('only a few uncategorised posts are retried per run, and a dry run writes nothing', async () => {
+  library = []
+  posts = Array.from({ length: 5 }, (_, i) => ({ _id: `post-${i}`, title: `Post ${i}` }))
+  assert.equal((await run({ classify: async () => 'X', dryRun: true })).categorised.length, 0)
+  assert.deepEqual(writes, [])
+  assert.equal((await run({ classify: async () => 'X' })).categorised.length, 3)
 })

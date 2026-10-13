@@ -147,7 +147,7 @@ export function Navigation() {
           <motion.img
             src={`/brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-96.png`}
             srcSet={`/brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-96.png 1x, /brand/simbolo-${isOpen || !isDarkSection ? 'branco' : 'terracota'}-192.png 2x`}
-            alt="menu"
+            alt="Símbolo Studio Araci — abrir menu"
             width={32}
             height={32}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 max-w-none object-contain"

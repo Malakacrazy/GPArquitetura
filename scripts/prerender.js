@@ -41,22 +41,22 @@ const routeMetadata = {
     image: '/images/hero-bg.webp'
   },
   '/about': {
-    title: 'Sobre Studio Araci | Nossa História e Filosofia',
-    description: 'Conheça a história, filosofia e equipe da Studio Araci. Descubra como transformamos sonhos em realidade através de projetos arquitetônicos únicos.',
+    title: 'Sobre Nós: Arquitetura Emocional em São Paulo | Studio Araci',
+    description: 'Conheça o Studio Araci, especializado em neuroarquitetura e espaços acolhedores que unem funcionalidade, emoções e bem-estar. Descubra nossa abordagem.',
     image: '/images/hero-about-us-bg.webp'
   },
   '/about/library': {
-    title: 'Biblioteca | Studio Araci',
-    description: 'Explore nossa biblioteca de recursos, materiais e inspirações arquitetônicas da Studio Araci.',
+    title: 'Biblioteca de Arquitetura e Neuroarquitetura em São Paulo',
+    description: 'Descubra livros sobre design emocional e neuroarquitetura e veja como cores, formas e espaços influenciam emoções, saúde e bem-estar. Explore as referências.',
     image: '/images/hero-about-us-bg.webp'
   },
   '/portfolio': {
-    title: 'Portfólio | Projetos Studio Araci',
-    description: 'Veja nosso portfólio completo de projetos residenciais e comerciais. Conheça o trabalho da Studio Araci em São Paulo.',
+    title: 'Portfólio de Arquitetura e Design | Studio Araci São Paulo',
+    description: 'Conheça os projetos arquitetônicos da Studio Araci em São Paulo e outras localidades. Explore ambientes e espaços criados para acolhimento e bem-estar.',
     image: '/images/hero-portfolio-bg.webp'
   },
   '/3d-visualization': {
-    title: 'Renderização 3D | Visualização Arquitetônica | Studio Araci',
+    title: 'Visualização Arquitetônica 3D em São Paulo | Studio Araci',
     description: 'Serviços profissionais de renderização 3D e visualização arquitetônica. Veja seus projetos ganhar vida antes mesmo da construção.',
     image: '/images/hero-3drendering-bg.webp'
   },
@@ -66,12 +66,12 @@ const routeMetadata = {
     image: '/images/hero-about-us-bg.webp'
   },
   '/contact': {
-    title: 'Contato | Studio Araci',
+    title: 'Contato de Arquitetura em São Paulo | Studio Araci',
     description: 'Entre em contato com a Studio Araci. Vamos conversar sobre seu próximo projeto arquitetônico em São Paulo.',
     image: '/images/hero-contact-bg.webp'
   },
   '/privacy': {
-    title: 'Política de Privacidade | Studio Araci',
+    title: 'Política de Privacidade LGPD | Studio Araci São Paulo',
     description: 'Leia nossa política de privacidade e saiba como protegemos seus dados.',
     image: '/images/og-image.png'
   },
@@ -81,8 +81,8 @@ const routeMetadata = {
     image: '/images/og-image.png'
   },
   '/tos': {
-    title: 'Termos de Serviço | Studio Araci',
-    description: 'Leia nossos termos de serviço e condições de uso.',
+    title: 'Termos de Serviço e Uso | Studio Araci São Paulo',
+    description: 'Consulte os termos de uso do Studio Araci e conheça as condições de acesso ao site e aos serviços de arquitetura e urbanismo. Leia todos os detalhes aqui.',
     image: '/images/og-image.png'
   }
 };

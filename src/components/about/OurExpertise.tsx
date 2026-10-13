@@ -102,7 +102,7 @@ export function OurExpertise() {
                   transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
                 >
                   <div className="flex flex-col items-center">
-                    <img src={iconUrl} alt="" className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-4 md:mb-6" style={{ filter: 'brightness(0) saturate(100%) invert(77%) sepia(20%) saturate(826%) hue-rotate(359deg) brightness(95%) contrast(88%)' }} />
+                    <img src={iconUrl} alt={stat.label} className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-4 md:mb-6" style={{ filter: 'brightness(0) saturate(100%) invert(77%) sepia(20%) saturate(826%) hue-rotate(359deg) brightness(95%) contrast(88%)' }} />
                     <div className="mb-2 text-xl md:text-2xl text-white">{stat.number}</div>
                   </div>
                   <div className="mb-2 text-xl md:text-2xl text-white">{stat.label}</div>

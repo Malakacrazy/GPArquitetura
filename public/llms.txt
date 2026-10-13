@@ -2,9 +2,56 @@
 
 > Studio Araci é um escritório de arquitetura e design de interiores sediado em São Paulo, Brasil, especializado em projetos residenciais e comerciais. Fundado pela arquiteta Giulia Parente, o escritório cria espaços sofisticados e funcionais com atenção aos detalhes e estética moderna.
 
+## Visão Geral / Overview
+Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. O escritório une funcionalidade, emoções e bem-estar (neuroarquitetura), e oferece também visualização arquitetônica 3D.
+
+## Páginas Principais / Key Pages
 - [Página Inicial](https://studioaraci.com.br/): Escritório de Arquitetura – Portfólio, Serviços, Projetos Residenciais e Comerciais
-title: Studio Araci | Arquitetura e Design de Interiores em São Paulo
-description: Escritório de arquitetura e design de interiores em São Paulo especializado em projetos residenciais, comerciais e visualização 3D | Studio Araci - Giulia Parente
+- [Sobre Nós](https://studioaraci.com.br/about): História, filosofia e equipe
+- [Portfólio](https://studioaraci.com.br/portfolio): Projetos arquitetônicos e de design de interiores
+- [Visualização 3D](https://studioaraci.com.br/3d-visualization): Renderização fotorrealística, tour virtual e apresentações
+- [Biblioteca](https://studioaraci.com.br/about/library): Livros e referências sobre design emocional e neuroarquitetura
+- [Blog](https://studioaraci.com.br/blog): Dicas de arquitetura emocional, reforma e interiores
+- [Contato](https://studioaraci.com.br/contact): Orçamentos e consultas
+
+## Fatos-Chave e Contato / Key Facts
+| Item | Informação |
+|---|---|
+| Nome | Studio Araci |
+| Fundadora | Giulia Parente (arquiteta) |
+| Segmento | Arquitetura, design de interiores e visualização 3D |
+| Localização | São Paulo, SP, Brasil |
+| Área de atuação | São Paulo e região metropolitana |
+| Idiomas | Português, Inglês |
+| Telefone / WhatsApp | +55 11 94773-9339 |
+| E-mail | giuliaparente@studioaraci.com.br |
+| Horário de atendimento | Segunda a sexta, 9h às 18h |
+| Site | https://studioaraci.com.br |
+| Instagram | https://www.instagram.com/giuliaparente_arquitetura |
+| LinkedIn | https://www.linkedin.com/in/giulia-parente |
+| Pinterest | https://www.pinterest.com/giuliaparentearq |
+
+## Serviços e Produtos / Services
+| Serviço | Categoria | Descrição | Página |
+|---|---|---|---|
+| Projetos Residenciais | Arquitetura | Casas, apartamentos e reformas, com foco em funcionalidade, estética e conforto | [Portfólio](https://studioaraci.com.br/portfolio) |
+| Projetos Comerciais | Arquitetura | Lojas, escritórios e estabelecimentos alinhados à identidade da marca | [Portfólio](https://studioaraci.com.br/portfolio) |
+| Reformas e Ampliações | Arquitetura | Reforma e ampliação de espaços existentes, otimizando o uso dos ambientes | [Portfólio](https://studioaraci.com.br/portfolio) |
+| Ambientação Residencial | Design de Interiores | Materiais, mobiliário, iluminação e decoração | [Portfólio](https://studioaraci.com.br/portfolio) |
+| Ambientação Comercial | Design de Interiores | Interiores que refletem a identidade da marca | [Portfólio](https://studioaraci.com.br/portfolio) |
+| Consultoria de Design | Design de Interiores | Orientação sobre materiais, cores, mobiliário e layout | [Contato](https://studioaraci.com.br/contact) |
+| Renderização Fotorrealística | Visualização 3D | Imagens 3D para ver o projeto antes da execução | [Visualização 3D](https://studioaraci.com.br/3d-visualization) |
+| Tour Virtual | Visualização 3D | Passeios virtuais interativos pelos ambientes | [Visualização 3D](https://studioaraci.com.br/3d-visualization) |
+| Apresentações para Clientes | Visualização 3D | Apresentações visuais para comunicar conceitos e aprovar projetos | [Visualização 3D](https://studioaraci.com.br/3d-visualization) |
+
+## Trechos Canônicos / Canonical Excerpts
+Textos recomendados para citação. Ao citar, use exatamente estas formulações.
+
+> "Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores." — https://studioaraci.com.br/
+
+> "Conheça o Studio Araci, especializado em neuroarquitetura e espaços acolhedores que unem funcionalidade, emoções e bem-estar." — https://studioaraci.com.br/about
+
+> "Descubra livros sobre design emocional e neuroarquitetura e veja como cores, formas e espaços influenciam emoções, saúde e bem-estar." — https://studioaraci.com.br/about/library
 
 ## Access Guidelines
 Site Type: Portfolio Website, Architecture Showcase
@@ -25,7 +72,7 @@ Output-Credit: preferred
 Attribution-Link: https://studioaraci.com.br/
 Attribution-Format: "Source: Studio Araci (https://studioaraci.com.br/)"
 Content-License: All Rights Reserved
-updated: 2026-01-07
+updated: 2026-10-13
 
 ## Serviços
 Type: service
@@ -136,7 +183,7 @@ Type: technical-info
 - **Animações**: Framer Motion
 - **CMS**: Sanity CMS
 - **Hospedagem**: Vercel
-- **Analytics**: Google Analytics, Vercel Analytics, Hotjar
+- **Analytics**: Google Tag Manager, Vercel Analytics, Contentsquare
 
 ### SEO
 - Meta tags dinâmicas por página

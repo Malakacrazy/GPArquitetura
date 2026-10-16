@@ -12,7 +12,7 @@ function Note({ post, number, tall, order }: { post: any; number: number; tall?:
   return (
     <Reveal className={order}>
       <Link to={`/blog/${post.slug.current}`} onClick={toTop} className="group block no-underline">
-        <div className={`${tall ? 'aspect-[4/5]' : 'aspect-[4/3]'} overflow-hidden rounded-[16px] bg-[var(--color-accent)]`}>
+        <div className={`${tall ? 'aspect-[4/5]' : 'aspect-[3/2]'} overflow-hidden rounded-[16px] bg-[var(--color-accent)]`}>
           {post.coverImage && (
             <img
               src={blogUrlFor(post.coverImage).width(900).url()}
@@ -22,11 +22,11 @@ function Note({ post, number, tall, order }: { post: any; number: number; tall?:
             />
           )}
         </div>
-        <div className="mt-4 flex items-baseline justify-between">
+        <div className="mt-2 flex items-baseline justify-between">
           <h6 className="text-xl text-[var(--color-primary)]">{String(number).padStart(2, '0')}</h6>
           <span className="text-xs tracking-[0.1em] uppercase text-[var(--color-text-muted)]">{post.category}</span>
         </div>
-        <h3 className="mt-3 text-xl md:text-2xl leading-snug text-[var(--color-text-dark)] transition-colors duration-500 group-hover:text-[var(--color-primary)]">
+        <h3 className="mt-1 text-xl md:text-2xl leading-snug text-[var(--color-text-dark)] transition-colors duration-500 group-hover:text-[var(--color-primary)]">
           {post.title}
         </h3>
         <div className="mt-5 h-px bg-[var(--color-border-soft)]" />
@@ -42,16 +42,16 @@ export function FieldNotes({ posts, firstNumber }: { posts: any[]; firstNumber: 
   const n = (i: number) => firstNumber + i;
 
   return (
-    <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 pb-16 md:pb-24 lg:pb-28">
-      <div className="flex flex-col gap-10 md:grid md:grid-cols-3 md:gap-8">
-        <div className="contents md:flex md:flex-col md:gap-12">
+    <section className="bg-[var(--color-background)] px-6 md:px-12 lg:px-16 xl:px-20 pb-8 md:pb-12 lg:pb-14">
+      <div className="flex flex-col gap-8 md:grid md:grid-cols-3 md:gap-8">
+        <div className="contents md:flex md:flex-col md:gap-8">
           {a && <Note post={a} number={n(0)} order={ORDER[0]} />}
           {d && <Note post={d} number={n(3)} order={ORDER[3]} />}
         </div>
-        <div className="contents md:flex md:flex-col md:gap-12 md:pt-24">
+        <div className="contents md:flex md:flex-col md:gap-8 md:pt-16">
           {b && <Note post={b} number={n(1)} tall order={ORDER[1]} />}
         </div>
-        <div className="contents md:flex md:flex-col md:gap-12">
+        <div className="contents md:flex md:flex-col md:gap-8">
           {c && <Note post={c} number={n(2)} order={ORDER[2]} />}
           <Reveal className={ORDER[4]}>
             <Link

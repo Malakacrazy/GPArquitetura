@@ -1,3 +1,9 @@
+const SIZES = [
+  { title: 'Full width', value: 'full' },
+  { title: 'Half', value: 'half' },
+  { title: 'One third', value: 'third' }
+]
+
 export default {
   name: 'project',
   title: 'Portfolio Project',
@@ -111,6 +117,58 @@ export default {
         options: { hotspot: true }
       }],
       validation: Rule => Rule.length(3)
+    },
+
+    // FLEXIBLE GALLERY (images + videos, any quantity)
+    {
+      name: 'gallery',
+      title: 'Gallery (images and videos)',
+      type: 'array',
+      description: 'Any number of images, videos and text blocks, shown after the main image. When filled, it replaces the fixed grids, the featured image above and — if it contains Text items — the two descriptions below.',
+      of: [
+        {
+          type: 'image',
+          title: 'Image',
+          options: { hotspot: true },
+          fields: [
+            { name: 'size', title: 'Size', type: 'string', options: { list: SIZES, layout: 'radio' }, initialValue: 'half' },
+            { name: 'alt', title: 'Alt text', type: 'string', description: 'Describes the image for accessibility and SEO' }
+          ]
+        },
+        {
+          name: 'galleryText',
+          title: 'Text',
+          type: 'object',
+          description: 'A paragraph (or more) placed between images',
+          fields: [
+            { name: 'text', title: 'Text', type: 'array', of: [{ type: 'block' }] }
+          ],
+          preview: {
+            select: { blocks: 'text' },
+            prepare: ({ blocks }) => ({
+              title: (blocks || []).flatMap(b => (b.children || []).map(c => c.text)).join(' ').slice(0, 80) || 'Text',
+              subtitle: 'Text'
+            })
+          }
+        },
+        {
+          name: 'galleryVideo',
+          title: 'Video',
+          type: 'object',
+          fields: [
+            { name: 'file', title: 'Video file', type: 'file', options: { accept: 'video/*' }, description: 'Upload an MP4 (keep it under ~50 MB)' },
+            { name: 'embedUrl', title: 'Or embed URL', type: 'url', description: 'YouTube or Vimeo embed link (used only if no file is uploaded)', validation: Rule => Rule.uri({ scheme: ['https'] }) },
+            { name: 'poster', title: 'Poster image', type: 'image', options: { hotspot: true }, description: 'Shown before the video plays' },
+            { name: 'size', title: 'Size', type: 'string', options: { list: SIZES, layout: 'radio' }, initialValue: 'full' },
+            { name: 'caption', title: 'Caption', type: 'string' }
+          ],
+          validation: Rule => Rule.custom(v => (v?.file?.asset || v?.embedUrl ? true : 'Upload a video file or paste an embed URL')),
+          preview: {
+            select: { title: 'caption', media: 'poster' },
+            prepare: ({ title, media }) => ({ title: title || 'Video', subtitle: 'Video', media })
+          }
+        }
+      ]
     },
 
     // TEXT CONTENT

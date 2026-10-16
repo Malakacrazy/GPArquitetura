@@ -175,6 +175,10 @@ export function useProject(slug) {
         galleryGrid1,
         featuredImage,
         galleryGrid2,
+        gallery[]{
+          ...,
+          "fileUrl": file.asset->url
+        },
         description1,
         description2,
         shortDescription

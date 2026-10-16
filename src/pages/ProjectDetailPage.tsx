@@ -142,6 +142,7 @@ const ProjectDetailPage = () => {
             description1={project.description1}
             featuredImage={project.featuredImage}
             galleryGrid2={project.galleryGrid2}
+            gallery={project.gallery}
             description2={project.description2}
           />
         </div>

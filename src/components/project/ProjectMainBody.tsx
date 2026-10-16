@@ -15,6 +15,10 @@
  * 5. Second gallery grid (3 columns, 4:5 portrait)
  * 6. Second description (Portable Text)
  *
+ * When `gallery` (images + videos, any quantity) has items, it replaces
+ * the fixed grids and the featured image: main image, first description,
+ * gallery, second description. Each item picks full / half / third width.
+ *
  * Image Handling:
  * - Uses Sanity urlFor() for image optimization
  * - 1200px width for main/featured images
@@ -52,8 +56,71 @@ interface ProjectMainBodyProps {
   description1?: any;
   featuredImage?: any;
   galleryGrid2?: any[];
+  gallery?: any[];
   description2?: any;
 }
+
+/** Column span (of 6) and aspect ratio per gallery item size */
+const GALLERY_SIZES: Record<string, string> = {
+  full: 'col-span-6 aspect-[16/9]',
+  half: 'col-span-6 md:col-span-3 aspect-[4/3]',
+  third: 'col-span-6 md:col-span-2 aspect-[4/5]',
+};
+
+const GalleryItem = ({ item, idx }: { item: any; idx: number }) => {
+  if (item._type === 'galleryText') {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="col-span-6 py-2 md:py-6 text-[var(--color-text-muted)] font-light text-base md:text-lg leading-7 space-y-4 md:space-y-6 prose prose-lg max-w-3xl"
+      >
+        <PortableText value={item.text} />
+      </motion.div>
+    );
+  }
+  const size = GALLERY_SIZES[item.size] || GALLERY_SIZES.half;
+  const isVideo = item._type === 'galleryVideo';
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={`${size} overflow-hidden bg-[var(--color-accent)] m-0`}
+    >
+      {isVideo && item.fileUrl && (
+        <video
+          src={item.fileUrl}
+          poster={item.poster ? urlFor(item.poster).width(1200).url() : undefined}
+          controls
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover"
+        />
+      )}
+      {isVideo && !item.fileUrl && item.embedUrl && (
+        <iframe
+          src={item.embedUrl}
+          title={item.caption || 'Project video'}
+          loading="lazy"
+          allow="fullscreen; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full border-0"
+        />
+      )}
+      {!isVideo && (
+        <img
+          src={urlFor(item).width(item.size === 'third' ? 700 : 1400).url()}
+          alt={item.alt || `Project image ${idx + 1}`}
+          loading="lazy"
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        />
+      )}
+    </motion.figure>
+  );
+};
 
 /**
  * Renders the main content body with images and descriptions
@@ -67,8 +134,16 @@ export const ProjectMainBody = ({
   description1,
   featuredImage,
   galleryGrid2 = [],
+  gallery = [],
   description2
 }: ProjectMainBodyProps) => {
+  // Sanity returns null (not undefined) for empty fields, which skips the `= []` defaults
+  galleryGrid1 = galleryGrid1 ?? [];
+  galleryGrid2 = galleryGrid2 ?? [];
+  gallery = gallery ?? [];
+  const hasGallery = gallery.length > 0;
+  // Text placed inside the gallery replaces the two fixed description blocks
+  const hasInlineText = gallery.some((item) => item._type === 'galleryText');
   return (
     <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-12">
       {/* Hero Image */}
@@ -88,7 +163,7 @@ export const ProjectMainBody = ({
       )}
 
       {/* First Grid */}
-      {galleryGrid1.length > 0 && (
+      {!hasGallery && galleryGrid1.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {galleryGrid1.map((img, idx) => (
             <motion.div 
@@ -110,7 +185,7 @@ export const ProjectMainBody = ({
       )}
 
       {/* Text Section 1 */}
-      {description1 && (
+      {!hasInlineText && description1 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -121,8 +196,17 @@ export const ProjectMainBody = ({
         </motion.div>
       )}
 
+      {/* Flexible gallery (images + videos) */}
+      {hasGallery && (
+        <div className="grid grid-cols-6 gap-4 md:gap-6 lg:gap-8">
+          {gallery.map((item, idx) => (
+            <GalleryItem key={item._key || idx} item={item} idx={idx} />
+          ))}
+        </div>
+      )}
+
       {/* Featured Image */}
-      {featuredImage && (
+      {!hasGallery && featuredImage && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +222,7 @@ export const ProjectMainBody = ({
       )}
 
       {/* Second Grid */}
-      {galleryGrid2.length > 0 && (
+      {!hasGallery && galleryGrid2.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {galleryGrid2.map((img, idx) => (
             <motion.div 
@@ -160,7 +244,7 @@ export const ProjectMainBody = ({
       )}
 
       {/* Text Section 2 */}
-      {description2 && (
+      {!hasInlineText && description2 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

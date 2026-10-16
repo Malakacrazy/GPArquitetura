@@ -74,7 +74,7 @@ const GalleryItem = ({ item, idx }: { item: any; idx: number }) => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="col-span-6 py-2 md:py-6 text-[var(--color-text-muted)] font-light text-base md:text-lg leading-7 space-y-4 md:space-y-6 prose prose-lg max-w-3xl"
+        className="col-span-6 w-full text-[var(--color-text-muted)] font-light text-base md:text-lg leading-7 space-y-4 md:space-y-6 prose prose-lg max-w-none"
       >
         <PortableText value={item.text} />
       </motion.div>

@@ -394,7 +394,7 @@ export function Navigation() {
                           </a>
                           <a href={socialLinks.blog.url} className="flex items-center gap-3 hover:text-[var(--color-accent)] transition group">
                             <div
-                              className="w-5 h-5 md:w-6 md:h-6 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
+                              className="w-6 h-6 md:w-8 md:h-8 bg-[var(--color-text-dark)] group-hover:bg-[var(--color-accent)] transition-colors"
                               style={{
                                 maskImage: `url('${icons.blog}')`,
                                 maskSize: 'contain',

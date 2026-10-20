@@ -83,9 +83,9 @@ export function ProjectHero({ title, heroImage }: ProjectHeroProps) {
                 <h2 className="text-6xl max-w-5xl md:text-8xl lg:text-[10rem] leading-[0.8] tracking-tighter uppercase mix-blend-difference">
                   {title}
                 </h2>
-                <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
+                <p className="heading-sub text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
                   (Rolar para Baixo)
-                </h6>
+                </p>
               </div>
             </Reveal>
           </div>

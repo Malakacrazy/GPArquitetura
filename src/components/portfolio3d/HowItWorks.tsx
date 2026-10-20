@@ -53,32 +53,35 @@ export function HowItWorks() {
     <section className="bg-[var(--color-background)] text-[var(--color-text-dark)] px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 overflow-hidden">
       <div className="mx-auto relative w-full">
         <span className="block text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 uppercase">Como Funciona</span>
+        <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] mb-8 md:mb-12">
+          Da primeira informação à imagem final, cada etapa importa.
+        </h2>
 
         <div className="flex flex-col gap-12 md:gap-20">
           {[
             {
               title: "Levantamento de Dados Técnicos",
-              description: "O processo tem início com o envio, por parte do cliente, de todo o material técnico necessário para a construção da modelagem 3D — como plantas, cortes, fachadas e lista de especificações. Realizamos a leitura criteriosa desses documentos para garantir que todas as informações estejam completas e alinhadas antes do início da produção.",
+              description: "Recebemos plantas, cortes, fachadas, especificações e referências do projeto. Analisamos a documentação para identificar as informações necessárias à modelagem e esclarecer dúvidas antes da produção.",
               image: images.portfolio3d.howItWorks.technicalSpec
             },
             {
               title: "Modelagem 3D",
-              description: "Após o entendimento aprofundado do projeto, iniciamos a criação da volumetria em 3D. Nesta etapa, alinhamos prazos e apresentamos o modelo para revisão, assegurando que o volume esteja aprovado antes de avançarmos para a produção das imagens, animações ou experiências imersivas.",
+              description: "Construímos a volumetria tridimensional com base nos arquivos fornecidos. A representação inicial permite avaliar proporções e configurações espaciais antes das imagens finais.",
               image: images.portfolio3d.howItWorks.workProcess
             },
             {
               title: "Primeira Versão",
-              description: "Com a volumetria validada, seguimos para a composição das cenas e da iluminação inicial, definindo enquadramentos e atmosferas que darão forma ao produto final.",
+              description: "Desenvolvemos enquadramentos e iluminação preliminar, organizando as cenas para apresentar a composição e orientar os primeiros ajustes.",
               image: images.portfolio3d.howItWorks.preview1
             },
             {
               title: "Segunda Versão",
-              description: "A partir da aprovação da etapa anterior, desenvolvemos uma nova prévia com maior nível de detalhamento, incorporando ajustes de iluminação, texturas, mobiliário, elementos decorativos e, quando aplicável, o cenário externo.",
+              description: "Com as definições anteriores alinhadas, refinamos materiais, texturas, luz e elementos previstos na documentação. A representação ganha o detalhamento necessário à leitura do projeto.",
               image: images.portfolio3d.howItWorks.preview2
             },
             {
               title: "Versão Final",
-              description: "Após a implementação dos comentários e ajustes solicitados pelo cliente, apresentamos a versão final do projeto, com os arquivos renderizados e preparados para entrega, prontos para uso em apresentações ou materiais de comunicação.",
+              description: "Concluímos os ajustes acordados e finalizamos a renderização, preparando os arquivos nos formatos e nas condições estabelecidos na contratação.",
               image: images.portfolio3d.howItWorks.finalRenders
             }
           ].map((step, index) => (

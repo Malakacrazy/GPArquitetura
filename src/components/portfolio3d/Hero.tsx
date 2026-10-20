@@ -115,12 +115,17 @@ export function Hero() {
             <Reveal delay={0.3}>
                {/* Description and Scroll */}
                <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:gap-8 lg:gap-12">
-                  <h6 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug max-w-5xl tracking-tight">
-                     Antecipe sensações e entenda o projeto antes mesmo de ele existir
-                  </h6>
-                  <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
+                  <div className="max-w-5xl">
+                    <h2 className="heading-sub text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug tracking-tight">
+                       Antes de construir, é possível enxergar o que ainda está por vir.
+                    </h2>
+                    <p className="mt-3 md:mt-4 text-base md:text-lg lg:text-xl font-normal leading-snug">
+                       Transformamos informações técnicas em representações visuais que aproximam o projeto da realidade, facilitando escolhas, apresentações e a compreensão dos ambientes.
+                    </p>
+                  </div>
+                  <p className="heading-sub text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
                      (Rolar para Baixo)
-                  </h6>
+                  </p>
                </div>
             </Reveal>
           </div>

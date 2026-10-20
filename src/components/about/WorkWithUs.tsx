@@ -88,9 +88,12 @@ export function WorkWithUs() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] font-bold uppercase">Trabalhe Conosco</span>
-              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[var(--color-text-dark)] font-light leading-[1.1]">
-                Estamos sempre em busca de profissionais talentosos e apaixonados por arquitetura e design.
-              </h6>
+              <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[var(--color-text-dark)] font-light leading-[1.1]">
+                Diferentes olhares ampliam nossas possibilidades.
+              </h2>
+              <p className="mt-3 md:mt-4 text-base md:text-lg font-light" style={{ color: 'var(--color-text-muted)' }}>
+                Acreditamos na colaboração, na curiosidade e na troca de conhecimentos como parte de uma arquitetura comprometida com o desenvolvimento contínuo.
+              </p>
             </motion.div>
             
             {/* Newsletter Signup */}
@@ -102,9 +105,9 @@ export function WorkWithUs() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              <h6 className="mb-4 md:mb-6 text-white text-base md:text-lg">
-                Seja notificado quando uma nova <span className="underline">vaga for publicada</span>
-              </h6>
+              <h3 className="heading-sub mb-4 md:mb-6 text-white text-base md:text-lg">
+                Quer acompanhar futuras oportunidades no Studio Araci?
+              </h3>
               <form onSubmit={handleSubmit(onSubmit)} noValidate className="mb-3 md:mb-4">
                 <div className="flex gap-2 md:gap-3">
                   <input
@@ -165,7 +168,7 @@ export function WorkWithUs() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                Em nosso estúdio, promovemos um ambiente colaborativo onde as ideias florescem e cada membro da equipe tem a oportunidade de causar um impacto significativo. Acreditamos no investimento em nosso pessoal por meio de aprendizado contínuo, orientação e desenvolvimento de carreira.
+                Valorizamos profissionais que unem sensibilidade criativa, responsabilidade técnica e disposição para aprender. Nossa cultura se apoia no diálogo, no repertório compartilhado e no cuidado com cada etapa do trabalho.
               </motion.p>
               <motion.p 
                 className="text-xl md:text-2xl" 
@@ -175,7 +178,7 @@ export function WorkWithUs() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
               >
-                Não há vagas disponíveis no momento.
+                No momento, não temos posições abertas.
               </motion.p> 
               <motion.p 
                 className="text-base md:text-lg"
@@ -184,7 +187,7 @@ export function WorkWithUs() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
               >
-                Estamos sempre interessados em conhecer profissionais talentosos. Envie-nos seu portfólio e currículo, e o manteremos em consideração para oportunidades futuras.
+                Você pode enviar seu currículo e portfólio para consideração em futuras oportunidades, conforme nossa política de tratamento de dados.
               </motion.p>
             </div>
           </div>

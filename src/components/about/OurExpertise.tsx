@@ -46,19 +46,19 @@ const statistics: Statistic[] = [
   {
     number: "130+",
     label: "Projetos Concluídos",
-    description: "Entrega bem-sucedida de espaços residenciais, comerciais e públicos",
+    description: "Experiências em diferentes tipologias, escalas e necessidades arquitetônicas.",
     icon: Building2
   },
   {
     number: "2+",
     label: "Participações em Competições",
-    description: "Reconhecimento pela excelência em design e sustentabilidade",
+    description: "Participação em iniciativas ligadas à arquitetura, ao design e à criação.",
     icon: Award
   },
   {
     number: "98%",
     label: "Satisfação dos Clientes",
-    description: "Consistentemente Superando expectativas e construindo relacionamentos duradouros",
+    description: "Atenção ao relacionamento e à qualidade da experiência ao longo do processo.",
     icon: Star
   }
 ];
@@ -75,9 +75,9 @@ export function OurExpertise() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-xs font-medium tracking-[0.2em] text-white mb-4 md:mb-6 uppercase">Nossas Conquistas</span>
-            <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-white">
-              Criamos ambientes que não apenas funcionam, mas que fazem sentido para quem vive neles
-            </h6>
+            <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-white">
+              Uma trajetória construída projeto a projeto.
+            </h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
             {statistics.map((stat, index) => {
@@ -121,8 +121,11 @@ export function OurExpertise() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           >
             <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[var(--color-accent)]" style={{ lineHeight: '1.2' }}>
-              7,910 m² projetados com foco em bem-estar e funcionalidade
+              7.910 m² Área Projetada
             </div>
+            <p className="mt-3 md:mt-4 text-base md:text-lg font-light text-white/80 max-w-2xl mx-auto">
+              Metragem acumulada de projetos desenvolvidos com atenção ao uso e às características de cada ambiente.
+            </p>
           </motion.div>
       </div>
     </section>

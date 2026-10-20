@@ -148,9 +148,18 @@ export function FeaturedWorks() {
       <div className="absolute top-0 left-0 right-0 z-30 px-6 md:px-12 lg:px-16 xl:px-20 py-8 md:py-10 lg:py-12 pointer-events-none">
         <div className="pointer-events-auto w-full">
           <Reveal>
-            <div className="flex justify-between items-center w-full">
-              <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">Projetos em Destaque</span>
+            <div className="flex justify-between items-start w-full">
+              <div className="max-w-xl">
+                <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">Projetos em Destaque</span>
+                <h2 className="heading-sub mt-3 md:mt-4 text-xl md:text-2xl lg:text-3xl font-light leading-snug text-white">
+                  Cada projeto conta uma história. As soluções revelam nossa maneira de pensar.
+                </h2>
+                <p className="mt-2 md:mt-3 text-sm md:text-base font-light text-white/80">
+                  Conheça como diferentes necessidades se traduzem em escolhas de arquitetura, organização espacial e materialidade.
+                </p>
+              </div>
               <motion.div
+                className="-mt-4"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -163,7 +172,7 @@ export function FeaturedWorks() {
                   onMouseLeave={() => setIsButtonHovered(false)}
                 >
                   <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                  <h6 className="relative z-10 block px-6 py-3 transition-colors duration-300 text-white group-hover:text-[var(--color-background)] uppercase text-[12px]">Todos os Projetos</h6>
+                  <span className="heading-sub relative z-10 block px-6 py-3 transition-colors duration-300 text-white group-hover:text-[var(--color-background)] uppercase text-[12px]">Todos os Projetos</span>
                   <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-white transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
                   <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-white transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
                   <span className="absolute bottom-[-8px] top-[-8px] left-0 w-[1px] bg-white transition-all duration-300 group-hover:bottom-0 group-hover:top-0 group-hover:bg-[var(--color-primary)]"></span>

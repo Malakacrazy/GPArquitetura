@@ -57,12 +57,17 @@ export function Hero() {
             <Reveal delay={0.3}>
                {/* Description and Scroll */}
                <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:gap-8 lg:gap-12">
-                  <h6 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug max-w-5xl tracking-tight">
-                     Seu espaço, sua assinatura: tudo começa no que você sente
-                  </h6>
-                  <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
+                  <div className="max-w-5xl">
+                    <h2 className="heading-sub text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug tracking-tight">
+                       Há mais em um espaço do que aquilo que os olhos alcançam.
+                    </h2>
+                    <p className="mt-3 md:mt-4 text-base md:text-lg lg:text-xl font-normal leading-snug">
+                       Cada ambiente guarda possibilidades. Algumas estão na maneira como desejamos viver. Outras, naquilo que queremos construir, oferecer ou valorizar. O Studio Araci existe para dar forma a essas possibilidades.
+                    </p>
+                  </div>
+                  <p className="heading-sub text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
                      (Rolar para Baixo)
-                  </h6>
+                  </p>
                </div>
             </Reveal>
           </div>

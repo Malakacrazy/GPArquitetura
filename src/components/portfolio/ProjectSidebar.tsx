@@ -80,37 +80,37 @@ export const ProjectSidebar = ({
       <div className="space-y-4 md:space-y-6 font-light text-[var(--color-text-muted)] text-xs leading-relaxed mb-8 md:mb-10">
         {architect && (
           <div>
-            <h6 className="font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Autor</h6>
+            <h2 className="heading-sub font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Autor</h2>
             <p className="text-base md:text-lg">{architect}</p>
           </div>
         )}
         {startYear && (
           <div>
-            <h6 className="font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Data de início</h6>
+            <h2 className="heading-sub font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Data de início</h2>
             <p className="text-base md:text-lg">{startYear}</p>
           </div>
         )}
         {completionYear && (
           <div>
-            <h6 className="font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Data de conclusão</h6>
+            <h2 className="heading-sub font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Data de conclusão</h2>
             <p className="text-base md:text-lg">{completionYear}</p>
           </div>
         )}
         {location && (
           <div>
-            <h6 className="font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Localização</h6>
+            <h2 className="heading-sub font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Localização</h2>
             <p className="text-base md:text-lg">{location}</p>
           </div>
         )}
         {area && (
           <div>
-            <h6 className="font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Área</h6>
+            <h2 className="heading-sub font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Área</h2>
             <p className="text-base md:text-lg">{area}</p>
           </div>
         )}
         {photographer && (
           <div>
-            <h6 className="font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Fotógrafo</h6>
+            <h2 className="heading-sub font-bold text-[var(--color-text-dark)] mb-1 text-xl md:text-2xl">Fotógrafo</h2>
             <p className="text-base md:text-lg">{photographer}</p>
           </div>
         )}

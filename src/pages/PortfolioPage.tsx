@@ -94,7 +94,7 @@ export default function PortfolioPage() {
         <ProjectsListView projects={projects} />
       )}
       
-      <Footer />
+      <Footer heading="O seu próximo projeto também pode começar por aqui." />
       <BackToTop />
     </div>
   );

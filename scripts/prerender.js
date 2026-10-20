@@ -36,13 +36,13 @@ const routes = [
 // Base HTML template with proper meta tags for each route
 const routeMetadata = {
   '/': {
-    title: 'Arquitetura Emocional e Design de Interiores em São Paulo',
-    description: 'Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. Conheça nosso processo e fale conosco.',
+    title: 'Studio Araci: Arquitetura de Interiores em São Paulo',
+    description: 'Arquitetura de interiores em São Paulo para moradia e investimento imobiliário. Conheça o Studio Araci e seus projetos autorais.',
     image: '/images/hero-bg.webp'
   },
   '/about': {
-    title: 'Sobre Nós: Arquitetura Emocional em São Paulo | Studio Araci',
-    description: 'Conheça o Studio Araci, especializado em neuroarquitetura e espaços acolhedores que unem funcionalidade, emoções e bem-estar. Descubra nossa abordagem.',
+    title: 'Studio Araci: Arquitetura Autoral e Design Emocional',
+    description: 'Conheça a filosofia do Studio Araci e a trajetória de Giulia Parente, unindo arquitetura emocional, inteligência projetual e identidade.',
     image: '/images/hero-about-us-bg.webp'
   },
   '/about/library': {
@@ -51,13 +51,13 @@ const routeMetadata = {
     image: '/images/hero-about-us-bg.webp'
   },
   '/portfolio': {
-    title: 'Portfólio de Arquitetura e Design | Studio Araci São Paulo',
-    description: 'Conheça os projetos arquitetônicos da Studio Araci em São Paulo e outras localidades. Explore ambientes e espaços criados para acolhimento e bem-estar.',
+    title: 'Projetos de Arquitetura e Interiores: Studio Araci',
+    description: 'Explore projetos de arquitetura residencial e interiores do Studio Araci, com soluções de layout, materiais e iluminação.',
     image: '/images/hero-portfolio-bg.webp'
   },
   '/3d-visualization': {
-    title: 'Visualização Arquitetônica 3D em São Paulo | Studio Araci',
-    description: 'Serviços profissionais de renderização 3D e visualização arquitetônica. Veja seus projetos ganhar vida antes mesmo da construção.',
+    title: 'Visualização Arquitetônica 3D e Renders: Studio Araci',
+    description: 'Modelagem e visualização 3D de interiores para comunicar projetos com imagens realistas, detalhadas e coerentes com suas especificações.',
     image: '/images/hero-3drendering-bg.webp'
   },
   '/blog': {
@@ -66,8 +66,8 @@ const routeMetadata = {
     image: '/images/hero-about-us-bg.webp'
   },
   '/contact': {
-    title: 'Contato de Arquitetura em São Paulo | Studio Araci',
-    description: 'Entre em contato com a Studio Araci. Vamos conversar sobre seu próximo projeto arquitetônico em São Paulo.',
+    title: 'Contato e Projetos de Arquitetura: Studio Araci',
+    description: 'Converse com o Studio Araci em São Paulo sobre projetos residenciais, imóveis de investimento e visualização arquitetônica.',
     image: '/images/hero-contact-bg.webp'
   },
   '/privacy': {

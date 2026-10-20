@@ -121,24 +121,28 @@ export function WhatWeDo() {
           <Reveal className="flex flex-col gap-8 md:gap-12 lg:gap-16">
             <div className="space-y-6 md:space-y-8 lg:space-y-12">
               <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 font-bold uppercase">O que fazemos</span>
-              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
-                Oferecemos projetos sensíveis e acessíveis, entendendo o seu espaço como uma extensão emocional do usuário
-              </h6>
+              <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[var(--color-text-dark)] leading-[1.1] tracking-tight">
+                Cada metro quadrado importa. O que fazemos com ele faz toda a diferença.
+              </h2>
             </div>
             
+            <p className="-mt-2 md:-mt-4 lg:-mt-8 -mb-4 md:-mb-6 lg:-mb-8 text-base md:text-lg font-light text-[var(--color-text-dark)] leading-relaxed">
+              Projetamos para valorizar o que existe e explorar novas possibilidades. Combinamos conhecimento técnico, sensibilidade e planejamento para desenvolver ambientes que respondem à vida e aos objetivos de quem os escolhe.
+            </p>
+
             <div className="space-y-4">
               <AccordionItem 
                 title="Arquitetura Emocional e Neuroarquitetura"
-                content="Ambientes que reduzem a ansiedade e promovem serenidade, refletindo identidade e contando histórias pessoais"
+                content="Luz, proporção, materiais e percepção orientam escolhas que favorecem conforto e uma relação mais agradável entre pessoas e ambientes."
                 defaultOpen={true}
               />
               <AccordionItem 
                 title="Funcionalidade"
-                content="Espaços que facilitam e suavizam os rituais diários e sistemas inteligentes que simplificam o dia a dia"
+                content="Layouts pensados para aproveitar melhor a metragem, facilitar a rotina e atender diferentes perfis de ocupação, da moradia às locações de curta e longa permanência."
               />
               <AccordionItem 
                 title="Conforto Ambiental"
-                content="Materiais que conectam com a natureza e trazem conforto tátil junto a iluminação que respeita ritmos biológicos e cria atmosferas"
+                content="Estudamos iluminação, ventilação e texturas para compor atmosferas equilibradas, com atenção à qualidade dos materiais e à experiência de uso."
               />
             </div>
           </Reveal>

@@ -337,9 +337,11 @@ export function GetAQuote() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
+          <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl font-light text-[var(--color-text-dark)] leading-[1.1]">
+            Seu projeto está pronto para ganhar uma nova perspectiva?
+          </h2>
           <p className="text-lg md:text-xl lg:text-2xl font-light text-[var(--color-text-dark)] leading-relaxed">
-            Vamos dar forma à sua ideia? <br />
-            Faça um orçamento prévio e entre em contato, responderemos assim que possível!
+            Compartilhe os arquivos disponíveis e conte qual é o objetivo das imagens. Vamos avaliar suas necessidades e preparar uma proposta adequada.
           </p>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
@@ -348,7 +350,7 @@ export function GetAQuote() {
               >
                 <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                 <span className="relative z-10 block px-6 py-3 transition-colors duration-300 text-[var(--color-text-dark)] group-hover:text-[var(--color-background)] uppercase text-xs flex items-center gap-2">
-                  <h6>SIMULAR ORÇAMENTO</h6>
+                  <span className="heading-sub">SIMULAR ORÇAMENTO</span>
                 </span>
                 <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
                 <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>

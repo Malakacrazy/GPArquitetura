@@ -83,7 +83,7 @@ export function OurExpertise() {
     {
       id: 'A',
       title: 'Imagens de Interiores',
-      desc: 'Compreenda o projeto em profundidade por meio de imagens que evidenciam o layout interno, explorando texturas, mobiliário, decoração e iluminação. Uma forma precisa e sensorial de antecipar a atmosfera dos ambientes.',
+      desc: 'Uma representação bem construída permite compreender mais do que volumes e medidas. Por meio da modelagem 3D, exploramos materiais, iluminação, mobiliário e composição, traduzindo a proposta arquitetônica em imagens realistas e coerentes com suas especificações.',
       src: images.portfolio3d.ourExpertise.interiorRendering,
       type: 'image'
     },

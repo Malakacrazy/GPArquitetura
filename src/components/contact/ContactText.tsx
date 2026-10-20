@@ -71,18 +71,17 @@ export const ContactText = ({ children }: { children?: React.ReactNode }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="flex-grow flex flex-col justify-center items-center px-4 py-12 contact-two-hero-text text-center relative z-10"
+        className="flex-grow flex flex-col justify-center items-center px-4 pt-16 md:pt-[5.5rem] pb-12 contact-two-hero-text text-center relative z-10"
       >
       <motion.div variants={itemVariants} className="contact-two-hero-heading mb-2">
-        <h1 className="text-[15vw] md:text-[18vw] lg:text-[20vw] leading-none font-normal tracking-wide text-[var(--color-accent)]">
-          CONTATO
+        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] font-normal tracking-wide text-[var(--color-accent)] mx-auto">
+          Toda boa transformação começa com uma conversa.
         </h1>
       </motion.div>
       
-      <motion.div variants={itemVariants} className="contact-two-hero-paragraph max-w-xl mx-auto mb-8">
+      <motion.div variants={itemVariants} className="contact-two-hero-paragraph w-full px-2 md:px-8 lg:px-12 xl:px-16 mb-8">
         <p className="text-center text-[var(--color-white)]/60 text-base md:text-lg leading-relaxed font-light">
-          Seu espaço pode refletir quem você é e como você se sente. <br />
-          Vamos conversar e transformar essa intenção em arquitetura.
+          Um imóvel que precisa ganhar valor. Uma residência que merece acompanhar sua rotina. Um projeto que ainda está encontrando sua melhor forma. Conte ao Studio Araci o que deseja realizar. Queremos compreender seus objetivos e descobrir como a arquitetura pode contribuir.
         </p>
       </motion.div>
       

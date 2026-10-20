@@ -205,9 +205,12 @@ export function CaseStudies() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-xs font-medium tracking-[0.2em] text-[var(--color-primary)] mb-4 md:mb-6 uppercase">Trabalhos Recentes</span>
-            <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-[var(--color-text-dark)] mb-4 md:mb-6">
-              Enxergamos a arquitetura com intenção, emoção e significado
-            </h6>
+            <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1] w-full text-[var(--color-text-dark)] mb-4 md:mb-6">
+              Ideias que já podem ser vistas antes de serem construídas.
+            </h2>
+            <p className="text-base md:text-lg font-light text-[var(--color-text-muted)] mb-4 md:mb-6">
+              Explore imagens desenvolvidas para traduzir conceitos em representações detalhadas, valorizando a leitura dos ambientes e a fidelidade às informações do projeto.
+            </p>
           </motion.div>
 
         <div className="space-y-4 md:space-y-6">

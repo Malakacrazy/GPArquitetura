@@ -151,13 +151,13 @@ export function OurTeam() {
               {/* Quote */}
               <blockquote className="mb-8 md:mb-12 lg:mb-16" style={{ color: 'var(--color-text-dark)' }}>
                 <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-relaxed">
-                  "Quando o ambiente faz você se sentir estável, equilibrado e seguro, é mais provável que se sinta confiante para assumir riscos conscientes e explorar novas possibilidades."
+                  “Uma boa arquitetura não precisa se impor. Precisa compreender o que cada espaço pede e dar forma ao que realmente importa.”
                 </p>
               </blockquote>
               
               {/* Name and Title */}
               <div>
-                <div className="text-base md:text-lg lg:text-xl" style={{ color: 'var(--color-text-dark)' }}>Giulia Parente, <h6 className="inline" style={{ color: 'var(--color-primary)' }}>Founder</h6></div>
+                <div className="text-base md:text-lg lg:text-xl" style={{ color: 'var(--color-text-dark)' }}>Giulia Parente, <span className="heading-sub inline" style={{ color: 'var(--color-primary)' }}>Fundadora do Studio Araci</span></div>
               </div>
             </motion.div>
           </div>
@@ -241,19 +241,19 @@ export function OurTeam() {
                 <h2 className="text-4xl md:text-5xl mb-4" style={{ color: 'var(--color-text-dark)' }}>
                   Giulia Parente
                 </h2>
-                <h6 className="mb-4 text-lg md:text-xl" style={{ color: 'var(--color-primary)' }}>
-                  Founder
-                </h6>
+                <h3 className="heading-sub mb-4 text-lg md:text-xl" style={{ color: 'var(--color-primary)' }}>
+                  Fundadora do Studio Araci
+                </h3>
 
                 <div className="space-y-4 md:space-y-6 text-justify text-base md:text-lg" style={{ color: 'var(--color-text-muted)' }}>
                   <p>
-                    Arquiteta e urbanista formada pela Universidade Paulista (UNIP) e pós-graduada em Design Emocional pelo Centro Universitário Belas Artes, Giulia Parente está à frente do Studio Araci desde 2022, com atuação na Região Metropolitana de São Paulo.
+                    Arquiteta e urbanista formada pela Universidade Paulista (UNIP), com pós-graduação em Design Emocional pelo Centro Universitário Belas Artes, Giulia Parente está à frente do Studio Araci desde 2022, com atuação na Região Metropolitana de São Paulo.
                   </p>
                   <p>
-                    Com foco em arquitetura de interiores residencial e comercial, seu trabalho é pautado pelos princípios da neuroarquitetura e da psicoarquitetura, explorando a relação entre espaço, emoções e bem-estar. Cada projeto é desenvolvido de forma sensível e personalizada, considerando não apenas a estética, mas principalmente a saúde emocional do cliente e a maneira como ele vivencia os ambientes.
+                    Sua trajetória reúne arquitetura de interiores, estudo da experiência humana e atenção às particularidades de cada imóvel. Com um olhar que aproxima repertório estético e planejamento, desenvolve propostas que procuram equilibrar conforto, funcionalidade e expressão autoral.
                   </p>
                   <p>
-                    Acreditando que os espaços influenciam diretamente o comportamento, as sensações e a qualidade de vida, Giulia busca criar interiores que acolhem, conectam e traduzem a essência de quem os habita, unindo funcionalidade, identidade e significado.
+                    Seu trabalho parte da convicção de que a arquitetura deve responder à vida real, aos objetivos de quem contrata e às condições concretas de cada projeto.
                   </p>
                 </div>
               </div>

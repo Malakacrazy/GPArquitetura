@@ -23,7 +23,7 @@ function Note({ post, number, tall, order }: { post: any; number: number; tall?:
           )}
         </div>
         <div className="mt-2 flex items-baseline justify-between">
-          <h6 className="text-xl text-[var(--color-primary)]">{String(number).padStart(2, '0')}</h6>
+          <p className="heading-sub text-xl text-[var(--color-primary)]">{String(number).padStart(2, '0')}</p>
           <span className="text-xs tracking-[0.1em] uppercase text-[var(--color-text-muted)]">{post.category}</span>
         </div>
         <h3 className="mt-1 text-xl md:text-2xl leading-snug text-[var(--color-text-dark)] transition-colors duration-500 group-hover:text-[var(--color-primary)]">

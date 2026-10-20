@@ -44,9 +44,12 @@ export function ProcessSection() {
           <div className="mb-8 md:mb-12 lg:mb-16 max-w-4xl">
             <Reveal>
               <span className="text-xs font-medium tracking-[0.2em] text-white mb-4 md:mb-6 uppercase">Processos</span>
-              <h6 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1]">
-                Entregamos projetos arquitetônicos emocionais e criativos para o seu projeto
-              </h6>
+              <h2 className="heading-sub text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.1]">
+                Um bom projeto não começa pela obra. Começa pelas decisões certas.
+              </h2>
+              <p className="mt-4 md:mt-6 text-base md:text-lg font-light text-white/80 max-w-3xl">
+                Antes de definir formas e acabamentos, compreendemos o contexto. Nosso processo organiza cada escolha, da primeira conversa ao detalhamento técnico, com critério e coerência.
+              </p>
             </Reveal>
           </div>
 
@@ -60,7 +63,7 @@ export function ProcessSection() {
                 </div>
                 <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Briefing Emocional</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Primeiro contato com o cliente. Através da escuta profunda coletamos o máximo de informações para entender as dores, os desejos e a personalidade. Com isso, conseguimos mapear sua rotina, suas necessidades emocionais e seu estilo de vida.
+                  Escutamos o cliente e identificamos prioridades, expectativas e necessidades. Consideramos a finalidade do imóvel, seu perfil de ocupação e o que cada ambiente precisa oferecer.
                 </p>
               </div>
             </Reveal>
@@ -71,9 +74,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(02)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Levantamento <span className= "italic">in loco</span></span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Levantamento no local</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Visita ao imóvel que receberá a transformação, levantando seus potenciais e pontos de atenção. Com o levantamento conseguimos compreender visualmente o que o espaço pode receber e como se adequará as necessidades levantadas durante o Briefing.
+                  Analisamos medidas, instalações e características arquitetônicas. Reconhecemos limitações, oportunidades de aproveitamento e pontos que exigem atenção.
                 </p>
               </div>
             </Reveal>
@@ -86,7 +89,7 @@ export function ProcessSection() {
                 </div>
                 <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Estudo Preliminar</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Nesta etapa damos início ao processo criativo do projeto, focando no visual e os serviços que deverão ser realizados. Aqui escolhemos os tipos de materiais, layout e iluminação básica.
+                  Investigamos soluções de layout, circulação, materiais e iluminação. As primeiras definições estabelecem a direção conceitual e orientam o desenvolvimento.
                 </p>
               </div>
             </Reveal>
@@ -99,7 +102,7 @@ export function ProcessSection() {
                 </div>
                 <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Anteprojeto</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Seguimos para a etapa mais técnica onde focamos na especificação de materiais, detalhamento de ambientes e escopo de projeto.
+                  Refinamos a organização dos ambientes e as principais escolhas estéticas e funcionais, aproximando o desenho dos objetivos identificados.
                 </p>
               </div>
             </Reveal>
@@ -112,7 +115,7 @@ export function ProcessSection() {
                 </div>
                 <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Pré-executivo</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Últimas revisões do projeto, onde todos os materiais estão especificados e separados em um lista detalhada de acabamentos, móveis soltos, marcenaria, equipamentos e marmoraria.
+                  Consolidamos especificações de acabamentos, mobiliário, marcenaria, marmoraria e demais componentes previstos, preparando as informações para o detalhamento técnico.
                 </p>
               </div>
             </Reveal>
@@ -123,9 +126,9 @@ export function ProcessSection() {
                 <div className="mb-4 md:mb-6 transform transition-transform duration-700 group-hover:-translate-y-2">
                   <span className="block text-4xl md:text-5xl lg:text-6xl font-thin text-white/20 transition-colors duration-700 group-hover:text-[var(--color-accent)] select-none">(06)</span>
                 </div>
-                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Executivo & Obras</span>
+                <span className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 tracking-tight uppercase">Executivo e Obras</span>
                 <p className="text-white/70 leading-relaxed text-base md:text-lg font-light group-hover:text-white transition-colors duration-500 text-justify">
-                  Versão final do projeto contemplando todos os desenhos técnicos, imagens, vistas detalhadas para que os profissionais contratados para os serviços possam seguir durante a obra.
+                  Reunimos desenhos, vistas e orientações para a execução do projeto pelos profissionais responsáveis, conforme os serviços e responsabilidades contratados.
                 </p>
               </div>
             </Reveal>

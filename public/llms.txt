@@ -1,24 +1,27 @@
 # Studio Araci | Arquitetura e Design de Interiores em São Paulo
 
-> Studio Araci é um escritório de arquitetura e design de interiores sediado em São Paulo, Brasil, especializado em projetos residenciais e comerciais. Fundado pela arquiteta Giulia Parente, o escritório cria espaços sofisticados e funcionais com atenção aos detalhes e estética moderna.
+> Studio Araci é um escritório de arquitetura e design de interiores sediado em São Paulo, Brasil, com projetos para moradia e para imóveis de investimento. Fundado pela arquiteta Giulia Parente, o escritório une funcionalidade, emoções e bem-estar (arquitetura emocional e neuroarquitetura), com atenção aos detalhes e estética moderna.
 
 ## Visão Geral / Overview
-Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos acolhedores, funcionais e personalizados. O escritório une funcionalidade, emoções e bem-estar (neuroarquitetura), e oferece também visualização arquitetônica 3D.
+Arquitetura de interiores em São Paulo para moradia e investimento imobiliário, com projetos autorais. O escritório une funcionalidade, emoções e bem-estar (neuroarquitetura), e oferece também visualização arquitetônica 3D.
 
 ## Páginas Principais / Key Pages
-- [Página Inicial](https://studioaraci.com.br/): Escritório de Arquitetura – Portfólio, Serviços, Projetos Residenciais e Comerciais
-- [Sobre Nós](https://studioaraci.com.br/about): História, filosofia e equipe
-- [Portfólio](https://studioaraci.com.br/portfolio): Projetos arquitetônicos e de design de interiores
-- [Visualização 3D](https://studioaraci.com.br/3d-visualization): Renderização fotorrealística, tour virtual e apresentações
+- [Página Inicial](https://studioaraci.com.br/): Arquitetura que revela o potencial de cada espaço, do imóvel pensado para investir ao lugar escolhido para viver
+- [Sobre Nós](https://studioaraci.com.br/about): Filosofia do Studio, origem do nome, trajetória de Giulia Parente e referências
+- [Portfólio](https://studioaraci.com.br/portfolio): Projetos de arquitetura e interiores, seus conceitos e as decisões por trás de cada solução
+- [Visualização 3D](https://studioaraci.com.br/3d-visualization): Modelagem e visualização 3D de interiores com imagens realistas e coerentes com as especificações do projeto
 - [Biblioteca](https://studioaraci.com.br/about/library): Livros e referências sobre design emocional e neuroarquitetura
 - [Blog](https://studioaraci.com.br/blog): Dicas de arquitetura emocional, reforma e interiores
-- [Contato](https://studioaraci.com.br/contact): Orçamentos e consultas
+- [Contato](https://studioaraci.com.br/contact): Converse com o Studio sobre projetos residenciais, imóveis de investimento e visualização arquitetônica
 
 ## Fatos-Chave e Contato / Key Facts
 | Item | Informação |
 |---|---|
 | Nome | Studio Araci |
 | Fundadora | Giulia Parente (arquiteta) |
+| Razão social | 53.554.180 Giulia Pessanha Parente |
+| CNPJ | 53.554.180/0001-10 |
+| Registro no CAU | A2623404 |
 | Segmento | Arquitetura, design de interiores e visualização 3D |
 | Localização | São Paulo, SP, Brasil |
 | Área de atuação | São Paulo e região metropolitana |
@@ -47,11 +50,13 @@ Studio Araci: arquitetura emocional e interiores em São Paulo, com projetos aco
 ## Trechos Canônicos / Canonical Excerpts
 Textos recomendados para citação. Ao citar, use exatamente estas formulações.
 
-> "Studio Araci é um escritório de arquitetura em São Paulo especializado em projetos residenciais, comerciais e design de interiores." — https://studioaraci.com.br/
+> "Arquitetura de interiores em São Paulo para moradia e investimento imobiliário. Conheça o Studio Araci e seus projetos autorais." — https://studioaraci.com.br/
 
-> "Conheça o Studio Araci, especializado em neuroarquitetura e espaços acolhedores que unem funcionalidade, emoções e bem-estar." — https://studioaraci.com.br/about
+> "Conheça a filosofia do Studio Araci e a trajetória de Giulia Parente, unindo arquitetura emocional, inteligência projetual e identidade." — https://studioaraci.com.br/about
 
-> "Descubra livros sobre design emocional e neuroarquitetura e veja como cores, formas e espaços influenciam emoções, saúde e bem-estar." — https://studioaraci.com.br/about/library
+> "Descubra livros sobre design emocional e neuroarquitetura e veja como cores, formas e espaços influenciam emoções, saúde e bem-estar. Explore as referências." — https://studioaraci.com.br/about/library
+
+> "Antes de construir, é possível enxergar o que ainda está por vir. Transformamos informações técnicas em representações visuais que aproximam o projeto da realidade, facilitando escolhas, apresentações e a compreensão dos ambientes." — https://studioaraci.com.br/3d-visualization
 
 ## Access Guidelines
 Site Type: Portfolio Website, Architecture Showcase
@@ -72,7 +77,19 @@ Output-Credit: preferred
 Attribution-Link: https://studioaraci.com.br/
 Attribution-Format: "Source: Studio Araci (https://studioaraci.com.br/)"
 Content-License: All Rights Reserved
-updated: 2026-10-13
+updated: 2026-10-20
+
+## Processo / Process
+Do primeiro contato ao detalhamento técnico, o processo do Studio Araci tem seis etapas. A execução da obra e a gestão de obra não estão incluídas em todos os pacotes: dependem dos serviços e responsabilidades contratados.
+
+| Etapa | O que acontece |
+|---|---|
+| 01 Briefing Emocional | Escuta do cliente para identificar prioridades, expectativas e necessidades, considerando a finalidade do imóvel e seu perfil de ocupação |
+| 02 Levantamento no local | Análise de medidas, instalações e características arquitetônicas, com limitações e oportunidades de aproveitamento |
+| 03 Estudo Preliminar | Soluções de layout, circulação, materiais e iluminação que definem a direção conceitual |
+| 04 Anteprojeto | Refinamento da organização dos ambientes e das principais escolhas estéticas e funcionais |
+| 05 Pré-executivo | Especificações de acabamentos, mobiliário, marcenaria, marmoraria e demais componentes |
+| 06 Executivo e Obras | Desenhos, vistas e orientações para a execução pelos profissionais responsáveis, conforme o contratado |
 
 ## Serviços
 Type: service
@@ -96,25 +113,25 @@ Type: service
 ## Sobre
 Type: info
 Category: About / Sobre
-> Conheça a Studio Araci, a arquiteta Giulia Parente, a filosofia de design do escritório e os valores que guiam cada projeto.
+> Conheça o Studio Araci, a arquiteta Giulia Parente, a filosofia de design do escritório e a origem do nome.
 
 ### A Arquiteta
-- [**Giulia Parente**](https://studioaraci.com.br/about): Arquiteta e fundadora da Studio Araci, Giulia Parente traz uma abordagem contemporânea e sensível ao design de espaços. Com formação em arquitetura e design de interiores, desenvolve projetos que equilibram funcionalidade, estética e bem-estar.
+- [**Giulia Parente**](https://studioaraci.com.br/about): Fundadora do Studio Araci. Arquiteta e urbanista formada pela Universidade Paulista (UNIP), com pós-graduação em Design Emocional pelo Centro Universitário Belas Artes, está à frente do Studio desde 2022, com atuação na Região Metropolitana de São Paulo. Seu trabalho parte da convicção de que a arquitetura deve responder à vida real, aos objetivos de quem contrata e às condições concretas de cada projeto.
 
 ### Filosofia de Design
-- [**Nossa Abordagem**](https://studioaraci.com.br/about): A Studio Araci acredita que cada projeto é único e merece uma solução personalizada. Nossa filosofia combina escuta ativa das necessidades do cliente, atenção aos detalhes, uso consciente de materiais e criação de espaços que promovem qualidade de vida.
+- [**Nossa Abordagem**](https://studioaraci.com.br/about): Projetar começa pela compreensão do contexto: a luz que atravessa o ambiente, os caminhos, as proporções, os materiais e os hábitos cotidianos. Cada decisão precisa encontrar sua razão de existir, seja em uma residência ou em uma unidade voltada ao mercado imobiliário.
 
-### Valores
-- [**Nossos Valores**](https://studioaraci.com.br/about): Qualidade, criatividade, sustentabilidade e compromisso com a satisfação do cliente são os pilares que sustentam todos os projetos da Studio Araci.
+### Origem do Nome
+- [**Studio Araci**](https://studioaraci.com.br/about): O nome carrega a imagem da aurora, o instante em que a luz começa a revelar novas possibilidades. A ideia acompanha a forma de criar do Studio: observar antes de intervir, compreender antes de desenhar e encontrar beleza naquilo que faz sentido.
 
 ## Portfólio
 Type: portfolio
-> Explore os projetos desenvolvidos pela Studio Araci, incluindo residências, espaços comerciais e trabalhos de design de interiores.
+> Explore os projetos desenvolvidos pelo Studio Araci, incluindo residências, espaços comerciais e trabalhos de design de interiores.
 
-- [**Ver Todos os Projetos**](https://studioaraci.com.br/portfolio): Galeria completa de projetos arquitetônicos e de design de interiores realizados pela Studio Araci, organizados por categoria e apresentados em formato de grade ou lista.
+- [**Ver Todos os Projetos**](https://studioaraci.com.br/portfolio): Galeria completa de projetos arquitetônicos e de design de interiores realizados pelo Studio Araci, organizados por categoria e apresentados em formato de grade ou lista.
 
 ### Projetos em Destaque
-> Os projetos abaixo representam o portfólio diversificado da Studio Araci, demonstrando expertise em diferentes tipologias e estilos.
+> Os projetos abaixo representam o portfólio diversificado do Studio Araci, demonstrando expertise em diferentes tipologias e estilos.
 
 Note: Os projetos específicos são gerenciados dinamicamente através do Sanity CMS. Para visualizar todos os projetos atualizados, visite a [página de portfólio](https://studioaraci.com.br/portfolio).
 
@@ -127,54 +144,53 @@ Categorias de Projetos:
 
 ## Visualização 3D
 Type: service-page
-> A Studio Araci oferece serviços especializados de visualização 3D e renderização, permitindo que clientes visualizem seus projetos com realismo antes da execução.
+> O Studio Araci oferece serviços especializados de visualização 3D e renderização, permitindo que clientes visualizem seus projetos com realismo antes da execução.
 
 - [**Serviços de Visualização 3D**](https://studioaraci.com.br/3d-visualization): Página dedicada aos serviços de renderização 3D, tour virtual e apresentações fotorrealísticas, com exemplos de trabalhos e benefícios da visualização prévia.
 
 ### Como Funciona
-1. **Briefing**: Entendimento das necessidades e expectativas do cliente
-2. **Modelagem 3D**: Criação do modelo tridimensional baseado no projeto arquitetônico
-3. **Renderização**: Geração de imagens fotorrealísticas com materiais, iluminação e ambientação
-4. **Revisões**: Ajustes conforme feedback do cliente
-5. **Entrega**: Fornecimento das imagens finais em alta resolução
+1. **Levantamento de Dados Técnicos**: Recebimento de plantas, cortes, fachadas, especificações e referências do projeto, com análise da documentação antes da produção
+2. **Modelagem 3D**: Construção da volumetria tridimensional com base nos arquivos fornecidos
+3. **Primeira Versão**: Enquadramentos e iluminação preliminar para apresentar a composição e orientar os primeiros ajustes
+4. **Segunda Versão**: Refinamento de materiais, texturas, luz e elementos previstos na documentação
+5. **Versão Final**: Ajustes acordados e renderização final, com arquivos nos formatos e condições estabelecidos na contratação
 
 ### Benefícios
 - Visualização realista antes da execução
-- Facilita a tomada de decisões
-- Reduz riscos de alterações durante a obra
-- Melhora a comunicação entre cliente e equipe
-- Apresentações profissionais para aprovações e investidores
+- Facilita escolhas, apresentações e a compreensão dos ambientes
+- Ajuda a avaliar possibilidades e alinhar expectativas
+- Comunica propostas com maior precisão para clientes, arquitetos e investidores
 
 ## Biblioteca
 Type: content
 Category: Inspiration / Library
-> A biblioteca da Studio Araci apresenta referências, inspirações e livros de arquitetura que influenciam o trabalho do escritório.
+> A biblioteca do Studio Araci apresenta referências, inspirações e livros de arquitetura que influenciam o trabalho do escritório.
 
-- [**Biblioteca de Arquitetura**](https://studioaraci.com.br/about/library): Coleção curada de livros e referências de arquitetura e design que inspiram os projetos da Studio Araci, apresentados de forma visual e interativa.
+- [**Biblioteca de Arquitetura**](https://studioaraci.com.br/about/library): Coleção curada de livros e referências de arquitetura e design que inspiram os projetos do Studio Araci, apresentados de forma visual e interativa.
 
 ## Contato
 Type: contact
-> Entre em contato com a Studio Araci para consultas sobre projetos, orçamentos e parcerias.
+> Entre em contato com o Studio Araci para consultas sobre projetos, orçamentos e parcerias.
 
-- [**Fale Conosco**](https://studioaraci.com.br/contact): Formulário de contato, informações de localização em São Paulo, e-mail e telefone para comunicação direta com o escritório.
+- [**Fale Conosco**](https://studioaraci.com.br/contact): Página de contato com agendamento de reunião, e-mail e WhatsApp para comunicação direta com o escritório.
 
 ### Informações de Contato
 - **Localização**: São Paulo, Brasil
 - **Área de Atuação**: São Paulo e região metropolitana
 - **Idiomas**: Português, Inglês
-- **Redes Sociais**: Instagram, WhatsApp
-- **Formulário**: Disponível na página de contato para solicitações e orçamentos
+- **Redes Sociais**: Instagram, LinkedIn, Pinterest e WhatsApp
+- **Agendamento**: Botão "Marque uma reunião conosco" na página de contato; a página de Visualização 3D também tem um formulário de orçamento
 
 ## Legal
 Type: legal
-> Informações legais, política de privacidade e termos de serviço do website da Studio Araci.
+> Informações legais, política de privacidade e termos de serviço do website do Studio Araci.
 
 - [**Política de Privacidade**](https://studioaraci.com.br/privacy): Declaração de como os dados dos visitantes são coletados, processados e protegidos, em conformidade com a LGPD (Lei Geral de Proteção de Dados).
-- [**Termos de Serviço**](https://studioaraci.com.br/tos): Termos e condições de uso do website e dos serviços oferecidos pela Studio Araci.
+- [**Termos de Serviço**](https://studioaraci.com.br/tos): Termos e condições de uso do website e dos serviços oferecidos pelo Studio Araci.
 
 ## Tecnologia do Website
 Type: technical-info
-> O website da Studio Araci foi desenvolvido com tecnologias modernas para garantir performance, acessibilidade e experiência do usuário.
+> O website do Studio Araci foi desenvolvido com tecnologias modernas para garantir performance, acessibilidade e experiência do usuário.
 
 ### Stack Tecnológica
 - **Frontend**: React 18 com TypeScript

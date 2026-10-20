@@ -187,6 +187,13 @@
     font-weight: 400;
     letter-spacing: 0.04em;
   }
+
+  /* Same look the h6 had, for headings that use a semantic h2-h5 (or a non-heading tag) */
+  .heading-sub {
+    font-family: var(--font-subtitle);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
   
   p, span, div, a, li, label, button, input, textarea {
     font-family: var(--font-body);

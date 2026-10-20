@@ -105,15 +105,15 @@ export function ProjectsSection() {
               style={{ opacity: textOpacity }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
-              <h6
-                className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter uppercase transition-all duration-500"
+              <h2
+                className="heading-sub text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter uppercase transition-all duration-500"
                 style={{
                   color: hoveredSide === 'right' ? 'transparent' : 'white',
                   WebkitTextStroke: hoveredSide === 'right' ? '1px white' : '0px',
                 }}
               >
                 Interiores
-              </h6>
+              </h2>
             </motion.div>
 
             {/* Bottom Text */}
@@ -148,15 +148,15 @@ export function ProjectsSection() {
               style={{ opacity: textOpacity }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
-              <h6
-                className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter uppercase transition-all duration-500"
+              <h2
+                className="heading-sub text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter uppercase transition-all duration-500"
                 style={{
                   color: hoveredSide === 'left' ? 'transparent' : 'white',
                   WebkitTextStroke: hoveredSide === 'left' ? '1px white' : '0px',
                 }}
               >
                 Arquitetura
-              </h6>
+              </h2>
             </motion.div>
 
             {/* Bottom Text */}

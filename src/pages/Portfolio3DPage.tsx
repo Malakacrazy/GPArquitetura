@@ -79,7 +79,7 @@ export default function Portfolio3DPage() {
       <HowItWorks />
       <GetAQuote />
       <FAQ />
-      <Footer />
+      <Footer heading="Uma ideia bem apresentada merece ser compreendida em todos os detalhes." />
     </div>
   );
 }

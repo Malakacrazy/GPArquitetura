@@ -153,7 +153,11 @@ export const socialLinks = {
  */
 export const company = {
   /** Full legal name */
-  legalName: 'Studio Araci',
+  legalName: '53.554.180 Giulia Pessanha Parente',
+  /** CNPJ (Brazilian company tax ID) */
+  cnpj: '53.554.180/0001-10',
+  /** CAU (Conselho de Arquitetura e Urbanismo) professional registration */
+  cau: 'A2623404',
   /** Brand name for display */
   brandName: 'Studio Araci',
   /** Owner/Founder name */

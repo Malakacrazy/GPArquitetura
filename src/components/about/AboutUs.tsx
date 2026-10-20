@@ -41,7 +41,7 @@ export function AboutUs() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Com a mudança no sistema imobiliário brasileiro dos últimos anos, existe uma grande oferta de apartamentos compactos que necessitam de inteligência projetual, funcionalidade e sensibilidade emocional. O Studio Araci surgiu da necessidade de resolver as dores dos espaços contemporâneos, como a sensação de que “minha casa não me acolhe”. Esse incômodo é resultado de anos de desconforto silencioso, rotinas frustrantes e sensação de que algo está errado, sem saber o que é. Nosso objetivo é transformar a relação das pessoas com o espaço, se utilizando dos princípios da estética emocional brasileira (incorporação da nossa luz tropical, nossa cultura de acolhimento e nossa maneira única de habitar espaços).
+            A maneira como habitamos e utilizamos os imóveis está em constante mudança. Apartamentos compactos exigem soluções inteligentes. Novas rotinas transformam a relação com a casa. E unidades destinadas à locação precisam conciliar atratividade, funcionalidade e escolhas adequadas ao investimento. A arquitetura encontra, nesse cenário, a oportunidade de criar respostas que vão além da aparência.
           </motion.p>
           <motion.p 
             className=""
@@ -50,7 +50,7 @@ export function AboutUs() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            O foco do Studio Araci é a neuroarquitetura e a experiência emocional profunda. Nosso processo prioriza sensações, bem-estar e a maneira como as pessoas vivem em seus espaços. Criamos espaços que abraçam e confortam, que reduzem a ansiedade, estimulando a reconexão com os ciclos naturais e se utilizando de funcionalidades que facilitam o dia a dia, promovemos a saúde mental integrada ao espaço, explorando a sensação de “este lugar é meu”.
+            Para nós, projetar começa pela compreensão do contexto. A luz que atravessa o ambiente, os caminhos que percorremos, as proporções, os materiais e os hábitos cotidianos revelam necessidades que nem sempre estão evidentes na primeira conversa. É dessa leitura que nasce uma direção capaz de unir técnica e identidade.
           </motion.p>
           <motion.p 
             className=""
@@ -59,7 +59,16 @@ export function AboutUs() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
           >
-            Buscamos entender como as pessoas escolhem os espaços, como se sentem em cada ambiente e como se relacionam com ele. A essência do Studio Araci reside na sua capacidade de ir além do design, tocando as emoções e a vida de quem habita os espaços que projetamos. Com isso,  transformamos espaços em santuários de emoções, onde cada detalhe é uma homenagem ao seu bem-estar, família e sua história. Sentir a diferença é viver onde você se sente em casa.
+            Nossa atuação parte do encontro entre sensibilidade e estrutura. Em cada proposta, investigamos as condições do imóvel e seus objetivos para desenvolver soluções coerentes com a finalidade, o orçamento previsto e as pessoas que irão utilizá-lo. Seja uma residência ou uma unidade voltada ao mercado imobiliário, cada decisão precisa encontrar sua razão de existir.
+          </motion.p>
+          <motion.p
+            className=""
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+          >
+            O Studio Araci nasceu da trajetória de Giulia Parente e de seu desejo de exercer uma arquitetura mais atenta à relação entre pessoas e ambientes. O nome carrega a imagem da aurora, o instante em que a luz começa a revelar novas possibilidades. Essa ideia acompanha nossa forma de criar: observar antes de intervir, compreender antes de desenhar e encontrar beleza naquilo que faz sentido.
           </motion.p>
         </div>
       </div>

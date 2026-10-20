@@ -61,7 +61,7 @@ export default function AboutPage() {
       <OurExpertise />
       <Bookshelf />
       <WorkWithUs />
-      <Footer />
+      <Footer heading="Vamos conversar sobre o que seu espaço pode se tornar?" />
     </div>
   );
 }

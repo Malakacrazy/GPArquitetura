@@ -1,7 +1,7 @@
 /**
  * ToS (Terms of Service) Component
  *
- * Displays the complete terms of service for GP Arquitetura in a split-screen layout.
+ * Displays the complete terms of service for Studio Araci in a split-screen layout.
  * Covers usage rights, intellectual property, and legal disclaimers.
  *
  * @module components/legal/ToS
@@ -54,7 +54,7 @@ export function ToS() {
                 1. ACEITAÇÃO DOS TERMOS
               </h2>
               <p className="text-base md:text-lg">
-                Bem-vindo ao site da {company.brandName}, com sede em {contact.location.city}, {contact.location.state}, {contact.location.country} (doravante "GP Arquitetura", "nós", "nos" ou "nosso").
+                Bem-vindo ao site do {company.brandName}, com sede em {contact.location.city}, {contact.location.state}, {contact.location.country} (doravante "Studio Araci", "nós", "nos" ou "nosso").
               </p>
               <p className="text-base md:text-lg">
                 Estes Termos de Uso e Serviço ("Termos") regem o acesso e utilização do site https://studioaraci.com.br (o "Site") e dos serviços oferecidos pelo Studio Araci (os "Serviços").
@@ -70,7 +70,7 @@ export function ToS() {
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                 <li><strong>Usuário ou Você:</strong> Qualquer pessoa física ou jurídica que acessa ou utiliza o Site.</li>
                 <li><strong>Conteúdo:</strong> Todo material disponível no Site, incluindo textos, imagens, fotografias, vídeos, projetos arquitetônicos, renders, plantas, gráficos, logotipos, ícones e outros elementos visuais.</li>
-                <li><strong>Serviços:</strong> Atividades de arquitetura e urbanismo oferecidas pela GP Arquitetura, incluindo projetos residenciais, comerciais, interiores e consultoria.</li>
+                <li><strong>Serviços:</strong> Atividades de arquitetura e urbanismo oferecidas pelo Studio Araci, incluindo projetos residenciais, comerciais, interiores e consultoria.</li>
                 <li><strong>Conta:</strong> Registro de usuário no Site (se aplicável para área restrita ou portal do cliente).</li>
               </ul>
 
@@ -79,6 +79,8 @@ export function ToS() {
               </h2>
               <p className="text-base md:text-lg">
                 <strong>Razão Social:</strong> {company.legalName}<br />
+                <strong>CNPJ:</strong> {company.cnpj}<br />
+                <strong>Registro no CAU:</strong> {company.cau}<br />
                 <strong>Nome Fantasia:</strong> {company.brandName}<br />
                 <strong>Endereço:</strong> {contact.location.city}, {contact.location.state}, {contact.location.country}<br />
                 <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />
@@ -92,7 +94,7 @@ export function ToS() {
                 4. DESCRIÇÃO DOS SERVIÇOS
               </h2>
               <p className="text-base md:text-lg">
-                A GP Arquitetura oferece serviços de arquitetura e urbanismo, incluindo mas não limitado a:
+                O Studio Araci oferece serviços de arquitetura e urbanismo, incluindo mas não limitado a:
               </p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                 <li>Projetos arquitetônicos residenciais e comerciais</li>
@@ -127,7 +129,7 @@ export function ToS() {
                 <li>Utilizar bots, scrapers ou sistemas automatizados para acessar o Site</li>
                 <li>Transmitir vírus, malware ou qualquer código prejudicial</li>
                 <li>Interferir ou interromper o funcionamento do Site</li>
-                <li>Violar direitos de propriedade intelectual da GP Arquitetura ou de terceiros</li>
+                <li>Violar direitos de propriedade intelectual do Studio Araci ou de terceiros</li>
                 <li>Coletar informações de outros usuários sem consentimento</li>
                 <li>Fazer uso comercial do Conteúdo sem autorização expressa e por escrito</li>
                 <li>Publicar o Conteúdo em outros sites, redes sociais ou plataformas sem permissão</li>
@@ -154,7 +156,7 @@ export function ToS() {
               </p>
               <p className="text-base md:text-lg"><strong>Titularidade:</strong></p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
-                <li>Os projetos arquitetônicos, renders, fotografias e textos originais são de propriedade exclusiva da GP Arquitetura</li>
+                <li>Os projetos arquitetônicos, renders, fotografias e textos originais são de propriedade exclusiva do Studio Araci</li>
                 <li>Algumas imagens podem pertencer a terceiros (fotógrafos, fornecedores) devidamente creditados</li>
                 <li>O uso não autorizado pode violar direitos autorais e outras leis de propriedade intelectual</li>
               </ul>
@@ -163,10 +165,10 @@ export function ToS() {
                 6.2. Marcas Registradas
               </h3>
               <p className="text-base md:text-lg">
-                Os seguintes elementos são marcas da GP Arquitetura, protegidas pela <strong>Lei nº 9.279/1996 (Lei da Propriedade Industrial)</strong>:
+                Os seguintes elementos são marcas do Studio Araci, protegidas pela <strong>Lei nº 9.279/1996 (Lei da Propriedade Industrial)</strong>:
               </p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
-                <li>Nome "GP Arquitetura"</li>
+                <li>Nome "Studio Araci"</li>
                 <li>Logotipo e identidade visual</li>
                 <li>Outros sinais distintivos exibidos no Site</li>
               </ul>
@@ -250,7 +252,7 @@ export function ToS() {
                 <li>Você declara ser titular dos direitos sobre o conteúdo enviado</li>
                 <li>Você nos concede licença mundial, não exclusiva, gratuita e perpétua para utilizar, reproduzir e exibir o conteúdo para fins relacionados aos Serviços</li>
                 <li>Você garante que o conteúdo não viola direitos de terceiros</li>
-                <li>Você isenta a GP Arquitetura de qualquer reclamação relacionada ao conteúdo enviado</li>
+                <li>Você isenta o Studio Araci de qualquer reclamação relacionada ao conteúdo enviado</li>
               </ul>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
@@ -323,7 +325,7 @@ export function ToS() {
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
                 11.1. Exclusão de Danos
               </h3>
-              <p className="text-base md:text-lg">A GP Arquitetura não será responsável por:</p>
+              <p className="text-base md:text-lg">O Studio Araci não será responsável por:</p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                 <li>Danos diretos, indiretos, incidentais, consequenciais ou punitivos</li>
                 <li>Perda de lucros, dados, oportunidades de negócio ou reputação</li>
@@ -350,7 +352,7 @@ export function ToS() {
                 12. INDENIZAÇÃO
               </h2>
               <p className="text-base md:text-lg">
-                Você concorda em indenizar, defender e isentar a GP Arquitetura, seus sócios, colaboradores e prestadores de serviços de todas as reclamações, perdas, responsabilidades, danos, custos e despesas (incluindo honorários advocatícios) decorrentes de:
+                Você concorda em indenizar, defender e isentar o Studio Araci, seus sócios, colaboradores e prestadores de serviços de todas as reclamações, perdas, responsabilidades, danos, custos e despesas (incluindo honorários advocatícios) decorrentes de:
               </p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
                 <li>Sua violação destes Termos</li>
@@ -399,7 +401,7 @@ export function ToS() {
               </p>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
-                14.2. Por Parte da GP Arquitetura
+                14.2. Por Parte do Studio Araci
               </h3>
               <p className="text-base md:text-lg">Podemos suspender ou encerrar seu acesso ao Site imediatamente, sem aviso prévio, se:</p>
               <ul className="list-disc list-inside space-y-2 text-base md:text-lg ml-4">
@@ -426,7 +428,7 @@ export function ToS() {
                 15.1. Acordo Integral
               </h3>
               <p className="text-base md:text-lg">
-                Estes Termos, juntamente com a Política de Privacidade, constituem o acordo integral entre você e a GP Arquitetura sobre o uso do Site, substituindo todos os acordos anteriores.
+                Estes Termos, juntamente com a Política de Privacidade, constituem o acordo integral entre você e o Studio Araci sobre o uso do Site, substituindo todos os acordos anteriores.
               </p>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
@@ -516,7 +518,7 @@ export function ToS() {
               </p>
               <p className="text-base md:text-lg">
                 <strong>Para questões sobre privacidade e dados pessoais:</strong><br />
-                privacidade@gparquitetura.com.br
+                privacidade@studioaraci.com.br
               </p>
 
               <h2 className="text-[var(--color-primary)] pt-6 text-2xl md:text-3xl font-bold">

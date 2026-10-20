@@ -100,9 +100,9 @@ export const OtherProjects = ({ currentProjectSlug }: OtherProjectsProps) => {
             className="group relative mx-2 my-2 inline-block text-sm uppercase tracking-wider text-[var(--color-text-dark)] no-underline text-center"
           >
             <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-            <h6 className="relative z-10 block px-6 py-3 transition-colors duration-300 group-hover:text-[var(--color-background)] uppercase text-xs">
+            <span className="heading-sub relative z-10 block px-6 py-3 transition-colors duration-300 group-hover:text-[var(--color-background)] uppercase text-xs">
               Todos os Projetos
-            </h6>
+            </span>
             <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
             <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
             <span className="absolute bottom-[-8px] top-[-8px] left-0 w-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:bottom-0 group-hover:top-0 group-hover:bg-[var(--color-primary)]"></span>

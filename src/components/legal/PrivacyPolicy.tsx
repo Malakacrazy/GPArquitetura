@@ -1,7 +1,7 @@
 /**
  * PrivacyPolicy Component
  *
- * Displays the complete privacy policy for GP Arquitetura in a split-screen layout.
+ * Displays the complete privacy policy for Studio Araci in a split-screen layout.
  * Covers data collection, cookies, third-party services, and user rights.
  *
  * @module components/legal/PrivacyPolicy
@@ -53,7 +53,7 @@ export function PrivacyPolicy() {
                 1. INTRODUÇÃO
               </h2>
               <p className="text-base md:text-lg">
-                A <strong>{company.legalName}</strong>, com sede em <strong>{contact.location.city}, {contact.location.state}, {contact.location.country}</strong> (doravante "GP Arquitetura", "nós" ou "nosso"), está comprometida com a proteção da privacidade e dos dados pessoais de seus clientes, visitantes do site e demais interessados em todas as jurisdições onde atuamos.
+                <strong>{company.legalName}</strong>, inscrita no CNPJ sob o nº <strong>{company.cnpj}</strong>, nome fantasia <strong>{company.brandName}</strong>, com sede em <strong>{contact.location.city}, {contact.location.state}, {contact.location.country}</strong> (doravante "Studio Araci", "nós" ou "nosso"), está comprometida com a proteção da privacidade e dos dados pessoais de seus clientes, visitantes do site e demais interessados em todas as jurisdições onde atuamos.
               </p>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
@@ -88,7 +88,7 @@ export function PrivacyPolicy() {
                 <li>Visitantes do site (em qualquer localização)</li>
                 <li>Clientes e potenciais clientes (Brasil e internacional)</li>
                 <li>Parceiros comerciais e fornecedores</li>
-                <li>Qualquer pessoa cujos dados pessoais sejam tratados pela GP Arquitetura</li>
+                <li>Qualquer pessoa cujos dados pessoais sejam tratados pelo Studio Araci</li>
               </ul>
 
               <h3 className="text-[var(--color-primary)] pt-4 text-xl md:text-2xl font-semibold">
@@ -110,7 +110,7 @@ export function PrivacyPolicy() {
                 <li><strong>Titular de dados:</strong> Você, pessoa natural a quem se referem os dados pessoais.</li>
                 <li><strong>Dados pessoais:</strong> Informações relacionadas a pessoa natural identificada ou identificável.</li>
                 <li><strong>Tratamento:</strong> Qualquer operação com dados (coleta, armazenamento, uso, compartilhamento, eliminação).</li>
-                <li><strong>Controlador:</strong> GP Arquitetura, que toma decisões sobre tratamento de dados.</li>
+                <li><strong>Controlador:</strong> Studio Araci, que toma decisões sobre tratamento de dados.</li>
                 <li><strong>Operador/Processador:</strong> Terceiros que tratam dados em nosso nome.</li>
                 <li><strong>ANPD:</strong> Autoridade Nacional de Proteção de Dados (Brasil).</li>
               </ul>
@@ -120,6 +120,8 @@ export function PrivacyPolicy() {
               </h2>
               <p className="text-base md:text-lg">
                 <strong>Razão Social:</strong> {company.legalName}<br />
+                <strong>CNPJ:</strong> {company.cnpj}<br />
+                <strong>Registro no CAU:</strong> {company.cau}<br />
                 <strong>Nome Fantasia:</strong> {company.brandName}<br />
                 <strong>Endereço:</strong> {contact.location.city}, {contact.location.state}, {contact.location.country}<br />
                 <strong>E-mail:</strong> <a href={contact.email.url} className="text-[var(--color-primary)] underline">{contact.email.address}</a><br />

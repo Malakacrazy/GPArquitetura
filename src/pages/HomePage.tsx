@@ -70,7 +70,7 @@ export default function HomePage() {
         <ProjectsSection />
         <ProcessSection />
         <FeaturedWorks />
-        <Footer />
+        <Footer support="Um imóvel para investir. Uma casa para viver. Um ambiente que precisa acompanhar uma nova fase. Conte ao Studio Araci o que você tem em mente." />
       </Suspense>
     </div>
   );

@@ -65,7 +65,7 @@ export function Archive({ posts }: { posts: any[] }) {
                 onClick={() => window.scrollTo(0, 0)}
                 className="group grid grid-cols-[2.5rem_1fr_auto] md:grid-cols-[3.5rem_1fr_9rem_7rem_1.5rem] items-center gap-x-4 gap-y-1 py-6 md:py-7 no-underline"
               >
-                <h6 className="text-xl md:text-2xl text-[var(--color-primary)]">{String(posts.indexOf(post) + 1).padStart(2, '0')}</h6>
+                <p className="heading-sub text-xl md:text-2xl text-[var(--color-primary)]">{String(posts.indexOf(post) + 1).padStart(2, '0')}</p>
                 <span className="text-xl md:text-2xl text-[var(--color-text-dark)] transition-colors duration-300 group-hover:text-[var(--color-primary)]" style={{ fontFamily: 'var(--font-heading)' }}>
                   {post.title}
                 </span>

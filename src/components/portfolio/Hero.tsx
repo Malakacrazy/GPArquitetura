@@ -57,12 +57,17 @@ export function Hero() {
             <Reveal delay={0.3}>
                {/* Description and Scroll */}
                <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:gap-8 lg:gap-12">
-                  <h6 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug max-w-5xl tracking-tight">
-                     Conheça nossos trabalhos cuidadosamente criados para evocar sensações de acolhimento e bem-estar
-                  </h6>
-                  <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
+                  <div className="max-w-5xl">
+                    <h2 className="heading-sub text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug tracking-tight">
+                       Projetos que traduzem desafios em possibilidades.
+                    </h2>
+                    <p className="mt-3 md:mt-4 text-base md:text-lg lg:text-xl font-normal leading-snug">
+                       Cada trabalho nasce de um contexto particular. Conheça propostas de arquitetura e interiores, seus conceitos e as decisões que orientam cada solução.
+                    </p>
+                  </div>
+                  <p className="heading-sub text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
                      (Rolar para Baixo)
-                  </h6>
+                  </p>
                </div>
             </Reveal>
           </div>

@@ -29,42 +29,42 @@ export const faqs: FAQItem[] = [
   {
     category: "PERGUNTAS GERAIS",
     question: "O que é a visualização arquitetônica em 3D?",
-    answer: "A visualização arquitetônica em 3D é uma representação realista do projeto antes da execução, permitindo compreender volumes, materiais, iluminação e atmosfera do espaço. Ela facilita decisões, aprovações e apresentações, tornando o projeto mais claro e assertivo."
+    answer: "É a representação digital de um projeto antes da execução, permitindo observar volumes, proporções, materiais e iluminação. O recurso facilita a compreensão dos ambientes e apoia decisões e apresentações."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "Os renders são fiéis ao projeto executivo?",
-    answer: "Sim. Trabalhamos a partir do projeto fornecido pelo cliente, respeitando medidas, proporções e especificações técnicas. Nosso objetivo é traduzir o projeto com precisão, mantendo fidelidade técnica aliada à qualidade estética."
+    answer: "As imagens são produzidas a partir da documentação e das referências recebidas. Quanto mais completas forem as informações, maior a possibilidade de representar com precisão os elementos previstos."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "O que preciso enviar para iniciar um projeto?",
-    answer: "Geralmente solicitamos plantas, cortes, elevações, referências visuais e, quando disponíveis, definições de materiais. Caso o projeto ainda não esteja totalmente definido, auxiliamos na interpretação e organização das informações necessárias."
+    answer: "Preferencialmente plantas, cortes, elevações, especificações de materiais e referências visuais. Outros documentos podem ser solicitados conforme a complexidade da produção."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "Vocês desenvolvem a modelagem do projeto?",
-    answer: "Sim. A modelagem 3D é desenvolvida a partir dos arquivos e informações fornecidas. Não é necessário que o cliente entregue o modelo pronto."
+    answer: "Sim. A modelagem tridimensional integra o processo descrito pelo Studio. Sua abrangência é definida de acordo com as características do trabalho solicitado."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "Posso enviar referências visuais?",
-    answer: "Sim, e elas são muito bem-vindas. Referências ajudam a alinhar estilo, atmosfera, iluminação e expectativas de resultado."
+    answer: "Sim. Referências podem ajudar a alinhar materiais, iluminação, enquadramentos e atmosfera, respeitando as definições arquitetônicas existentes."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "Quantas revisões estão incluídas?",
-    answer: "Cada projeto inclui um número pré-definido de revisões, informado em contrato. Alterações adicionais podem ser realizadas mediante ajuste de prazo e valor."
+    answer: "A quantidade de revisões é estabelecida na proposta comercial, conforme o escopo, o volume de imagens e a complexidade do serviço."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "Alterações no projeto impactam o prazo?",
-    answer: "Sim. Modificações após o início da produção podem influenciar o cronograma. Sempre informamos previamente qualquer impacto em prazo ou valor antes de prosseguir."
+    answer: "Podem impactar. Modificações após aprovações podem exigir atualização da modelagem e novas renderizações. Eventuais efeitos sobre prazo e investimento são avaliados conforme a contratação."
   },
   {
     category: "PERGUNTAS GERAIS",
     question: "Qual é o prazo médio de entrega?",
-    answer: "O prazo varia conforme a complexidade do projeto e a quantidade de imagens contratadas. Os prazos são definidos e acordados antes do início do trabalho."
+    answer: "A previsão considera a complexidade dos ambientes, a quantidade de imagens, o material técnico disponível e as etapas de revisão. O cronograma é informado na proposta."
   },
 
   // INTERIOR/EXTERIOR RENDERING

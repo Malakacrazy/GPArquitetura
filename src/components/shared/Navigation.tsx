@@ -268,7 +268,7 @@ export function Navigation() {
                           className="text-[var(--color-text-dark)] hover:text-[var(--color-accent)] transition group flex items-center justify-between py-4 md:py-5 w-full"
                           onClick={() => setIsOpen(false)}
                         >
-                          <h6 className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-light">{item.name}</h6>
+                          <span className="heading-sub text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-light">{item.name}</span>
                           <div className="relative w-8 h-8 overflow-hidden">
                             {/* First Arrow - slides out on hover */}
                             <div className="absolute inset-0 transition-transform duration-500 group-hover:translate-x-8 flex items-center justify-center">
@@ -311,21 +311,21 @@ export function Navigation() {
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src={icons.whatsapp} alt="WhatsApp" className="h-6 w-6 md:h-8 md:w-8 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
-                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">WhatsApp</h6>
+                              <p className="heading-sub mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">WhatsApp</p>
                               <a href={contact.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition">{contact.whatsapp.display}</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src={icons.email} alt="Email" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div className="min-w-0">
-                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</h6>
+                              <p className="heading-sub mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Email</p>
                               <a href={contact.email.url} className="text-[var(--color-text-dark)] text-base md:text-lg hover:text-[var(--color-accent)] transition [overflow-wrap:anywhere]">{contact.email.address.split('@')[0]}@<wbr />{contact.email.address.split('@')[1]}</a>
                             </div>
                           </div>
                           <div className="flex items-start gap-3 md:gap-4">
                             <img src={icons.location} alt="MapPin" className="h-5 w-5 md:h-6 md:w-6 mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(47%) sepia(18%) saturate(643%) hue-rotate(351deg) brightness(92%) contrast(87%)' }} />
                             <div>
-                              <h6 className="mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Local</h6>
+                              <p className="heading-sub mb-1 text-xs md:text-sm uppercase tracking-wider font-bold text-[var(--color-primary)]">Local</p>
                               <p className="text-[var(--color-text-dark)] text-base md:text-lg">São Paulo, São Paulo<br />Brasil</p>
                             </div>
                           </div>

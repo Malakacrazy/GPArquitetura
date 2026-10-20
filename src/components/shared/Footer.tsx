@@ -23,7 +23,17 @@ import { Reveal } from '../shared/Reveal';
 import { videos } from '../../config/assets';
 import { contact, company, getBusinessStatus } from '../../config/contact';
 
-export function Footer() {
+interface FooterProps {
+  /** Closing call-to-action headline (defaults to the home page copy) */
+  heading?: string;
+  /** Supporting text under the headline (optional) */
+  support?: string;
+}
+
+export function Footer({
+  heading = 'Seu próximo projeto merece começar com uma boa conversa.',
+  support,
+}: FooterProps = {}) {
   return (
     <section id="contact" className="relative min-h-screen bg-gray-900">
       <div className="absolute inset-0 z-0">
@@ -60,8 +70,13 @@ export function Footer() {
             {/* CTA */}
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white tracking-tighter">
-                Vamos fazer do seu projeto uma experiência transformadora
+                {heading}
               </h2>
+              {support && (
+                <p className="mt-4 md:mt-6 max-w-3xl text-base md:text-lg font-light text-white/80 normal-case tracking-normal">
+                  {support}
+                </p>
+              )}
             </div>
           </Reveal>
 
@@ -70,7 +85,7 @@ export function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-8 gap-x-4">
               {/* Left Column */}
               <div className="flex flex-col space-y-1.5">
-                <div>© {company.copyrightYear} Copyright {company.legalName}</div>
+                <div>© {company.copyrightYear} Copyright {company.brandName}</div>
                 <div>
                   {(() => {
                     const { isOpen, timeString } = getBusinessStatus();
@@ -89,6 +104,7 @@ export function Footer() {
               <div className="flex flex-col space-y-1.5 md:items-end">
                 Site by <a href="https://github.com/Malakacrazy" className="underline decoration-1 underline-offset-4 hover:text-white transition-colors">Malakacrazy</a>
               </div>
+
             </div>
           </Reveal>
         </div>

@@ -41,7 +41,7 @@ export function FeaturedStories({ posts }: { posts: any[] }) {
             )}
           </div>
           <div>
-            <h6 className="text-2xl text-[var(--color-primary)]">02</h6>
+            <p className="heading-sub text-2xl text-[var(--color-primary)]">02</p>
             <h3 className="mt-4 text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight text-[var(--color-text-dark)] transition-colors duration-500 group-hover:text-[var(--color-primary)]">
               {lead.title}
             </h3>

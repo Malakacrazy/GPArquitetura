@@ -101,7 +101,7 @@ export function Bookshelf() {
             >
               <span className="absolute inset-0 bg-[var(--color-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
               <span className="relative z-10 block px-6 py-3 transition-colors duration-300 text-[var(--color-text-dark)] group-hover:text-[var(--color-background)] uppercase text-xs flex items-center gap-2">
-                <h6 >TODOS OS LIVROS</h6>
+                <span className="heading-sub">TODOS OS LIVROS</span>
               </span>
               <span className="absolute left-[-8px] right-[-8px] top-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
               <span className="absolute left-[-8px] right-[-8px] bottom-0 h-[1px] bg-[var(--color-text-dark)] transition-all duration-300 group-hover:left-0 group-hover:right-0 group-hover:bg-[var(--color-primary)]"></span>
@@ -180,12 +180,12 @@ export function Bookshelf() {
 
                     {/* Book Info */}
                     <div>
-                      <h6 
-                        className="mb-3 transition-colors duration-300 font-bold line-clamp-2 uppercase"
+                      <h3 
+                        className="heading-sub mb-3 transition-colors duration-300 font-bold line-clamp-2 uppercase"
                         style={{ color: 'var(--color-text-dark)' }}
                       >
                         {book.title}
-                      </h6>
+                      </h3>
                       <p 
                         className="leading-relaxed line-clamp-3"
                         style={{ color: 'white' }}

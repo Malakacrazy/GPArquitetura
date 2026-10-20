@@ -49,7 +49,7 @@ export function Hero() {
           {/* Header */}
           <div className="flex justify-end items-center">
             <Reveal>
-              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>
+              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="terracota" /></h1>
             </Reveal>
           </div>
 
@@ -58,12 +58,17 @@ export function Hero() {
             <Reveal delay={0.3}>
                {/* Description and Scroll */}
                <div className="flex flex-col md:flex-row justify-between items-end gap-6 md:gap-8 lg:gap-12">
-                  <h6 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug max-w-5xl tracking-tight">
-                     O estilo do Studio Araci é caracterizado pelo minimalismo quente e acolhedor e uma estética autêntica e emocional
-                  </h6>
-                  <h6 className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
+                  <div className="max-w-5xl">
+                    <h2 className="heading-sub text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-snug tracking-tight">
+                       Arquitetura que revela o potencial de cada espaço.
+                    </h2>
+                    <p className="mt-3 md:mt-4 text-base md:text-lg lg:text-xl font-normal leading-snug">
+                       Do imóvel pensado para investir ao lugar escolhido para viver, criamos interiores que unem inteligência, identidade e propósito.
+                    </p>
+                  </div>
+                  <p className="heading-sub text-xs md:text-sm font-bold tracking-[0.15em] uppercase whitespace-nowrap">
                      (Rolar para Baixo)
-                  </h6>
+                  </p>
                </div>
             </Reveal>
           </div>

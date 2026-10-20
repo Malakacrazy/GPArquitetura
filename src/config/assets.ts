@@ -205,7 +205,7 @@ export const images = {
   // ==========================================================================
   blog: {
     hero: {
-      background: `${ASSET_BASE}/images/hero-about-us-bg.webp`,
+      background: `${ASSET_BASE}/images/newsletter-blog.webp`,
     },
   },
 

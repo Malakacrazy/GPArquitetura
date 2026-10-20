@@ -129,7 +129,7 @@ export function Newsletter() {
 
         <Reveal delay={0.15} className="lg:py-12 lg:pl-0">
           <img
-            src={images.home.projects.architecture}
+            src={images.blog.hero.background}
             alt=""
             loading="lazy"
             className="aspect-[4/3] lg:aspect-auto lg:h-[26rem] xl:h-[30rem] w-full object-cover rounded-[16px] rounded-tl-[120px] lg:rounded-tl-[200px] lg:rounded-r-none"

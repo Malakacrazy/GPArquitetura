@@ -1,7 +1,7 @@
 // Service Worker for GP Arquitetura
 // Provides offline capability and asset caching with security hardening
 
-const CACHE_VERSION = 'v1.0.5';
+const CACHE_VERSION = 'v1.0.6';
 const CACHE_NAME = `gp-arquitetura-${CACHE_VERSION}`;
 const METADATA_CACHE = `${CACHE_NAME}-metadata`;
 
@@ -251,23 +251,22 @@ async function cacheFirst(request) {
     const isValid = await isCacheValid(request.url);
     if (!isValid) {
       console.log('[SW] Cache expired, fetching fresh:', request.url);
-      // Cache expired, fetch from network
-      return fetch(request).catch(() => cachedResponse);
-    }
-
-    const isIntact = await verifyCacheIntegrity(request.url, cachedResponse);
-    if (!isIntact) {
-      console.warn('[SW] Cache integrity failed, fetching fresh:', request.url);
-      // Integrity check failed, fetch from network
-      return fetch(request).catch(() => {
-        return new Response('Resource integrity check failed', {
-          status: 500,
-          statusText: 'Integrity Check Failed'
+      // Cache expired: fall through to fetch and re-cache below (stale copy is the fallback)
+    } else {
+      const isIntact = await verifyCacheIntegrity(request.url, cachedResponse);
+      if (!isIntact) {
+        console.warn('[SW] Cache integrity failed, fetching fresh:', request.url);
+        // Integrity check failed, fetch from network
+        return fetch(request).catch(() => {
+          return new Response('Resource integrity check failed', {
+            status: 500,
+            statusText: 'Integrity Check Failed'
+          });
         });
-      });
-    }
+      }
 
-    return cachedResponse;
+      return cachedResponse;
+    }
   }
 
   try {
@@ -298,6 +297,11 @@ async function cacheFirst(request) {
     return networkResponse;
   } catch (error) {
     console.error('[SW] Fetch failed for:', request.url, error);
+
+    // Serve the expired copy rather than nothing
+    if (cachedResponse) {
+      return cachedResponse;
+    }
 
     // Return offline page if available
     const offlineResponse = await caches.match('/offline.html');

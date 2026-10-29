@@ -71,7 +71,7 @@ export function ProjectsSection() {
              <source src={videos.home.projectsBackground.mp4} type="video/mp4" />
              <source src={videos.home.projectsBackground.webm} type="video/webm" />
           </video>
-          <div className="absolute inset-0 bg-black/15" />
+          <div className="absolute inset-0 bg-black/10" />
         </div>
 
         {/* Lower Part Text Content - Overlaid on video (Revealed later) */}

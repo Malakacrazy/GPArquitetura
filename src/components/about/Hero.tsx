@@ -45,7 +45,7 @@ export function Hero() {
           {/* Header */}
           <div className="flex justify-between items-start relative z-40">
             <Reveal>
-              <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">SObre Nós</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-white uppercase">Sobre Nós</span>
             </Reveal>
             <Reveal>
               <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>

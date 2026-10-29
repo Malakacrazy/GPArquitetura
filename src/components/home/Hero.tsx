@@ -42,14 +42,14 @@ export function Hero() {
         }}
       >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-black/40" />
         
         {/* Content Container */}
         <div className="relative z-10 h-full flex flex-col justify-between px-6 md:px-12 lg:px-16 xl:px-20 py-6 md:py-8 lg:py-12 xl:py-16 text-white">
           {/* Header */}
           <div className="flex justify-end items-center">
             <Reveal>
-              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="terracota" /></h1>
+              <h1><span className="sr-only">Studio Araci</span><BrandLogo tone="branco" /></h1>
             </Reveal>
           </div>
 

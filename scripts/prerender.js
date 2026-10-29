@@ -281,13 +281,9 @@ function generateHTML(route, scriptTags, cssTags, metadata = routeMetadata[route
     <meta name="msapplication-TileColor" content="#9F4F39" />
 
     <!-- Preconnect to important third-party origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://cdn.sanity.io" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Italiana&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
 
     <!-- Bing Webmaster Tools Verification -->
     <meta name="msvalidate.01" content="2A614E064AB65E6EFA77A9FB7A4F4FA3" />
@@ -412,7 +408,9 @@ async function prerender() {
   // Extract CSS link tags (stylesheet with href to /assets/)
   const cssRegex = /<link[^>]*rel="stylesheet"[^>]*href="\/assets\/[^"]*"[^>]*>/g;
   const cssMatches = builtIndexHtml.match(cssRegex) || [];
-  const cssTags = cssMatches.join('\n    ');
+  // Preloads for the critical self-hosted fonts (added by the preload-critical-fonts plugin in vite.config.ts)
+  const fontPreloads = builtIndexHtml.match(/<link[^>]*rel="preload"[^>]*as="font"[^>]*>/g) || [];
+  const cssTags = [...fontPreloads, ...cssMatches].join('\n    ');
 
   // Extract module script tags (with src to /assets/)
   const scriptRegex = /<script[^>]*type="module"[^>]*src="\/assets\/[^"]*"[^>]*><\/script>/g;

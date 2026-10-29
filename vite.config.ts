@@ -4,8 +4,26 @@
   import tailwindcss from '@tailwindcss/vite';
   import path from 'path';
 
+  // Preload the fonts used above the fold; their hashed file names are only known at build time
+  const CRITICAL_FONTS = [/poppins-latin-300-normal/, /poppins-latin-400-normal/, /italiana-latin-400-normal/];
+  function preloadCriticalFonts() {
+    return {
+      name: 'preload-critical-fonts',
+      apply: 'build' as const,
+      transformIndexHtml(_html: string, ctx: { bundle?: Record<string, unknown> }) {
+        return Object.keys(ctx.bundle ?? {})
+          .filter((file) => file.endsWith('.woff2') && CRITICAL_FONTS.some((re) => re.test(file)))
+          .map((file) => ({
+            tag: 'link',
+            attrs: { rel: 'preload', as: 'font', type: 'font/woff2', crossorigin: true, href: '/' + file },
+            injectTo: 'head-prepend' as const,
+          }));
+      },
+    };
+  }
+
   export default defineConfig({
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), preloadCriticalFonts()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {

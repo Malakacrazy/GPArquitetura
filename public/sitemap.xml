@@ -8,31 +8,31 @@
   <!-- Homepage -->
   <url>
     <loc>https://studioaraci.com.br/</loc>
-    <lastmod>2026-01-11T02:29:54.347Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.657Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://studioaraci.com.br/images/hero-bg.webp</image:loc>
-      <image:title>GP Arquitetura - Home</image:title>
+      <image:title>Studio Araci - Home</image:title>
     </image:image>
   </url>
 
   <!-- About -->
   <url>
     <loc>https://studioaraci.com.br/about</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://studioaraci.com.br/images/hero-about-us-bg.webp</image:loc>
-      <image:title>Sobre GP Arquitetura</image:title>
+      <image:title>Sobre Studio Araci</image:title>
     </image:image>
   </url>
 
   <!-- Library -->
   <url>
     <loc>https://studioaraci.com.br/about/library</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -40,43 +40,51 @@
   <!-- Portfolio -->
   <url>
     <loc>https://studioaraci.com.br/portfolio</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://studioaraci.com.br/images/hero-portfolio-bg.webp</image:loc>
-      <image:title>Portfólio GP Arquitetura</image:title>
+      <image:title>Portfólio Studio Araci</image:title>
     </image:image>
   </url>
 
   <!-- 3d-visualization -->
   <url>
     <loc>https://studioaraci.com.br/3d-visualization</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://studioaraci.com.br/images/hero-3drendering-bg.webp</image:loc>
-      <image:title>Renderização 3D - GP Arquitetura</image:title>
+      <image:title>Renderização 3D - Studio Araci</image:title>
     </image:image>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://studioaraci.com.br/blog</loc>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Contact -->
   <url>
     <loc>https://studioaraci.com.br/contact</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://studioaraci.com.br/images/hero-contact-bg.webp</image:loc>
-      <image:title>Contato - GP Arquitetura</image:title>
+      <image:title>Contato - Studio Araci</image:title>
     </image:image>
   </url>
 
   <!-- Privacy -->
   <url>
     <loc>https://studioaraci.com.br/privacy</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -84,9 +92,211 @@
   <!-- Tos -->
   <url>
     <loc>https://studioaraci.com.br/tos</loc>
-    <lastmod>2026-01-11T02:29:54.348Z</lastmod>
+    <lastmod>2026-11-06T16:08:44.660Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Portfolio Projects -->
+  <url>
+    <loc>https://studioaraci.com.br/portfolio/paprica-e-horizonte-azul</loc>
+    <lastmod>2026-10-18T22:39:29.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/portfolio/projeto-japandi</loc>
+    <lastmod>2026-10-18T22:39:29.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/portfolio/projeto-boho</loc>
+    <lastmod>2026-10-18T22:39:29.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/portfolio/boulevard-parque-central</loc>
+    <lastmod>2026-10-18T22:39:29.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/portfolio/studio-jardim-bonfim</loc>
+    <lastmod>2026-10-18T22:11:01.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://studioaraci.com.br/blog/acompanhamento-de-obras</loc>
+    <lastmod>2026-10-18T19:25:55.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/airbnb-investimento</loc>
+    <lastmod>2026-10-18T19:41:11.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/banheiro-sem-janela</loc>
+    <lastmod>2026-10-24T20:54:05.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/cantinho-de-leitura</loc>
+    <lastmod>2026-10-16T18:30:16.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/casa-pet-friendly</loc>
+    <lastmod>2026-10-24T20:54:13.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/cimento-queimado-no-banheiro</loc>
+    <lastmod>2026-10-27T17:13:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/cozinha-pequena-funcional</loc>
+    <lastmod>2026-10-18T19:12:23.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/cozinha-planejada-minimalista</loc>
+    <lastmod>2026-10-13T22:16:26.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/cronograma-de-obra</loc>
+    <lastmod>2026-10-18T20:20:31.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/design-biofilico</loc>
+    <lastmod>2026-10-18T20:06:42.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/forro-de-madeira</loc>
+    <lastmod>2026-10-18T17:02:49.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/iluminacao-indireta-na-sala</loc>
+    <lastmod>2026-10-20T16:51:17.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/materiais-sustentaveis</loc>
+    <lastmod>2026-10-20T15:36:18.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/mofo-no-quarto</loc>
+    <lastmod>2026-10-18T22:46:04.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/neuroarquitetura</loc>
+    <lastmod>2026-10-18T19:44:13.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/neurodesign</loc>
+    <lastmod>2026-10-18T19:32:07.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/pedra-natural-interna</loc>
+    <lastmod>2026-10-27T17:37:26.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/planta-humanizada</loc>
+    <lastmod>2026-10-18T20:39:19.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/plantas-para-interiores</loc>
+    <lastmod>2026-10-18T19:49:51.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/projeto-de-interiores-completo</loc>
+    <lastmod>2026-10-24T22:04:24.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/projeto-de-interiores-para-imoveis-de-investimento</loc>
+    <lastmod>2026-10-18T19:26:32.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/projeto-executivo-de-interiores</loc>
+    <lastmod>2026-10-27T17:12:51.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/projeto-executivo-residencial</loc>
+    <lastmod>2026-10-18T20:10:12.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/projeto-luminotecnico-residencial</loc>
+    <lastmod>2026-10-18T16:57:56.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/quanto-custa-arquiteto</loc>
+    <lastmod>2026-10-14T19:25:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/reforma-em-condominio-regras</loc>
+    <lastmod>2026-10-28T22:01:17.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/ripado-de-madeira</loc>
+    <lastmod>2026-10-18T19:10:08.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studioaraci.com.br/blog/varandas-com-plantas</loc>
+    <lastmod>2026-10-21T12:00:02.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

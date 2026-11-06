@@ -446,6 +446,37 @@ async function prerender() {
     console.log('Continuing with static routes only...\n');
   }
 
+  // Portfolio projects come from the main Sanity project; static files give them a real 200 status
+  try {
+    const projects = await client.fetch(`*[_type == "project" && defined(slug.current)] {
+      title,
+      "slug": slug.current,
+      description1,
+      "heroImageUrl": heroImage.asset->url + "?w=1200&h=630&fit=crop&auto=format"
+    }`);
+    console.log(`🏠 Found ${projects.length} portfolio projects\n`);
+    pages = pages.concat(
+      projects.map((project) => {
+        const description = project.description1
+          ? project.description1.length > 160
+            ? `${project.description1.substring(0, 157)}...`
+            : project.description1
+          : 'Explore este projeto arquitetônico desenvolvido pelo Studio Araci.';
+        return {
+          route: `/portfolio/${project.slug}`,
+          metadata: {
+            title: escapeHtml(`${project.title} - Projeto | Studio Araci`),
+            description: escapeHtml(description),
+            image: project.heroImageUrl || '/images/hero-portfolio-bg.webp',
+            ogType: 'article',
+          },
+        };
+      })
+    );
+  } catch (sanityError) {
+    console.warn('⚠️  Warning: Could not fetch projects from Sanity:', sanityError.message);
+  }
+
   for (const { route, metadata } of pages) {
     try {
       const html = generateHTML(route, scriptTags, cssTags, metadata);

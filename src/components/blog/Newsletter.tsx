@@ -76,14 +76,14 @@ export function Newsletter() {
   return (
     <section className="relative overflow-hidden bg-[var(--color-text-dark)] text-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center">
-        <div className="min-w-0 px-6 md:px-12 lg:px-16 xl:px-20 py-16 md:py-24">
+        <div className="min-w-0 px-6 md:px-12 lg:px-16 xl:px-20 py-10 md:py-12">
           <Reveal>
             <span className="text-xs font-medium tracking-[0.2em] uppercase text-white/70">Newsletter</span>
             <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
-              Arquitetura emocional, direto na sua caixa de entrada.
+              Novas perspectivas direto no seu e-mail
             </h2>
-            <p className="mt-8 max-w-md text-base md:text-lg font-light leading-relaxed text-white/80">
-              Novos artigos, processos e bastidores da Studio Araci. Sem ruído: você sai quando quiser.
+            <p className="mt-6 text-base md:text-lg font-light leading-relaxed text-white/80">
+              Projetos, bastidores e reflexões sobre interiores, bem-estar e imóveis de investimento. Conteúdos para quem deseja morar melhor, fazer escolhas mais conscientes e descobrir novas formas de olhar para os espaços.
             </p>
 
             {status === 'done' ? (
@@ -127,7 +127,7 @@ export function Newsletter() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15} className="lg:py-12 lg:pl-0">
+        <Reveal delay={0.15} className="lg:py-6 lg:pl-0">
           <img
             src={images.blog.hero.background}
             alt=""
